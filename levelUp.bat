@@ -44,7 +44,7 @@ if "%nome%" == "novita" (
     call windows\lavoro.bat
 
 ) else if "!nome!" == "appunti" (
-    type appunti\reti_e_internet\capitolo_1.txt
+    type appunti\reti_e_internet\capitolo_1.txt | more
 ) else if "%nome%" == "-h" (
     type help.txt
     pause

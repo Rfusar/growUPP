@@ -334,7 +334,7 @@ RETI CABLATE:
 
 
 le reti CATV sono realizzati cavi coassiali come mezzo trasmissivo, ma nelle realizzazioni piu recenti i collegamenti tra CMTS e nodi di testa(head-end) 
-sono in fibra ottica, dando cosi luogo a soluzioni HFC(Hybrid Fiber Coaxial)
+  sono in fibra ottica, dando cosi luogo a soluzioni HFC(Hybrid Fiber Coaxial)
 
 
 
@@ -352,7 +352,120 @@ RETI WIRELESS:
 	   apparecchiatura centralizzata detta AP(Access Point), che fornisce connettivita ad altri dispositivi nell'area di copertura
 	   possono coprire un area di decine di metri e trasferiscono circa decine/centinaia di Mbit/s, utilizzando bande di 2.4GHz e di 5GHz
 	   per coprire aree piu grandi c'e bisogno di piu apparecchi AP, per formare una rete cablata, da tener conto che le reti cablate consente all'unita informativa
-	   di passare piu facilmente , perche nelle reti wireless c'e piu rischio d'errore a causa d'interferenze   
+	   di passare piu facilmente , perche nelle reti wireless c'e piu rischio d'errore a causa d'interferenze 
+	   
+
+	 le reti WiMAx(Worldwide Interoperability for Microwave Access), sono definite nel IEEE 802.16 e servono a raggiungere zone difficilmente raggiungibili dovuto alla
+	   mancanza di dispositivi e poco redditivita nella zone d'interesse 
+	   le bande vengono vedute tramite ast goverantive, trasporatmo circa decine di Mbit/s, questa capacita varia a seconda del posizionamento delle antenne e 
+	   risultera maggiore in codizioni di mutua visibilita LOS(Line Of Sight) ---> (linea di vista), degli apparati radio trasmittenti e riceventi, come per
+	   IEEE 802.11, IEEE 802.16 delle reti WiMax e in continua evoluzione, esempio includere NLOS(No Line Of Sight)
+
+
+
+RETI RADIOMOBILI: 2/3/4/5G
+    ---> le reti di seconda generazione 2G, e stato un grande passo per le reti di telefonia, nel quale sono collegati alla rete tramite canale radio, godendo cosi
+	   il libero movimento, ma rimanendo sempre connessi, sono basate sullo standard GSM(Global System of Mobile communications), definito per la trasmissione 
+	   esclusivamente digitale, le bande utilizzate per il 2G sono nell'intorno di 900MHz, 1800MHz e sono assegnate tramite aste tra operatori che ne fanno
+	   richiesta, quindi ogni operatore ha una fettina di spettro elettromagnetico, la cui entita e nell'ordine di alcune decine di MHZ, e gli utilizzatori
+	   possono essere anche milioni, anche se distribuiti su un territorio nazionale e solo parte di loro e attiva contemporaneamente, la risosa radio
+	   e insufficiente 
+
+	 per superare queste limitazioni, il concetto e il riutilizzo delle stesse bande di frequenze in aree vicine, distribuendo sul territorio una pluralita
+	   di antenne atte a trasmettere e ricevere segnali radio a una determinata frequenza
+	   ogni antenna fornisce il prorpio servizio su un'area circolare denominata CELLA, che per comodita viene rappresentata graficamente come un esagono
+	   in ogni cella e disponibile una STAZIONE RADIO BASE(BTS(Base Transceiver Station)) con associata antenna che comunica via cavo con un 
+	   CENTRO DI CONTROLLO(BSC(Base Station Controller)), il quale coordina le attivita delle BTS associate e realizza la connessione con la rete telefonica e 
+	   con la ret internet
+
+	 la potenza del segnale dalla stazione base deve consentire il riuso delle frequenze incelle non adiacenti, piu piccole sono le celle, maggiore e il fattore
+	   di riuso della stesa banda di frequenze, le reti 2G hanno censentito di il trasferimento di alcune decine di Kbit/s con il servizio 
+	   GPRS(Genral Packet Radio Service), assumendo il nome di 2.5G
+
+	poi il 3G usando bande intorno ai 900MHz e 2100MHz, anche esse su aste di operatori, capacita trasmissive di qualche Mbit/s
+	  le reti 4G, capacita trasmissiva di qualche centinaio di Mbit/s fino a qualche Gbit/s, le bande di frequenza utilizzate stanno intorno ai 
+	  800MHz, 1800MHz, 2600MHz. invece per le reti di quinta generazione si pongono l'obbiettivo di:
+
+		I) servizi di tipo eMBB(enhanced Mobile BroadBand) mantenere la connesione di svariati Gbit/s anche muovendosi per centinaia di Km/h
+
+		II) servizi di tipo URLLC(Ultra Reliable and Low Latency Communications) che garantiscono le latenze ll'ordine del millisecondo
+
+		III) servizi di tipo mMTC(massive Mchine-Type Communications) che consentono la connettivita a milioni  di dispositivi per Km^2
+
+
+	  con l'enorme quantita di traffico generato si dovrebbe addottare delle nuove frequenze finora non utilizzate come nel caso di 26GHz, 47GHz
+	  sempre assegnate tramite aste degli operatori
+
+
+
+RETE INTERNET:
+    ---> rappresenta il tessuto connettivo di tutte le reti indipendentemente dalla loro colocazione geograficae delle soluzioni tecnologiche adottate, cosi da 
+	   consentire la comunicazione tra dispositivi di ogni tipo ovunque situati, tutto questo si realizza grazie ad apparecchiture chiamati ROUTER
+	   queste reti svolgono il ruolo di RETI DI ACCESSO alla rete internet,
+
+		ESEMPI:
+	   
+
+	   I) reti domestiche cablate in cui i dispositivi sono connessi con un doppino attraverso un DSLAM(Digital Subscribe Line Access Multiplexer)
+	        per soluzione in rame, oppure attravesro uno splitter PON(Passive Optical Network), per soluzioni in fibra ottica
+
+	   II) reti radiomobili di diverse generazioni(2/3/4/5G), 
+
+	   III) reti aziendali di qualunque tipo ---> LAN, MAN, WAN
+
+
+	la connettivita globale su base planetaria resa possibile dalla rete internet viene realizzata da ISP(Internet Service Provider), ognuno dei quali dispone 
+	  di un certo numero di router interconnessi e distribuiti sul territorio che forniscono connettivita per il trasporto di flussi di dati, avendo gli stessi
+	  protocolli, consentono di trasferire dati da una rete ad un altra
+
+		si distinguono 3 tipi di ISP:
+
+
+			ISP tier 1:    ISP di primo livello
+			    ---> sono fornitori di connettivita a lunga distanza e ha il compito di garantire la raggiungibilita di ogni altro ISP ovunque sia situato
+		                   ogni ISP di questo livello dispone di proprie risorse di comunicazione di grande capacita messe a disposizione, di solito a pagamento
+				   l'insieme degli ISP tier 1 ---> costituiscono lo scheletro della rete internet
+
+
+			ISP tier 2:    ISP regionali
+			    ---> si tratta di fornitori di connettivita di area regionale cui posso accedere ISP di livello inferiore e clientela di tipo aziendale
+	    			   questi ISP ricevono connettivita (transito) dagli ISP tier 1, per raggiungere l'ISP di destinazione verso cui trasferire l'UI
+				   ISP al di fuori del confine di questo livello possono essere mutuamente connessi, tramite un accordo "peering", per trasportare 
+	  			   UI verso una destinazione raggiungibile attravesro l'ISP vicino
+
+
+			ISP tier 3:    ISP di accesso
+			    ---> sono gli ISP di livello piu basso, e si interfacciano dunque con gli utilizzatori di tipo residenziale localizzati nelle reti d'accesso
+				   ricevono connetttivita dagli ISP superiori sia da ISP tier 1 e ISP tier 2
+
+
+la connessione tra ISP di primo e secondo livello e l'ISP di livello inferiore viene resa disponibile da router dedicati, questi router vegono chiamati 
+   POP(Point Of Presence), ed e pratica comune per gli ISP di secondo e terzo livello, ricevere connettivita da un POP di piu ISP di livello superiore per garantire
+   la sicurezza e prevenire interruzioni dovuti a guasti e altro
+   questa configurazione tra ISP 2 e 3, e detta MULTI-HOMING
+
+in alternativa agli accordi di peering tra due ISP esiste IXP(Internet exchange Point), dove decine o centinaia di ISP anche di diverso livello, terminano il loro 
+  collegamenti cosi da scambiarsi mutuamente flussi di traffico, tipicamente gratis, attraverso l'ISP di transito piu conveniente per arrivare all'ISP di destinazione
+
+poi esistono i DC(Data Center) esempio Google, Netflix, Meta; posso essere anche decine sparse su diversi continenti dove sono dislocati centinaia di migliiaia di computer
+  la potenza di calcolo e di memorizzazione di queste macchine viene messa a disposizione al pubblico, i cosi detti "cloud services"
+  alcune aziende, invece di chiedere la connettivita ad un ISP, realizzano una propria rete di base planetaria, connettendo i loro DC con collegamenti privati e di 
+  altissim prestazioni, queste reti si chiamano CDN(Content Delivery Networks), quindi forniscono servizi tipo ISP tier 1, ma finalizzata alla distribuzione dei loro
+  contenuti
+
+
+
+
+*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*. *.*.*.*.*.*.*.*.*.*.
+									
+								ARCHITETTURA DI PROTOCOLLI
+
+
+
+
+	  
+	
+	     
 	   
 	   
 		 
