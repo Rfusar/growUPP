@@ -1,0 +1,361 @@
+----NASCITA 
+
+    *- Il ventesimo secolo havisto nascere le comunicazioni radio e telefoniche, in cui l'informaione trasferita era rappresentata dalla voce e semplici immagini di testo.
+         coprivano la distnza di migliaia di chilometri, poi ci fu la televisione; che ha consentito di trasferire a distanza immagini, in aggiunta alla voce.
+
+         l'inizio si puo datare all'in circa negli anni '60/'70, la quantità d'informazioni in stringhe di numeri trasferita tra computer cresce esponezialmente
+         e l'interconnettivita diventa realta circa negli anni '80, grazie alla disponibilita della quantita di reti disponibili nasce internet, caro amico.
+         la nascita del World Wide Web --> WWW negli anni '90.
+
+
+    *- si distinguono preliminarmente due classi di rete, a seconda del tipo di mezzo trasmissivo adottato:
+
+            1- RETI CABLATE:
+                        -----> adottano un mezzo trasmissivo guidato, in cui il segnale che trasporta l'informazione viaggia luno collegamenti in rame, 
+                                 per la trasmissione di segnali elettric, oopure in fibra ottica per la trasmissione di segnali luminosi.
+                        
+            2- RETI WIRELESS:
+                        -----> sono basate sul principio di una localizzazione flessibile dei sistemi terminali in na determinata area, poiche il canale 
+                                 di comunicazion è di tipo radio, quindi disponibile liberamente nel area in questione.
+                                 naturalmnete cio richiede che tutti gli apparati che operano in queste ultime reti siano dotate di antenne che siano 
+                                 in grado di ricevere e trasmettere segnali elettromagnetici in un determinato intervallo di frequenze
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+                                                                                                   DISTANZA in metri
+
+         ____________
+        |            |                    |
+10^7----|            |--------------------|----------------------------------------------------------------10^7
+        |            |                    |
+        |    WAN     |                    |
+10^6----|            |--------------------|----------------------------------------------------------------10^6
+        |            |                    |
+        |            |                    | 
+10^5----|            |--------------------|----------------------------------------------------------------10^5
+        |            | ___________        |     ____________
+        |____________||           |       |    |            |
+10^4------------------|           |-------|----|            |----------------------------------------------10^4
+                      |    MAN    |       |    |   WIMAX    |                       _________
+                      |           |       |    |            |                      |         |
+10^3------------------|           |-------|----|            |----------------------|  GSM    |-------------10^3
+        _____________ |___________|       |    |____________|   ___________        |  UMTS   |
+       |             |                    |                    |           |       |  CDMA   |
+10^2---|             |--------------------|--------------------|           |-------|  LTE    |-------------10^2
+       |             |                    |                    |   WI-FI   |       |   5G    |
+       |             |                    |                    |           |       |_________|
+10^1---|    LAN      |--------------------|--------------------|           |-------------------------------10^1
+       |             |                    |                    |           |             _____________
+       |             |                    |                    |           |            |             |
+10^0---|             |--------------------|--------------------|           |------------|             |----10^0
+       |_____________|                    |                    |___________|            |  BLUETOOTH  |
+                                          |                                             |             |
+10^-1-------------------------------------|---------------------------------------------|             |-----10^-1
+                                          |                                             |_____________|
+
+
+
+LAN:
+    local area network ---> adatte a coprire piccole aree all'interno degli edifici oppure tra edifici adiacenti, tipo piccole aziende e campus universitari
+
+MAN:
+    metropolitan area network ---> coprono una cittadina di piccole e medie dimensioni
+
+WAN:
+    wide area network ---> la sua funzione e connettere aree molto vaste come una nazione o un continente
+
+BLUETOOTH:
+    ---> tecnologia per consentire connetivita tra apparecchiature molto vicine, con una soluzione di basso consentito
+
+WI-FI:
+    ---> tecnologia che fornisce connetivita ad un area domestico/aziendale di piccole dimensioni, il successo di queste reti 
+          a portato a coprire aree cittadine esternamente agli edifici, cosi da consentire una connetivita su aree molto estese
+          sfruttando l'adiacenza delle aree di cpertura delle singole reti wi-fi = WLAN ---> Wirelss Local Area Network
+
+WIMAX:
+    ---> soluzione tecnologica, per connettere aree rurali difficilmente raggiungibili da reti cablate = WMAN ---> Wirelss Metropolitan Area Network
+
+
+
+
+GSM:
+    global system for mobile communications ---> reti radiomobili di seconda generazione, ha rappresentato la prima soluzione di successo 
+                                                   per la diffusione della telefonia radiomobile, alla velocita di decine Kbit/s 
+
+CDMA e UMTS:
+    Code Division Multiple Access
+    Universal Mobile Telecommunications System ---> reti radiomobile di terza generazione, ha rappresentato la tecnologia legata alla diffusione capillare
+                                                      degli smartphone presso la popolazione, velocita di qualche Mbit/s
+
+LTE:
+    long term evolution ---> reti radiomobile di quarta generazione la cui soluzioni innovative consentono la fruizione sull'apparecchio cellulare 
+                               di servizi dati e video con velocita di decine/centinaia di Mbit/s, e latenza di circa 10ms
+
+5G:
+    ---> reti radiomobile di quinta generazione, si prevede una connetivita di velocita fino a 20Gbit/s con latenza di 1ms
+
+
+
+ALTRO:
+    ---> le reti cablate MAN e WAN svolgono la funzione di RETI DI TRASPOSRTO delle unita informative, metre le reti LAN, WLAN, WMAN, nonche le varie tipologie di 
+           rete radiomobile, svolgono la funzione di RETE DI ACCESSO verso le reti di trasporto inoltre le reti LAN, cablate o wireless, rendono disponibile la 
+           connettività locale nell'area geografica coperta
+
+
+.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*..*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.
+                                                                    
+                                                                    MEZZI TRASMISSIVI
+
+
+
+generalmentepossono essere clasificati di 2 tipi, CAVI IN RAME [ cavi coassiali, doppini ] e CAVI IN FIBRA OTTICA
+
+
+
+CAVI COASSIALI:
+    ---> -sono constituiti da due conduttori di rame coassiali e separati da un materiale plastico d'isolamento
+           costituiscono il principale supporto fisico per collegamenti e reti di tipo televisivo
+
+         -un cavo coassiale in rame veniva utilizzato per connessioni di qualche kilometro per trasportare decine di Mbit/s fino ad 140Mbit/s
+           sono stati utilizzati nelle prime LAN nella dipologia
+
+
+		RG-213---> [ denominato cavo "spesso" -thick, diametro di 10mm, e ha molte schermature(fogli di allumigno/schermi in calza) ]
+
+		RG-58---> [ denominato "sottile" -thin, diametro di 5mm, è meno schermato quindi più flessibile del primo ]
+
+
+	   ovviamente, la ridotta dimensione di questo cavo ha degli svantaggi, la sua attuazione è circa il doppio di quella del cavo thinck
+	   quindi l'area che puo coprire è ridotta	 
+	
+
+DOPPINI:
+    twisted pair ---> si presenta come una coppia di fili in rame intrecciati, e sono diversi:
+
+
+	UTP:    Unshielded Twisted Pair 
+	    doppino non schermato ---> è costituito da due conduttori, un cavo disolito comprende una pluralita di coppie di tipo UTP(4 è il minimo di coppie)
+
+
+	STP/FTP:    Shielded Twisted Pair/Foiled Twisted Pair
+	    doppino shermato o con schermo per ogni coppia/o con schermo esterno al cavo ---> in questo doppino lo schermo, costituito da un folgio d'alluminio
+	                                                                                        e da una calza di rame, serve a ridurre l'interferenza elttromagnetica 
+												tra coppie dello stesso cavo o tra cavi distinti, qualita superiore 
+												al UTP
+
+
+	SFTP:    Shielded Foiled Twisted Pair
+	    doppino con doppio schermo ---> oltre ad uno schermo globale, esiste una schermatura per ogni coppia cosi da fornire la massima protezione 
+              				      da interferenze da ogni doppino
+
+
+
+i doppini piu utilizzati nel 2022 sono:
+
+		
+
+		categoria 3 
+		    ---> doppini UTP con banda passante di circa 16MHz, sono il primo tipo di doppini utilizati nel LAN Ethernet 10Base-T a 10Mbit/s
+
+
+
+		categoria 5 
+                    ---> doppini UTP con banda passante 100 MHz, possono essere utilizzati per reti metropolitane, per LAN Ethernet 100Base-T a 100Mbit/s
+
+		categoria 5E
+		    ---> categoria 5 migliorata, per LAN Ethernet 1000Base-T a 1Gbit/s 
+
+
+
+		categoria 6
+		    ---> doppini UTP, banda passante di 250MHz, per LAN Ethernet 10GBase-T a 10Gbit/s
+
+		categoria 6A
+		    ---> categoria 6 migliorata, con schermatura FTP o STP, con banda di 500MHz, sempre 10Gbase-T a 10Gbit/s
+
+
+
+		categoria 7
+		    ---> doppini SFTP banda passante 600MHZ, sempre 10GBase-T a 10Gbit/s
+
+		categoria 7A
+		    ---> miglioramento per categoria 7, banda passante 1GHz, sempre 10GBase-T a 10Gbit/s
+
+
+
+		categoria 8
+		    ---> doppini SFTP, banda da 2GHz, per LANEthernet 40GBase-T a 40Gbit/s
+
+
+
+
+Rispetto ai cavi coassiali, i doppini sono maggiormante soggetti a interferenze e consentono di coprire aree minori tra apparecchiature, decine di metri, tuttavia la
+  loro semplicità d'uso ha fatto in modo che i doppini diventassero l'unico mezzo trasmissivo utilizzato nelle LAN 	   
+
+
+FIBRE OTTICHE:
+	---> sono costituite da due strati coassiali di materiale vetros, il nucleo e il mantello
+
+
+
+		MMF:    MultiMode Fiber
+		    fibre multimodo ---> mantello e nucleo hanno la dimensione di 125 micron e 50 micron, con il rivestimento in fibra (diametro 250 micron)
+					   le onde luminose si propagano seguendo modi diversi
+
+
+		SMF:    Single Mode Filter
+		    fibre monomodo---> hanno il nucleo piu piccolo (10 micron), e le onde si propagano in un solo modo  
+
+
+
+a differenza delle fibre monomodo, i diversi modi causano una dispersione temporale degli impulsi luminosi, quindi limita la distanza
+  la fibra monomodo puo coprire una distanza anche 10 volte superiore 
+
+le tecnologie sviluppate nel corso degli anni hanno determinato la diversificazione di fibre in base all'intervallo di lunghezza d'onda utilizzate
+  per il segnale ottico, denominate "finestre"
+
+
+	I finestra, lunghezza d'onda centrate intorno a 850nm
+
+	II finestra, lunghezza d'onda centrate intorno a 1300nm
+
+	III finestra, lunghezza d'onda centrate intorno a 1550nm
+
+
+le fibre multimodo operano in I e II finestra, mentre per il monomodo vengono utilizzate la II e III finestra
+
+
+
+
+
+
+CANALI RADIO:
+    ---> -l'utilizzazione delo spazio libero per realizzare canaliradio mette a completa disposizione una banda di principio senza limiti
+	    in cui tuttavia la proprietà di propagazione, riflessione e attraversamento di mezzi solidi dipende dal tipo di onda
+	    per evitare onflitti, l'uso è controllato da enti governativi, posso cedere spazio per soldi
+	
+	 -a noi interessano le bande per realizzare reti e/o sistemi terminali in ambito reti radiomobili cioè senza mezzi trasmissivi guidati
+	    invece per le reti radiomobili di seconda, terza, quarta  e quinta, le bande di frequenza sono assegnate agli operatori con aste pubbliche
+	    nel caso di reti wi-fi, le bande di frequenza sono libere per usi scientifici e medica
+
+	 -le reti satellitari rappresentano il secondo ambito di grande interesse per l'utilizzo dello spettro elettromagneticonello spazio libero
+	    infatti i satelliti riescono a raggiungere posti imposiibili per altre tecnologie, cioè mezzi trasmissivi guidati  oopure reti radiomobili
+
+
+esistono principalmente di 3 tipi di satelliti:
+
+		
+		GEO:    Geostationary Earth Orbit
+		    geostazionari ---> che ruota intorno alla terra all'altezza di 36000km
+
+		MEO:    Medium Earth Orbit
+		    satallite su orbite intermedie ---> che ruotano intorno alla terra all'altezza di 8000-18000km
+
+		LEO:    Low Earth Orbit 
+		    satellite su orbite basse ---> che ruotano intorno alla terra all'altezza di 500-1500km
+
+
+a differenza dei MEO e LEO, i GEO godono di un'importante caratteristica, di essere fissi sulla verticale di un dato punto della terra, cosa che semplifica le
+  operazioni di puntamento delle antenne verso questi satelliti, per hanno una latenza di 250ms contro i 20-100ms dei MEO e LEO
+
+
+un po di METAMTICA:
+		---> FORMULA             
+                                   ---> L = v/f                  L = lunghezza d'onda; v = velocita; f = frequenza;
+			      ________________________________________________________________________________________________________________________________
+                             |
+                             |
+                             |     per descrivere lo sprettro eletromagnetico si fa riferimento alla propagazione della luce nel vuoto v = C circa 3*10^8m/s
+                             |      invece per i segnali guidati, cioè cavi di rame e fibre ottiche si va alla velocita di v = 2*10^8m/s
+                             |                    
+			     |               
+                             |                                                                                         lv = luce visibile; fo = fibra ottica
+			     |_________________________________________________________________________________________________________________________________
+
+
+
+ ______10^4____________10^3____________10^2__________10^1_____________10^0____________10^-1___________10^-2__________10^-3__________10^-4_________10^-5_________10^-6____
+|              |               |               |                |               |               |               |              |             |             |             |
+|              |               |               |                |               |  <---microonde-------->       |              |             |             |             |
+|              |               |               |                |               |               |               |              |             |             |             |
+|              |       <---RADIO AM---->       |                |               |               |               |              |             |             |             |
+|              |               |               |        <---RADIO FM DAB>       |               |               |              |             |             |        <lv> |            
+|              |               |               |                |               |               |               |              |             |             |             |
+|              |               |               |                |               <---satellite------------>      |              |             |             |             |             
+|              |               |               |                |               |               |               |              |             |             |             |
+|              |               |               |                |               |               |               |              |             |             |             |
+|              |               |               |                |               |               |               |              |             |             |             |
+|              |               |               |       <---TV/DDT------------>  |               |               |              |             |             |             |
+|              |               |               |                |               |               |               |              |             |             |             |
+|              |               |               |                |               |    <-wifi->   |               |              |             |             |             |
+|              |               |               |                |               |               |               |              |             |             |             |
+|              |               |               |                |               |               |               |              |             |             |             |
+|              |               |               |                |               |               |               |              |             |             |             |
+|              |               |               |                |            <-2/3/4/5G-->      |               |              |             |             |             |
+|              |               |               |                |               |               |               |              |             |             |             |
+|              |               |               |                |               |               |               |              |             |             |             |
+|              |               |               |                |               |               |               |              |             |             |             |
+|              |               |               |                |               |               |               |              |             |             |             |
+<---cavo-coassile------------------------------------------------------->       |               |               |              |             |             |             |
+|              |               |               |                |               |               |               |              |             |             |             |
+|              |               |               |                |               |               |               |              |             |             |             |
+<---doppino-------------------------------------------------------------------------->          |               |              |             |             <---fo--->    |
+|              |               |               |                |               |               |               |              |             |             |             |
+|              |               |               |                |               |               |               |              |             |             |             |
+|______________|_______________|_______________|________________|_______________|_______________|_______________|______________|_____________|_____________|_____________|                                       															      
+
+
+
+
+
+RETI CABLATE:
+    ---> le WAN, MAN, LAN sono tipicamente strutturate in base allo standard SDH(Synchronous Digital Hierarchy) che specifica le caratteristiche dei collegamanenti 
+	   trasmissivi in fibra ottica, da 155Mbit/s fino a 40Gbit/s,invece per distanze piu piccole si utilizzano soluzioni piu flessibili, 
+           basate sullo standard Ethernet delle reti locali, pero hanno pi problemi rispetto al primo
+
+	   la LAN viene definita come un sistema di comunicazione tra apparecchiature indipendenti, dette stazioni; dentro un area di circa qualche centinaio di metri
+	   che utilizza un canale fisico di comunicazione codiviso ad alta velocita
+	   e caratterizzata dall'utilizzazione di dispositivi e apparecchiature di rete estramamente semplici, cio rende la tecnologia molto economica e facile
+	   da espandere, al contrario le WAN
+	   la LAN è costituita da'apparecchiature terminali tipo il computer, la stampante... e attraverso un sistema di comunicazione condiviso ---> diffusivo/broadcast
+	   in cui cioe le unita informative emesse da ogni stazione sono ricevute da tutte le altre, anche in caso di indirizzamento ad una di queste
+	   devono seguire delle regole per evitare di disturbare il segnale cioe il "protocollo d'accesso"
+
+	 le MAN svologno lo stesso lavoro delle LAN, ma su aree piu grandi, le soluzioni di rete adottate sono principalmente 2:
+	   
+
+		CATV:    Cable Television  
+		    ---> reti con topologia a stella per applicazioni di televisione via cavo o ad anello per applicazioni di reti dati
+
+
+		CMTS:    Cable Modem Termination System
+		    ---> questo comunica con gli apparati terminali detti CABLE MODEM
+
+
+le reti CATV sono realizzati cavi coassiali come mezzo trasmissivo, ma nelle realizzazioni piu recenti i collegamenti tra CMTS e nodi di testa(head-end) 
+sono in fibra ottica, dando cosi luogo a soluzioni HFC(Hybrid Fiber Coaxial)
+
+
+
+
+RETI WIRELESS:
+    ---> i primi sviluppi di WLAN, hanno avuto luogo facendo uso di porzioni di spettro elettromagnetico non soggette a regolamentazione e quindi utilizzabili da tutti
+	   raggrupate in bande denominate ISM(Instrumental, scientific, medical) nel ambito dei 900MHZ, 2.4GHZ, 5.8GHZ, guardare IEEE 802
+	
+	 le teconolige bluetooth, specificate nel IEEE 802.15, severno per connettenere dipositivi molto vicini e possono essere chiamate con 
+	   WPAN(Wireless Personal Area Network), in un rete bluetooth, l'apparcchiatura principale(master), puo scambiare informazioni a un certo numero di dispositivi
+           asserviti(slave), come per esempio le cuffie, oppure un computer con la tastiera, e/o mouse...
+           la banda utilizzata e circa di 2.4GHz, e la capacita di rete e intorno a qualche Mbit/s, 
+
+	 le reti WI-FI, lo standard e scritto nel IEEE 802.11, ed e in continua evoluzione. con questa soluzione il sistema terminale si connette via radio a un'
+	   apparecchiatura centralizzata detta AP(Access Point), che fornisce connettivita ad altri dispositivi nell'area di copertura
+	   possono coprire un area di decine di metri e trasferiscono circa decine/centinaia di Mbit/s, utilizzando bande di 2.4GHz e di 5GHz
+	   per coprire aree piu grandi c'e bisogno di piu apparecchi AP, per formare una rete cablata, da tener conto che le reti cablate consente all'unita informativa
+	   di passare piu facilmente , perche nelle reti wireless c'e piu rischio d'errore a causa d'interferenze   
+	   
+	   
+		 
+	   
+
+                              

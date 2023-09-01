@@ -1,0 +1,20 @@
+INTERNET:
+
+            ping
+                        per inviare e ricevere pacchetti con un server, test rete
+
+            arp -a      dispositivi connessi alla LAN 
+
+            start [msedge -or firefox -or chrome ...] [URL]
+                        apre il motore di ricerca e avvia la ricerca
+
+            curl
+
+            ipconfig /all
+                        informazioni rete dispositivo
+
+
+
+
+
+.

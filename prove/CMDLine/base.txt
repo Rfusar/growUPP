@@ -1,0 +1,33 @@
+cls
+                        pulisce lo schermo
+
+cd
+                        cambi directory
+
+
+CARTELLE:
+
+            dir
+                        visualizza il contenuto di una directory
+            
+            *dir [nomeCartella]
+                        se mk = crea cartella nella directory corrente
+                        se rm = rimuove cartella nella directory  corrente 
+
+FILE:
+
+            echo x > y.z
+                        x = contenuto
+                        y = nome file
+                        z = estensione
+
+                        per contenuto vuoto ---> echo.
+                
+            type [nomeFile]
+                        per visualizzare il contenuto
+
+
+
+
+.
+

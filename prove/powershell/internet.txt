@@ -1,0 +1,115 @@
+INTERNET:
+
+
+                            PowerShell offre una serie di cmdlet e metodi che ti consentono di interagire con Internet, ad esempio per scaricare file, 
+                            inviare richieste HTTP, gestire connessioni remote e altro. Ecco alcuni dei principali metodi di PowerShell legati a Internet:
+
+
+        Invoke-WebRequest: 
+                            Questo cmdlet consente di inviare richieste HTTP, ottenere risposte e scaricare risorse da Internet.
+
+
+        Invoke-RestMethod: 
+                            Simile a Invoke-WebRequest, ma è progettato specificamente per l'interazione con API REST.
+
+
+        Test-NetConnection: 
+                            Utilizzato per verificare la connettività di rete a determinati host o porte.
+
+
+        Resolve-DnsName: 
+                            Per risolvere nomi DNS in indirizzi IP.
+
+
+        Start-BitsTransfer: 
+                            Per avviare il trasferimento in background di file utilizzando il servizio Background Intelligent Transfer Service (BITS).
+
+
+        Test-Connection: 
+                            Per eseguire test di ping su host remoti.
+
+        New-WebServiceProxy: 
+                            Per creare un proxy di servizio Web che consente di interagire con servizi Web basati su SOAP.
+
+
+        ConvertTo-Json / ConvertFrom-Json: 
+                            Utilizzati per convertire dati in formato JSON e viceversa, che è un formato comune per lo scambio di dati tra applicazioni web.
+
+
+        Send-MailMessage: 
+                            Utilizzato per inviare e-mail utilizzando SMTP.
+
+
+        Register-ScheduledJob: 
+                            Per registrare lavori pianificati che possono eseguire attività relative a Internet a intervalli specifici.
+
+
+        Test-OpenPort: 
+                            Per verificare se una porta è aperta su un host remoto.
+
+
+        Copy-Item / Move-Item: 
+                            Mentre non sono specificamente legati a Internet, questi cmdlet possono essere utilizzati per copiare o spostare file locali e remoti, 
+                              inclusi quelli da e verso risorse Internet.
+
+        Test-Path: 
+                            Utilizzato per verificare l'esistenza di file o cartelle su una posizione specifica, inclusi percorsi di rete.
+
+
+        Test-NetRoute: 
+                            Per testare la connettività della rete verificando le rotte di rete disponibili.
+
+
+        Get-NetConnectionProfile: 
+                            Per ottenere informazioni sul profilo di connessione di rete corrente.
+
+
+        New-Object System.Net.WebClient: 
+                            Per creare un oggetto WebClient, che ti permette di scaricare file da Internet.
+
+
+        Enter-PSSession / New-PSSession / Exit-PSSession: 
+                            Per stabilire e interrompere sessioni remote (ad esempio, connettersi a un server remoto attraverso PowerShell Remoting).
+
+
+        Resolve-Host / Resolve-DnsName: 
+                            Per risolvere nomi di host o eseguire ricerche DNS.
+
+
+        Get-Command -Module NetSecurity: 
+                            Questo modulo contiene cmdlet utili per la configurazione della sicurezza di rete.
+
+
+        Invoke-Command: 
+                            Per eseguire comandi su computer remoti.
+
+
+        Set-NetFirewallProfile: 
+                            Per configurare i profili del firewall di rete.
+
+
+        Set-DnsClientServerAddress: 
+                            Per configurare gli indirizzi dei server DNS su una scheda di rete.
+
+
+        Get-NetIPAddress: 
+                            Per ottenere informazioni sugli indirizzi IP assegnati alle interfacce di rete.
+
+
+        Test-WsMan: 
+                            Per testare la connettività e l'accesso tramite WS-Management (WSMan) su un computer remoto.
+
+
+        Invoke-WebRequest -OutFile: 
+                            Per scaricare e salvare un file da Internet su disco.
+
+
+        Send-MailMessage: 
+                            Per inviare e-mail usando il protocollo SMTP.
+
+
+
+
+
+
+UTILIZZO:

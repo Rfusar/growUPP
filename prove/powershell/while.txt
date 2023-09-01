@@ -1,0 +1,6 @@
+$contatore = 0
+
+while ($contatore -lt 5) {
+    Write-Host "Il contatore è: $contatore"
+    $contatore++
+}

@@ -1,0 +1,6 @@
+
+per C++
+                g++ -o output.exe main.cpp
+
+per C
+                gcc -o output.exe main.c

@@ -1,0 +1,45 @@
+    nmcli: NetworkManager Command-Line Tool
+        nmcli connection show: List all network connections.
+        nmcli device status: Display the status of network devices.
+        nmcli device wifi list: List available WiFi networks.
+        nmcli device wifi connect SSID password PASSWORD: Connect to a WiFi network.
+        nmcli device connect INTERFACE_NAME: Connect to a wired network using the interface name.
+
+    ifconfig: Interface Configuration
+        ifconfig: Show network interface information (Note: ifconfig is being replaced by ip command).
+
+    ip: Advanced Networking Command
+        ip address show: Display IP addresses and interfaces.
+        ip link show: Display network interfaces.
+        ip route show: Show routing table.
+
+    ping: Network Connectivity Test
+        ping DOMAIN_OR_IP: Send ICMP packets to test connectivity.
+
+    netstat: Network Statistics
+        netstat -tuln: Display listening ports.
+
+    traceroute: Trace Route to a Host
+        traceroute DOMAIN_OR_IP: Display the route that packets take to reach a host.
+
+    dig: Domain Information Groper
+        dig DOMAIN: Query DNS information for a domain.
+
+    wget: Retrieve Web Content
+        wget URL: Download files from the web.
+
+    curl: Command-Line URL Tool
+        curl URL: Transfer data from or to a server.
+
+    ss: Socket Statistics
+        ss -tuln: Display socket statistics.
+
+    iwconfig: Wireless Configuration
+        iwconfig: Display wireless interface information.
+
+    route: Manipulate IP routing tables
+        route -n: Display the kernel routing table.
+
+Remember that some of these commands might require administrative privileges, so you might need to prepend sudo before them to execute them as a superuser. Always refer to the man pages or documentation for each command to understand their options and usage in more detail (man command_name).
+
+Additionally, the networking tools and commands available can vary between different versions of Ubuntu and Linux distributions, so it's a good idea to refer to your distribution's documentation or community resources for specific guidance.

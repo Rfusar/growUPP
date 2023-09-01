@@ -1,0 +1,47 @@
+-FUNZIONI
+
+    ************************************************es1
+        function SalutaMondo {
+            Write-Host "Ciao, mondo!"
+        }
+
+        SalutaMondo
+
+    ************************************************es2     
+        function Saluta {
+            param(
+            [string]$nome
+            )
+            Write-Host "Ciao, $nome!"
+        }
+
+        Saluta -nome "Bob"
+    
+    *************************************************es3
+
+        function Somma {
+            param (
+            [int]$a,
+            [int]$b
+            )
+            $risultato = $a + $b
+            return $risultato
+        }
+
+        $risultatoSomma = Somma -a 5 -b 7
+        Write-Host "La somma è: $risultatoSomma"
+
+    *************************************************es4
+
+        function DividePerDue {
+            param (
+                [int]$numero
+            )
+            $quoziente = $numero / 2
+            return $quoziente, "Il risultato è la metà di $numero"
+        }
+
+        $risultato, $messaggio = DividePerDue -numero 10
+        Write-Host "Il quoziente è: $risultato"
+        Write-Host $messaggio
+    
