@@ -541,15 +541,295 @@ invece se mettessimo dei router di mezzo, il router controllerebbe il DL-H e etc
 
 
 
-							PROTOCOLLI DI COMUNICAZIONE
+
+
+
+
+									PROTOCOLLI DI COMUNICAZIONE
+
+
+
+-l'application layer, fornisce tramite un processo o programma applicativo, l'interfaccia d'utente per l'accesso a servizi informativi distribuiti per mezzo 
+  dell'esecuzione di protocolli applicativi, alcuni esempi di protocolli che apartengono a questa classe sono:
+
+
+		HTTP/HTTPS:    HyperText Transfer Protocol + Secure
+		    ---> che definisce la modalita di scambio di documenti nello spazio informativo mondiale denominato World Wide Web(WWW)
+
+
+		SMTP:    Simple Mail Transfer Protocol
+		    ---> che consente di scambiare messaggi di posta elettronica
+
+
+		FTP:    File Transfer Protocol
+		    ---> che consente i trasferire un file da/verso un sito remoto
+
+
+		DNS:    Domain Name System
+		    ---> che realizza la traduzione di nomi host in indirizzi numerici utilizzati dai protocolli di rete
+
+
+
+-transport layer, definisce le modalita di trasferimento di messaggi tra sistemi terminali sotto foma di UI denominate SEGMENTI, alcune delle funzioni svolte in questo
+  livello sono:
+
+
+			I) consegna ordinata e garantita dei messaggi a destinazione anche se le reti attraversat non garantiscono cio
+
+			II) regolazione del flusso di trasferimento dei segmenti tra i due sistemi remoti che tenga conto dello stato di congestione 
+			      delle reti attravrsate e possa prevenire il riempimento dei buffer in ricezone 
+
+			III) controllo d'integrita dei segmenti ricevuti a destinazione
+
+i protocolli sono:
+
+
+		TCP:    Transmision Controller Protocol
+		    ---> fornisce la maggior parte dei servizi citati nei punti I,II,III; cio si realizza mediante un accordo preventivo tra sistemi terminali
+			   sulle modalita di trasferimento dei dati prima che lo scambio di UI venga iniziato
+
+
+		UDP:    User Datagram Protocol
+		    ---> che fornisce un servizio di trasporto di segmenti molto semplice che non richiede un accordo preventivo sulle modalita di trasferimento
+			   delle UI, al contempo questo protocolllo offre pochissime garanzie sulla qualita del servizio di trasporto fornita 
+
+
+-network layer, la funzione principale svolta nello strato di rete e l'instradamento dei pacchetti nodo per nodo verso una destinazione, specificata dal sistema terminale
+  sorgente i piu importanti protocolli di questo strato sono:
+
+
+		IP:    Internet Protocol
+		    ---> che svolge la funzione d'instradamento dei pacchetti nella rete internet e viene eseguito nei sistemi terminali e in tutti i nodi di rete
+			   attraversati, questo protocollo definisce anche il meccanismo di indirizzamento IP, di tutte le apparecchiature collegate ad Internet
+
+
+		ICMP:    Internet Control Message Protocol
+		    ---> svolge le funzioni supplementari in supporto del protocollo IP, quali per esempio la comunicazione di errori nella procedura d'instradamento,
+		 	   la raggiungibilita di determinate destinazioni, la rilevazione del percorso e del tempo di attraversamento della rete verso una data 
+			   destinazione 
+
+
+		ARP:    Addres Resolution Protocol
+		    ---> che associa indirizzi di strato di rete a indirizzi di strato di collegamento 
+
+
+-data-link layer, le funzioni svolte da questo strato sono:
+
+
+			I) rivelazioni degli errori sulle trame trasferite sul collegamento 
+			
+			II) recupero delle trame perse per assicurare che tutte le trame inviate da un'estremita del collegamento siano ricevute all'altra estremita
+
+			III) controllo di flusso delle trame lungo il collegamento per evitare la perdita di UI per saturazione dei buffer in recezione
+
+			IV) controllo d'accesso al collegamento dati, nel caso di mezzo trasmissivo condiviso da piu utilizzatori che richiede l'esecuzione
+			      di un apposito "protocollo d'accesso"
+
+esempi di protocolli:
+
+
+
+		HDLC:    High level Data Link Control
+		    ---> rappresenta il capostipite di quasi tutti i protocolli di collegamento dati punto-punto sviluppati e implementati nelle varie tipologie 
+			   di rete. il PPP(Point-to-Point Protocol) costituisce uno degli esempi di realizzazione del protocollo HDLC oggi utilizzato nei collegamenti 
+			   dati punto-punto
+
+
+		IEEE 802.3:    protocollo d'accesso a LAN di tipo ethernet 
+		    ---> realizza la connessione tra sistemi terminali attraverso una rete cablata multipunto con protocollo d'accesso distribuito
+
+
+		IEEE 802.11:    protocollo d'accesso a LAN di tipo WI-FI
+		    ---> realizza una connessione tra sistemi terminali tramite una rete wireless
+
+		IEEE 802.15:    protocollo di accesso a reti di tipo personale
+		    ---> realizza la connettivita wireless tra dispositivi in aree molto limitate 
+
+
+-physical layer, le funzioni svolte in questo strato sono:
+
+
+			I) gestione del collegamento fisico(per esempio numero e posizione dell'interfaccie dati sul mezzo trasmissivo), nonche delle relative 
+			     caratteristiche meccaniche
+
+			II) gestione delle procedure di trasmissione/ricezione da parte di ogni apparecchiatura lungo il mezzo trasmissivo, come per esempio 
+			      selezione tra HALF-DUPLEX(in cui trasmissione e ricezione devono essere alternate), oppure FULL-DUPLEX(in cui la trasmissione/ricezione
+ 			      possono avvenire contemporaneamente)
+
+			III) codifica dei bit mediante i piu opportuni segnali elettrici/ottici per adattare il segnale trasmesso alle caratteristiche di propagazione
+			       del mezzo trasmissivo e per limitare l'occorrenza di errori nel flusso binario ricevuto in caso di interferenze
+
+esempi di codice di linea
+
+
+			mBnB ---> a fronte di "m" simboli binari da trasmettere, genera "n" simboli binari
+
+			mBnT ---> a fronte di "m" simboli binari da trasmetere, genera "n" simboli ternari(-1,0,1)
+
+			esempi pratici utilizzati in una rete LAN ---> 8B6T, 8B10B, 64B66B
+
+
+
+PILA PROTOCOLLARE:
+    ---> altri protocolli:     
+	     ---> BGP: Border Gateway Protocol; 
+ 		  RIP: Routing Information Protocol;
+		  OSPF: Open Shortest Path First
+
+	il BGP e RIP, sono eseguiti a livello di applicazione e quindi le loro UI sono trasferite per mezzo di protocolli di trasporto cioe
+	  TCP per BGP e UDP per RIP, invece per il OSPF viene eseguito dai router e lo stesso accade per ICMP, le cui UI sono trasportate dal protocollo IP
+	  analogamente per ARP opera come client dei servizi di collegamento per i protocolli d'accesso distribuiti Ethernet e WI-FI, ma non e un protocollo
+	  di rete in senso stretto, in quanto non opera alcuna funzione di instradamento, e per questo nell'immagine sono stati messi a cavallo di due livelli
+	  tuuto cio per dimostrare che la pila protocollare TCP/IP non riesce a descrivere in modo rigoroso l'insieme dei protocolli internet 
+
+
+
+                                     _______ ___________________________________________
+			    applicazione    | HTTP/HTTPS | SMPT | FTP | BGP | DNS | RIP |
+                                     _______|____________|______|_____|_____|_____|_____|
+				            |     TCP               |        UDP        |
+                                            |_____________          |                   |
+				trasporto   | ICMP | OSPF |-----------------------------|
+                                            |______|______|         |                   |
+				     _______|_______________________|___________________|
+				            |              IP                           |
+                                  rete      |                  _________________________|
+				     _______|_________________|          ARP            |
+					    |                 |_________________________|
+		            collegamento    |    PPP          |    ETHERNET  |  WI-FI   |
+                                     _______|_________________|______________|__________|
+                                          
+				
+SEGMENTAZIONI E MULTIPLAZIONE:
+    ---> una delle funzioni fondamentali di un'architettura protocollare e la cosi detta SEGMENTAZIONE E RIASSIEMBLAGGIO, questa funzione viene richiesta ogniqualvolta 
+	   si debba trasferire un'unita di un generico livello, la cui lunghezza accende il massimo della capienza del PAYLOAD, dell'unita del livello inferiore
+	   
+	 un altro concetto fondamentale legato alla definizione di un'architettura a strati, e la MULTIPLAZIONE ---> "https://it.wikipedia.org/wiki/Multiplazione" 
+
+INDIRIZZAMENTO:
+    ---> "https://it.wikipedia.org/wiki/Metodo_di_indirizzamento"
+
+
+
+                 _____________________________________________________________________
+		| PROTOCOLLO  | NUMERO DI PROTOCOLLO | APPLICAZIONE | NUMERO DI PORTA |
+                |_____________|______________________|______________|_________________|
+                | TCP         |          6           | HTTP         |      80         |
+                |_____________|______________________|______________|_________________|
+                | UDP         |          17          | SMTP         |      25         |
+                |_____________|______________________|______________|_________________|
+                | ICMP        |          1           | FTP          |      20/21      |
+                |_____________|______________________|______________|_________________|
+                | OSPF        |          89          | BGP          |      179        |
+                |_____________|______________________|______________|_________________|
+                |ICMP for IPv6|          58          | DNS          |      53         |
+                |_____________|______________________|______________|_________________|
+                |IPv6         |                      |              |                 |
+                |encapsulation|          41          |    RIP       |       520       |
+                |_____________|______________________|______________|_________________|
+
+
+
+EVOLUZIONE DEI MODELLI A STRATI:
+    ---> organismi di standardizzazione sono IETF(Internet Enginnering Task Force) ---> TCP/IP e ITU(International Telecommunication Union) ---> OSI
+	   il modello OSI(Open System Interconnection) dell'ISO e stato il primo a introdurre il concetto di architettura a strati, rispetto al modello a 5 livelli
+	   ce ne sono 2 in piu:
+
+
+
+		strato di presentazione:   
+		    ---> consente l'interlavoro tra appliazioni che rappresentano i dati utilizzando formai diversi in termini di sintassi e semantica,
+			   le sue funzioni consistono nelle operazioni di trasformazione, formattazionee modifica della sintassi dei dati utilizzati:
+
+
+
+				compression ---> la compressione dei dati per aumentare l'efficienza di rete 
+			
+				traslation ---> la traduzione dei codici utilizzati pre rappresentare i dati
+
+				encription ---> la transcodifica di alfabeti per scopi di sicurezza 
+
+				security ---> la gestione della sicurezza mediante uso di codici e password
 
 
 
 
 
+		strato di sessione:
+		    ---> esempio di funzioni:
+
+			
+				I) la gestione delle modalita di dialogo(per esempio, l'interlavoro tra un terminale half-duplex e un applicazione full-duplex)
+
+				II) il recupero del dialogo seguente a un'interruzione del servizio di trasporto sottostante, cio si ottiene mediante inserimento 
+				      nel flusso dati in trasmissione di "checkpoint", che posono essere poi utilizzati per risincronizzare il trasferimento
+				      dei dati tra i due sistemi all'ultimo checkpoint senza dover ricominciare la transazione
 
 
 
+
+pero con il passare del tempo non c'era una vera necessita per questi due livelli quindi hanno perso d'interesse
+
+
+STORIA D'INTERNET ---> "https://it.wikipedia.org/wiki/Storia_di_Internet" 
+
+
+AMMINISTRAZIONE DI INTERNET:
+    ---> le societa che presiedono all'organizzazione di internet sono riunite dal 1992 sotto la ISOC(internet society, senza scopo di lucro) la cui missione e 
+	   "promuovere lo sviluppo aperto l'evoluzione e l'uso di internet a beneficio di tutta la popolazione mondiale", le societa piu importanti che ne fanno 
+	    parte sono:
+
+
+		IAB:    Internet Architecture Board
+ 		    ---> che coordina le ativita dei gruppi IETF e IRTF, gestisce anche le interazioni con gli altri organismi di standardizzazione, si occupa anche 
+			   di revisionare gli standard internet, che sono denominati RFC(Request For comments) e gestisce i processi di pubblicazione
+
+		IETF:    Internet Engineering Task Force
+		    ---> organismo simile a ITU, affronta problemi di sviluppo e implementazione a breve-medio termine della rete internet, uno dei suoi compiti
+			   principali e quello di definire specifiche di funzionamento della rete internet sotto forma di satndard RFC
+
+		IRTF:    Internet Research Task Force
+		    ---> gestisce e sviluppa attivita di ricerca a piu lungo termine relativamente alla rete internet 
+
+		IANA:    Internet Assigned Number Authority
+		    ---> gestisce l'assegnazione degli indirizzi e dei nomi dei domini nella rete internet, dal 1999 questa funzione e stata delegata alla 
+			   ICANN(Internet Corporation For Assigned Names and Number)
+
+dal 2004 diventano 5 le organizzazioni, denominate RIR(Regional Internet Registries), delegate a questo scopo nelle varie regioni del mondo:
+
+
+			AFRINIC ---> African Network Information Center ---> per l'africa
+
+			APNIC ---> Asia Pacific Network Information Center ---> per asia centrale-orientale e le regionidel pacifico, comprese australia e nuova zelanda
+
+			ARIN ---> American Registry for Internet Numbers ---> per l'america settentrionale e parte dei caraibi
+
+			RIPE NCC ---> Reseaux IP Eurpeens Network Coordination Center --> per l'europa, medio oriente e parte dell'asia centrale
+
+
+
+
+STANDARD NELLE RETI:
+    ---> gli organismi di standardizzazione svolgono un ruolo fondamentale nel mondo delle reti e sopprattutto di internet, definiscono infatti le regole a cui 
+	   devono attenersi coloro che realizzano o utilizzano apparati di qualunque genere(hardware e/o software) atti a svolgere una funzionalita di comunicazione
+	   come ad esempio le specifiche di costruzioni di cavi di rame o fibra, le caratteristiche del segnale radio e etc...
+
+	 uno dei maggiori organismi di standardizzazione e l'ISO(International Standardization Organization), che si occupa di standard nei campi piu disparati come
+	   dalle pitture alla biancheria, dal te ai fogli di carta   
+
+
+	 l'ITU si compone di tre settori --> "https://it.wikipedia.org/wiki/Unione_internazionale_delle_telecomunicazioni"
+
+
+	 IEEE:    Institute of Electrical and Electronics Engineering
+	     ---> rappresenta una societa professionali di ingenieri nel campo delle tecnologie dell'informazione e comunicazione 
+
+	 ICT:    Information and Communication Techonology
+	     ---> svolge una pluralita di attivita tra quali editoriali, formazione e gestione di conferenze 
+
+l'archittetura protoccolare TCP/IP, che e alla base della rete internet, ha nei fatti realizzato l'obbiettivo originario della tecnica ATM(Asynchronous Transfer Mode)
+  e cioe definire, anche se limitatamente allo strato di rete, un modo di trasferimento dell'informazione che potesse essere adottato in ogni apparecchiatura di rete	
+				  
 
 
 
