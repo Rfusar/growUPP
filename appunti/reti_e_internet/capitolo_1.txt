@@ -461,9 +461,113 @@ poi esistono i DC(Data Center) esempio Google, Netflix, Meta; posso essere anche
 								ARCHITETTURA DI PROTOCOLLI
 
 
+un protocollo di comunicazione e un insieme di regole che determinano la comunicazione tra sistemi, si parla di pila protocollare facendo rifermento alla gerarchia tra i
+  protocolli, storicamente il primo modello a strati e l'ISO(Open Systems Interconnections) e includeva 7 livelli, successivamente fece scalpore il modello 
+  TCP/IP a 4 livelli, i protocolli definiti in quest'ultimo modello divennero di riferimento per il traferimento a distanza di UI attraverso reti di qualunque genere
 
+i criteri fondamentali sono RAGGRUPPAMENTO e STRATIFICAZIONE, si raggruppano tra loro funzioni simili per logica e/o tecnologia,cosi da definire gruppi omogenei
+  poi si organizzano gerarchicamente i gruppi cosi definiti in stratio livelli(layer or level), in modo da indentificare regole di interazione tra strati(interfacce)
+  quanto e piu possibili semplici e univoche
+
+l'unione del ISO e TCP/IP:
+
+
+
+		1)strato fisico, 2)strato di collegamento dati, 3)strato di rete, 4)strato di trasporto, 5)strato di applicazione
+
+		1)pyhsical layer, 2)data-link layer, 3)network layer, 4)trasport layer, 5)application layer
+   
 
 	  
+se ci fossero due sistemi terminali A e B in comunicazione diretta, la cooperazione tra i due sistemi richiede lo svolgimento di funzioni protocollari nei due sistemi
+  a partire dell'esecuzione di un protocollo applicativo in entrambi
+
+i punti di accesso al servizio fornito dai livelli 1,2,3 e 4 sono denominati rispettivamente P-SAP, DL-SAP, N-SAP e T-SAP
+
+la definizione del modello a strati implica che l'interfacciamento tra stati sia consentito solo se essi sono adiacenti, ogni strato usufruisce dei servizi del layer 
+  inferiore, cui aggiunge lo svolgimento delle proprie funzioni, cosi da fornire allo strato superiore un servizio a valore aggiunto, la stratificazione maschera
+  cio che avviene negli altri livelli
+
+le funzioni svolte in uno strato generico sono attuate da dispositivi hardware o software, a seconda del layer interessato, le soluzioni hardware sono adottate dagli 
+  strati inferiori, a partire dal pyhsical layer per generare stringhe di bit da trasmettere e ricevere, al contrario per i livelli superiori si utilizzan soluzioni
+  software, invece per gli strati intermedi dipende dalla maturita della tecnologia disponibile o dalla complessita delle funzioni in questione
+
+
+
+UNITA INFORMATIVE:    UI
+    ---> ESEMPIO:
+
+
+
+
+		_______________                                                                                   ________________
+               |               |                                                                                 |                |
+               |               |                                                                                 |                |
+               |     A         |                                                                                 |   B            |
+               |               |                                                                                 |                |
+               |               |                                                                                 |                |
+               |_______________|                                                                                 |________________|
+                                                                                                                          ^
+                       |                                                                                                  |
+             | ------------------- |  <---------------------------messaggio------------------------------------>  | ----------------- |
+                       |                                                                                                  |
+                       |                                                                                                  |
+             |T-H| --------------- |  <--------------------------segmento-------------------------------------->  |T-H|               |
+                       |                                                                                                  |
+                       |                                                                                                  |
+                       |                                                                                                  |
+             |N-H|T-H| ----------- |  <--------------------------pacchetto---------------------------------->  |N-H|T-H|              |                                                                                   |
+                       |                                                                                                  |
+                       |                                                                                                  |
+                       |                                                                                                  |
+             |DL-H|N-H|T-H| --------- |DL-T|  <--------------------trama------------------------------>  |DL-H|N-H|T-H| ------------ |DL-T|
+                       |                                                                                                  |
+                       |                                                                                                  |
+                       |                                                                                                  |
+             |111000101010101000111001010| ----------------------BIT------------------------------------->  |111000101010101000111001010|
+                       |                                                                                                  |
+                       |                                                                                                  |
+                       |__________________________________________________________________________________________________|
+
+
+
+
+in sinstesi possiamo affermare che il traferimento "logico" delle informazioni avviene orizontalmente "da pari a pari"(peer-to-peer), tra entita omogenee di sistemi 
+  diversi, invece il trasferimento fisico delle informazioniavviene verticalmente,
+
+invece se mettessimo dei router di mezzo, il router controllerebbe il DL-H e etc... fino al T-H e se tutto corrisponde invia il messaggio al destinatario
+
+
+
+
+
+							PROTOCOLLI DI COMUNICAZIONE
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	
 	     
 	   
