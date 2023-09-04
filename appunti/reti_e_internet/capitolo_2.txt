@@ -1,0 +1,193 @@
+CONCETTI BASE DELLE RETI
+
+
+
+
+gli aspetti chiave che configurano un modo di trasferimento delle informazioni sono:
+
+		
+		I) i protocolli di comunicazione ---> regolano lo scambio d'informazione tra nodi di rete, adiacenti o meno
+
+		II) la tecnica di commutazione ---> la soluzione adottata per realizzare l'attraversamento dei nodi rete
+
+		III) la tecnica di multiplazione ---> definisce la modalita di trasferimento dei flussi informativi attraverso i rami tra nodi di rete
+
+
+
+l'adozione di una particolare soluzione dipende in generale da questi fattori:
+
+
+		. il tipo di servizi che devono essere forniti dalla rete
+
+		. tecnologie software e hardware utilizzabili
+
+		. disponibilita tecniche innovative per il trasferimento delle informazioni
+
+
+i principali parametri di prestazione di una rete sono ---> tempo di ritardo, throughput, probabilita di perdita;
+
+
+
+
+SORGENTI E SERVIZI:
+    ---> tutte le apparecchiature che generano informazioni che devono essere traferite in rete assumo il ruolo di SORGENTI D'INFORMAZIONE, un SERVIZIO DI COMUNICAZIONE
+	   si puo definire come un insieme di procedure che, una volta attuate, rendono possibile trasportare e utilizzare a distanza le informazioni generate dalle 
+	   sorgenti, in generale il trasporto delle informazioni richiede l'intervento di vari apparati e dispositivi di comunicazione ed il loro insieme configura
+	   una RETE DI COMUNICAZIONE
+
+
+
+SORGENTI DI INFORMAZIONE:
+    ---> per semplicita possiamo classificare tutti i diversi tipi d'informazione in tre grandi categorie:
+
+
+			. VOCE ---> comprende tutti i tipi d'informazione che vengono "utilizzati" dall'orecchio umano
+
+			. IMMAGINI ---> comprende tutti i tipi d'informazione che vengono "utilizzati" dall'occhio 
+
+			. DATI ---> include tutti i tipi d'informazione che per loro natura sono rappresentati per mezzo di informazioni binarie e che non rientrano
+				      nelle due categorie precedenti 
+
+
+
+a seconda della natura delle informazioni trasportate, un servizio si distigue in MONOMEDIALE e MULTIMEDIALE
+
+
+
+	MONOMEDIALE:
+    	    ---> viaggia un solo tipo d'informazione, come per esempio la voce nella telefonia, i dati in una sessione di accesso a internet e etc...
+
+	MULTIMEDIALE:
+    	    ---> i tipi d'informazione trasportati nell'ambito del servizio sono almeno due, per esempio la videoconferenza 
+
+	SORGENTE ANALOGICA:
+    	    ---> genera informazione sotto forma di un segnale elettrico o ottico che puo assumere valori arbitrari definiti su intervalli di tempo continui o meno
+
+	SORGENTE NUMERICO:
+	    ---> genera l'informazione sotto forma di stringa di simboli binari
+
+
+
+SERVIZI DI COMUNICAZIONE:
+    --->  richiede l'utilizzazione di diversi tipi e diverse quantita di risorse di rete che possono variare in base a tre proprieta che caratterizzano il servizio
+ 	    
+
+
+		CONFIGURAZIONE:
+		    ---> identifica il numero di attori coinvolti nel servizio stesso, varia a secondo del numero di destinatari dell'informazione emessa dalla sorgente 
+			   si distinguono 3 tipi:
+
+				punto-punto ---> il servizio si svolge tra 2 utilizzatori, esempio una conversazione telefonica 
+
+				multipunto ---> il servizio si svolge tra piu di 2 utilizzatori, esempio videoconferenza
+
+				diffusa(broadcast) ---> è simile al multipunto ma con la differenza che non bisogna selezionare gli eventuali destinatari
+							  esempio il servizio televisivo
+
+
+
+		DIREZIONE:
+		    ---> fa riferimento alla caratteristica del flusso informativo emesso e/o ricevuto da un generico utilizzatore di un servizio di comunicazione, si distinguono
+			   in due tipi di servizi:
+
+			
+					unidirezionale:
+					    ---> quando il servizio trasferisce un solo flusso informativo, che va solo dalla sorgente all'utilizzatore come il servizio
+						   punto-punto o gli utilizzatori come nel servizio multipunto o diffuso, esempi telesorveglianza e la televisione
+
+					bidirezionale:
+					    ---> quando il servizio trasferisce due flussi informativi per l'utilizzatore del servizio, chiaramente in direzioni opposte 
+						   cosi che ciascun utilizzatore agisce sia da sorgente, sia da destinazione delle informazioni, esempi telefonia(simmettrico), 
+						   accesso da remoto a centri di servizio(asimmetrico) 
+						   ; un servizio bidirezionale
+						   puo essere ulteriormente essere distinto in:
+
+								simmetrico ---> se i due flussi trasferiti sono caratterizzati dagli stessi parametri
+
+								asimmetrico ---> se i due flussi emessi e ricevuti da ogni utlizzatore sono caratterizzati da parametri diversi
+
+
+
+		INIZIALIZZAZIONE:
+		    ---> descrive le modalita attraverso le quali viene reso disponibile un servizio, un servizio puo essere inizializzato:
+
+
+				su base chiamata ---> ogni volta che il servizio si atricola nelle tra fasi di RICHIESTA del servizio, attraverso opportune procedure di segnalazione 
+					                attuate nella stessa rete di comunicazione, UTILIZZAZIONE delle risorse di comunicazione, e RILASCIO delle risorse di rete 
+							utilizate, esempio telefonia pubblica
+
+				su base contrattuale ---> quando la disponibilita del servizio di telemunicazione e per mantenere per gli utilizzatori coinvolti; cio implica 
+							    che la fase di richiesta del servizio precedentemente definita si solo con un accordo siglato tra cliente e fornitore del 
+							    servizio, esempio servizio di connessione dati di tipo affittato
+
+
+
+REQUISITI DI UN SERVIZIO:
+    ---> i principali parametri che si posso utilizzare per caratterizzare un servizio di comunicazione sono:
+
+
+			velocita media ---> indica la frequenza media di emissione di UI da parte della sorgente 
+
+			tempo di ritardo ---> esprime con opportune grandezze(valore medio, varianza, etc...) il tempocche la rete non e stata in grado di trasportare 
+					        le unita informative per il servizio in questione
+
+			tasso d'errore ---> indica la quota parte di bit o di UI emessi dalla sorgente che la rete non e stata in grado di trasportare o che ha consegnato alla 
+					      destinazione con errore   
+
+			l'eventuale vincolo di tempo reale del serizio, tale che, se previsto, consenta l'interattivita tra i suoi utilizzatori
+
+         __________________________________________________________________________________________________
+	| SERVIZIO |                           | VELOCITA  | RITARDO MEDIO | TASSO DI ERRORE | TEMPO REALE |
+	|__________|___________________________|___________|_______________|_________________|_____________|
+	| VOCE	   |                           | 10Kbit/s  |  100ms        | 1%              | si          |                 *POS ---> Point-Of-Sale
+	|__________|___________________________|___________|_______________|_________________|_____________|
+	|          | bassa velocita            | bit/s     |               |                 |             |
+	| DATI     | media velocita            | Kbit/s    |      s        |  circa 0        | no          |
+        |          | alta velocita             | Mbit/s    |	           |                 |             |
+	|__________|___________________________|___________|_______________|_________________|_____________|
+	|IMMAGINI  | videochiamata             | 100Kbit/s | 100ms         |                 | si          |
+        |          | streaming on-demand       | Mbit/s    | s             |                 | no          |
+        |          | streaming live            | Mbit/s    | 100ms         |   1%            | si          |
+        |          | virtual/augmented reality | 100Mbit/s | 10ms          |                 | si          |
+        |__________|___________________________|___________|_______________|_________________|_____________|
+
+
+
+
+CARATERIZZAZIONE DELLE SORGENTI:
+    ---> la piu semplice caratterizzazione di una sorgente d'informazioni consiste nell'assumere che un generico instante di tempo la sorgente si trova in uno di due stati:
+
+
+		attivita ---> ON, nel quale la sorgenteemette informazioni a una FREQUENZA DI PICCO, P(bit/s)
+
+		inattivita ---> OFF, nel quale la sorgente non emette informazioni
+
+l'intervallo di tempo di permanenza della sorgente nello stato ON e nello stato OFF, determina la lunghezza del segmento informativo emesso, detto "BURST", e la qualita di informazioni
+  emesse
+
+		   | frequenza media(bit/s) / frequenza di picco = fattore di burstiness | OPPURE(non so perche) | frequenza di picco / frequenza media = fattore di burstiness |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
