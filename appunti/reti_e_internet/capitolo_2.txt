@@ -450,7 +450,46 @@ COMMUTAZIONE CUT-THROUGH:
 
 
 ASPETTI PROTOCOLLARI NELLA MODALITA DI COMMUTAZIONE:
-    ---> 
+    ---> nell'ambito del modello a strati, si distinguono gli STRATI DI UTILIZZAZIONE, che risiedono nella parte superiore della pila, dagli STRATI DI TRASFERIMENTO che invece occupano
+	   la parte inferiore dela pila stessa
+
+			GLI STRATI DI UTILIZZAZIONE ---> comprendono funzionalita esclusivamente relative alla generazione e alla strutturazione delle UI per il loro trasferimento 
+							   con una data qualita dalla sorgente alla destinazione indipendentemente dalle caratteristiche della rete di comunicazione
+							   che viene attraversata; le funzioni definite negli strati di utlizzazione sono dunque svolte solo nei sistemi terminali
+							   e non nei dispositivi di rete, sulla base dei protocolli di utilizzazione gli strati e i protocolli di utilizzazione
+						           nel modello a strati sono quelli relativi al ---> physical layer e transport layer.
+
+			GLI STRATI DI TRASFERIMENTO ---> definiscono le modalita di trasferimento delle informazioni di utente attraverso una rete di comunicazione, quindi le funzioni 	
+							   relative agli strati di trasferimento saranno localizzate sia nei sistemi terminali, sia negli apparati di rete;
+							   i protocolli di trasferimento definiscono l'interazione tra apparecchiature di rete e tra queste i sistemi terminali;
+							   gli strati e i protocolli di trasferimento nel modello a strati sono quelli relativi 
+							   ---> network layer, data-link layer e physical layer
+
+
+TECNICHE DI MULTIPLAZIONE:
+    ---> bisogna distinguere tra due diverse modalita di condivisione della capacita di un canale di comunicazione che dipendono dalla localizzazione degli utilizzatori del canale stesso 
+	   cioe sorgenti e destinazioni dell UI, se il canale di comunicazione e unidirezionale = SIMPLEX = sorgenti e destinazioni saranno distinti; se invece e bidirezionale con 	
+	   trasmissione di tipo HALF-DUPLEX(HD, non e permesso il trasferimento contemporaneo dei segnali nelle due direzioni) o FULL-DUPLEX(FD, i segnali sono trasferiti 
+	   contemporaneamente nelle due direzioni), la generica apparecchiatura che s'interfaccia al canale agisce sia da sorgente che da destinazione
+
+	 la multiplazione consente di sfruttare la capacita disponibile su un collegamento tra nodi per metterla a disposizione contemporaneamente di piu flussi informativi;
+	   sorgenti e destinazioni sono posizionate alle due estremita del collegamento multiplato, dove operano due dispositivi denominati MULTIPLATORE e DEMULTIPLATORE che agiscono
+	   da interfaccia tra sorgenti e collegamento da una parte, tra collegamento e destinazione dall'altra, se il canale e bidirezionale, multiplatore e demultiplatore saranno
+	   equipaggiati congiuntamente a entrambe l'estremita del collegamento.
+
+
+TASSONOMIA DELLE TECNICHE DI MULTIPLAZIONE:
+    ---> sono tre le tecniche di multiplazione:
+
+
+				FDM ---> Frequency Division Multiplexing/multiplazione a divisione di frequenza 
+
+				TDM ---> Time Division Multiplexing/multiplazione a divisione di tempo 
+
+				WDM ---> Wavelength Division Multiplexing/multiplazione a divisione di lunghezza d'onda 
+
+		
+								  
 				
 
 
