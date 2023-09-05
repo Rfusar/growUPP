@@ -168,20 +168,129 @@ l'intervallo di tempo di permanenza della sorgente nello stato ON e nello stato 
 		   | frequenza media(bit/s) / frequenza di picco = fattore di burstiness | OPPURE(non so perche) | frequenza di picco / frequenza media = fattore di burstiness |
 
 
+occore osservare che il fattore di burtiness di una sorgente rappresenta anche la probabilita che la orgente si trovi nello stato di attivita(ON), in un istante arbitrario di 
+  osservazione, in base al valore si posso distinguere 2 diversi tipi di sorgenti:
+
+
+
+	CBR:    Constant Bit Rate
+	    ---> di tipo continuo, caraterizzata da un fattore di burtiness = 1, in cui la frequenza media coincide con quella di picco, esempio sorgente vocale, video, trasferimento 
+		   di file
+
+	VBR:    Variable Bit Rate(bursty)
+	    ---> di tipo intermittente, caratterizzata dal fattore di burtiness < 1, esempio una sorgente dati interattiva
+
+
+si noti che a carterizzazione CBR o VBR di una sorgente puo anche dipendere dall'eventuale elaborazione che il flusso informativo emesso dalla sorgente subisce prima di essere reso
+  disponibile per il suo traferimento in rete, infatti la stringa binaria emessa da una sorgente continua puo diventare di tipo intermittenet in seguito a un'operazione di codifica
+  della stringa stessa con loscopo di eliminare le ridondanze 
+
+il caso piu semplice di sorgente bursty e quello in cui gli intervalli di tempo di permanenza negli stati di attivita e di inattivita sono costanti e uguali, e si ripetono 
+  indefinitamente nel tempo
+
+	fattore burstiness = T[ON] / T[OFF] + T[ON]
+
+una sorgente con queste caratteristiche sara indicata come SORGENTE ON-OFF PERIODICA
+
+esempi di tipologia delle sorgenti dei vari servizi di comunicazione in base al loro fattore di burtiness; servizi interattivi di conversazione, come quelli voce o audio, 
+  sono caratterizzati da sorgenti di tipo CBR, aventi quindi
+
+
+		^
+        Mbit/s  |
+                |
+                |
+	    1,2 |
+                |
+	    1,0 |
+                |_______                 _______                      _______                _______
+	    0,8 |       |               |       |                    |       |              |       |
+                |       |               |       |                    |       |              |       |
+	    0,6 |       |               |       |                    |       |              |       |
+                |       |               |       |                    |       |              |       |
+	    0,4 |       |               |       |                    |       |              |       |
+                |       |               |       |                    |       |              |       |
+	    0,2 |       |               |       |                    |       |              |       |
+                |       |               |       |                    |       |              |       |
+	    0,0 |_______|_______________|_______|____________________|_______|______________|_______|____________> T[s]
+                |		|		|		|		|		|		|
+	       0,0             0,5             1,0             1,5             2,0             2,5             3,0	
 
 
 
 
 
+                ^
+                |<--------------------modem-------------------------->
+fattore di 10 --|_______________________________________________________________________________
+burstiness       |VOCE       |AUDIO        |          |             |                            |    ^
+                |           |_____________| VIDEO    |  VIDEO      |                            |    |
+                |           |          |   CHIAMATA  | IN TEMPO    |                            | ^  |
+                |___________|          |_____________|   REALE     |      IMMAGINI              | |  |
+        10^-1 --|                                |                 |    AD ALTA RISOLUZIONE     | |COMMUTAZIONE DI CIRCUITO
+                |                                |                 |                            | |  |
+                |                                |_________________|                            | |  V
+                |         TERMINALE-HOST              |           |                             | |
+                |                                     |           |                             | |
+        10^-2 --|                                     |           |_____________________________| |
+                |                                     |                                           |
+                |                                     |                                       COMMUTAZIONE DI PACCHETTO
+                |                                     |                                           |
+                |_____________________________________|                                           |
+        10^-3 --|_________________________________________________________________________________|_____>
+                |		|		|		|		|		|
+              10^4            10^5            10^6            10^7            10^8            10^9
+                
+                                    frequenza di picco [bit/s]
+
+           
+TRASFERIMENTO DI INFORMAZIONE IN RETE:
+    --->la velocita di trasmissione si puo chiamare FREQUENZA DI CIFRA[bit/s], una frequenza di trasmissione [F] di un nodo su un collegamento uscente viene anche chiamata CAPACITA 
+	  i principali parametri di prestazione sono:
+
+
+			ritardo ---> indica il tempo richiesto per trasferire un UI attraverso la rete 
+
+			throughput ---> inidica la quantita di UI per unita di tempo trasferite con successo dalla rete
+
+			perdita ---> indica la quantita di UI offerte alla rete che questa non e stata in grado di trasportare a destinazione 
+
+
+
+definiamo due delle quattro componenti del trasferimento di un UI:
+
+I) TEMPO DI TRASFERIMENTO = Tt
+II) TEMPO DI PROPAGAZIONE(assunto constante) di ognuno dei bit dell'UI = t
+
+possiamo allora esprimere il RITARDO TOTALE DI TRASFERIMENTO(ritardo end-to-end) = T
+
+				T = Tt + t
+
+esempio:
+    --->    
+                                 X------------Y------------Z
+					Fx          Fy
 
 
 
 
+ritardo complessivo tra X e Y:
+    --->
+			Tx-y = Ttx + tx = nbit / Fx + tx
 
 
+  
+propagazione delle onde elettromagnietiche nel vuoto ~ 3 * 10^8m/s = velocita della luce
+mezzi guidati ~ 2 * 10^8m/s
+cavi in rame ~ 1,7 * 10^8ms
+fibre ottiche ~ 2,2 * 10^8m/s
 
+III) TEMPO DI ELABORAZIONE = Tp
 
+			Tx-z = Ttx + tx + Tpy + Tty + ty = nbit / Fx + tx + tpy + nbit / Fy + ty
 
+---!!! si noti che questa espressione e valida a condizione che le risorse di comunicazione tra X e Z siano dedicate a questo specifico trasferimento di UI, anche se entra sempre in gioco
+         un'altra componente di ritardo dovuta alla condivisione delle risorse di comunicazione tra piu operazioni di trasferimento tra nodi diversi della rete
 
 
 

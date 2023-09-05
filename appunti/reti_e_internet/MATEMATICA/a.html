@@ -13,6 +13,15 @@
     <div>
         <p> lunghezza d'onda = velocita[m/s] / frequenza[s<sup>-1</sup>] </p>
         <p>frequenza media(bit/s) / frequenza di picco = fattore di burstiness | OPPURE(non so perchè) | frequenza di picco / frequenza media = fattore di burstiness</p>
+        <p>ritardo totale di trasferimento = tempo di trasferimento + tempo di propagazione</p>
+        <p>ritardo totale di trasferimento[nodo X e nodo Y] = 
+            <br>tempo di trasferimento[nodo X] + tempo di propagazione[nodo X] = 
+            <br>numero di bit / frequenza di trasmissione[nodo X] + tempo di propagazione[nodo X]
+            <br><br>Tx-y = Ttx + tx = nbit / Fx + tx</p>
+        <p>ritardo totale di trasferimento[nodo X e nodo Y e nodo Z] = 
+            <br>tempo di trasferimento[nodo X] + tempo di propagazione[nodo X] + tempo di elaborazione[nodo Y] + tempo di trasferimento[nodo Y] + tempo di propagazione[nodo Y] = 
+            <br>numero di bit / frequenza di trasmissione[nodo X] + tempo di propagazione[nodo X] + tempo di elaborazione[nodo Y] + numero di bit / frequenza di trasmissione[nodo Y] + tempo di propagazione[nodo Y]
+            <br><br>Tx-z = Ttx + tx + Tpy + Tty + ty = nbit / Fx + tx + tpy + nbit / Fy + ty</p>
     </div>
 
     <button></button>
