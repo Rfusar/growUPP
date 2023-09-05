@@ -296,6 +296,102 @@ III) TEMPO DI ELABORAZIONE = Tp
 
 
 
+THROUGHPUT:
+    ---> svolge il compito di mettere in comunicazione le sorgenti informativecon i rispettivi utilizzatori, l'insime dei flussi informativi generati dale sorgenti 
+	   si chiama TRAFFICO OFFERTO[Ao], la rete o una sua porzione, oppure un'apparecchiatura di rete, trasportera con successo a destinazione, oppure all'uscita, il traffico offerto
+	   o una sua quota parte cui viene dato il nome di TRAFFICO SMALTITO[As] = throughput[THR], Ao e THR sono espressi in bit/s
+
+	 il traffico offerto o smaltito in una rete o porzione di rete, come per esempio un collegamento, di cui si conosce la capacita C di trasferimento di traffico, puo anche 
+	   essere espresso in forma normalizzata rispetto alla apacita di rete, questo parametro essendo adimensionale assume l'unita di misura convenzionale di ERLANG[Erl]
+
+
+									Erl = THR / C
+
+
+e prende il valore tra 0 e 1, indica la quota parte di tempo in cui le risorse di rete vengono utilizzate, rappresentando l'efficienza di rete 
+
+
+PERDITA:    traffico perso = Ap
+    ---> nella realta le UI possono essere ricevute con errori a destinazione, oppure possono anche essere perse durante l'attraversamento della rete
+	   
+			
+				errori di trasmissione ---> si verifica quando la qualita del segnale ricevuto su un collegamento e diversa da quella prevista, a causa di interferenze
+							      o di altre cause di degrado, cosi da determinare l'interpretazione errata di uno o piu bit ricevuti
+
+				saturazione della memoria ---> occore quando una memoria di un nodo che immagazzina le UI prima della loro trasmissione va in saturazione, cosi da
+								 non poter immagazzinare ulteriori UI in transito nel nodo
+
+				tasso di errore sul bit(BER = Bit Error Rate) ---> numero di bit ricevuti / numero di bit trasmessi 
+
+				tasso di perdita di UI(probabilita di perdita, Pp) ---> numero di UI perse o consegnate errate / numero di UI trasmesse 
+
+
+TECNICHE DI COMMUTAZIONE:
+    ---> l'aspetto chiave che caratterizza la modalita di commutazione e l'individuazione del collegamento uscente d'assegnare a ogni UI ricevuta
+
+
+			instradamento ---> e un operazione "intelligente", eseguita dal software del nodo, che consiste nel selezionare, secondo un opportuno algoritmo, il ramo in uscita
+					     dal nodo da utilizzare per l UI, ricevuta su un'interfaccia d'ingresso del nodo stesso
+
+			inoltro ---> e un operazione piu "meccanica",  eseguita tipicamente dal hardware del nodo, che consiste nell'attuare la decisione di instradamento presa nel passo
+				       precedente traversando l'UI sull'interfaccia di uscita selezionata, dove questa verra trasmessa
+
+esempi di tecniche di commutazione sono A CIRCUITO e DI PACCHETTO
+
+
+	COMMUTAZIONE DI PACCHETTO:
+	    --> l'informazione che deve essere trasferita tra apparecchiature terminali viene generalmente spezzata in una serie di blocchi di lunghezza opportuna, ognuno dei quali viene
+		  viene dotato di un campo aggiuntivo di "intestazione" chiamato HEADER	che reca ra l'altro l'indicazione della destinazione, ogni UI denominata PACCHETTO, sara costituita
+		  da un header lungo[Lh bit] e da un blocco di dati dell'utente, denominato carico pagante o PAYLOAD lungo[Lp bit]
+		  ogni nodo deve essere dotato di unita di memoria o BUFFER, che consentono di memorizzare le UI in attesa di trasmissione, per questo motivo i nodi di questa rete
+		  sono detti di tipo "store and forward(S&F)", tempo di memorizzazione = Tw
+
+IV) TEMPO DI ATTESA ---> l'UI nel nodo K prima dell'inizio della sua trasmissione sul collegamento uscente
+
+                                                       N nodi
+					T = Ttx + tx + ∑ Tpi + Twi + Tti + ti
+						       i = 1
+
+  			
+tutte le reti a commutazione di pacchetto prevedono una lunghezza massima del payload, quindi in generale, un messaggio dell'utente verra spezzatto in una sequenza di pacchetti
+  FRAMMENTAZIONE DELL'UI, ognuno dotato del proprio header necessario per l'instradamento 
+
+un servizio di rete fornito con tecnica a commutazione di pacchetto puo essere realizzato secondo due modalita ben distinte, che prendono il nome di servizio di tipo 
+  datagramma(DG) oppure connectionless  e servizio di a circuito virtuale(VC) oppure connection-oriented
+
+
+
+
+COMMUTAZIONE DI CIRCUITO:
+    ---> rende disponibili connessioni per il trasferimento di dati tra apparecchiature terminali, questo servizio si articola in INSTATURAZIONE, DATI, RILASCIO
+	   durante la fase di INSTAURAZIONE la conessione richiesta viene instaurata e le risorse trasmissive necessarie a trasportare il fluso di UI generate da una sorgente continua 
+	   schematizzabile come sorgente di tipo CBR, sono riservate lungo il percorso della rete
+	   queste risorse veranno utilizzate nella fase dati al momento di trasferire in rete le UI relative alla connessione stessa, per poi essere liberate nella fase di RILASCIO
+	   
+
+SERVIZIO DATAGRAMMA:
+    --->   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

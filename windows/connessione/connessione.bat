@@ -15,14 +15,9 @@ echo 8. esci
 echo.
 
 
-choice /c 1234567 /n /m "Scegli: "
+choice /c 12345678 /n /m "Scegli: "
 
 if errorlevel 8 (
-    cls
-    echo.
-    echo EXIT
-    echo.
-    timeout /t 2
     cls
 
 ) else if errorlevel 7 (
