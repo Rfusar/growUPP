@@ -370,9 +370,119 @@ COMMUTAZIONE DI CIRCUITO:
 	   
 
 SERVIZIO DATAGRAMMA:
-    --->   
+    --->  in una rete a commutazione di pacchetto di tipo datagramma la rete trasferisce i pacchetti ricevuti nei nodi sorgente attraverso una sequenza di nodi e di rami sulla base
+	    dell'indirizzo di destinazione che e contenuto in ogni pacchetto, la sequenza dei nodi attraversati dipende dagli algoritmi di instradamento che vengono attuati 
+	    nei singoli nodi; la via da seguire per ogni pacchetto e meorizzata nella tabella d'instradamento, che specifica per ogni destinazione il collegamento uscente da selezionare
+	    e quindi il nodo sucessivo(next hop), lungo il percorso 
+
+	  in un servizio di tipo datagramma vi e la possibilita che, nonostante il funzionamento corretto del protocollo di linea lungo tutti i rami utilizzati, si verificano i 
+	  seguenti eventi:
+
+			FUORI SEQUENZA ---> la destinazione riceve attraverso la rete una sequenza di pacchetti in un ordine diverso dalla sequenza di generazione da parte della
+					      sorgente
+
+			DUPLICAZIONE ---> la destinazione riceve due copie identiche dello stesso pacchetto
+
+			PERDITA ---> un pacchetto viene perso in un nodo della rete, senza che siano disponibili procedure di recupero
 
 
+
+SERVIZIO DI CIRCUITO VIRTUALE:
+    ---> nel servizio circuito virtuale due apparecchiature terminali si scambiano dati solo dopo avere instaurato una connessione virtuale che mette in relazione l'una all'altra
+	   questo servizio si articola in tre fasi, analogamente al servizio reso da una rete a commutazione di circuito che mette a disposizione una connessione fisica con risorse
+	   di commutazione dedicate:
+
+					-fase d'instaurazione
+					-fase dati
+					-fase di rilascio
+
+		TABELLA D'INOLTRO:
+		    ---> occore osservare che nel servizio circuito virtuale la funzione di instradamento, espletata mediante l'attuazione di un algoritmo che determina il collegamento
+			   uscente dal nodo per il pacchetto in base all'indirizzo di destinazione, viene svolta esclusivamente nella fase d'instaurazione del circuito virtuale
+			   il risultato dell'operazione d'instradamento effettuata sue pacchetti di segnalazione viene memorizzata nella TABELLA D'INOLTRO(oppure tabella di attraversamento)   
+			   del nodo, affinche per ogni pacchetto dati appartenente a quella connessione virtuale venga "attuata" la stessa scelta 
+
+			 cio e reso possibile dalla definizione di un identificatore numerico(NUMERO DI CANALE LOGICO) per ogni collegamento lungo il circuito virtuale
+			   questo identificatoreviene assegnato durante la fase d'instaurazione del circuito virtuale e rimane immagazzinato nella tabella d'inoltro fino a che il circuito
+			   stesso non viene rilasciato, la tabella d'inoltro contiene tante voci quanti sono i circuiti virtuali attivi nel nodo e ogni voce contiene i seguenti parametri:
+
+
+						. collegamento entrante(oppure nodo a monte del circuito virtuale)
+
+						. "identificatore del canale logico" lungo il collegamento entrante(oppure numero di canale logico in ingresso)
+
+						. nodo a valle del circuito virtuale(o collegamento uscente)
+				
+						."identificatore del canale logico" lungo il collegamento uscente(oppure numero di canale logico in uscita)
+
+
+COMMUTAZIONE CUT-THROUGH:
+    ---> una diversa modalita di commutazione nel servizio circuito virtuale, meno diffusa, prende il nome di CT(cut-through), questa consiste nel ridurre l'elaborazione del pacchetto
+	   al sol header, cosa che consente di attuare la funzione d'inoltro mediante lettura della corrispondente tabella; cosi l'inizio della trasmissione in uscita non richiede di 
+	   attendere la ricezione all'interno del pacchetto, indichiamo con "Fe" e "Fu" la capacita dei collegamenti in entrata e uscita dal nod generico, pero richiede che la seguente
+	   codizione sia rispettata ---> Fu <= Fe
+
+
+									RIASSUNTO
+
+					________________________________________________________________________
+                                       | CARATTERISTICA 	| DATAGRAMMA 		| CIRCUITO VIRTUALE 	|
+				       |________________________|_______________________|_______________________|
+				       |instradamento           |indipendente per       |indipendente per       |
+				       |			|parchetto              |circuito virtuale      |
+				       |________________________|_______________________|_______________________|
+				       |inoltro                 |                       |deterministico per     |
+				       |                        |			|per circuito virtuale  |
+			               |________________________|_______________________|_______________________|
+				       |indirizzamento dei      |indirizzo di           |indentificatore del    |
+				       |pacchetti               |destinazione e         |canale logico          |
+                                       |			|sorgente               |                       |
+				       |________________________|_______________________|_______________________|
+				       |controllo di sequenza   |assente                |implicito              |
+				       |________________________|_______________________|_______________________|
+				       |garanzia di qualita     |difficile              |facile                 |
+				       |del servizio            |                       |                       |
+                                       |________________________|_______________________|_______________________|
+			               |guasto a un nodo        |perdita dei pacchetti  |reset di tutti i       |
+                                       |                        |che attraversano       |circuiti virtuali      |
+				       |                        |il nodo                |attraverso il nodo     |
+				       |________________________|_______________________|_______________________|
+
+
+ASPETTI PROTOCOLLARI NELLA MODALITA DI COMMUTAZIONE:
+    ---> 
+				
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+  
 
 
 
