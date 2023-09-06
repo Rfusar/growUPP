@@ -770,7 +770,28 @@ se si opera con SOTTOMULTIPLAZIONE, si puo alocare a una specifica coppia sorgen
 				   dalle UI fia in attesa delle disponibilita della stessa risorsa trasmissiva) e si puo anche avere perdita di UI in presenza di saturazione del buffer
 				   in coclusione, la tecnica di multiplazione A-TDM consente di ottimizzare l'utilizzazione della capacita del canale trasmissivo in presenza di sorgenti
 			           di tipo intermittente, anche se cio implica limitazioni nelle prestazioni di trasferimento in rete in termini di ritardo di trasferimento variabile e 
-				   possibile perdita di UI   
+				   possibile perdita di UI  
+
+
+                 _____________________________________________________________________________
+		|Fx[Kbit/s] |commutazione  | N       | B      |Ao       |Yp        |T[s]      |
+		|___________|______________|_________|________|_________|__________|__________|
+		|           |   CS         |  8      | 1      | 1       | 0        | 8        |
+                |           |______________|_________|________|_________|__________|__________|
+                |   400     |   PS         |  20     | 0,1    | 0,25    | 10^-4    | 1,17     |
+		|___________|______________|_________|________|_________|__________|__________|
+		|           |   CS         |  4      | 1      | 1       | 0        | 8        |
+                |           |______________|_________|________|_________|__________|__________|
+                |   200     |   PS         |  20     | 0,1    | 0,50    | 5*10^-2  | 3        |
+		|___________|______________|_________|________|_________|__________|__________|
+		|           |   CS         |  2      | 1      | 1       | 0        | 8        |
+                |           |______________|_________|________|_________|__________|__________|
+                |   100     |   PS         |  20     | 0,1    | 0,10    | 10^-3    | 4,2      |
+		|___________|______________|_________|________|_________|__________|__________|
+		|           |   CS         |  1      | 1      | 1       | 0        | 8        |
+                |           |______________|_________|________|_________|__________|__________|
+                |    50     |   PS         |  20     | 0,1    | 0,20    | 2*10^-2  | 9        |
+		|___________|______________|_________|________|_________|__________|__________|
 
 	 
 		
