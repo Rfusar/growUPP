@@ -349,7 +349,7 @@ esempi di tecniche di commutazione sono A CIRCUITO e DI PACCHETTO
 IV) TEMPO DI ATTESA ---> l'UI nel nodo K prima dell'inizio della sua trasmissione sul collegamento uscente
 
                                                        N nodi
-					T = Ttx + tx + ∑ Tpi + Twi + Tti + ti
+					T = Ttx + tx + sommatoria Tpi + Twi + Tti + ti
 						       i = 1
 
   			
@@ -482,11 +482,345 @@ TASSONOMIA DELLE TECNICHE DI MULTIPLAZIONE:
     ---> sono tre le tecniche di multiplazione:
 
 
-				FDM ---> Frequency Division Multiplexing/multiplazione a divisione di frequenza 
+				FDM:    Frequency Division Multiplexing/multiplazione a divisione di frequenza
+				    ---> storicamente e la prima ad essere adottata, utilizzando componenti analogici, suddivide la banda a disposizione sul portante trasmissivo in canali,
+					   tanti quanti sono i flussi da multiplare, questi canali non si sovrappongono in frequenza, e spesso si usa anche lasciare inutilizzata una 
+					   "banda di guardia" tra i canali per consentire la realizzazione fisica di sistemi di multiplazione FDM con dispositivi di complessita limitata     
 
-				TDM ---> Time Division Multiplexing/multiplazione a divisione di tempo 
 
-				WDM ---> Wavelength Division Multiplexing/multiplazione a divisione di lunghezza d'onda 
+				TDM:    Time Division Multiplexing/multiplazione a divisione di tempo 
+				    ---> assegna ciclicamente al singolo canale la tonalita della banda disponibile sul collegamento, anche se per un intervallo di tempo limitato;
+					   in questo modo i diversi canali hanno a disposizione l'intera capacita del mezzo trasmissivo per intervalli limitati che si ripetono 
+					   periodicamente nel tempo; anche in questo, potrebbe essere necessario lasciare un "tempo di guardia" di separazione tra canali per facilitare
+					   l'implementazione del sistema.
+
+
+				WDM:    Wavelength Division Multiplexing/multiplazione a divisione di lunghezza d'onda
+				    ---> e quella utilizzata dalle fibre ottiche, essa suddivide l'intervallo di banda ottica a "fette", assegnandone una in modo esclusivo a ognuno
+					   dei canali da multiplare; poiche esiste una relazione fissa tra lunghezza d'onda e frequenza, la tecnica WDM coincide con quella FDM
+			  		   la realizzazione di una comunicazione bidimensionale tra due nodi si realizza utilizzando due mezzi trasmissivi distinti per le due direzioni,
+					   oppure un unico mezzo trasmissivo ccondiviso per i due flussi informativi, la tecnica di multiplazione entra in gioco due volte, la prima
+					   per multiplare i canali in una direzione e la seconda per condividere il collegamento nelle due direzioni, a questo ultimo aspetto si da il nome
+					   di DUPLEXING
+
+							TDD:    Time Division Duplexing
+							    ---> il canale viene utilizzato alternativamente nelle due direzioni 
+
+							FDD:    Frequency Division Duplexing
+							    ---> la banda a disposizione viene divisa in due porzioni, assegnando ognuna di esse alla trasmissione in una delle
+								   due direzioni 
+
+
+e pratica comune utilizzare contemporaneamente TDM e FDD in un sistema bidirezionale 
+
+
+
+
+
+SOLUZIONI CONCETTUALI DI MULTIPLAZIONE TDM:
+    ---> si distinguono due classi:
+
+		I) multiplazione deterministica ---> viene utilizzata per sorgenti continue, cioe di tipo CBR, e d luogo a un interlacciamento di tipo periodico dei canali multiplati
+
+		II) multiplazione statica ---> e impiegata con sorgenti tipicamente discontinue, cioe di tipo VBR, e quindi non produce nessun insieme di periodicita
+	
+				IIa) multiplazione di UI a lunghezza fissa(a slot) 
+
+				IIb) multipazione di UI a lunghezza variabile(continua)
+
+
+
+
+
+
+
+	N = numero di flussi che costituiscono traffico offerto(in ingresso)                                   Ao = N * B * Ft
+
+	B = burstiness 
+
+	Ft = frequenza di picco(sorgente)[bit/s] 								As <= Ao
+
+	Fm = flusso in uscita[bit/s]
+
+	As = valore medio del traffico smaltito(in uscita)
+
+	Ao = valore medio del traffico offerto(in ingresso)
+
+
+se invece Fm < N * Ft, allora il dispositivo prende anche il nome di CONCENTRATORE e N * Ft / Fm prende il nome di fattore di concentrazione
+
+
+
+MULTIPLAZIONE DETERMINISTICA:
+    ---> i flussi ricevuti(tributari) vengono sempre accomodati nel flusso uscente interlacciando ciclicamente nel tempo le UI dei singoli flussi in ingresso; la struttura logica che 
+	   definisce l'organizzazione delle UI sulla linea uscente si chiama TRAMA e comprende un'UI per ogni tributario; l'operazione di multiplazione richiede necessariamente 
+	   la presenza di una piccola unita di memoria su ogni ingresso(memoria di linea), che consenta d'immagazinare ogni UI ricevuta in attesa dell'occorenza della posizione nella
+	   trama ad essa dedicata; la capacita della memoria di linea e dell'ordine del numero dei byte di un'UI; il tempo richiestoper trasmettere una trama prende il nome di PERIODO
+	   e viene in secondi; in un multiplatore deterministico e sempre vera questa ugualianza:
+
+
+									Fm = N * Ft
+
+
+	 il multiplatore deterministico e pensato per operare con sorgenti d'informazione di tipo CBR, che definisce la frequenza di picco P e la frequenza media A di una sorgente
+	   di conseguenza vale la seguente relazione:
+
+
+									Ft = P = A
+
+
+	 inoltre risulta evidente che in un multiplatore deterministico nessuna UI viene persa, data la capacita riservata sulla linea uscente per ogni tributario, quindi il traffico 
+	   in uscita al multiplatore coincide con quello in ingresso:
+
+									As = Ao = N * B * Ft
+
+
+
+
+
+MULTIPLAZIONE STATICA:
+    ---> un multiplatore statico non assicura invece una posizione nel flusso uscente per ogni UI ricevuta e quindi non definisce alcuna struttura di trama; il principio secondo cui esso 
+	   opera e semplicemente quello di allocare nel modo migliore possibile la capacita disponibile sulla linea uscente, per trasmettere le UI che vengono ricevute sugli ingressi; 
+	   in un multiplatore statico vale la seguente relazione:
+
+
+									Fm <= N * Ft
+	 
+
+	 ne consegue che i flussi entranti sono per definizione discontinui; modelliamo allora il tributario entrante i-esimo(1,...,n) per mezzo di una sorgente VBR di tipo ON-OFF, la 
+	   cui caratterizzazione e data da due parametri: {frequenza di picco Pi[bit/s]} e {frequenza media Ai[bit/s]}, avendo inoltre ipotizzato flussi tributari di uguale capacita allora:
+
+
+								Pi = Ft              i = 1,...,n
+
+
+	 inoltre, un dimensionamento corretto del multiplatore richiede che la capacita disponibile in uscita non sia inferiore a quella media complessiva richiesta da tutti i flussi 
+	   tributari, e quindi la seguente relazione deve essere sempre vera:
+
+
+								
+                                                                        n
+								Fm >= sommatoria Ai 
+	     								i = 1
+
+
+	 un aspetto critico del multiplatore statico e determinare la capacita del collegamento uscente in funzione delle caratteristiche delle sorgenti, in modo tale che le sue prestazioni
+           siano accettabili; se tutti i tributari sono caratterizzati dagli stessi parametri, cioe frequenza media A e frequenza di picco P = Ft, inoltre, che il collegamento uscente
+	   dal multiplatore abbia una capicita multipla con fattore c della frequenza di ogni tributario, cioe
+
+
+								Fm = c * Ft = c * P
+
+
+	 assumendo l'indipendenza statica delle sorgenti, la probabilita Pk di avere k tra le n sorgenti contemporaneamente attive e semplicemente data dalla distribuzione binomiale
+
+                                                                      _   _
+                                                                     |  n  |
+								Pk = |     |B^k(1 - B)^n-k
+								     |_ k _| 
+
+
+	 in assenza di memoria, si puo determinare la probabilita di perdita Xp di UI, evento che si verifica quando una sorgente attiva non trova disponibilita di trasmissione sulla linea
+	   uscente; chiaramente cio accade quando le sorgenti contemporaneamente attive sono piu di c e quindi:
+
+									n
+								Xp = sommatoria Pk
+								       k = c+1	
+
+
+
+	 l'intensita del traffico in uscita e espressa come:
+
+								As = (1 - Xp)Ao
+
+
+
+	 poiche c indica anche il massimo numero delle sorgenti attive contemporaneamente che trovano posto sul anale di uscita, allora definiamo S = n/c come il 
+	   "fattore di sottodimensionamento" del multiplatore rispetto a una capacita massima in uscita di Fm = n * Ft; quest'ultima condizione corrisponde a garantire che tutte le UI
+	   generate dai tributari trovino sempre posto nel flusso uscente, il nostro obbiettivo e: 
+
+	      ---SAPER SCEGLIERE IL MASSIMO LIVELLO DI SOTTODIMENSIONAMENTO CHE POSSO GARANTIRE LA QUALITA DE SERVIZIO DESIDERATA, DATO DAL FATTORE DI BURSTINESS DELLE SORGENTI---
+
+
+	 la valutazione numerica appena effettuata non tiene comunque conto della quantita di tempo per cui ogni sorgente attiva tiene impegnato il canale uscente del multiplatore;
+	   per tener conto di cio, utilizziamo ora un modello a coda di tipo M/M/1/L, che rappresenta il funzionamento di un MULTIPLATORE STATICO CONTINUO dotato di buffer con capacita
+	   di L UI, i parametri di traffico che andiamo qui a considerare sono la frequenza media Fui(s^-1) con cui le UI sono offerte al multiplatore e la lunghezza media Lm(bit) delle UI
+	   il traffico offerto al multiplatore e quindi espresso da:
+
+
+					Ao = Lm * Fui [bit/s]     che nell'espressione adimensionale in Erlang diventa --->       Ao = Lm * Fui / Fm [Erl] 
+
+
+	 kleinrock ---> "https://it.wikipedia.org/wiki/Teoria_delle_code"
+
+                 _______________________________________________________________________________________________
+		|Ao        | L = 0       | L = 1       | L = 2       | L = 4        | L = 8       | L = 16      |
+	        |__________|_____________|_____________|_____________|______________|_____________|_____________|
+		|0,01      |9,9 * 10^-3  |9,9 * 10^-5  |9,9 * 10^-7  |9,9 * 10^-11  |9,9 * 10^-19 |9,9 * 10^-35 |
+		|__________|_____________|_____________|_____________|______________|_____________|_____________|
+		|0,05      |4,8 * 10^-2  |2,4 * 10^-3  |1,2 * 10^-4  |3,0 * 10^-7   |1,9 * 10^-12 |7,2 * 10^-23 |
+		|__________|_____________|_____________|_____________|______________|_____________|_____________|																		|
+		|0,10      |9,1 * 10^-2  |9,0 * 10^-3  |9,0 * 10^-4  |9,0 * 10^-6   |9,0 * 10^-10 |9,0 * 10^-18 |
+		|__________|_____________|_____________|_____________|______________|_____________|_____________|																		|
+		|0,50      |3,3 * 10^-1  |1,4 * 10^-1  |6,6 * 10^-2  |1,5 * 10^-2   |9,8 * 10^-4  |3,8 * 10^-6  |
+		|__________|_____________|_____________|_____________|______________|_____________|_____________|																		|
+		|0,90      |4,7 * 10^-1  |3,0 * 10^-1  |2,1 * 10^-1  |1,3 * 10^-1   |5,9 * 10^-2  |2,0 * 10^-2  |
+		|__________|_____________|_____________|_____________|______________|_____________|_____________|																		|
+																		
+
+
+	facendo invece riferimento a un MULTIPLATORE STATICO A SLOT, quindi con UI a lunghezza constante di Lc bit, possiamo considerare il modello M/D/1, che assume un tempo di 
+	  trasmissione constante e ipotizza che la capacita di memoria nel multiplatore sia infinita; in base a questo modello, il traffico smaltito(throughput) coincide con il 
+	  traffico offerto e la sua intensita, espressa in bit/s e data da:
+
+				As = Ao = Lc * Fui [bit/s]  che nell'espressione adimensionale in Erlang diventa ---> As = Ao = Lc * Fui / Fm [Erl]
+
+
+	 poiche il traffico smaltito normalizzato cosi definito assume valori nell'intervallo di tempo (0,1), esso viene anche indicato come FATTORE DI UTILIZZAZIONE dell'apparecchiatura
+	   con il simbolo Y e rappresenta anche la quota parte di tempo in cui la linea uscente dal multiplatore e attiva; utilizzano il modello a coda M/D/1, il tempo medio di 
+	   attraversamnto del multiplatore statistico a slot e dato dall'espressione:
+
+
+				T = Lc / Fm + Y / 2(1 - Y) * Lc / Fm
+
+	 in cui al tempo di trasmissione Lc/Fm dell'UI si aggiunge il tempo di attesa richiesto per completare la trasmissione delle UI ricevute in precedenza dal multiplatore, ma non 
+	   ancora trasmesse
+
+
+
+
+REALIZZAZIONE DI MULTIPLAZIONE TDM:
+    ---> la realizzazione di uno specifico meccanismo di multiplazione TDM si basa sulla definizione di due aspetti fondamentali di coordinamneto degli apparati di multiplazione e 
+	   demultiplazione, e cioe DELIMITAZIONE delle singole UI trasmesse sul canale e il loro INDIRIZZAMENTO; per quanto riguarda il primo aspetto, il multiplatore trasmette 
+	   la sequenza delle UI emesse dalle varie sorgenti una dopo l'altra, senza soluzione di continuita; ne consegue che il demultiplatore riceve una sequenza indistinta di bit
+	   dalla quale devono essere estratte le singole UI; da cio nasce la necessita di coordinamneto tra multiplatore e demultiplatore per risolvere il problema della delimitazione
+	   delle UI trasmesse sul canale; una volta ricevute e individuate, le UI devono essere distribuite ognuna alla propria destinazione cosi come indicato dall'operazione di 
+	   indirizzamneto la specifica tecnica di multiplazione viene definita viene definita in base alla soluzione adottata per la delimitazione e l'indirizzamneto dell UI 
+
+	 i tipi di multiplazione a divisione di tempo che oggi vengono utilizzati sono essenzialmente due: MULTIPLAZIONE SINCRONA e MULTIPLAZIONE ASINCRONA
+
+
+			S-TDM:  multiplazione sincrona
+			    ---> consiste sostanzialmente in una multiplazione di tipo deterministico con adozione di opportune tecniche per attuare delimitazione e indirizzamento delle UI;
+				   e quella che viene impiegata nelle reti a commutazione di circuito; l'asse dei tempi e diviso in slot organizzati in una struttura di trama di durata
+			   	   T che si ripete indefinitivamente nel tempo. la struttura di trama viene riconosciuta in recezione dal demultiplatore perche il multiplatore trasemtte
+				   un opportuno codice codice all'inizio di ogni trama(informazione di ALLINEAMENTO); a seconda delle soluzioni implementative questo codice puo occupare
+				   uno slot intero o meno; poiche la struttura della trama e nota a priopri a multiplatore e demultiplatore, il riconoscimento dell'informazione di 
+				   allineamento in ricezione, una volta effettuato, consente di individuare in modo IMPLICITO i confini tra gli slot e quindi di identificare le UI 
+				   via via ricevute; in genere, il numero di slot disponibili per informazioni di utente e uguale a numero N delle coppie sorgente-destinazione, cosi che
+				   ogni coppia ha a disposizione uno slot per il traferimento di un UI; tipicamente la coppia i-esima ha sempre a disposizione lo slot i-esimo nella
+				   trama N + 1 slot, dei quali il primo svolge funzioni di allineamento; dunque il meccanismo d'indirizzamento e IMPLICITO poiche il multiplatore utilizza
+				   lo slot i per per la trasmisione dell'UI della sorgente i e il demultiplatore, una volta realizzato l'allineamento con la trama entrante, opera trama
+				   per trama consegnando l'UI dello slot i alla destinazione i; si noti che l'assegnazione deterministica della stessa posizione di trama a una  specifica 
+				   coppia  sorgente-destinazione assicura che il trasferimento avvenga con ritardo costante
+
+
+				parametri che descrivono un sistema di multiplazione S-TDM:
+				
+						Lc = numero i bit trasmessi per slot (bit)
+						Fc = capacit di ogni tributario in ingresso (bit/s)
+						La = numero di bit per trama addizionali rispetto all'informazione di utente(bit)
+						Fa = capacita addizionale del multiplatore utilizzata per il servizio(bit/s)
+						Lm = numero di bit per trama(bit)
+						Fm = capacita in uscita dal multiplatore(bit/s)
+						ts = tempo di trasmissione di un bit in uscita dal multiplatore(s)
+						N = numero di slot di utente per trama
+
+
+	Fm = Lm / ts = N * Lc + La / ts = N * Fc + Fa   ---> il flusso in uscita da un multiplatore sara dato dalla somma dei flussi dei tributari in ingresso e della capacita addizionale
+							       utilizzata per servizio
+
+
+	Fc = Lc / ts
+
+inoltre il tempo di trasmissione di ogni bit in unscita dal multiplatore e semplicemente dato dall'inverso della capacita totale del multiplatore, cioe ts = 1/Fm; i sitemi di multiplazione 
+  piu complessi e possibile allocare ai tributari una capacita variabile, a condizione che la somma delle capacita allocate alle singole coppie sorgente-destinazione non ecceda la capacita
+  di canale multiplato; se si opera con SOVRAMULTIPLAZIONE, si possono allocare piu slot per trama a una, specifica coppia sorgente-destinazione; se per esempio gli slot allocati sono n,
+  allora la capacita allocata alla coppia sara:
+		
+							F-over = n * Lc / ts    n = 1,...,N-1
+
+se si opera con SOTTOMULTIPLAZIONE, si puo alocare a una specifica coppia sorgente-destinazione una frazione di slot, cioe uno specifico insieme di bit il cui numero e inferiore a Lc; se
+  per esempio i bit allocati sono m, allora la capacita allocata sara:
+
+							F-sub = m / ts          m = 1,...,Lc-1   
+
+
+			A-TDM: multiplazione asincrona
+			    ---> si adotta il principio della multiplazione statistica, in quanto le sorgenti d'informazione sono tipicamente di tipo intermittente con fattore di 
+				   burstiness B < 1, in cui cioe la frequenza media di bit emessi dalla sorgente e significativamente piu piccola della frequenza di cifra con cui le UI
+				   vengono emesse dal multiplatore(quando la sorgente e attiva); questo tipo di multiplazione viene adottato nelle reti a commutazione di pacchetto;
+			   	   nella multiplazione asincroa A SLOT, non esiste alcuna struttura di trama periodica e l'allocazione della capacita del canale alle sorgenti per la 
+	 			   trasmissione delle UI da queste generate avviene in modo statistico; sebbene per unita di durata costante(quella consentita dalla capacita del canale	
+				   in un tempo di slot); anche in questo caso quindi la delimitazione delle UI e IMPLICITA, poiche il demultiplatore sincrona, l'assenza di una struttura
+				   di trama non consente d'inviare periodicamente un'informazione di allineamento; si rende quindi necessario utilizzare un codice opportuno all'inizio
+				   di ogni UI per trasferire l'informazione di allineamento;
+				
+				 nella multiplazione asincrona CONTINUA non si attua alcuna divisione a priori dell'asse dei tempi e il multiplatore puo trasmettere UI con istante di 
+				   inizio trasmissione completamente arbitrario; ne consegue che ora le unita informative avranno in generale una lunghezza variabile, non essendo la loro
+				   trasmissione vincolata a essere espletata in un tempo constante; in questo caso la delimitazione delle UI deve essere necessariamente ESPLICITA, cioe
+				   deve essere eseguita per ogni UI, per per esempio mediante un opportuno codice da porre  in testa all'UI
+
+				 per quanto riguarda l'indirizzamento delle UI nella multiplazione asincrona, questo deve essere necessariamente ESPLICITO, cioe con le necessarie 
+				   informazioni nell'UI stessa, in quanto l'allocazione statistica del canale alle sorgenti non consente di conoscere A PRIORI le destinazione di ogni UI
+
+				 la tecnica A-TDM, non avendo esclusivita di utilizzazione di capacita, implica le possibilita di contese di utilizzazione; cio comporta che una UI sia 
+				   trasmessa subito se le risorse sono disponibili, oppure sia memorizzata; e per questo motivo che sono previste delle unita di memoria nei nodi di rete
+				   nei quali sono attestati i sistemi di multiplazione(la necessita del buffer); in questo caso i ritardi di trasmissione sono variabili(dipendono
+				   dalle UI fia in attesa delle disponibilita della stessa risorsa trasmissiva) e si puo anche avere perdita di UI in presenza di saturazione del buffer
+				   in coclusione, la tecnica di multiplazione A-TDM consente di ottimizzare l'utilizzazione della capacita del canale trasmissivo in presenza di sorgenti
+			           di tipo intermittente, anche se cio implica limitazioni nelle prestazioni di trasferimento in rete in termini di ritardo di trasferimento variabile e 
+				   possibile perdita di UI   
+
+	 
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+								
+
+	
+
+								
+
+											
+	
+				 
+  
+ 
 
 		
 								  
