@@ -41,9 +41,8 @@ while true; do
         source linux/connessione/connessione.sh
         break
 
-    elif [ "$risposta" = "lavoro" ]; then
-        clear
-        break
+    elif [ "$risposta" = "appunti"]; then
+        source appunti/reti_e_internet/reti.sh
 
     elif [ "$risposta" = "-h" ]; then
         clear

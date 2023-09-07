@@ -45,15 +45,16 @@ if "%nome%" == "novita" (
 
 ) else if "!nome!" == "appunti" (
     call appunti\reti_e_internet\reti.bat
+
+) else if "%nome%" == "matematica" (
+    call appunti\math.bat
+
 ) else if "%nome%" == "-h" (
     type help.txt
     pause
     goto :inizio
 
 ) else (
-    cls
-    echo usa -h
-    timeout /t 2
     goto :inizio
 )
 

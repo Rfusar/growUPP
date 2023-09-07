@@ -1,0 +1,46 @@
+COLLEGAMENTO PUNTO-PUNTO:
+    ---> il trasferimento di UI tra apparecchiature di rete direttamente connesse l'una all'altra si svolge in conformita a un insieme di regole che definiscono 
+	   il PROTOCOLLO DI COMMUNICAZIONE, la necessita di prevenire errori oppure se presenti come gestirli a scaturito ha dato origine a "automatic repeat request(ARQ)", descriviamo 
+	   in particolare due tipi di protocollo per comunicazione su linea PUNTO-PUNTO:
+
+
+		S&W:    Stop and Wait
+		     ---> il trasmettitore invia un UI e aspetta il riscontro prima di emetterne un'altra ---> consiste nel'effettuare la trasmissione di un UI e attendere
+		  	    il riscontro(acknowledgment) da parte del riceveneteprima di trasmettere una successiva, questo protocollo, come tutti i protocolli basati sul
+			      principio della trasmissione di UI con riscontro, prevede che il trasmetitore conservi nel prorpio BUFFER DI RIRTASMISSIONE, l'UI trasmessa fino 
+			      alla ricezione del relativo riscontro positivo
+
+
+
+		per rendere possibile una valutazione quantitativa dell'efficienza di trasmissione di un protocollo, si rende necessario definire i seguenti parametri:
+
+
+
+			PARAMETRI = {
+				
+				"tu" : tempo di trasmissione di un UI[s],
+				"Ta" : tempo di trasmissione di un riscontro[s]
+				"Tp" : tempo di elaborazione di un'UI[s]
+				"t" : tempo di propagazione[s]
+				"C" : frequenza di cifra/capacita del collegamento[bit/s]
+				"Lu" : lunghezza di un UI[bit]
+				"La" : lunghezza di un riscontro[bit]
+				"d" : estenzione del collegamento[m]
+				"v" : velocita di propagazione sul collegamento[m/s]  
+			}
+
+		-IN ASSENZA DI ERRORI:
+		    ---> la prima UI viene trasmessa dalla stazione A, che si pone in attesa di un riscontro da parte di B prima di trasmetterene una seconda, ovviamente le UI in attesa
+			   di trasmissione vengono immagazzinate nel buffer di trasmissione 
+
+			 A trasmette un'UI a B, impiegando un tempo "Tu = Lu/C", il primo bit sara ricevuto a "t" sencondi dopo l'inizio della trasmissione e l'UI sara completamente 
+			   ricevuta al tempo "tempo = Tu + t"; B impiega un tempo uguale a "Tp" per controllare l'UI ricevuta, dopodiche inizia a trasmettere un riscontro, che completa
+			   in un intervallo di tempo "Ta" 
+
+
+
+			 
+
+
+				ARQ continuous
+				    ---> e emessa la trasmissione continua di UI che vengono opportunamente numerate

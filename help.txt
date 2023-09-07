@@ -25,10 +25,10 @@
 
 
 
--novita              -voglioCreare                -studiamo                 -internet
+-novita         -voglioCreare            -studiamo          -internet         -appunti
 
 
-        -comeva?                    -giochiamo [ -a ]           -lavoro          -chatGPT
+        -comeva?           -giochiamo [ -a ]         -lavoro          -chatGPT            -matematica
 
 
 
