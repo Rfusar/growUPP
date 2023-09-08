@@ -18,7 +18,7 @@ COLLEGAMENTO PUNTO-PUNTO:
 
 			PARAMETRI = {
 				
-				"tu" : tempo di trasmissione di un UI[s],
+				"Tu" : tempo di trasmissione di un UI[s],
 				"Ta" : tempo di trasmissione di un riscontro[s]
 				"Tp" : tempo di elaborazione di un'UI[s]
 				"t" : tempo di propagazione[s]
@@ -35,12 +35,141 @@ COLLEGAMENTO PUNTO-PUNTO:
 
 			 A trasmette un'UI a B, impiegando un tempo "Tu = Lu/C", il primo bit sara ricevuto a "t" sencondi dopo l'inizio della trasmissione e l'UI sara completamente 
 			   ricevuta al tempo "tempo = Tu + t"; B impiega un tempo uguale a "Tp" per controllare l'UI ricevuta, dopodiche inizia a trasmettere un riscontro, che completa
-			   in un intervallo di tempo "Ta" 
+			   in un intervallo di tempo "Ta", anche in questo caso la velocita di propagazione finale del segnale sul collegamento causa un ulteriore ritardo "t", cosi che A
+			   finisce di ricevere il riscontro al tempo "tempo = Tu + Tp + Ta + 2t". Dopo un ulteriore ritardo di elaborazione in A per il controllo del riscontro ricevuto,
+			   assunto uguale a quello di "Tp" che caratterizza l'elaborazione dell'UI in ricezione, la stazione stessa puo iniziare a trasmettere un'altra UI, che viene 
+			   successivamente riscontrata.
 
+			 Possiamo quindi esprimere il TEMPO DI RITARDO complessivo "Ttot" richeiesto per trasferire un predeterminato numero di UI tra due stazioni, come il tempo che 
+			   intercorre dall'inizio della trasmissione della prima UI alla completa ricezione ed elaborazione del riscontro dell' ultima UI. Se "T1" indica il tempo necessario
+			   a trasferire un'UI e "Nu" e il numero di IU da trasferire(assunte di lunghezza costante), allora:
+
+
+								Ttot = Nu * T1 = Nu(Tu + Ta + 2Tp + 2t) = Nu(Lu/C + La/C + 2Tp + 2d/v)
+
+			 un parametro molto significativo nell'ambito dei protocolli per il trasferimento punto-punto e PARAMETRI["a"] = tempo di propagazione normalizzato
+
+
+								a = t/Tu = d/v / Lu/c = d * C / Lu^v
+
+			 esprimiamo ora l'EFFICIENZA "Eff" del protocollo S&W in assenza di errori, definendo questo parametro come la quota parte di tempo nel quale il collegamento di
+			   A e B e impiegato in trasmissioni, assumendo che A abbia sempre almeno'UI in attesa di trasimissione, apllicando la definizione, si ottiene la seguente 
+			   espressione per "Eff":
+ 
+								Eff = Tu / Tu + Ta + 2Tp + 2t
+
+			 un'espressione ancora piu semplice e immediata, anche se approsimata, si ottiene assumendoo che il tempo di elaborazione sia molto piccolo e il riscontro sia
+			   composto da pocchissimi bit rispetto alla lunghezza del UI, cosi che Tp = Ta ~ 0. Allora:
+
+								Eff ~ Tu / Tu + 2t = 1 / 1 + 2a
+
+			 questa espressione consente di affermare che l'efficienza del protocollo e tanto piu alta quanto piu si riduce il parametro "a". Cio implica che su un dato 
+			   collegamento aumento di efficienza puo essere ottenuto aumentando la lunghezza "Lu" dell'UI, a parita di frequenza di cifra "C", naturalmente il solo
+			   aumento della frequenza di cifra a parita della lunghezza dell'UI implica una diminuzione di efficienza. nel caso limite di UI a lunghezza infinita, la 
+			   l'efficienza diventa unitaria. L'efficienza di utilizzazione di un collegamento dati viene anche espressa in bit/s con riferimento alla qualita di dati 
+			   effetivamente trasferita(THROUGHPUT) e si calcola:
+
+								THR = Eff * C[bit/s]
+
+
+
+		-CON ERRORI:
+		    ---> si consideri ora il caso in cui la trasmissione di un UI, o del relativo riscontro, non si priva di errori, si noti che nei protocolli ARQ uno o piu errori 
+			   possono essere solo relativi, ma non corretti. Quindi la ricezione di un'UI affetta da errori determina solo lo scarto dell' unita stessa, non potendo il 
+			   il ricevente determinare quale fosse l'unita originariamente trasmessa. nel protocollo S&W dovra dunque essere definito un meccanismo, denominato TIME-OUT
+			   che indica quando ritrasmettere l'unita informativa che non sia stata riscontrata correttamente, a causa dello scarto per errore dell'UI originaria o del 
+			   relativo riscontro. 
+
+			 PARAMETRI["To"] = time-out, provvedera a ristrasmettere la stessa UI, immagazzinata del buffer di ritrasmissione
+
+								To >= Ta + 2Tp + 2t
+
+			 nell'ipotesi di tempo di elaborazione e di trasmissione del riscontro trascurabili (Tp = Ta ~ 0) diventa
+
+								To >= 2t
+
+			 si osservi che la seconda trasmissione dell'UI avrebbe richiesto lo stesso tempo anche se l'errore avesse colpito l'unita informativa invece del riscontro,
+			   in questo caso B non puo inviare alcun riscontro e quindi A applica lo stesso mecanismo di time-out per ripetere la trasmissione
+
+		i due casi appena discussi di errore sull'UI o sul riscontro hanno tuttavia una diversa conseguenza sul corretto funzionamento del protocollo, infatti, se l'errore 
+		  colpisce l'UI, la seconda trasmissione ha come conseguenza la corretta ricezione dell'UI da parte di B. invece se e il riscontro ad essere corrotto, alla fine della
+		  ritrasmissione B si trovera ad aver ricevuto due volte la stessa UI. Si noti che, in generale, si ritiene inapplicabile una procedura che preveda il controllo di 
+		  ugualianza bit a bit di UI ricevute conseguentemente nella stazione ricevente o di un analogo controllo dei riscontri nella stazione trasmittente. 
+		B considererebbe erroneamente di aver ricevuto due UI consecutive. in questo caso, la correttezza del protocollo S&W viene ripristinata adottando un meccanismo di
+		  NUMERAZIONE DELLE UI a un bit a omdo alternato, nel senso che se l'evntuale controllore ricevesse due UI con 0-0 oppure 1-1, lo riterrebbe errore 
+
+		possiamo ora valutare l'efficienza del protocollo S&W, in questo caso di presenza di errori di trasmissione, assumendo che gli eventi di errore sui singoli bit siano 
+		  mutuamente indipendenti:
+
+		PARAMETRI["p"] = probabilita di errore sul singolo bit
+		PARAMETRI["P"] = probabilita di errore nella trasmissione di un'UI
+		PARAMETRI["aI"] = probabilita di successo alla trasmissione i-esima di un'UI
+		PARAMETRI["Ns"] = numero medio di tentativi di trasmissione per UI ricevuta con successo
+
+
+
+				P = 1 - (1 - p)^Lu + La
+
+		si calcola ora il numero medio Ns di tentativi di trasmissioneper UI trasmessa, esprimendo la probabilita aI di successo all'i-esimo tentativo di trasmissione per mezzo 
+		  della probabilita P di trasmissione senza successo e della probabilita completamentare di insuccesso 1- P, cioe:
+
+
+					infinito	    infinito                              infinito
+				Ns = sommatoria i * aI = sommatoria i * P^i-1 * 1 - P = 1 - P * sommatoria i * P^i-1 = 1 / 1 - P
+					i = 1               i = 1                                  i = 1
+
+					 _______________________________________________________________________________________
+					|LA DERIVATA DELLA SERIE GEOMETRICA: 						        |
+					|		                   						        |
+					|		   infinito                     infinito                                |
+					|		sommatoria x^i = 1 / 1 - x == sommatoria i * x^i-1 = 1 / (1 - x)^2      |
+					|		   i = 0                         i = 0                                  |
+					|_______________________________________________________________________________________|
+
+		il tempo complessivo di trasferimento con successo di un UI di lunghezza Lu bit lungo un collegamento, per una data probabilita "p" di errore sul bit, quindi:
+
+
+				Ttot = (Ns - 1)(Tu + To )+ Tu + Ta + 2Tp + 2t
+
+
+		infatti solo l'ultima delle "Ns" trasmissioni ha successo, mentre per tutti i tentativi precedenti interviene il meccanismo di time-out, analogamente a quanto fatto nel 
+		  caso di procollo S&W in assenza di errori, calcoliamo ora l'efficienza del protocollo tenendo conto dei possibili eventi di errore. questa e data come sempre dal rapporto
+		  tra il tempo speso in trasmissione di dati con successo, cioe il tempo di trasmissione "Tu" dell'UI e il tempo totale "Ttot" richiesto per completare la trasmissione:
+
+
+				Eff = Tu / Ttot = Tu * 1 - p / Tu + To * P + (Ta + 2Tp + 2t)(1 - P) 
+
+
+		per calcolare il massimo valore di efficienza del collegamento ci poniamo alla condizione limite nella quale il time-out scatta esattamente all'istante in cui avrebbe 
+		  dovuto essere ricevuto il riscontro in assenza di errori
+
+
+				To = Ta + 2Tp + 2t
+
+
+		di conseguenza:
+
+
+				Eff = Eff-max = Tu * 1 - P / Tu + Ta + 2Tp + 2t
+
+
+		infine assumendo "Ta = Tp ~ 0", si ottiene la seguente espressione:
+
+			
+				Eff-max = 1 - P / 1 + 2a
+
+		appare evidente com l'efficienza del protocollo sia fortemente legata al valore "To" del time-out che viene selezionato; infatti la massima efficienza del protocollo S&W
+ 		  e stata calcolata assumendo il minimo valore del time-out compatibile con il funzionamento corretto del protocollo stesso, occore osservare che il parametro "Tp", tempo 
+		  di elaborazione  dell'UI, in realta non e fisso, ma dipende dalle caratteristiche della stazione ricevente e sopprattutto dal carico  di lavoro della stazione stessa
+		  al momento della ricezione dell'UI o del riscontro; in alcuni casi l'efficienza puo diventare molto bassa, come nel caso di collegamenti molto lunghi come quelli via 
+		  satellite, o di un ricevitore particolarmente lento o comunque non controllabile
+
+		
+ 
 
 
 			 
 
 
 				ARQ continuous
-				    ---> e emessa la trasmissione continua di UI che vengono opportunamente numerate
+				    ---> e emessa la trasmissione continua di UI che vengono opportunamente numerate 

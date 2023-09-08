@@ -9,7 +9,7 @@ set "numero_ping=5"
 REM Test di ping
 echo Test di ping verso %server%...
 ping %server% -n %numero_ping%
-timeout /t 5
+
 
 REM Traceroute (tracert)
 echo Traceroute verso %server%...
