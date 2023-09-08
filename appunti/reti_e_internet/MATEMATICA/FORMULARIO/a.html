@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="a.css">
+    <title>FORMULE</title>
+</head>
+
+<body>
+
+    <h1>FORMULARIO</h1>
+
+    <div>
+        <p> <span class="incognita">lunghezza d'onda</span> = velocita[m/s] / frequenza[s<sup>-1</sup>] </p>
+        <p>frequenza media(bit/s) / frequenza di picco = <span class="incognita">fattore di burstiness</span> |
+            OPPURE(non so perchè) | frequenza di picco / frequenza media = <span class="incognita">fattore di
+                burstiness</span></p>
+        <p><span class="incognita">ritardo totale di trasferimento</span> = tempo di trasferimento + tempo di
+            propagazione</p>
+        <p><span class="incognita">ritardo totale di trasferimento[nodo X e nodo Y]</span> =
+            <br>tempo di trasferimento[nodo X] + tempo di propagazione[nodo X] =
+            <br>numero di bit / frequenza di trasmissione[nodo X] + tempo di propagazione[nodo X]
+            <br><br>Tx-y = Ttx + tx = nbit / Fx + tx
+        </p>
+        <p><span class="incognita">ritardo totale di trasferimento[nodo X e nodo Y e nodo Z]</span> =
+            <br>tempo di trasferimento[nodo X] + tempo di propagazione[nodo X] + tempo di elaborazione[nodo Y] + tempo
+            di trasferimento[nodo Y] + tempo di propagazione[nodo Y] =
+            <br>numero di bit / frequenza di trasmissione[nodo X] + tempo di propagazione[nodo X] + tempo di
+            elaborazione[nodo Y] + numero di bit / frequenza di trasmissione[nodo Y] + tempo di propagazione[nodo Y]
+            <br><br>Tx-z = Ttx + tx + Tpy + Tty + ty = nbit / Fx + tx + tpy + nbit / Fy + ty
+        </p>
+        <p><span class="incognita">Erlang</span> = throughput / capacita di rete</p>
+        <p><span class="incognita">tasso di errore sul bit</span> = numero di bit ricevuti / numero di bit trasmessi</p>
+        <p><span class="incognita">tasso di perdita di UI</span> = numero di UI perse o consegnate errate / numero di UI
+            trasmesse</p>
+        <p><span class="incognita">tempo di ritardo</span> = tempo di trasmissione + tempo di propagazione + (<math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <munderover>
+                    <mo>&#x2211;</mo> <!-- Simbolo di sommatoria (∑) -->
+                    <mrow>
+                        <mi>i</mi>
+                        <mo>=</mo>
+                        <mn>1</mn>
+                    </mrow>
+                    <mi>N Nodi</mi> <!-- Limite superiore della sommatoria -->
+                </munderover>
+            </math>tempo di elaborazione + tempo di memorizzazione + tempo di trasmissione + tempo di propagazione)</p>
+        <p><span class="incognita">valore medio dell'intensità del traffico in ingresso</span> =
+            numero di flussi che costituiscono traffico offerto(in ingresso) * sorgente con valore di burstiness *
+            frequenza di picco(sorgente)[bit/s]
+        </p>
+        <p><span class="incognita">fattore di concentrazione</span> = numero di flussi che costituiscono traffico
+            offerto(in ingresso) * frequenza di picco(sorgente)[bit/s] / flusso in uscita[bit/s]</p>
+
+
+    </div>
+
+    <button>LUNGHEZZA D'ONDA</button>
+    <button>FATTORE DI BURSTINESS</button>
+    <button>RITARDO TOTALE DI TRAFERIMENTO</button>
+    <button style="background-color: rgb(9, 224, 152);">RITARDO TOTALE FRA NODI</button>
+    <button>ERLANG</button>
+    <button>TASSO DI ERRORE SUL BEAT</button>
+    <button>TASSO DI PERDITA DELL'UI</button>
+    <button>TEMPO DI RITARDO</button>
+    <button>valore medio dell'intensità del traffico in ingresso</button>
+    <button>FATTORE DI CONCENTRAZIONE</button>
+
+    <div>
+        <input type="text" />
+        <input type="text" />
+    </div>
+    <div>
+        <input type="text" />
+        <input type="text" />
+    </div>
+    <div>
+        <input type="text" />
+        <input type="text" />
+    </div>
+    <div>
+        <input type="text" />
+        <input type="text" />
+    </div>
+
+    <p id="risultato"></p>
+
+
+
+    <script src="a.js"></script>
+</body>
+
+</html>

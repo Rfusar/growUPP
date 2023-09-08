@@ -33,10 +33,10 @@ if errorlevel 4 (
     start msedge "https://youtube.com/playlist?list=PLRJuRxIsYMUX3iSmvyWPdKFaCooL455YQ"
 
 ) else if errorlevel 2 (
-    start msedge "https://youtu.be/-TkoO8Z07hI"
+    start msedge "https://youtube.com/playlist?list=PLFk1_lkqT8MbVOcwEppCPfjGOGhLvcf9G"
    
 ) else if errorlevel 1 (
-    start msedge "https://youtube.com/playlist?list=PLFk1_lkqT8MbVOcwEppCPfjGOGhLvcf9G"
+    start msedge "https://youtu.be/-TkoO8Z07hI"
 
 ) else (
     goto :start

@@ -19,11 +19,11 @@ void status(char nome[], int vita, int forza, int difesa){
 
 
 //Menu Lotta
-void risultato(int a, int b, char nomeNemico[], char nomeGiocatore[], int attNem, int attGio, int difNem, int difGio){
+void risultato(int a, int b, char nomeNemico[], char nomeGiocatore[], int attNem, int attGio, int difNem, int difGio, char livello[]){
   if (a > 0){
-  
-    printf("																%s:%d\n", nomeNemico, a);
     
+    printf("\nliv: %s",livello);
+    printf("																%s:%d\n", nomeNemico, a);
     printf("\n*********************************************************************************************************************************");
     printf("\n				                   										       ");
     printf("\n	Att: %d		                   										               ", attNem);  
@@ -54,9 +54,10 @@ void risultato(int a, int b, char nomeNemico[], char nomeGiocatore[], int attNem
     
    
     
-    int vitaGiocatore = 100, forzaGiocatore = 1000, difesaGiocatore = 30;
+    int vitaGiocatore = 100, vitaGiocatoreTOT = 100, forzaGiocatore = 50, difesaGiocatore = 30;
     
-    int monete = 0, xp = 0, liv = 0;
+    int monete = 0, xp = 0;
+    char *liv = "[-----]";
     
     int TRU = 1;
     
@@ -82,7 +83,7 @@ void risultato(int a, int b, char nomeNemico[], char nomeGiocatore[], int attNem
         printf("\n				                   										 ");	
         printf("\n				                   										 ");
         printf("\n---------------------------------------------------------------------------------------------------------------------------------");
-        printf("\n	COSTI	= 30		                   										 ");
+        printf("\n	COSTO	= 30		                   										 ");
         printf("\n				                   										 ");
         printf("\n	A1: ATT -10%%			                   										 ");	
         printf("\n	A1: DIF -10%%			                   										 ");	
@@ -115,7 +116,7 @@ void risultato(int a, int b, char nomeNemico[], char nomeGiocatore[], int attNem
         else if (strcmp(acquisto, "1C")==0 && monete >= 10){
           monete -= 10;
           if (monete < 0){}
-          vitaGiocatore = (vitaGiocatore * 150) / 100;
+          vitaGiocatoreTOT = (vitaGiocatoreTOT * 150) / 100;
           printf("\n\n\nacquisto effettuato");
         }
       
@@ -128,13 +129,13 @@ void risultato(int a, int b, char nomeNemico[], char nomeGiocatore[], int attNem
         else if (strcmp(acquisto, "2B")==0 && monete >= 50){
           monete -= 50;
           if (monete < 0){}
-          forzaGiocatore = (forzaGiocatore * 200) / 100;
+          difesaGiocatore = (difesaGiocatore * 200) / 100;
           printf("\n\n\nacquisto effettuato");
         }
         else if (strcmp(acquisto, "2C")==0 && monete >= 50){
           monete -= 50;
           if (monete < 0){}
-          forzaGiocatore = (forzaGiocatore * 200) / 100;
+          vitaGiocatoreTOT = (vitaGiocatoreTOT * 200) / 100;
           printf("\n\n\nacquisto effettuato");
         }
       
@@ -147,13 +148,13 @@ void risultato(int a, int b, char nomeNemico[], char nomeGiocatore[], int attNem
         else if (strcmp(acquisto, "3B")==0 && monete >= 100){
           monete -= 100;
           if (monete < 0){}
-          forzaGiocatore = (forzaGiocatore * 250) / 100;
+          difesaGiocatore = (difesaGiocatore * 250) / 100;
           printf("\n\n\nacquisto effettuato");
         }
         else if (strcmp(acquisto, "3C")==0 && monete >= 100){
           monete -= 100;
           if (monete < 0){}
-          forzaGiocatore = (forzaGiocatore * 250) / 100;
+          vitaGiocatoreTOT = (vitaGiocatoreTOT * 250) / 100;
           printf("\n\n\nacquisto effettuato");
         }
         else if (strcmp(acquisto, "A1") == 0 && monete >= 30){
@@ -225,26 +226,35 @@ int main(){
       while (vitaNemico >= 0 && vitaGiocatore >= 0) {
 	system("cls");
 
-/*
+
 	//Livello
 	if (xp > 500 ){
-          liv = 1;
-          forzaGiocatore += 30;
-          printf("liv+");
-          if ( xp > 1000 ){
-            liv = 2;
-            forzaGiocatore += 50;
-            printf("liv+");
-            if ( xp > 1500 ){
-            	liv = 3;
-            	forzaGiocatore += 100;
-            	printf("liv+");
-            }
+    liv = "[#----]";
+    forzaGiocatore += 30;
+    vitaGiocatoreTOT += 30;
+    if ( xp > 1000 ){
+      liv = "[##---]";
+      forzaGiocatore += 50;     
+      vitaGiocatoreTOT += 50;     
+      if ( xp > 1500 ){
+        liv = "[###--]";
+      	forzaGiocatore += 100;
+        if ( xp > 2000 ){
+          liv = "[####-]";
+          forzaGiocatore += 200;
+          vitaGiocatoreTOT += 200;
+          if ( xp > 3000 ){
+            liv = "[#####]";
+            forzaGiocatore += 500;
+            vitaGiocatoreTOT += 500;
+          }
+        }   	
+      } 
 	  }
-	}*/
+	}
 	
-	printf("xp: %d\t\tmonete: %d\n\nliv:%d", xp, monete, liv);	
-	risultato(vitaNemico, vitaGiocatore, nomeNemico, nomeGiocatore, forzaNemico, forzaGiocatore, difesaNemico, difesaGiocatore);
+	printf("xp: %d\t\tmonete: %d", xp, monete);	
+	risultato(vitaNemico, vitaGiocatore, nomeNemico, nomeGiocatore, forzaNemico, forzaGiocatore, difesaNemico, difesaGiocatore, liv);
 	
 	
 	const char *fulmine = "fulmine";
@@ -258,7 +268,7 @@ int main(){
 	scanf("%s", d);
 	
 	
-//Mosse	
+  //Mosse	
 	if (strcmp(d, "fulmine") == 0){
 	
 	  int rangeMinGiocatore = (forzaGiocatore * 90) / 100;
@@ -288,9 +298,11 @@ int main(){
 	      nomeNemico = "n0";  	
     	      vitaNemico = 80, forzaNemico = 20, difesaNemico = 20;
     
-              vitaGiocatore = 100, forzaGiocatore = 1000, difesaGiocatore = 30;
+              vitaGiocatore = 100, forzaGiocatore = 100, difesaGiocatore = 30;
     
-              monete = 0, xp = 0, liv = 0;
+              monete = 0, xp = 0;
+
+              liv = "[-----]";
     
               TRU = 1;
     
@@ -300,7 +312,7 @@ int main(){
 	    
 	    else if (strcmp(a, "N") == 0){ TRU = 0; i = 7;}
 	     
-	  else {risultato(vitaNemico, vitaGiocatore, nomeNemico, nomeGiocatore, forzaNemico, forzaGiocatore, difesaNemico, difesaGiocatore);}
+	  else {risultato(vitaNemico, vitaGiocatore, nomeNemico, nomeGiocatore, forzaNemico, forzaGiocatore, difesaNemico, difesaGiocatore, liv);}
 	  }
 	  
 	  
@@ -330,9 +342,10 @@ int main(){
 	      nomeNemico = "n0";  	
     	      vitaNemico = 80, forzaNemico = 20, difesaNemico = 20;
     
-              vitaGiocatore = 100, forzaGiocatore = 1000, difesaGiocatore = 30;
+              vitaGiocatore = 100, forzaGiocatore = 100, difesaGiocatore = 30;
     
-              monete = 0, xp = 0, liv = 0;
+              monete = 0, xp = 0;
+              liv = "[-----]";
     
               TRU = 1;
     
@@ -342,14 +355,14 @@ int main(){
 	    
 	    else if (strcmp(a, "N") == 0){ TRU = 0; i = 7;}
 	     
-	  else {risultato(vitaNemico, vitaGiocatore, nomeNemico, nomeGiocatore, forzaNemico, forzaGiocatore, difesaNemico, difesaGiocatore);}
+	  else {risultato(vitaNemico, vitaGiocatore, nomeNemico, nomeGiocatore, forzaNemico, forzaGiocatore, difesaNemico, difesaGiocatore, liv);}
 	  }
 	  
 	  
 	}
 	
 	else if (strcmp(d, "cura") == 0){
-	  vitaGiocatore += 1000;
+	  vitaGiocatore += vitaGiocatoreTOT / 2;
 	  
 	  int rangeMin = (forzaNemico * 10) / 100;
 	  int dannoNemico = rand() % (forzaNemico - rangeMin + 1) + rangeMin;
@@ -369,42 +382,10 @@ int main(){
 	      nomeNemico = "n0";  	
     	      vitaNemico = 80, forzaNemico = 20, difesaNemico = 20;
     
-              vitaGiocatore = 100, forzaGiocatore = 1000, difesaGiocatore = 30;
+              vitaGiocatore = 100, forzaGiocatore = 100, difesaGiocatore = 30;
     
-              monete = 0, xp = 0, liv = 0;
-    
-              TRU = 1;
-    
-              i = 0;
-              main();
-            }
-	    
-	    else if (strcmp(a, "N") == 0){ TRU = 0; i = 7;}
-	     
-	  else {risultato(vitaNemico, vitaGiocatore, nomeNemico, nomeGiocatore, forzaNemico, forzaGiocatore, difesaNemico, difesaGiocatore);}
-	  }
-	  
-	}
-	
-	
-	else if(strcmp(d, "x")== 0){
-	  vitaGiocatore = -10;
-	  if (vitaGiocatore <= 0){
-	  
-	    system("cls");
-	    printf("\n\n\nHAI PERSO");
-	    printf("\n\nvuoi giocare di nuovo? [Y/N]\t");
-	  
-	    char a[1];
-	    scanf("%s", a);
-	    if (strcmp(a, "Y") == 0){ 
-	    
-	      nomeNemico = "n0";  	
-    	      vitaNemico = 80, forzaNemico = 20, difesaNemico = 20;
-    
-              vitaGiocatore = 100, forzaGiocatore = 1000, difesaGiocatore = 30;
-    
-              monete = 0, xp = 0, liv = 0;
+              monete = 0, xp = 0;
+              liv = "[-----]";
     
               TRU = 1;
     
@@ -414,13 +395,13 @@ int main(){
 	    
 	    else if (strcmp(a, "N") == 0){ TRU = 0; i = 7;}
 	     
-	  else {risultato(vitaNemico, vitaGiocatore, nomeNemico, nomeGiocatore, forzaNemico, forzaGiocatore, difesaNemico, difesaGiocatore);}
+	  else {risultato(vitaNemico, vitaGiocatore, nomeNemico, nomeGiocatore, forzaNemico, forzaGiocatore, difesaNemico, difesaGiocatore, liv);}
 	  }
 	  
 	}
 	
 	
-      }	//while
+}	//while
     
       
       
@@ -449,9 +430,10 @@ int main(){
 	      nomeNemico = "n0";  	
     	      vitaNemico = 80, forzaNemico = 20, difesaNemico = 20;
     
-              vitaGiocatore = 100, forzaGiocatore = 1000, difesaGiocatore = 30;
+              vitaGiocatore = 100, forzaGiocatore = 50, difesaGiocatore = 30;
     
-              monete = 0, xp = 0, liv = 0;
+              monete = 0, xp = 0;
+              liv = "[-----]";
     
               TRU = 1;
     
@@ -461,7 +443,7 @@ int main(){
 	    
 	    else if (strcmp(a, "N") == 0){ TRU = 0; i = 7;}
 	     
-	  else {risultato(vitaNemico, vitaGiocatore, nomeNemico, nomeGiocatore, forzaNemico, forzaGiocatore, difesaNemico, difesaGiocatore);}
+	  else {risultato(vitaNemico, vitaGiocatore, nomeNemico, nomeGiocatore, forzaNemico, forzaGiocatore, difesaNemico, difesaGiocatore, liv);}
 	  }
 	  break;
 	  
@@ -487,9 +469,10 @@ int main(){
 	      nomeNemico = "n0";  	
     	      vitaNemico = 80, forzaNemico = 20, difesaNemico = 20;
     
-              vitaGiocatore = 100, forzaGiocatore = 1000, difesaGiocatore = 30;
+              vitaGiocatore = 100, forzaGiocatore = 50, difesaGiocatore = 30;
     
-              monete = 0, xp = 0, liv = 0;
+              monete = 0, xp = 0;
+              liv = "[-----]";
     
               TRU = 1;
     
@@ -499,7 +482,7 @@ int main(){
 	    
 	    else if (strcmp(a, "N") == 0){ TRU = 0; i = 7;}
 	     
-	  else {risultato(vitaNemico, vitaGiocatore, nomeNemico, nomeGiocatore, forzaNemico, forzaGiocatore, difesaNemico, difesaGiocatore);}
+	  else {risultato(vitaNemico, vitaGiocatore, nomeNemico, nomeGiocatore, forzaNemico, forzaGiocatore, difesaNemico, difesaGiocatore, liv);}
 	  }
     break;
           
@@ -525,9 +508,10 @@ int main(){
 	      nomeNemico = "n0";  	
     	      vitaNemico = 80, forzaNemico = 20, difesaNemico = 20;
     
-              vitaGiocatore = 100, forzaGiocatore = 1000, difesaGiocatore = 30;
+              vitaGiocatore = 100, forzaGiocatore = 50, difesaGiocatore = 30;
     
-              monete = 0, xp = 0, liv = 0;
+              monete = 0, xp = 0;
+              liv = "[-----]";
     
               TRU = 1;
     
@@ -537,7 +521,7 @@ int main(){
 	    
 	    else if (strcmp(a, "N") == 0){ TRU = 0; i = 7;}
 	     
-	  else {risultato(vitaNemico, vitaGiocatore, nomeNemico, nomeGiocatore, forzaNemico, forzaGiocatore, difesaNemico, difesaGiocatore);}
+	  else {risultato(vitaNemico, vitaGiocatore, nomeNemico, nomeGiocatore, forzaNemico, forzaGiocatore, difesaNemico, difesaGiocatore, liv);}
 	  }
 	  break;
 	  
@@ -563,9 +547,10 @@ int main(){
 	      nomeNemico = "n0";  	
     	      vitaNemico = 80, forzaNemico = 20, difesaNemico = 20;
     
-              vitaGiocatore = 100, forzaGiocatore = 1000, difesaGiocatore = 30;
+              vitaGiocatore = 100, forzaGiocatore = 50, difesaGiocatore = 30;
     
-              monete = 0, xp = 0, liv = 0;
+              monete = 0, xp = 0;
+              liv = "[-----]";
     
               TRU = 1;
     
@@ -575,7 +560,7 @@ int main(){
 	    
 	    else if (strcmp(a, "N") == 0){ TRU = 0; i = 7;}
 	     
-	  else {risultato(vitaNemico, vitaGiocatore, nomeNemico, nomeGiocatore, forzaNemico, forzaGiocatore, difesaNemico, difesaGiocatore);}
+	  else {risultato(vitaNemico, vitaGiocatore, nomeNemico, nomeGiocatore, forzaNemico, forzaGiocatore, difesaNemico, difesaGiocatore, liv);}
 	  }
 	  break;
 	  
@@ -601,9 +586,10 @@ int main(){
 	      nomeNemico = "n0";  	
     	      vitaNemico = 80, forzaNemico = 20, difesaNemico = 20;
     
-              vitaGiocatore = 100, forzaGiocatore = 1000, difesaGiocatore = 30;
+              vitaGiocatore = 100, forzaGiocatore = 50, difesaGiocatore = 30;
     
-              monete = 0, xp = 0, liv = 0;
+              monete = 0, xp = 0;
+              liv = "[-----]";
     
               TRU = 1;
     
@@ -613,16 +599,16 @@ int main(){
 	    
 	    else if (strcmp(a, "N") == 0){ TRU = 0; i = 7;}
 	     
-	  else {risultato(vitaNemico, vitaGiocatore, nomeNemico, nomeGiocatore, forzaNemico, forzaGiocatore, difesaNemico, difesaGiocatore);}
+	  else {risultato(vitaNemico, vitaGiocatore, nomeNemico, nomeGiocatore, forzaNemico, forzaGiocatore, difesaNemico, difesaGiocatore, liv);}
 	  }
 	  break;
 	  
 	case 5:
 	  nomeNemico = "Boss";
 	  if (vittoria != 1){
-	    vitaNemico = (vitaGiocatore * 20040) /100;
-	    forzaNemico = (forzaGiocatore * 20040) /100;
-	    difesaNemico = (difesaGiocatore * 20040) /100;
+	    vitaNemico = (vitaGiocatore * 2048) /100;
+	    forzaNemico = (forzaGiocatore * 2048) /100;
+	    difesaNemico = (difesaGiocatore * 2048) /100;
 	  }
 	  else{
 	    vitaNemico = 1;
@@ -647,9 +633,10 @@ int main(){
 	      nomeNemico = "n0";  	
     	      vitaNemico = 80, forzaNemico = 20, difesaNemico = 20;
     
-              vitaGiocatore = 100, forzaGiocatore = 1000, difesaGiocatore = 30;
+              vitaGiocatore = 100, forzaGiocatore = 50, difesaGiocatore = 30;
     
-              monete = 0, xp = 0, liv = 0;
+              monete = 0, xp = 0;
+              liv = "[-----]";
     
               TRU = 1;
     
@@ -659,7 +646,7 @@ int main(){
 	    
 	    else if (strcmp(a, "N") == 0){ TRU = 0; i = 7;}
 	     
-	  else {risultato(vitaNemico, vitaGiocatore, nomeNemico, nomeGiocatore, forzaNemico, forzaGiocatore, difesaNemico, difesaGiocatore);}
+	  else {risultato(vitaNemico, vitaGiocatore, nomeNemico, nomeGiocatore, forzaNemico, forzaGiocatore, difesaNemico, difesaGiocatore, liv);}
 	  }
     
 	  break;  
@@ -668,9 +655,9 @@ int main(){
      
       
      } // for
-    if (vitaNemico <= 0){
+    if (vitaNemico <= 0 && vitaGiocatore > 0){
      
-
+      system("cls");
       system(".\\V.bat");
     }
        

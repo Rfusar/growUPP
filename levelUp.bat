@@ -49,6 +49,13 @@ if "%nome%" == "novita" (
 ) else if "%nome%" == "matematica" (
     call appunti\math.bat
 
+) else if "%nome%" == "formulario" (
+    cls
+    call appunti\reti_e_internet\MATEMATICA\FORMULARIO\a.html
+
+) else if "%nome%" == "cosaHoDaFare?" (
+    cd C:\Users\Utente\Desktop\esperimenti-master\windows\game\cosaDAFARE && python cosadafare.py
+    cd C:\Users\Utente\Desktop\esperimenti-master
 ) else if "%nome%" == "-h" (
     type help.txt
     pause
