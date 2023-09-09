@@ -1,10 +1,7 @@
 import sqlite3
 import subprocess
 import datetime
-
-#DATABASE
-DB = sqlite3.connect("C:\\Users\\Utente\\Desktop\\esperimenti-master\\cosedafare.db")
-
+import os
 
 
 def data():
@@ -16,93 +13,261 @@ def data():
     ris = f"{giorno}\{mese}\{anno}"
     return ris
 
-def checkDB():
-    cur = DB.cursor()
-    cur.execute("SELECT * FROM cosaDaFare")
-    THINGS = cur.fetchall()
-    for t in THINGS:
-        
-        print(f"|codice: {t[0]}\n|\n|compito: {t[1]}\n|\n| data: {t[2]}\n|\n|____\n\n")
-        
-        
-
-
-
-
 
 
 
 def ADD():
-    print("che cosa vuoi aggiungere? ")
-    print("")
-    print("")
-    print("")
-    daFare = input()
     pulisciSchermo()
-    print("inserisci il CODICE da salvare(max 5 caratteri): ")
-    codice = input()
+    print("")
+    print("q per uscire")
+    print("")
+    print("seleziona database OPPURE AGGIUNGI")
+    print("")
+    print("")
+    dir = f"C:\\Users\\Utente\\Desktop\\esperimenti-master\\database"
+    lista_file = os.listdir(dir)
+    for file in lista_file:        
+        print(f"|database: {file}\n|_____")
+        print("")
+    
+    print("")
+    print("")
+    print("")
+    nome_database = input()
+    print("")
+    print("")
+    print(f"crea promemoria su {nome_database}? ")
+    print("")
+    print("promemoria [\n")
     try:
-        cur = DB.cursor()
-        cur.execute("CREATE TABLE IF NOT EXISTS cosaDaFare (id VHARCHAR(5), descrizione VARCHAR(255), data DATE)")
-        DB.commit()
-        cur.execute("INSERT INTO cosaDaFare VALUES (?, ?, ?)",(codice, daFare, data()))
-        DB.commit()
-        cur.close()
+        if (nome_database[:-3] != ".db"):
+            conn = sqlite3.connect(f"{dir}\\{nome_database}.db")
+            print("\n]\n\n")
+            daFare = input()
+            print("inserisci il CODICE da salvare(max 5 caratteri):\n\n")
+            codice = input()
+            try:
+                cur = conn.cursor()
+                cur.execute(f"CREATE TABLE IF NOT EXISTS {nome_database} (id VHARCHAR(5), descrizione VARCHAR(255), data DATE)")
+                conn.commit()
+                cur.execute(f"INSERT INTO {nome_database} VALUES (?, ?, ?)",(codice, daFare, data()))
+                conn.commit()
+                cur.close()
+                conn.close()
 
-    except Exception as e:
-        print(e)
+            except:
+                pass
+        else:
+            conn = sqlite3.connect(f"{dir}\\{nome_database}")
+            print("\n]\n\n")
+            daFare = input()
+            print("inserisci il CODICE da salvare(max 5 caratteri):\n\n")
+            codice = input()
+            try:
+                cur = conn.cursor()
+                cur.execute(f"CREATE TABLE IF NOT EXISTS {nome_database[:-3]} (id VHARCHAR(5), descrizione VARCHAR(255), data DATE)")
+                conn.commit()
+                cur.execute(f"INSERT INTO {nome_database[:-3]} VALUES (?, ?, ?)",(codice, daFare, data()))
+                conn.commit()
+                cur.close()
+                conn.close()
+
+            except:
+                pass
+
+    except:
+        pass
+    
+
+
+
+
 
 def DEL():
-        print("SELEZIONA COSA VUOI ELIMINARE (inserici 'codice' oppure ALL)")
+        print("")
+        print("q oppure -q per uscire")
+        print("")
+        print("INSERISCI NOME DATABASE")
         print("")
         print("")
-        print("q per uscire")
+        dir = f"C:\\Users\\Utente\\Desktop\\esperimenti-master\\database"
+        lista_file = os.listdir(dir)
+        for file in lista_file:        
+            print(f"|database: {file}\n|_____")
+            print("")
+
         print("")
-        try:
-            checkDB()
-        except:
-             pass
-        print("")
-        print("")
-        codice = input("    ")
-        if (codice == "ALL"):
-            cur = DB.cursor()
-            cur.execute("DELETE FROM cosaDaFare")
-            DB.commit()
-            cur.close()
-        elif (codice == "q"):
-            pass
+        f = input()
+        if (f == "q" or f == "-q"):
+            pulisciSchermo()
+            
+        elif (f in lista_file):
+            parte2 = True
+            while(parte2):
+                print("SELEZIONA COSA VUOI ELIMINARE (inserici 'codice' oppure ALL oppure database)")
+                print("")
+                conn = sqlite3.connect(f"{dir}\\{f}")
+                cur = conn.cursor()
+                cur.execute(f"SELECT * FROM {f[:-3]}")
+                dati = cur.fetchall()
+                for t in dati:
+                    print(f"|codice: {t[0]}\n|\n|compito: {t[1]}\n|\n| data: {t[2]}\n|\n|____\n\n")
+
+                cur.close()
+                conn.close()
+                print("")
+                print("")
+                codice = input()
+
+
+                if (codice == "ALL"):
+                    cur.execute(f"DELETE FROM {f[:-3]}")
+                    conn.commit()
+                    cur.close()
+                    conn.close()
+                    parte2 = False
+
+                elif (codice == "q"):
+                    parte2 = False
+                    pulisciSchermo()
+                    break
+
+                elif (codice == "database"):
+                    path = f"{dir}\\{f}"
+                    if os.path.exists(path):
+                        os.remove(path)
+                        parte2 = False
+
+                elif (codice != "ALL" and codice != "q" and codice != "database" and len(codice) <= 5 ):
+                    conn = sqlite3.connect(f"{dir}\\{f}")
+                    cur = conn.cursor()
+                    cur.execute(f"DELETE FROM {f[:-3]} WHERE id = ?",(codice,))
+                    conn.commit()
+                    cur.close()
+                    conn.close()
+                    parte2 = False
+                else:
+                    pass
         else:
-            cur = DB.cursor()
-            cur.execute("DELETE FROM cosaDaFare WHERE id = ?",(codice,))
-            DB.commit()
-            cur.close()
-             
+            DEL()
         
 
 
 def GOTO():
-        print("dove vuoi andare")
+        pulisciSchermo()
         print("")
+        print("q oppure -q per uscire")
         print("")
-        print("")
+        print("seleziona DATABASE")
+        dir = f"C:\\Users\\Utente\\Desktop\\esperimenti-master\\database"
+        lista_file = os.listdir(dir)
+        fi = []
+        for file in lista_file:      
+            print(f"|database: {file}\n|_____\n\n")
+            print("")
+            fi.append(file)
+
+        print("inserisci database: \n\n\n")
+        f = input()
+       
+        if(f in lista_file):
+            conn = sqlite3.connect(f"{dir}\\{f}")
+            cur = conn.cursor()
+            cur.execute(f"SELECT * FROM {f[:-3]}")
+            tot = cur.fetchall()
+            pulisciSchermo()
+            for t in tot:
+                print(f"|codice: {t[0]}\n|\n|compito: {t[1]}\n|\n| data: {t[2]}\n|\n|____\n\n")
+                print("")
+
+            input()
+
+        elif (f == "q" or f == "-q"):
+            pass
+
+        else:
+            GOTO()
+
+        
 
 
 def createDB():
     pulisciSchermo()
-    print("\n\nQUERY: ")
-    query = input()
-    try:
-        cur = DB.cursor()
-        cur.execute(query)
-        DB.commit()
-        cur.close()
-    except:
+    creazione = True
+    print("")
+    print("-q per uscire")
+    print("")
+    print("")
+    print("nome DATABASE: ")
+    nomeDB = input()
+    if(nomeDB == "-q"):
+        creazione = False
         pulisciSchermo()
-        print("database non creato perche gia presente\n")
-        input()
+    
+    if (nomeDB[:-3] == ".db"):
+        nomeDB = nomeDB[:-3]
+            
+    while(creazione):
+        print("")
+        print("")
+        print(f"default PARAMETRI: codice VARCHAR(10), descrizione VARCHAR(255), data DATE")
+        print("")
+        print("Vuoi cambiare? [Y/N]")
+        ris = input()
+        if(ris == "Y"):
+            print("")
+            print("")
+            print("inserisci query: ")
+            print("")
+            query = input()
+            try:
+                if(query == "-q"):
+                    creazione = False
+                    pulisciSchermo()
+                    break
+                elif (query != " " or query != "" or query != "-q"):
+                    nomeDATABASE = sqlite3.connect(f"C:\\Users\\Utente\\Desktop\\esperimenti-master\\database\\{nomeDB}.db")
+                    cur = nomeDATABASE.cursor()
+                    cur.execute(query)
+                    nomeDATABASE.commit()
+                    cur.close()
+                    nomeDATABASE.close()
+                    creazione = False
+         
+                else:
+                    pass
+            except:
+                pass
+
+        elif(ris == "N"):
+            try:
+                nomeDATABASE = sqlite3.connect(f"C:\\Users\\Utente\\Desktop\\esperimenti-master\\database\\{nomeDB}.db")
+                cur = nomeDATABASE.cursor()
+                cur.execute(f"CREATE TABLE {nomeDB} (codice VARCHAR(10), descrizione VARCHAR(255), data DATE)")
+                nomeDATABASE.commit()
+                cur.close()
+                nomeDATABASE.close()
+                creazione = False
+         
+            except:
+                pass
+         
+            
+
+       
+    
+        
+
+
+
+
+
+
+
 
 
 def pulisciSchermo():
    comando_cls = "cls" 
    subprocess.call(comando_cls, shell=True)
+
+

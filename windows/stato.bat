@@ -18,11 +18,7 @@ choice /c 1234567 /n /m "Scegli: "
 
 if errorlevel 7 (
     cls
-    echo.
-    echo EXIT
-    echo.
-    timeout /t 2
-    cls
+
 ) else if errorlevel 6 (
     cls
     echo ---------------------- SCHEDA RETE:
@@ -50,6 +46,8 @@ if errorlevel 7 (
     wmic cpu get caption, deviceid, maxclockspeed, name, numberofcores, numberoflogicalprocessors
     echo.
     echo.
+    pause
+    goto :inizio
 
 
 ) else if errorlevel 5 (

@@ -16,7 +16,7 @@ def INIZIO():
     print("\n                                   ")
     print("\n                                   ")
     print("\n                                   ")
-    print("\n1. aggiungi      2.elimina     3.vai a...    4.crea DB\n\n\n")
+    print("\n1. aggiungi      2.elimina     3.vai a...    4.crea tabella\n\n\n")
     print("\n\n5. esci\n\n\n")
 
     ris = input("")

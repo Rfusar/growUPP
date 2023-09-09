@@ -10,25 +10,66 @@
 ******************* ***             ***                                     \\\\\***\\                                 000000000000000000000000000000
 ***                 ***             ***                                     \\\\\***\\                                 000***000   
 ***                 ***             ***                                     \\\\\***\\                                 000***000 
-***                 ***             ***                                     \\\\\***\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\     000***000 
-***                 ***             **********************                   \\\\\***\\\\\\\\\\\\\\\\\\\\\\\\\\\       000***000 
-***                 ***             **********************                     \\\\\****************\\\\\\\\\         0 00***000 
-                                                                                                                   0 00000***000 
-                                                                                                                 0000***000***000 
-                                                                                                               000***000000***000 
-000***000 000***000 000***000 000***000 000***000 000***000 000***000 000***000 000***000 000***000 000***000 000***000 000***000 
+***                 ***             ***                                     \\\\\***\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\    *000***000 
+***                 ***             **********************                   \\\\\***\\\\\\\\\\\\\\\\\\\\\\\\\\\     **000***000 
+***                 ***             **********************                     \\\\\****************\\\\\\\\\       *00 00***000 
+                                                                                                                   0000000***000 
+                                                                                                                 0000***000***00 
+                                                                                                               000***000000***00 
+000***000 000***000 000***000 000***000 000***000 000***000 000***000 000***000 000***000 000***000 000***000 000***000 000***00 
+
+
+
+-novita         -voglioCreare            -studiamo          -internet         -appunti               -cosaHoDaFare?
+
+
+
+        -comeva?           -giochiamo         -lavoro          -chatGPT            -matematica
 
 
 
 
+000***000 000***000 000***000 000***000 000***000 000***000 000***000 000***000 000***000 000***000 000***000 000***000 000***000
+
+descrizione = 
+{
+
+  cosaHoDaFare?: 
+      toDoList
+
+  giochiamo [ -a ]: 
+      giochi
+      -a: modifichi gioco  
+
+  novita: 
+      controlli le novita
+
+  voglioCreare: 
+      scorciatoia per creare un progetto
+
+  comeva?:
+      status PC, descrizione e tasklist
+
+  studiamo:
+      materie di studio
+
+  lavoro:
+      apri progetti principali
+
+  internet:
+      controlli se sei connesso e se nel caso negativo, hai la possibilita di connetteri ad una rete con la quale sei gia stato registrato in precedenza 
+
+  appunti:
+      apri menu appunti
+
+  matematica:
+      lezioni e corso
+
+  
+}
 
 
-
-
--novita         -voglioCreare            -studiamo          -internet         -appunti
-
-
-        -comeva?           -giochiamo [ -a ]         -lavoro          -chatGPT            -matematica
+000***000 000***000 000***000 000***000 000***000 000***000 000***000 000***000 000***000 000***000 000***000 000***000 000***000
 
 
 
