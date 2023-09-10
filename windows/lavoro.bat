@@ -1,9 +1,13 @@
 @echo off
 :menu
 cls
+echo.
 echo 1. Check-in-admin
 echo 2. tkinter
 echo 3. progettoAndrea
+echo.
+echo.
+echo.
 echo 4. esci
 
 choice /c 1234 /n /m "Inserisci il numero dell'opzione desiderata: "

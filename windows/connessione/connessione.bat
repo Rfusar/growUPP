@@ -6,8 +6,8 @@ echo 1. connesso?
 echo 2. guarda le reti disponibili
 echo 3. connetti
 echo 4. disconnetti
-echo 5. add --prova
-echo 6. ricerca
+echo 5. add --prova #non funziona
+echo 6. ricerca --prova curl
 echo.
 echo 7. informazioni rete
 echo.
@@ -32,11 +32,15 @@ if errorlevel 8 (
 
 
 ) else if errorlevel 5 (
-
-    set /p rete="nome rete: "
-    set /p password="password: "
-    netsh wlan add profile user=current ssid="!rete!" keyMaterial="!password!"
-    pause
+    cls
+    echo non funziona
+    echo.
+    echo.
+    echo.
+    rem set /p rete="nome rete: "
+    rem set /p password="password: "
+    rem netsh wlan add profile user=current ssid="!rete!" keyMaterial="!password!"
+     pause
     goto :inizio
 
 

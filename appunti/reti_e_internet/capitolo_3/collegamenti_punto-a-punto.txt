@@ -4,11 +4,11 @@ COLLEGAMENTO PUNTO-PUNTO:
 	   in particolare due tipi di protocollo per comunicazione su linea PUNTO-PUNTO:
 
 
-		S&W:    Stop and Wait
-		     ---> il trasmettitore invia un UI e aspetta il riscontro prima di emetterne un'altra ---> consiste nel'effettuare la trasmissione di un UI e attendere
-		  	    il riscontro(acknowledgment) da parte del riceveneteprima di trasmettere una successiva, questo protocollo, come tutti i protocolli basati sul
-			      principio della trasmissione di UI con riscontro, prevede che il trasmetitore conservi nel prorpio BUFFER DI RIRTASMISSIONE, l'UI trasmessa fino 
-			      alla ricezione del relativo riscontro positivo
+	S&W:    Stop and Wait	
+	    ---> il trasmettitore invia un UI e aspetta il riscontro prima di emetterne un'altra ---> consiste nel'effettuare la trasmissione di un UI e attendere
+		   il riscontro(acknowledgment) da parte del riceveneteprima di trasmettere una successiva, questo protocollo, come tutti i protocolli basati sul
+	 	   principio della trasmissione di UI con riscontro, prevede che il trasmetitore conservi nel prorpio BUFFER DI RIRTASMISSIONE, l'UI trasmessa fino 
+	           alla ricezione del relativo riscontro positivo
 
 
 
@@ -164,12 +164,189 @@ COLLEGAMENTO PUNTO-PUNTO:
 		  al momento della ricezione dell'UI o del riscontro; in alcuni casi l'efficienza puo diventare molto bassa, come nel caso di collegamenti molto lunghi come quelli via 
 		  satellite, o di un ricevitore particolarmente lento o comunque non controllabile
 
+		considerando che il time-out non puo comunque essere piu piccolo del minimo tempo richiesto per ricevere il riscontro a causa del tempo di propagazione(To >= Ta + 2t), una
+		  ragionevole efficienza si puo ottenere selezionando un time-out che ipotizzi un valore "Tp" dato da un funzionamento in condizioni ideali della stazione ricevente;
+		  ne consegue che il corretto funzionamento del protocollo richiede necessariamente anche la NUMERAZIONE DEI RISCONTRI con un bit;
+		  
+
+
+		esempio:
+		    ---> e disponibile un buffer a due posizioni(B0 e B1) per le UI in attesa di trasmissione, alimentato ciclicamente dal client della stazione A; dopo l'inizializzazione  
+			   della variabile "i", se la cella B0 del buffer contiene un'UI, questa viene inviata inizializzando il conteggio del time-out "To(i)"; se questo time-out scade
+			   prima che il riscontro sia completamente ricevuto, la trasmissione dell'UI si ripete reinizializzando il time-out; se invece viene prima ricevuto il riscontro,
+			   allora si ferma il time-out, la variabile "i" viene incrementata di un unita in modulo-2 e si ripete il ciclo per trasmettere alternativamente le UI numero 0 e 1;
+			   l'inizializzazione a 0 della variabile "j" dal lato della stazione B ricevente predispone la ricezione dell'UI numero 0; se questa viene correttamenete ricevuta, 
+			   viene anche accettata e riscontrata incrementando di un'unita in modulo-2 la variabile "j", cosi da poter accettare l'UI numero 1 e di seguito, alternativamente,
+			   le UI numero 0 e numero 1; se invece viene ricevuta un'UI con numero uguale a quello dell'UI precedente, allora l'UI ricevuta viene ritrasmesso l'ultimo 
+			   riscontro inviato 
+
+		esempio:
+		    ---> A invia la prima UI numero 0 e finisce di ricevere il relativo riscontro dopo che si e esaurito il conteggio del time-out; la trasmissione dell'UI numero 0 viene
+			   dunque ripetuta, ma non occore piu attendere la successiva ricezione del riscontro, che nel frattempo e stato gia ricevuto, per iniziare a trasmettere l'UI
+			   numero 1; infatti, all'inizio della trasmissione dell'UI numero 1 la variabile "i" del trasmettitore assume il valore 1 e quindi il secondo riscontro ACK 0 
+			   viene ignorato; si osservi che, senza la numerazione dei riscontri, A accetterebbe il secondo riscontro come conferma di ricezione dell'UI numero 1, che quindi
+			   verrebbe eliminata dal buffer di ritrasmissione; se questa UI fosse nel frattempo scartata da B a causa de errori, essa sarebbe definitivamenete persa
+ 
 		
  
 
 
-			 
 
 
-				ARQ continuous
-				    ---> e emessa la trasmissione continua di UI che vengono opportunamente numerate 
+
+
+	ARQ continuous
+	    ---> e emessa la trasmissione continua di UI che vengono opportunamente numerate ---> si cerca di aumentare l'efficienza del protocollo consentendo anche la trasmissione di 
+		   piu UI consecutive in attesa dei riscontri delle prime UI trasmesse; questo tipo di operazione richiede dunque che il meccanismo di numerazione sia esteso per fare in
+		   modo che tutte le UI inviate, ma non ancora riscontrate, abbiano un identificativo distinto, nel nostro caso un numero, per consentire alle due stazioni di intendersi
+		   su quali UI sono state ricevute corettamente e quali no; poiche si utilizza un numero finito di bit per numerare le UI, indicato con "b", la numerazione e di tipo 
+	 	   ciclico modulo-N con N = 2^b; per esempio se "b=3", le UI vengono trasmesse con i numeri consecutivi 0,1,2,3,4,5,6,7,0,1,2...;
+		
+		   il "tempo tototale = Ttot" richiesto per trasferire "Nu" UI con un protocollo ARQ su collegamento di tipo ideale, quindi in assenza di errori, si ricava:
+
+
+			Ttot = Nu * Tu + Ta + 2t = (Nu * Lu / C ) + (La / C) + (2d / v)     
+
+		   si noti come, a differenza di quanto avviene nel protocollo S&W, ora il tempo di trasmissione del riscontro e il tempo di propagazione vengono conteggiati una sola volta
+		     per semplicita potrebbero essere considerati come associati alla trasmissione dell'ultima UI
+	
+
+		SLIDING WINDOW:    frequenza a scorrimento
+		    ---> la trasmissione continua di UI puo dare luogo a situazioni di ambiguita nel caso in cui i riscontri relativi non siano ricevuti come ci si aspetterebbe; infatti
+			   basti considerare il caso  in cui il trasmettitore non riceva il riscontro di un'UI, per esempio la numero 3, a causa di un evento di errore di trasmissione; 
+			   in questo , nella ipotesi di murezione a modulo-4 e in assenza di utlteriori vincoli, il trasmettitore puo continuare ad emettere le UI numero 0,1,2 ma poi
+			   deve fermarsi; infatti emettere una nuova UI con il numero 3 implicherebbe ambiguita nell'associare il relativo riscontro a quest'ultima UI numero 3 o alla
+			   precedente;
+
+			 per controllare queste situazioni nell'ambito dei protocolli CONTINUOUS ARP si definisce un meccanismo di abilitazione all'invio e all'accettazione di UI 
+			   mediante SLINDING WINDOW ---> consiste nello specificare due distinte "finestre", una "TRASMISSIONE = Ws" e "RICEZIONE = Wr"; il primo numero indica il numero
+			     delle UI che il trasmettitore puo inviare senza dover attendere i relativi riscontri, mentre il secondo indica il numero dell'UI che possono essere accettate
+			     dal ricevitore; naturalmente le UI sono numerate, per cui il meccanismo a finestra indica anche quali UI possono essere inviate e accettate, mediante
+			     l'ESTREMO INFERIORE  della finestra, che viene indicato con i simboli "Ls=in trasmissione" e "Lr=in ricezione";
+
+			la stazione trasmittente sara dunque autorizzata a inviare le UI con numero "n" che soddisfa la relazione
+
+					n = Ls, ..., (Ls + Ws - 1)  modN
+
+			all'altro estremo del collegamento, la stazione ricevente accettera le UI con numero "n" di tale sequenza
+
+					n = Lr, ...,(Lr + Wr - 1)   modN
+
+			esempio:
+			    ---> Ws = 5, N = 8, Ls = 4; la stazione e autorizzata a trasmettere le cinque UI numero 4,5,6,7,0; alla ricezione del riscontro dell'UI numero 4, la finestra 
+			   	   ruotera in avanti di una posizione consentendo la trasmissione dell'UI numero 1; l'esempio analogo di finestra di ricezione  con "Wr = 2, Lr = 5"; la
+				   stazione e autorizzata accetare le UI numero 5,6; la ricezione dell'UI numero 5 consentira anche la successiva accettazione dell'UI numero 7, conseguente
+				   alla rotazione della finestra di una posizione in avanti
+
+				 il meccanismo delle due finestre a scorrimento su un collegamento dati viene anche utilizzato come strumento  per operare un controllo del flusso di
+				   unita informative sul collegamento stesso; cio puo rendersi necessario se occore limitare il numero di UI che possono essere inviate e che sono in attesa
+				   di riscontro, per esempio per evitare fenomeni di saturazione del buffer nella stazione ricevente; questi potrebbero essere dovuti per esempio a un
+				   trasferimento rallentato al livello superiore(client) delle UI ricevute;
+
+			efficienza:
+			    ---> adottare un controllo di flusso a finestra potrebbe causare una perdita di efficienza del protocollo ARQ anche in assenza di errori; 
+			
+					condizione limite sul valore di apertura della finestra in trasmissione che evita una perdita di efficienza, data da:
+
+								Ws * Tu >= Tu + Ta + 2t
+
+				 questa condizione, che assume nullo il tempo di elaborazione(Tp = 0), impone all'apertura della finestra in trasmissione un valore che garantisca una
+				   trasmissione continua di UI fino alla ricezione del primo riscontro;
+
+				 esempio:
+				     ---> l'effetto del rapporto tra l'apertura "Ws" della finestra in trasmissione e il tempo di propagazione "t" sull'efficienza del protocollo in una 
+					    trasmissione uniderizionale di UI(da A a B); 
+
+					CASO1 = { "Ws" : 4 }
+	
+					CASO2 = { "Ws" : 2 }
+
+					  solo il primo caso realizza una trasmissione continua di UI, in quanto solo in quella situazione risulta soddisfatto la condizione;
+					    infatti quando questa relazione non e soddisfatta, come nel CASO2; il trasmettitore deve interrompere l'invio di UI per attendere il riscontro
+					    della prima UI emessa; in quest'ultima situazione si dice che il meccanismo a finestra limita("strozza") la piena utilizzazione del collegamento
+					    
+
+					   nel caso in cui  si assuma ulteriormente che il tempo di trasmissione del riscontro sia trascurabile, cioe "Ta ~ 0", allora il vincolo sul 
+					     parametro "Ws" che garantisce continuita di trasmissione delle UI si riduce a "Ws * Tu >= Tu + 2t" ---> "Ws >= 1 + 2a"
+
+
+			e opportuno osservare quali conseguenze abbia il vincolo rappresentato dall'equazione nel caso di collegamenti caratterizzati da un grande prodotto "banda-ritardo",
+			  che hanno quindi una grandissima capacita, cioe dell'ordine dei Gbit/s, e coprono distanze molto grandi ---> centinaia o migliaia di chilometri; in queste 
+			  situazioni il tempo di propagazione normalizzato assume valori "a >> 1";
+
+			
+			allo scopo di esplicitare il contributo dei differenti parametri per la determinazione dell'apertura di finestra di trasmissione che non strozza il flusso delle UI
+			  sul collegamento esprimiamo il parametro "a":
+
+							Ws >= 1 + 2a = 1 + 2 * (d * C) / (Lu * v)
+
+
+			 __________________________________________________
+			| capacita C |          Lunghezza d	           |
+			|____________|_____________________________________|
+			|	     | 10km      | 100km      | 1000km     |
+			|____________|___________|____________|____________|          apertura Ws,  della finestra di trasmissione per una trasmissione continua
+			|10 Mbit/s   |   2       |   2        |     8      |
+			|____________|___________|____________|____________|
+			|100 Mbit/s  |   2       |   8        |     64     |
+			|____________|___________|____________|____________|
+			|1 Gbit/s    |   8       |   64       |     626    |
+			|____________|___________|____________|____________|
+			|10 Gbit/s   |   64      |   626      |     6251   |
+			|____________|___________|____________|____________|
+
+
+			piggybanking ---> il protocollo prevede che un'UI rechi anche l'informazione di riscontro sulle UI ricevute corretamente, risulta altresi evidente che in un 
+			  collegamento bidirezionale entrambe le stazioni alle estremita del collegamento sono dotate di due finestre, una di trasmissione e una di ricezione;
+			  occore osservare che il meccanismo della finestra a scorrimento impone implicitamente un VINCOLO SULL'APERTURA delle finestre affinche il protocollo ARQ operi
+			  corretamente; come si vedra nel seguito, la condizione che devono soddisfare le aperture delle due finestre in trasmissione e ricezione(per ognuno dei due versi
+			  del collegamento nel caso di trasmissione bidirezionale)
+
+							Ws + Wr <= N
+
+
+
+
+		TIPI DI PROTOCOLLO ARQ:
+		    ---> nell'ambiente dei protocolli CONTINUOUS ARQ, sono stati definiti due protocolli denominati "go-back-n(GBN)", "slective repeat(SR)", che utilizzano
+			   RISCONTRI POSITIVI(acknowledgemt,ACK) e RISCONTRI NEGATIVI(negative acknowledgemt,NACK)
+
+					ACK i ---> viene emesso per segnalare la corretta ricezione dell'UI numero "i" e indica anche tutte le UI fino all'UI numero "i" sono state ricevute
+						    correttamente   
+
+					NACK i ---> viene emesso quando viene ricevuta un'UI successiva all'UI numero "i" attesa, evento che quindi indica la perdita dell'UI numero "i"
+						      il significato ulteriore di un riscontro negativo dipende tuttavia dallo specifico protocollo
+
+
+		i protocolli GBN e SR si differenziano nella modalita di gestione degli eventi di errore di trasmissione delle UI; un terzo tipo di protocollo che trova larga applicazione
+		  nelle reti odierne consiste nel prevedere che i riscontri siano solo di tipo positivo, delegando cosi al solo meccanismo del time-out la gestione della ritrasmissione
+		  delle UI che non vengono ricevute correttamente a destinazione 
+
+
+		PROTOCOLLO GO-BACK-N:
+		    ---> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 	 				        
+			        
+
+
+

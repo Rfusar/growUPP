@@ -14,7 +14,7 @@ echo.
 echo.
 cd /d C:\Users\Utente\Desktop\esperimenti\prove
 
-choice /c 12345 /n /m "Seleziona una scelta: "
+choice /c 123456 /n /m "Seleziona una scelta: "
 
 if errorlevel 6 (
     cls
