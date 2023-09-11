@@ -1,5 +1,5 @@
 # **LEVEL UP** - *Iniziare a Programmare*
-```bash echo Hello world! >> file```
+```echo Hello world! >> file```
 
 ### Linguaggi
 
