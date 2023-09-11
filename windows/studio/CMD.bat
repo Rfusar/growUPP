@@ -13,13 +13,13 @@ if errorlevel 3 (
     cls
 ) else if errorlevel 2 (
     cls
-    type prove\CMDLine\base.txt
+    type prove\CMDLine\base.txt | more
     pause
     goto :inizio
 
 ) else if errorlevel 1 (
     cls
-    type prove\CMDLine\internet.txt
+    type prove\CMDLine\internet.txt | more
     pause
     goto :inizio
 

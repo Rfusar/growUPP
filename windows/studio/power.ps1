@@ -12,7 +12,7 @@ function impara {
     param([bool]$man, [string]$nome)
     while ($man) {
             clear-host
-            get-content -path prove\Powershell\$nome.txt
+            get-content -path appunti\linguaggi\Powershell\$nome.txt
             write-host
             write-host
             $man = aposto -Y $man

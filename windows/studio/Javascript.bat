@@ -18,16 +18,27 @@ echo 1. Javascript generale
 echo 2. vanilla Javascript
 echo 3. ES6
 echo.
-echo 4. esci
+echo.
+echo ***************************
+echo.
+echo BUONE PRATICHE
+echo.
+echo 4. JavaScript Pro Tips - Code This, NOT That
+echo.
+echo.
+echo 5. esci
 echo.
 echo.
 
-choice /c 1234 /n /m "Cosa vuoi studiare? "
+choice /c 12345 /n /m "Cosa vuoi studiare? "
 
-if errorlevel 4 (
+if errorlevel 5 (
     cls
   
-) else if errorlevel 3 (
+) else if errorlevel 4 (
+    start msedge "https://youtu.be/Mus_vwhTCq0?si=RGM8rcDC6J0chgk2"
+
+)  else if errorlevel 3 (
     start msedge "https://youtube.com/playlist?list=PL0qAPtx8YtJceyk5_NpNvLbbkrmfX9kkw"
 
 ) else if errorlevel 2 (

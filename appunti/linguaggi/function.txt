@@ -1,0 +1,59 @@
+                                                        FUNZIONI
+
+JAVASCRIPT:
+    ---> function nomeFunzione (x){                                          
+            codice...
+        };                              NORMALE
+        __________________________________________________
+
+        (x,y)=>{
+            codice...
+        };                          SENZA NOME
+        __________________________________________________
+
+        const nomeFunzione = ((...x)=>{         "con i '...', numero indefinito di parametri"
+            codice...
+        })();                                "funzione immediatamente invocata" 
+                                                o IIFE (Immediately Invoked Function Expression)
+
+**************************************************************************************************************
+
+PYTHON:
+    ---> def nomefunzione(x,y):
+            codice...                       OCCHIO ALLA TABULAZIONE ►
+        ___________________________________________________
+
+        *args (Argomenti Posizionali):
+            *args ti permette di passare un numero variabile di argomenti posizionali a una funzione.
+            Gli argomenti vengono raccolti in una tupla all'interno della funzione.
+            Puoi accedere agli argomenti tramite l'indice nella tupla.
+
+
+                        def somma(*args):
+                            risultato = 0
+                            for numero in args:
+                                risultato += numero
+                            return risultato
+
+                        print(somma(1, 2, 3, 4))  # Stampa: 10
+
+
+        **kwargs (Argomenti con Nome):
+            **kwargs ti permette di passare un numero variabile di argomenti con nome (keyword arguments) a una funzione.
+            Gli argomenti con nome vengono raccolti in un dizionario all'interno della funzione.
+            Puoi accedere agli argomenti con nome utilizzando il loro nome come chiave nel dizionario.
+
+                        def stampa_informazioni(**kwargs):
+                            for chiave, valore in kwargs.items():
+                            print(f"{chiave}: {valore}")
+
+                        stampa_informazioni(nome="Alice", età=30, città="Roma")
+                        # Stampa:
+                        # nome: Alice
+                        # età: 30
+                        # città: Roma
+
+        ________________________________________________________________________________________________
+
+
+
