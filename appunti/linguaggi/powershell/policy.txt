@@ -19,3 +19,11 @@
 
                 -Unrestricted: 
                     Tutti gli script possono essere eseguiti.
+
+
+
+
+        
+
+
+.

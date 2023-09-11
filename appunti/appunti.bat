@@ -19,7 +19,7 @@ if "!n!" == "4" (
     type appunti\linguaggi\markdown.txt | more
     
 ) else if "!n!" == "2" (
-    cls
+    call appunti\powershellBATCH.bat
     
 ) else if "!n!" == "1" (
     cls

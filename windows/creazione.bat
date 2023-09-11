@@ -12,7 +12,7 @@ echo.
 echo 6. esci
 echo.
 echo.
-cd /d C:\Users\Utente\Desktop\esperimenti\prove
+cd /d C:\Users\Utente\Desktop\esperimenti-master\prove
 
 choice /c 123456 /n /m "Seleziona una scelta: "
 
@@ -23,11 +23,11 @@ if errorlevel 6 (
     if not exist Python ( 
         md Python  
     )
-    cd /d C:\Users\Utente\Desktop\esperimenti\prove\Python 
+    cd /d C:\Users\Utente\Desktop\esperimenti-master\prove\Python 
     if not exist prova.py (
         echo. > prova.py
     )
-    cd /d C:\Users\Utente\Desktop\esperimenti\prove
+    cd /d C:\Users\Utente\Desktop\esperimenti-master\prove
     goto :inizio
 
 )
@@ -35,44 +35,44 @@ else if errorlevel 4 (
     if not exist Java ( 
         md Java  
     )
-    cd /d C:\Users\Utente\Desktop\esperimenti\prove\Java 
+    cd /d C:\Users\Utente\Desktop\esperimenti-master\prove\Java 
     if not exist prova.java (
         echo. > prova.java
     )
-    cd /d C:\Users\Utente\Desktop\esperimenti\prove
+    cd /d C:\Users\Utente\Desktop\esperimenti-master\prove
     goto :inizio
 
 ) else if errorlevel 3 (
     if not exist Javascript ( 
         md Javascript  
     )
-    cd C:\Users\Utente\Desktop\esperimenti\prove\Javascript
+    cd C:\Users\Utente\Desktop\esperimenti-master\prove\Javascript
     if not exist prova.js (
         echo. > prova.js
     )
-    cd C:\Users\Utente\Desktop\esperimenti\prove
+    cd C:\Users\Utente\Desktop\esperimenti-master\prove
     goto :inizio
 
 ) else if errorlevel 2 (
     if not exist C++ ( 
         md C++
     )
-    cd C:\Users\Utente\Desktop\esperimenti\prove\C++
+    cd C:\Users\Utente\Desktop\esperimenti-master\prove\C++
     if not exist prova.cpp (
         echo. > prova.cpp
     )
-    cd C:\Users\Utente\Desktop\esperimenti\prove
+    cd C:\Users\Utente\Desktop\esperimenti-master\prove
     goto :inizio
 
 ) else if errorlevel 1 (
     if not exist C ( 
         md C
     )
-    cd C:\Users\Utente\Desktop\esperimenti\prove\C
+    cd C:\Users\Utente\Desktop\esperimenti-master\prove\C
     if not exist prova.c (
         echo. > prova.c
     )
-    cd C:\Users\Utente\Desktop\esperimenti\prove
+    cd C:\Users\Utente\Desktop\esperimenti-master\prove
     goto :inizio
 
 ) else (

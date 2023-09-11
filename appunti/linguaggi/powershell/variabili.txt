@@ -16,7 +16,7 @@
 
             $persona = New-Object PSObject -Property @{
                 Nome = "Alice"
-                Età = 30
+                Eta = 30
                 Professione = "Ingegnere"
             }
 
@@ -33,7 +33,7 @@
             }
 
             Write-Host "Nome: $($dizionario["nome"])"
-            Write-Host "Età: $($dizionario["età"])"
+            Write-Host "Eta: $($dizionario["età"])"
             Write-Host "Professione: $($dizionario["professione"])"
 
         da > powershell version 7
@@ -41,5 +41,11 @@
             $tupla = [System.Tuple]::Create("Alice", 30, "Ingegnere")
 
             Write-Host "Nome: $($tupla.Item1)"
-            Write-Host "Età: $($tupla.Item2)"
+            Write-Host "Eta: $($tupla.Item2)"
             Write-Host "Professione: $($tupla.Item3)"
+
+
+
+
+
+.

@@ -44,7 +44,7 @@ if "%nome%" == "novita" (
     call windows\lavoro.bat
 
 ) else if "!nome!" == "appunti" (
-    call appunti\reti_e_internet\reti.bat
+    call appunti\appunti.bat
 
 ) else if "%nome%" == "matematica" (
     call appunti\math.bat

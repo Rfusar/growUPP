@@ -45,3 +45,10 @@
         Write-Host "Il quoziente è: $risultato"
         Write-Host $messaggio
     
+
+
+
+
+
+
+.

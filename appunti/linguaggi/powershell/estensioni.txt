@@ -31,3 +31,11 @@
               è l'estensione principale per gli script, mentre .psm1 e .psd1 sono associati ai moduli. 
               I file di formattazione personalizzata utilizzano .ps1xml per definire come visualizzare i dati. I file .pssc e .psrc 
               sono utilizzati per configurare lo stato di sessione e il profilo dell'utente.
+
+
+
+
+
+
+  
+.
