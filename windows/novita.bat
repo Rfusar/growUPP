@@ -1,3 +1,4 @@
+rem .NET, PC --freecodecamp, FRONTEND base, flutter, curl, arp
 @echo off
 :start
 cls
@@ -5,7 +6,7 @@ echo Quello che passa...
 echo.
 echo.
 echo 1. .NET
-echo 2. PC
+echo 2. PC --freecodecamp
 echo 3. frontend --HTML --CSS --JAVASCRIPT
 echo 4. flutter
 echo 5. curl
@@ -16,6 +17,7 @@ echo.
 
 
 choice /c 1234567 /n /m "scegli: "
+
 
 if errorlevel 7 (
     cls

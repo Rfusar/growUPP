@@ -1,7 +1,9 @@
 @echo off
 rem HOMEPAGE
-
-setlocal enabledelayedexpansion
+cls
+cd windows\script && python gestioneNovita.py
+cd ..\..
+pause
 :inizio
 cls
 set /p nome="Come va? "
@@ -10,6 +12,9 @@ set /p nome="Come va? "
 if "%nome%" == "novita" (
     call windows\novita.bat
 
+) else if "%nome%" == "q" (
+    cls
+    goto :end
 ) else if "%nome%" == "PS" (
     cls 
     powershell Get-ExecutionPolicy
@@ -43,7 +48,7 @@ if "%nome%" == "novita" (
 ) else if "%nome%" == "lavoro" (
     call windows\lavoro.bat
 
-) else if "!nome!" == "appunti" (
+) else if "%nome%" == "appunti" (
     call appunti\appunti.bat
 
 ) else if "%nome%" == "matematica" (
@@ -64,6 +69,7 @@ if "%nome%" == "novita" (
 ) else (
     goto :inizio
 )
+
 
 
 

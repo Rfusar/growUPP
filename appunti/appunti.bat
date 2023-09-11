@@ -13,6 +13,7 @@ set /p n="Scegli: "
 
 if "!n!" == "4" (
     cls
+    goto :end
 
 ) else if "!n!" == "3" (
     cls
@@ -28,3 +29,4 @@ if "!n!" == "4" (
 ) else (
     goto :ini
 )
+:end
