@@ -1,0 +1,137 @@
+♠# Intestazione di Livello 1
+## Intestazione di Livello 2
+### Intestazione di Livello 3
+
+
+**Testo in Grassetto** renderà il testo in Grassetto.
+*Testo in Corsivo* renderà il testo in Corsivo.
+
+
+
+Puoi creare elenchi puntati utilizzando asterischi *, segni meno -, o segni più +.
+
+Per creare un elenco numerato, inizia ogni elemento con il numero seguito da un punto e uno spazio.
+
+[Testo del link](URL) crea un collegamento ipertestuale.
+
+![Testo alternativo](URL dell'immagine) inserisce un'immagine.
+
+> Questo è un blocco di citazione. crea un blocco di citazione.
+
+Il testo racchiuso tra due backtick (`) viene considerato codice inline, ad esempio print("Hello, World!").
+I blocchi di codice possono essere creati utilizzando tre backtick consecutivi, ad esempio:
+
+HELLO WORLD IN UN PO DI LINGUE 
+                                    
+                                    
+                                        ```python           
+                                                def hello_world():
+                                                    print("Hello, World!")
+                                        ```
+
+                                        ```java
+                                                public class HelloWorld {
+                                                    public static void main(String[] args) {
+                                                        System.out.println("Hello, World!");
+                                                    }
+                                                }
+                                        ```
+
+                                        ```javscriprt           
+                                                console.log("Hello, World!")
+                                        ```
+
+                                        ```c
+                                        #include <stdio.h>
+
+                                        int main() {
+                                            printf("Hello, World!\n");
+                                            return 0;
+                                        }
+                                        ```
+
+                                        ```perl 
+                                        #!/usr/bin/perl
+                                        use strict;
+                                        use warnings;
+
+                                        sub hello_world {
+                                            print "Hello, World!\n";
+                                        }
+
+                                        hello_world();
+                                    ```
+                                    ```cobol
+                                           IDENTIFICATION DIVISION.
+                                           PROGRAM-ID. HelloWorld.
+                                           PROCEDURE DIVISION.
+                                               DISPLAY 'Hello, World!'.
+                                               STOP RUN.
+                                    ```
+
+                                    ```r
+                                            hello_world <- function() {     
+                                                cat("Hello, World!\n")
+                                            }   
+
+                                            hello_world()
+                                    ```
+
+                                    ```ruby
+                                            def hello_world     
+                                                puts "Hello, World!"
+                                            end
+
+                                            hello_world
+                                    ```
+
+                                    ```assembly
+                                        section .data
+                                        hello db 'Hello, World!',10
+                                        hello_len equ $-hello
+
+                                    section .text
+                                        global _start
+
+                                    _start:
+                                        ; Write to stdout (file descriptor 1)
+                                        mov eax, 4
+                                        mov ebx, 1
+                                        mov ecx, hello
+                                        mov edx, hello_len
+                                        int 0x80
+                                    
+                                        ; Exit the program
+                                        mov eax, 1
+                                        int 0x80
+
+                                    ```
+Tre o più trattini (---) o asterischi (***) o sottolineature (___) creano una linea orizzontale per separare contenuti.
+Tabelle:
+
+Puoi creare tabelle utilizzando le barre verticali | e trattini -. Esempio:
+lua
+Copy code
+| Intestazione 1 | Intestazione 2 |
+|-----------------|-----------------|
+| Cella 1,1       | Cella 1,2       |
+| Cella 2,1       | Cella 2,2       |
+
+
+DIAGRAMMI
+
+VERSO GIU:
+        ```mermaid 
+        graph TD; 
+        A[Inizio] --> B[Passo 1]; 
+        B --> C[Passo 2]; 
+        C --> D[Passo 3]; 
+        D --> E[Fine];
+
+VERSO DESTRA:
+        ```mermaid
+        graph LR; 
+        A[Inizio] --> B[Passo 1]; 
+        B --> C[Passo 2]; 
+        C --> D[Passo 3]; 
+        D --> E[Fine];
