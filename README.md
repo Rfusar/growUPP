@@ -18,7 +18,7 @@
 * Tipi di connessioni *-cavo in rame -fibra -odne radiomobili*
 * Altro...
 
-### *COSA è UN COMPUTER?*
+### *UN COMPUTER?*
 
 * Hardware
 * CPU
