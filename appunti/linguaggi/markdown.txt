@@ -1,4 +1,4 @@
-♠# Intestazione di Livello 1
+# Intestazione di Livello 1
 ## Intestazione di Livello 2
 ### Intestazione di Livello 3
 
@@ -7,10 +7,10 @@
 *Testo in Corsivo* renderà il testo in Corsivo.
 
 
+/ escape 
 
-Puoi creare elenchi puntati utilizzando asterischi *, segni meno -, o segni più +.
 
-Per creare un elenco numerato, inizia ogni elemento con il numero seguito da un punto e uno spazio.
+Puoi creare elenchi puntati utilizzando asterischi *, segni meno -, o segni più + INVECE elenco numerato ---> numero.
 
 [Testo del link](URL) crea un collegamento ipertestuale.
 

@@ -1,7 +1,5 @@
 @echo off
-
-
-:start
+:ini
 cls
 echo ---web
 echo. 
@@ -48,30 +46,29 @@ echo.
 
 set /p  n="cosa vuoi studiare oggi? "
 
-if "!n!" == "15" (
+
+if "%n%" == "15" (
     cls
 
-) else if "!n!" == "html" (
+) else if "%n%" == "html" (
     start msedge "https://youtu.be/kUMe1FH4CHE?feature=shared"
 
-) else if "!n!" == "css" (
+) else if "%n%" == "css" (
     start msedge "https://youtu.be/OXGznpKZ_sA?feature=shared" 
 
-) else if "!n!" == "html css" (
+) else if "%n%" == "html css" (
     start msedge "https://youtu.be/HGTJBPNC-Gw?feature=shared"
 
 
 
-) else if "!n!" == "12" (
+) else if "%n%" == "12" (
     call windows\studio\powershell.bat
 
-) else if "!n!" == "14" (
+) else if "%n%" == "14" (
     call windows\studio\PC.bat
 
-
-
 rem -----------CMD
-) else if "!n!" == "11" (
+) else if "%n%" == "11" (
     :docCMD
     cls
     echo.
@@ -79,59 +76,55 @@ rem -----------CMD
     echo.
     echo.
     set /p doc="Vuoi vedere gli appunti? [Y/N]  "
-    if "!doc!" == "Y" (
+    if "%doc%" == "Y" (
         cls
         call studio\CMD.bat
 
-    ) else if "!doc!" == "N" (
+    ) else if "%doc%" == "N" (
         cls
         start msedge "https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/windows-commands"
 
-    ) else if "!doc!" == "CMD -video" (
+    ) else if "%doc%" == "CMD -video" (
         start msedge "https://youtu.be/qnXe1gecux8?si=OjoQJcp3STqEu3O8"
 
     ) else (
         goto :docCMD
     )
 
-
-
-
-
-) else if "!n!" == "13" (
+) else if "%n%" == "13" (
     call windows\studio\network.bat  
 
-) else if "!n!" == "10" (
+) else if "%n%" == "10" (
     start msedge "https://youtube.com/playlist?list=PLT98CRl2KxKGj-VKtApD8-zCqSaN2mD4w&si=qm8o-6Vmx5pzzTON"
 
-) else if "!n!" == "9" (
+) else if "%n%" == "9" (
     start msedge "https://youtu.be/c2M-rlkkT5o?si=EYxVmI_aWLJYG06K"
 
-) else if "!n!" == "8" (
+) else if "%n%" == "8" (
     start msedge "https://youtu.be/5OdVJbNCSso?si=LkFaEiLIf52Tr-mR"
 
-) else if "!n!" == "7" (
+) else if "%n%" == "7" (
     start msedge "https://youtu.be/WxuViERlkyE?si=CWBIK-WyR4965j3X"
 
-) else if "!n!" == "6" (
-
+) else if "%n%" == "6" (
     call windows\studio\mobile\kotline.bat
 
-) else if "!n!" == "5" (
+) else if "%n%" == "5" (
     call windows\studio\Python.bat
 
-) else if "!n!" == "4" (
+) else if "%n%" == "4" (
     call windows\studio\Javascript.bat
 
-) else if "!n!" == "3" (
+) else if "%n%" == "3" (
     call windows\studio\Java.bat
 
-) else if "!n!" == "2" (
+) else if "%n%" == "2" (
     call windows\studio\C++.bat
 
-)  else if "!n!" == "1" (
+)  else if "%n%" == "1" (
     call windows\studio\C.bat
 
-) else (
-    goto :start
-)
+) 
+rem else (
+rem  goto :ini
+rem )

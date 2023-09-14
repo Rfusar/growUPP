@@ -11,18 +11,18 @@ echo.
 
 set /p n="Scegli: "
 
-if "!n!" == "4" (
+if "%n%" == "4" (
     cls
     goto :end
 
-) else if "!n!" == "3" (
+) else if "%n%" == "3" (
     cls
     type appunti\linguaggi\markdown.txt | more
     
-) else if "!n!" == "2" (
+) else if "%n%" == "2" (
     call appunti\powershellBATCH.bat
     
-) else if "!n!" == "1" (
+) else if "%n%" == "1" (
     cls
     call appunti\reti_e_internet\reti.bat
     
