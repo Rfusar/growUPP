@@ -39,6 +39,12 @@ echo 14. PC
 echo.
 echo ******************************************************************************************
 echo.
+echo # Ripasso musica  -m
+echo # economia aziendale  -ea
+echo.
+echo.
+echo.
+echo.
 echo 15. esci
 echo.
 echo.
@@ -58,6 +64,17 @@ if "%n%" == "15" (
 
 ) else if "%n%" == "html css" (
     start msedge "https://youtu.be/HGTJBPNC-Gw?feature=shared"
+
+
+
+) else if "%n%" == "-m" (
+    call apa\TEORIA_PRATICA.bat
+
+) else if "%n%" == "-ea" (
+    call windows\studio\economia_aziendale.bat
+
+
+
 
 
 

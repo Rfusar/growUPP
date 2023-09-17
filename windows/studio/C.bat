@@ -26,8 +26,8 @@ choice /c 12 /n /m "cosa vuoi studiare? "
 if errorlevel 2 (
     cls
 
-) else if errorlevel 2 (
-    start msedge "https://youtu.be/87SH2Cn0s9A"
+) else if errorlevel 1 (
+    start msedge "https://youtu.be/Bz4MxDeEM6k?si=J_YPBNmXu5rS_Wll"
     
 ) else (
     goto :start

@@ -36,10 +36,15 @@
 * Gestione file e sicurezza
 * Distribuzioni
 
-### - Primi passi con **WINDOWS**
+## - Primi passi con **WINDOWS**
 
 * Gestione utenti
 * Gestione file e sicurezza
+
+### *ALTRO*
+
+* Teoria musicale
+* Generatore di scale musicali
 
 ## - Canali di Riferimento *PRINCIPALI*
 
