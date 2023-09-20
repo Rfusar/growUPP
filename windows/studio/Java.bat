@@ -22,7 +22,7 @@ echo 3. esci
 echo.
 echo.
 
-choice /c 123 /n /m "cosa vuoi studiare? "
+choice /c 123 /n /m ": "
 
 if errorlevel 3 (
     cls

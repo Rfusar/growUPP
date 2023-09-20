@@ -68,7 +68,7 @@ if "%n%" == "15" (
 
 
 ) else if "%n%" == "-m" (
-    call apa\TEORIA_PRATICA.bat
+    call esercizi_musica\TEORIA_PRATICA.bat
 
 ) else if "%n%" == "-ea" (
     call windows\studio\economia_aziendale.bat
@@ -78,38 +78,17 @@ if "%n%" == "15" (
 
 
 
-) else if "%n%" == "12" (
-    call windows\studio\powershell.bat
-
 ) else if "%n%" == "14" (
     call windows\studio\PC.bat
 
-rem -----------CMD
-) else if "%n%" == "11" (
-    :docCMD
-    cls
-    echo.
-    echo per vedere Video 'CMD -video'
-    echo.
-    echo.
-    set /p doc="Vuoi vedere gli appunti? [Y/N]  "
-    if "%doc%" == "Y" (
-        cls
-        call studio\CMD.bat
-
-    ) else if "%doc%" == "N" (
-        cls
-        start msedge "https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/windows-commands"
-
-    ) else if "%doc%" == "CMD -video" (
-        start msedge "https://youtu.be/qnXe1gecux8?si=OjoQJcp3STqEu3O8"
-
-    ) else (
-        goto :docCMD
-    )
-
 ) else if "%n%" == "13" (
     call windows\studio\network.bat  
+
+) else if "%n%" == "12" (
+    call windows\studio\powershell.bat
+
+) else if "%n%" == "11" (
+  call windows\studio\CMD.bat
 
 ) else if "%n%" == "10" (
     start msedge "https://youtube.com/playlist?list=PLT98CRl2KxKGj-VKtApD8-zCqSaN2mD4w&si=qm8o-6Vmx5pzzTON"
@@ -124,7 +103,7 @@ rem -----------CMD
     start msedge "https://youtu.be/WxuViERlkyE?si=CWBIK-WyR4965j3X"
 
 ) else if "%n%" == "6" (
-    call windows\studio\mobile\kotline.bat
+    call windows\studio\mobile\kotlin.bat
 
 ) else if "%n%" == "5" (
     call windows\studio\Python.bat
@@ -141,7 +120,6 @@ rem -----------CMD
 )  else if "%n%" == "1" (
     call windows\studio\C.bat
 
-) 
-rem else (
-rem  goto :ini
-rem )
+) else (
+  goto :ini
+ )

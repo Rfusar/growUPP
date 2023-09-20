@@ -1,4 +1,4 @@
-rem .NET, PC --freecodecamp, FRONTEND base, flutter, curl, arp
+rem .NET, PC --freecodecamp, FRONTEND base, flutter, curl, arp, VIM, GIT
 @echo off
 :start
 cls
@@ -12,16 +12,27 @@ echo 4. flutter
 echo 5. curl
 echo 6. arp
 echo.
-echo 7. esci
+echo **********************************************
+echo.
+echo 7. VIM
+echo 8. GIT
+echo.
+echo 9. esci
 echo.
 
 
-choice /c 1234567 /n /m "scegli: "
+choice /c 123456789 /n /m "scegli: "
 
 
-if errorlevel 7 (
+if errorlevel 9 (
     cls
     
+) else if errorlevel 8 (
+    start msedge "https://youtu.be/RGOj5yH7evk?si=qgbDubs8OJYUrN_e"
+
+) else if errorlevel 7 (
+    start msedge "https://youtu.be/RZ4p-saaQkc?si=E68YG27bxAIZ0fsZ"
+
 ) else if errorlevel 6 (
     start msedge "https://www.fortinet.com/it/resources/cyberglossary/what-is-arp"
 

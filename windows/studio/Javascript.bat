@@ -30,7 +30,7 @@ echo 5. esci
 echo.
 echo.
 
-choice /c 12345 /n /m "Cosa vuoi studiare? "
+choice /c 12345 /n /m ": "
 
 if errorlevel 5 (
     cls

@@ -10,7 +10,7 @@ echo.
 echo 5. esci
 echo.
 echo.
-choice /c 12345 /n /m "Scegli: "
+choice /c 12345 /n /m ": "
 
 if errorlevel 5 (
     cls

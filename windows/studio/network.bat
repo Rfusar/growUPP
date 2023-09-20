@@ -8,7 +8,7 @@ echo.
 echo 3. esci
 echo.
 echo.
-choice /c 123 /n /m "Scegli: "
+choice /c 123 /n /m ": "
 
 if errorlevel 3 (
     cls

@@ -16,16 +16,20 @@ if "%pratica%" == "Y" (
 :start
 cls
 echo 1. C base
+echo 2. pointer
 echo.
-echo 2. esci
+echo 3. esci
 echo.
 echo.
 
-choice /c 12 /n /m "cosa vuoi studiare? "
+choice /c 123 /n /m ": "
 
-if errorlevel 2 (
+if errorlevel 3 (
     cls
 
+) else if errorlevel 2 (
+    start msedge "https://youtu.be/zuegQmMdy8M?si=-GIMiPqH72o2d6V5"
+    
 ) else if errorlevel 1 (
     start msedge "https://youtu.be/Bz4MxDeEM6k?si=J_YPBNmXu5rS_Wll"
     
