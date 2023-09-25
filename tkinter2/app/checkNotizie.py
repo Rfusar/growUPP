@@ -2,14 +2,17 @@ from bs4 import BeautifulSoup
 import subprocess
 
 path = "C:\\Users\\Utente\\Desktop\\esperimenti-master\\tkinter2"
+
 variabili={
     "link": {
         "governoIta" : "https://www.governo.it/it",
-        "agenzieEntrate" : "https://www.agenziaentrate.gov.it/portale/web/guest/home"
+        "agenzieEntrate" : "https://www.agenziaentrate.gov.it/portale/web/guest/home",
+        "indiciBorsa" : "https://www.milanofinanza.it/mercati/indici?refresh_cens"
     },
     "file":{
         "governoIta" : "GI_home.html",
-        "agenzieEntrate" : "AE_home.html"
+        "agenzieEntrate" : "AE_home.html",
+        "indiciBorsa" : "indiciBorsa.html"
     }
 }
 
@@ -19,7 +22,6 @@ def creazione_foglio(tipo): #*SITO -GOVERNO
 
 def eliminazione_foglio(tipo):
     subprocess.call(f"del {path}\\{variabili['file'][tipo]}", shell=True)
-
 
 
 
@@ -55,11 +57,7 @@ def news():
             f.write(f"{v.text}\n\n\n")
 
     eliminazione_foglio("governoIta")
-    
-
-
-
-         
+     
 def news_agenzia_entrate():
     creazione_foglio("agenzieEntrate")
 
@@ -97,5 +95,70 @@ def news_agenzia_entrate():
 
     eliminazione_foglio("agenzieEntrate")
 
+def check_indiciBorseMondiali():
+    creazione_foglio("indiciBorsa")
+
+    with open(f"{path}\\indiciBorsa.html", "r",encoding="utf-8") as file:
+        HOME = file.read()
+
+    soup = BeautifulSoup(HOME, "html.parser")
+
+    tabella = soup.find(class_="table")
+    elementi = tabella.find_all("tr")
+ 
+    with open(f"{path}\\checkPROVAA.txt", "w", encoding="utf-8") as f:
+        f.write("")
+    with open(f"{path}\\risultatoRicerche\\checkPROVAA.txt", "w", encoding="utf-8") as f:
+        f.write("")
+
+    titoli = []
+    for i in elementi:
+        titolo_campi = i.find_all("th")
+        valori = i.find_all("td")
+
+        for v in titolo_campi: titoli.append(v.text)
+        count1=0
+        count2=0
+        for j2, J2 in enumerate(valori):
+            
+            with open(f"{path}\\checkPROVAA.txt", "a", encoding="utf-8")as f:
+                while count1 < len(titoli):
+                    if count1 >= 0 and count1 != 8:
+                        var = ""
+                        var += titoli[count1]
+                        count1+=1
+                        break
+                    elif count1 == 8:
+                        count1 = 0
+                
+                x = valori[j2].text.split()
+
+                f.write(f"\n{var}: {x[0]}")
+                if count1 == 0:
+                    pass
+                elif count1 % 7 == 0:
+                    f.write("\n\n")
+
+        for j2, J2 in enumerate(valori):
+            #copia
+            with open(f"{path}\\risultatoRicerche\\checkPROVAA.txt", "a", encoding="utf-8")as f:
+                while count2 < len(titoli):
+                    if count2 >= 0 and count2 != 8:
+                        var = ""
+                        var += titoli[count2]
+                        count2+=1
+                        break
+                    elif count2 == 8:
+                        count2 = 0
+                
+                x = valori[j2].text.split()
+
+                f.write(f"\n{var}: {x[0]}")
+                if count2 == 0:
+                    pass
+                elif count2 % 7 == 0:
+                    f.write("\n\n")
+
+    eliminazione_foglio("indiciBorsa")
 
 

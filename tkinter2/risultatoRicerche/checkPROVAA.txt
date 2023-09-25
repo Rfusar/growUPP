@@ -1,0 +1,108 @@
+
+Indici: FTSE
+Valore: 28.280,36
+Var%: -1,03
+Massimo: 28.676,4609
+Minimo: 28.116,4297
+Apertura: 28.518,7695
+Ora: 17.16
+
+
+Indici: AEX
+Valore: 725,27
+Var%: -0,66
+Massimo: 730,57
+Minimo: 721,37
+Apertura: 728,39
+Ora: 17.16
+
+
+Indici: DAX
+Valore: 15.370,29
+Var%: -1,20
+Massimo: 15.572,1396
+Minimo: 15.329,4004
+Apertura: 15.513,3203
+Ora: 17.16
+
+
+Indici: CAC
+Valore: 7.109,06
+Var%: -1,05
+Massimo: 7.199,9502
+Minimo: 7.087,9302
+Apertura: 7.157,23
+Ora: 17.16
+
+
+Indici: BEL
+Valore: 3.572,49
+Var%: -1,71
+Massimo: 3.635,5701
+Minimo: 3.562,1201
+Apertura: 3.620,6599
+Ora: 17.16
+
+
+Indici: IBEX
+Valore: 9.360,60
+Var%: -1,49
+Massimo: 9.523,5
+Minimo: 9.337,7998
+Apertura: 9.468,5
+Ora: 17.16
+
+
+Indici: SMI
+Valore: 11.014,41
+Var%: 0,00
+Massimo: 11.068,5303
+Minimo: 10.963,3701
+Apertura: 11.027,0898
+Ora: 17.19
+
+
+Indici: NASDAQ
+Valore: 13.237,27
+Var%: 0,19
+Massimo: 13.238,6162
+Minimo: 13.131,9971
+Apertura: 13.287,1709
+Ora: 17.16
+
+
+Indici: NASDAQ
+Valore: 14.722,32
+Var%: 0,14
+Massimo: 14.727,0068
+Minimo: 14.615,4482
+Apertura: 14.756,624
+Ora: 17.16
+
+
+Indici: D.
+Valore: 33.942,44
+Var%: -0,06
+Massimo: 33.943,3984
+Minimo: 33.780,6719
+Apertura: 34.077,0781
+Ora: 17.23
+
+
+Indici: S&P
+Valore: 4.329,84
+Var%: 0,23
+Massimo: 4.330,1401
+Minimo: 4.302,7002
+Apertura: 4.341,7402
+Ora: 17.23
+
+
+Indici: H.Seng
+Valore: 17.729,29
+Var%: -1,82
+Massimo: 18.046,8906
+Minimo: 17.722,4902
+Apertura: 18.046,8906
+Ora: 17.13
+
