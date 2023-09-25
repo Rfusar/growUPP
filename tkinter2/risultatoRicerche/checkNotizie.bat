@@ -10,7 +10,7 @@ echo 3. indici banche
 echo.
 echo # 
 echo    -a aggiorna 
-echo.
+echo.   -r ricerca internt --separatore[+] --esempio ciao+mi+chiamo+jj
 echo.
 echo.
 echo 4. esci
@@ -20,7 +20,14 @@ echo.
 echo.
 set /p n=": "
 
-if "%n%" == "-a" (
+set a=%n:~0,2%
+set b=%n:~3%
+
+
+if "%a%" == "-r" (
+    start msedge "https://www.google.com/search?q=%b%"
+
+) else if "%n%" == "-a" (
     cd C:\Users\Utente\Desktop\esperimenti-master\tkinter2\app && python update.py
     cd C:\Users\Utente\Desktop\esperimenti-master
     pause

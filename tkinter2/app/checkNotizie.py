@@ -161,4 +161,3 @@ def check_indiciBorseMondiali():
 
     eliminazione_foglio("indiciBorsa")
 
-
