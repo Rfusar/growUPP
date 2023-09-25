@@ -1,0 +1,41 @@
+Sintassi: C:\WINDOWS\system32\netsh.exe [-a FileAlias] [-c Contesto]
+[-r ComputerRemoto] [-u [NomeDominio\]NomeUtente]
+[-p Password | *]
+              [Comando | -f FileDescrizioneProcedure]
+
+Sono disponibili i seguenti comandi :
+
+Comandi in questo contesto:
+?              - Visualizza un elenco di comandi.
+add            - Aggiunge una voce di configurazione a un elenco di voci.
+advfirewall    - Passa al contesto `netsh advfirewall'.
+branchcache    - Passa al contesto `netsh branchcache'.
+bridge         - Passa al contesto `netsh bridge'.
+delete         - Elimina una voce di configurazione da un elenco di voci.
+dhcpclient     - Passa al contesto `netsh dhcpclient'.
+dnsclient      - Passa al contesto `netsh dnsclient'.
+dump           - Visualizza uno script di configurazione.
+exec           - Esegue un file di script.
+firewall       - Passa al contesto `netsh firewall'.
+help           - Visualizza un elenco di comandi.
+http           - Passa al contesto `netsh http'.
+interface      - Passa al contesto `netsh interface'.
+ipsec          - Passa al contesto `netsh ipsec'.
+lan            - Passa al contesto `netsh lan'.
+mbn            - Passa al contesto `netsh mbn'.
+namespace      - Passa al contesto `netsh namespace'.
+netio          - Passa al contesto `netsh netio'.
+p2p            - Passa al contesto `netsh p2p'.
+ras            - Passa al contesto `netsh ras'.
+rpc            - Passa al contesto `netsh rpc'.
+set            - Visualizza impostazioni di configurazione.
+show           - Visualizza informazioni.
+trace          - Passa al contesto `netsh trace'.
+wcn            - Passa al contesto `netsh wcn'.
+wfp            - Passa al contesto `netsh wfp'.
+winhttp        - Passa al contesto `netsh winhttp'.
+winsock        - Passa al contesto `netsh winsock'.
+wlan           - Passa al contesto `netsh wlan'.
+
+Sono disponibili i seguenti sottocontesti:
+ advfirewall branchcache bridge dhcpclient dnsclient firewall http interface ipsec lan mbn namespace netio p2p ras rpc trace wcn wfp winhttp winsock wlan

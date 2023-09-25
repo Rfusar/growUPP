@@ -42,8 +42,8 @@ if "%nome%" == "novita" (
 ) else if "%nome%" == "studiamo" (
     call windows\studio\studio.bat
 
-) else if "%nome%" == "internet" (
-    call windows\connessione\connessione.bat
+) else if "%nome%" == "ricerca" (
+    start msedge "https://www.google.com/advanced_search"
 
 ) else if "%nome%" == "lavoro" (
     call windows\lavoro.bat
@@ -61,7 +61,9 @@ if "%nome%" == "novita" (
 ) else if "%nome%" == "cosaHoDaFare?" (
     cd C:\Users\Utente\Desktop\esperimenti-master\windows\game\cosaDAFARE && python cosadafare.py
     cd C:\Users\Utente\Desktop\esperimenti-master
-) else if "%nome%" == "-h" (
+) else if "%nome%" == "iron_box" (
+    cls
+)  else if "%nome%" == "-h" (
     type help.txt
     pause
     goto :inizio

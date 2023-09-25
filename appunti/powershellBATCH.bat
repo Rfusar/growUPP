@@ -19,40 +19,40 @@ echo.
 echo     internet
 echo.
 
-set /p "domanda1=cosa vuoi sapere di POWERSHELL? "
+set /p domanda1="cosa vuoi sapere di POWERSHELL? "
 
 :: Switch per domanda1
 if "%domanda1%"=="policy" (
     cls 
-    type appunti\linguaggi\powershell\policy.txt | more
+    type appunti\linguaggi\riga_di_comando\PS_policy.txt | more
     pause
     goto :ini
 
 ) else if "%domanda1%"=="variabili" (
     cls 
-    type appunti\linguaggi\powershell\variabili.txt | more
+    type appunti\linguaggi\riga_di_comando\PS_variabili.txt | more
     pause
     goto :ini
 
 ) else if "%domanda1%"=="estensioni" (
     cls 
-    type appunti\linguaggi\powershell\estensioni.txt | more
+    type appunti\linguaggi\riga_di_comando\PS_estensioni.txt | more
     pause
     goto :ini
 
 ) else if "%domanda1%"=="funzioni" (
     cls 
-    type appunti\linguaggi\powershell\funzioni.txt | more
+    type appunti\linguaggi\riga_di_comando\PS_funzioni.txt | more
     pause
     goto :ini
 
 ) else if "%domanda1%"=="internet" (
     cls 
-    type appunti\linguaggi\powershell\internet.txt | more
+    type appunti\linguaggi\riga_di_comando\PS_internet.txt | more
     pause
     goto :ini
 
-) else if "%domanda1%"==":q" (
+) else if "%domanda1%"=="q" (
     cls
 
 ) else if "%domanda1%"=="condizioni" (
@@ -69,36 +69,36 @@ if "%domanda1%"=="policy" (
     echo.
     echo.
     
-    set /p "domanda2=cosa vuoi sapere? "
+    set /p domanda2="cosa vuoi sapere? "
     
     if "%domanda2%"=="if-else" (
         cls 
-        type appunti\linguaggi\powershell\if-else.txt | more
+        type appunti\linguaggi\riga_di_comando\PS_if-else.txt | more
         pause
         goto :ini1
 
     ) else if "%domanda2%"=="switch" (
         cls 
-        type appunti\linguaggi\powershell\switch.txt | more
+        type appunti\linguaggi\riga_di_comando\PS_switch.txt | more
         pause
         goto :ini1
 
     ) else if "%domanda2%"=="while" (
         cls 
-        type appunti\linguaggi\powershell\while.txt | more
+        type appunti\linguaggi\riga_di_comando\PS_while.txt | more
         pause
         goto :ini1
     ) else if "%domanda2%"=="for" (
         cls 
-        type appunti\linguaggi\powershell\for.txt | more
+        type appunti\linguaggi\riga_di_comando\PS_for.txt | more
         pause
         goto :ini1
 
-    ) else if "%domanda2%"==":q" (
+    ) else if "%domanda2%"=="q" (
         cls 
         goto :ini
 
-    ) else if "%domanda2%"==":Q" (
+    ) else if "%domanda2%"=="Q" (
         cls 
 
     ) else (

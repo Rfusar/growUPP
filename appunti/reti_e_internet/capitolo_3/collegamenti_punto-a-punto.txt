@@ -324,7 +324,104 @@ COLLEGAMENTO PUNTO-PUNTO:
 
 
 		PROTOCOLLO GO-BACK-N:
-		    ---> 
+		    ---> con il protocollo GBN, il ricevitore B accetta l'UI solo se queste sono strettamente in sequenza(ciclica modulo-N). il numero 'n' nel nome del protocollo sta ad 
+			   indicare il numero massimo di UI che possono essere trasmesse in assenza di riscontro.  La ricezione di UI fuori sequenza implica non solo lo scarto dell'UI
+			   ma anche l'invio di un riscontro negativo NACK 'i' nel protocollo GBN indica non solo la mancata ricezione da parte della stazione dell'UI numero 'i', ma anche
+			   la corretta ricezione delle UI precedenti"[(i-1)modN]", 
+			 dopo l'invio di un NACK, la stazione B scarta tutte le UI ricevute con numeri crescenti fino alla corretta ricezione UI numero 'i', cio implica che l'apertura 
+			   della finestra di ricezione Wr assume valore unitario e che le UI possono essere ricevute solo in sequenza. Anche se le implementazioni del protocollo possono
+			   prevedere diverse varianti delle nella gestione dei NACK.
+
+		PROTOCOLLO SELECTIVE REPEAT:
+		    ---> le unita informative sono accettate anche se fuori sequenza; cio rende la disponibilita di un 'buffer di ricezione' che consenta di riordinarele UI, affinche il
+			   il payload in esse contenuto possa essere consegnato in ordine sequenziale a livello superiore. Accettare UI fuori sequenza implica che il ricevitore ha rilevato
+			   la mancata ricezione di una o piu UI; questo evento viene segnalato dalla stazione ricevente mediante il riscontro negativo, che questa volta NON indica anche
+			   la ricezione positiva per le UI precedenti.
+			 nel protocollo selective repeat l'apertura della finestra in ricezione non deve essere piu unitaria, poiche il ricevitore, per definizione puo accettare UI
+			   fuori sequenza, tuttavia bisona stabilire un vicolo congiunto sull'apertura delle due finestre per evitare ambiguita. 
+
+			 la scelta ottimale dell'apertura delle due finestre nel protocollo selective repeat e 'Ws = Wr = N/2', infatti, scegliere Ws > Wr implica che la stazione
+			   ricevente potrebbe scartare alcune UI corrette ricevute fuori sequenza, poiche non rientrano nell'apertura corrente della finestra di ricezione.
+			   Analogamente, assumere Ws < Wr significa predisporre un'apertura della finestra in ricezione che non puo mai essere sfruttata pienamente.
+			  
+
+		PROTOCOLLO CON SOLO RISCONTRI POSITIVI:
+		    ---> il protocollo GBN e SR sono basati sul concetto di collegare la perdita di UI alla numerazione delle UI che vengono ricevute. Questo approccio nasce dall'ipotesi
+			   che il mezzo trasmissivo tra le due stazioni che comunicano garantisca implicitamente la consegna in sequenza delle UI in assenza di errori. Occore tuttavia 
+			   considerare che non sempre tale requisito risulti sodisfatto, come per esempio nel caso le due stazioni non siano conesse da un collegamento punto-punto, bensi 
+			   da una rete. Potrebbe essere necessario attraversare diversi nodi per realizzare la connettivita tra stazioni terminali e la successione dei nodi d'attraversare 
+			   potrebbero cambiare nel tempo, determinando una consegna fuori sequenza delle UI a destinazione.
+			 nell'archittetura TCP/IP le funzioni di trasferimento dello strato di rete sono realizzate dal protocollo IP, che e un protocollo connection-less, che consente 
+			   dunque la consegna delle UI a destinazione fuori sequenza. Risulta quindi evidente che meccanismi di ritrasmissione utilizzati nei protocolli GBN e SR basati 
+			   sulla rilevazione di UI ricevute fuori sequenza non possono funzionare nel caso di protocolli di trasporto basati sul servizio dello strato di rete realizzato
+			   dal protocollo IP. I protocolli con 'soli riscontri positivi' possono dunque essere considerati degli ibridi tra i protocolli GBN e SR. Infatti, come nel GBN,
+			   le UI che non vengono riscontrate sono ritrasmesse in ordine a partire dall'ultima UI ricevuta, grazie al time-out. Inoltre, nel SR, le UI vengono accettate 
+			   fuori sequenza grazie al meccanismo a finestra applicato in ricezione.
+			 nei protocolli con solo riscontri positivi il riscontro ACK riveste lo stesso significato dei protocolli GBN e SR, indicando il riscontro positivo cumulativo per
+			   tutte le UI ricevute fino alla UI 'i'. Si assume qui che il meccanismo di numerazione delle UI, delle finestre di trasmissione e ricezione sia lo stesso definito
+			   nel protocollo SR, dovendo ora considerare trasferimenti di UI che ammettono esplicitamente la ricezione di UI fuori sequenza. 
+
+		PROTOCOLLI BIDIREZIONALI: 
+		    ---> i protocolli descritti finora sono basati sull'ipotesi sul flusso informativo unidirezionale, nella realta, praticamente tutte le modalita d'interazione di 
+			   di tipo punto-puntosono di tipo bidirezionale. Infatti entrambe le stazioni generano UI e ognuna delle due deve riscontrare quelle ricevute correttamente 
+			   oppure quelle mancanti ove il protocollo gestica questo tipo di eventi. parola da cercare ---> piggybacking 
+
+		EFFICIENZA DEI PRTOCOLLI CONTINUOUS ARQ:  ---tra 0 e 1 oppure da 0% a 100%---
+		    ---> se il collegamento tra le due stazioni A e B e ideale, cioe privo di errori, allora l'efficienza e unitaria se l'apertura delle finestre consente di trasmettere
+			   in modo continuativo, al contrario se questa condizione non e rispettata, allora l'efficienza si otterra come rapporto tra 'il tempo speso in trasmissione, per 
+			   inviare le WsUI e il tempo richiesto per far ruotare la finestra stessa':
+
+					n = efficienza 				***n = 1 oppure n = Ws >= 1 + 2a oppure n = (Ws * Tu)/(Tu + 2t) oppure n = Ws < 1 + 2a 
+
+			 anche nel caso di errori di trasmissione, il calcolo dell'efficienza dipende dalle modalita di operazione della finestra. Ipotizziamo una situazione di un apertura
+			   di finestra che non influisce sull'efficienza del protocollo. Per calcolare l'efficienza dei protocolli ARQ, si assume per semplicita che i tempi di trasmissione
+			   dei riscontri e di elaborazione siano trascurabili (Ta = Tp ~ 0). Come gia ipotizzato il buffer del trasmettitore e sempre vuoto. L'efficienza del protocollo 
+			   di collegamento si calcola come il rapporto fra tempo 'Tu' di trasmissione di un'UI e il tempo totale richiesto per trasmettere con successo UI stessa:
+
+						n = Tu/(Ns*Tu)= 1/Ns
+
+			 infatti i protocolli continuous ARQ, a differenza dei protocolli S&W, non perdono di efficienza a causa del tempo di propagazione sul collegamento, perche 
+			   la stazione A puo trasmettere UI con continuita. Per il protocollo SR, l'efficienza puo essere facilmente calcolata considerando che il numero mendio di 
+			   tentativi di trasmissione della stessa UI, ivi incluso l'ultimo che ha successo:
+
+						Ns = 1 / 1-P
+
+			 poiche la ritrasmissione interessa solo la stessa UI errata e non altre.
+			 nel caso del protocollo GBN, si indica con K il numero di UI consecutive che devono essere ritrasmesse in seguito ad un errore. Occore ora considerare che a ogni
+			   errore corrisponde una ritrasmissione di K UI(in media) in aggiunta alla ritrasmissione con successo dell'UI stessa: con un solo errore vengono ritrasmesse
+			   K+1 UI, con due errori 2K+1 con tre 3K+1 e cosi via... Considerando che P^i(1-P) indica la probabilita di accumulare 'i' errori su 'i' trasmissioni ripetute
+			   della stessa UI, allora il numero medio Ns di UI trasmesse per UI inviata con successo e dato da:
+
+						
+						   infinito
+						sommatoria (iK+1)P^i(1-P) = (K*P)/(1-P) +1 = (1+(K-1)P)/(1-P) 
+						   i = 0
+
+			 il parametro K puo essere determinato considerando che ha una trasmissione priva di successo viene rilevata dalla stazione ricevente al momento della ricezione
+			   dell'UI successiva(corretta). Questa invia un riscontro negativo e quindi la rilevazione di perdita di un UI deve anche tener conto del tempo di propagazione 
+			   sul collegamento dell'UI corretta e del riscontro. Durante questo intervallo di tempo, tutte le UI trasmesse vengono scartate. Infatti, allo scadere di questo
+			   intervallo di tempo, il trasmettitore riceve un riscontro positivo o negativo, quindi  K * Tu ~ 2Tu + 2t, ovvero K ~ 2 + 2a.
+			   Si ottengono dunque le seguenti espressioni per l'efficienza dei protocolli continuous ARQ nell ipotesi Ws >= 1 + 2a:
+
+					efficienza = n        n = 1-P ---> selective repeat   n = (1-p)/(1+P+2aP) ---> Go-Back-n     
+
+			 il protocollo SR e piu efficiente del protocollo GBN, ma questa differenza si riduce al diminuire della lunghezza del collegamento o, viceversa, all'aumentare 
+			   del tempo di trasmissione dell'UI. Anche nel caso di a = 0, il protocollo SR fornisce un'efficienza migliore. Infatti la necessita di ricevere un'UI corretta 
+			   per per rilevarne una(mancante) errata implica, solo nel protocollo GBN, una diminuzione di efficienza dovuta allo scarto dell'ultima UI corretta ricevuta.
+			 esaminiamo ora il caso in cui Ws < 1 + 2a. Si osserva che l'efficienza del protocollo e Ns volte di meno espressa(qui***), poiche Ns, rappresenta il numero
+			   medio di UI trasmesse per UI trasmessa con successo quindi:
+
+
+					n = (Ws*Tu/Ns)/(Tu+2t) = Ws/(Ns(1+2a))
+
+			 in questo ultimo caso il numero di K di UI consecutive che devono essere ritrasmesse in seguito ad un errore e proprio quello consentito dall'apertura Ws 
+			   della finestra, in conclusione nel caso di Ws < 1+2a si ha:
+
+					n = (Ws(1-P))/(1+2a) ---> SR     n = (Ws(1-P))/(1+2a)[1+(Ws-1)P] ---> GBN
+
+					a = (Ws-1)/2   
+							 
+			    
 
 
 

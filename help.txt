@@ -56,8 +56,8 @@ descrizione =
   lavoro:
       apri progetti principali
 
-  internet:
-      controlli se sei connesso e se nel caso negativo, hai la possibilita di connetteri ad una rete con la quale sei gia stato registrato in precedenza 
+  ricerca:
+      search advanced su google ---> tool offerto da google per ricerche specifiche 
 
   appunti:
       apri menu appunti

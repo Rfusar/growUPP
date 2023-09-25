@@ -1,0 +1,40 @@
+Visualizza le statistiche del protocollo e le connessioni di rete TCP/IP correnti.
+
+NETSTAT [-a] [-b] [-e] [-f] [-n] [-o] [-p proto] [-r] [-s] [-t] [-x] [-y] [interval]
+
+  -a            Visualizza tutte le connessioni e le porte di ascolto.
+  -b            Visualizza l'eseguibile coinvolto nella creazione di ogni connessione o
+                porta di ascolto. In alcuni casi, host di eseguibili noti
+                più componenti indipendenti e in questi casi il
+                sequenza di componenti coinvolti nella creazione della connessione
+                o la porta in ascolto. In questo caso, l'eseguibile
+                il nome è in [] nella parte inferiore, in alto è il componente che ha chiamato,
+                e così via fino al raggiungimento di TCP/IP. Si noti che questa opzione
+                può richiedere molto tempo e avrà esito negativo, a meno che non siano sufficienti
+                autorizzazioni.
+  -e visualizza le statistiche Ethernet. È possibile combinare
+                opzione.
+  -f Visualizza nomi di dominio completi (FQDN) per stranieri
+                indirizzi.
+  -n Visualizza indirizzi e numeri di porta in formato numerico.
+  -o Visualizza l'ID del processo proprietario associato a ogni connessione.
+  -p proto Mostra le connessioni per il protocollo specificato da proto; proto
+                può essere qualsiasi: TCP, UDP, TCPv6 o UDPv6.  Se usato con-s
+                opzione per la visualizzazione delle statistiche per protocollo, Proto può essere qualsiasi:
+                IP, IPv6, ICMP, ICMPv6, TCP, TCPv6, UDP o UDPv6.
+  -q            Visualizza tutte le connessioni, le porte di ascolto e i binding
+                non in ascolto di porte TCP. Le porte di nonlistening associate possono o meno essere
+                essere associato a una connessione attiva.
+  -r            Visualizza la tabella di routing.
+  -s            Visualizza le statistiche per protocollo.  Per impostazione predefinita, le statistiche vengono
+                visualizzata per IP, IPv6, ICMP, ICMPv6, TCP, TCPv6, UDP e UDPv6;
+                l'opzione-p può essere utilizzata per specificare un sottoinsieme del valore predefinito.
+  -t            Visualizza lo stato corrente di offload della connessione.
+  -x            Visualizza connessioni NetworkDirect, listener e condivisi
+                endpoint.
+  -y            Visualizza il modello di connessione TCP per tutte le connessioni.
+                Non può essere combinato con le altre opzioni.
+  intervallo Rivisualizza le statistiche selezionate, la sospensione dell'intervallo di secondi
+                tra ogni schermo.  Premere CTRL+C per interrompere la rivisualizzazione
+                Statistiche.  Se viene omesso, netstat stamperà il
+                informazioni di configurazione una volta.
