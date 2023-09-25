@@ -1,0 +1,10 @@
+con 'ctrl+t':
+    ---> ultime notizie:
+            ---> fonti ---> governoItaliano, agenzieDelleEntrate
+
+
+-se codice in tab 'Code'
+==> con 'ctrl+k' [segni=[#,$,£]]:
+    --->[]
+		0:    # cerca qualcosa su internet # 
+		1:    $ cerca il significato della parola $ 

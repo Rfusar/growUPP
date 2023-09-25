@@ -2,6 +2,7 @@ import sqlite3
 import hashlib
 import re
 import subprocess
+from bs4 import BeautifulSoup
 
 
 #AGG HASH
@@ -72,7 +73,7 @@ def setting_database(nome_file):
 
 def gestione_inserimento_tab_CODE(text):
 
-    def ricercaInternet(ricerca):
+    def ricercaInternet(ricerca):# segno --> ##
         ric = ricerca.split()
         r = ""
         c = 0
@@ -84,14 +85,39 @@ def gestione_inserimento_tab_CODE(text):
                 r += f"+{ric[c]}"
             c+=1
 
-        stringa = f"start msedge https://www.google.com/search?q={r}" 
-        subprocess.call(stringa, shell=True)
+        subprocess.call(f"start msedge https://www.google.com/search?q={r}", shell=True)
+
+    def ricercaDizionario(ricerca):# segno $$
+        def creazione():
+            subprocess.call(f"curl -o C:\\Users\\Utente\\Desktop\\esperimenti-master\\tkinter2\\vocabolo.html -k https://www.treccani.it/vocabolario/{ricerca}",shell=True)
+        def del_html():
+            subprocess.call(f"del C:\\Users\\Utente\\Desktop\\esperimenti-master\\tkinter2\\vocabolo.html",shell=True)
+        def del_txt():
+            subprocess.call(f"del C:\\Users\\Utente\\Desktop\\esperimenti-master\\tkinter2\\vocabolo.txt",shell=True)
 
 
-    ogg = {}
+        creazione()
+        with open("C:\\Users\\Utente\\Desktop\\esperimenti-master\\tkinter2\\vocabolo.html", "r",encoding="utf-8") as file:
+            HOME = file.read()
+        soup = BeautifulSoup(HOME, "html.parser")
 
-    pattern1 = r'\#(.*?)\#'
-    pattern2 = r'\$(.*?)\$'
+        card = soup.find(class_="text spiega")
+        e = card.find_all("p")
+
+        with open("C:\\Users\\Utente\\Desktop\\esperimenti-master\\tkinter2\\vocabolo.txt", "w") as f:
+            f.write("")
+        with open("C:\\Users\\Utente\\Desktop\\esperimenti-master\\tkinter2\\vocabolo.txt", "a", encoding="utf-8") as f:
+            f.write(f"termine: {e[1].text}\n\n")
+            f.write(f"{e[2].text}")
+
+
+        del_html()
+        subprocess.call("notepad C:\\Users\\Utente\\Desktop\\esperimenti-master\\tkinter2\\vocabolo.txt", shell=True)
+        del_txt()
+        
+
+    pattern1 = r'\#(.*?)\#'#* RICERCA INTERNET
+    pattern2 = r'\$(.*?)\$'#* RICERCA NEL VOCABOLARIO TRECCANI
     pattern3 = r'\£(.*?)\£'
 
     match1 = re.search(pattern1, text)
@@ -104,11 +130,11 @@ def gestione_inserimento_tab_CODE(text):
 
     if match2:
         contenuto = match2.group(1)
+        ricercaDizionario(contenuto)
         
     if match3:
         contenuto = match3.group(1)
-        ogg["£"] = contenuto 
-
+     
     
 
                 

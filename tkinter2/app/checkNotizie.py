@@ -2,7 +2,6 @@ from bs4 import BeautifulSoup
 import subprocess
 
 path = "C:\\Users\\Utente\\Desktop\\esperimenti-master\\tkinter2"
-
 variabili={
     "link": {
         "governoIta" : "https://www.governo.it/it",
@@ -13,6 +12,7 @@ variabili={
         "agenzieEntrate" : "AE_home.html"
     }
 }
+
 
 def creazione_foglio(tipo): #*SITO -GOVERNO
     subprocess.call(f"curl -o {path}\\{variabili['file'][tipo]} -k {variabili['link'][tipo]}", shell=True)
@@ -35,11 +35,21 @@ def news():
 
     with open(f"{path}\\notizia.txt", "w",encoding="utf-8") as f:
             f.write("")
-
     for v in card: 
         h3 = v.find('h3') 
         p = v.find('p') # paragrafo in mezzo al div      
         with open(f"{path}\\notizia.txt", "a",encoding="utf-8") as f:
+            f.write("♦♦♦♦♦ GovernoItalianoSite ♦♦♦♦♦♦♦♦♦♦♦♦♦ NOTIZIA\n\n")
+            f.write(f"titolo: {h3.text}\n\n")
+            f.write(f"{v.text}\n\n\n")
+
+    #copia
+    with open(f"{path}\\risultatoRicerche\\notizia.txt", "w",encoding="utf-8") as f:
+            f.write("")
+    for v in card: 
+        h3 = v.find('h3') 
+        p = v.find('p') # paragrafo in mezzo al div      
+        with open(f"{path}\\risultatoRicerche\\notizia.txt", "a",encoding="utf-8") as f:
             f.write("♦♦♦♦♦ GovernoItalianoSite ♦♦♦♦♦♦♦♦♦♦♦♦♦ NOTIZIA\n\n")
             f.write(f"titolo: {h3.text}\n\n")
             f.write(f"{v.text}\n\n\n")
@@ -62,12 +72,24 @@ def news_agenzia_entrate():
 
     with open(f"{path}\\AE.txt", "w", encoding="utf-8") as f:
         f.write("")
-        
     for i in card:
         data_notizia = i.find("span")
         titolo = i.find("h2")
         notizia = i.find("p")
         with open(f"{path}\\AE.txt", "a", encoding="utf-8") as f:
+            f.write("☺☺☺☺☺☺☺☺☺ agenziaEntrate ☺☺☺☺☺☺☺☺☺☺☺☺ NOTIZIA\n\n")
+            f.write(f"DATA: {data_notizia.text}\n\n")
+            f.write(f"TITOLO: {titolo.text}\n\n")
+            f.write(f"{notizia.text}\n\n\n")
+
+    #copia
+    with open(f"{path}\\risultatoRicerche\\AE.txt", "w", encoding="utf-8") as f:
+        f.write("")
+    for i in card:
+        data_notizia = i.find("span")
+        titolo = i.find("h2")
+        notizia = i.find("p")
+        with open(f"{path}\\risultatoRicerche\\AE.txt", "a", encoding="utf-8") as f:
             f.write("☺☺☺☺☺☺☺☺☺ agenziaEntrate ☺☺☺☺☺☺☺☺☺☺☺☺ NOTIZIA\n\n")
             f.write(f"DATA: {data_notizia.text}\n\n")
             f.write(f"TITOLO: {titolo.text}\n\n")

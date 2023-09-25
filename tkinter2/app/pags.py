@@ -37,8 +37,11 @@ class Home(tk.Tk):
         self.title("SCHEDA1")
         self.maxsize(500,500)
 
+        label = tk.Label(self, text="ctrl+h ---> helpPage")
+        label.pack()
+
         notebook = tkb.Notebook(self, width=350, height=250)
-        notebook.place(x=60, y=50)
+        notebook.place(x=20, y=50)
 
         frame1 = tkb.Frame(notebook, width=350, height=250)
         notebook.add(frame1, text='Tab1')       
@@ -49,7 +52,8 @@ class Home(tk.Tk):
         self.label3.pack()
 
         self.bind("<Control-KeyPress-k>", self.ritorno_testo_tab_CODE)
-        self.bind("<Control-KeyPress-t>", self.dati_da_home_sitoGovernoITALIANO)
+        self.bind("<Control-KeyPress-t>", self.novita)
+        self.bind("<Control-KeyPress-h>", self.help)
 
 
 
@@ -57,7 +61,7 @@ class Home(tk.Tk):
         text = self.label3.get("1.0", "end-1c")  
         gestione_inserimento_tab_CODE(text)
 
-    def dati_da_home_sitoGovernoITALIANO(self, event=None):
+    def novita(self, event=None):
         news()
         subprocess.call("notepad C:\\Users\\Utente\\Desktop\\esperimenti-master\\tkinter2\\notizia.txt",shell=True)
         subprocess.call("del C:\\Users\\Utente\\Desktop\\esperimenti-master\\tkinter2\\notizia.txt",shell=True)
@@ -65,6 +69,9 @@ class Home(tk.Tk):
         news_agenzia_entrate()
         subprocess.call("notepad C:\\Users\\Utente\\Desktop\\esperimenti-master\\tkinter2\\AE.txt",shell=True)
         subprocess.call("del C:\\Users\\Utente\\Desktop\\esperimenti-master\\tkinter2\\AE.txt",shell=True)
+
+    def help(self, event=None):
+        subprocess.call("notepad C:\\Users\\Utente\\Desktop\\esperimenti-master\\tkinter2\\help.txt",shell=True)
         
             
             

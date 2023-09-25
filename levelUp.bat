@@ -27,6 +27,12 @@ if "%nome%" == "novita" (
 ) else if "%nome%" == "chatGPT" (
     start msedge "https://chat.openai.com/"
 
+) else if "%nome%" == "app" (
+    call C:\Users\Utente\Desktop\esperimenti-master\tkinter2\dist\app.exe
+
+) else if "%nome%" == "notizie" (
+    call C:\Users\Utente\Desktop\esperimenti-master\tkinter2\risultatoRicerche\checkNotizie.bat
+
 ) else if "%nome%" == "voglioCreare" (
     call windows\creazione.bat
 
