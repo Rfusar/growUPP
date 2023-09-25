@@ -67,9 +67,8 @@ if "%nome%" == "novita" (
 ) else if "%nome%" == "cosaHoDaFare?" (
     cd C:\Users\Utente\Desktop\esperimenti-master\windows\game\cosaDAFARE && python cosadafare.py
     cd C:\Users\Utente\Desktop\esperimenti-master
-) else if "%nome%" == "iron_box" (
-    cls
-)  else if "%nome%" == "-h" (
+    
+) else if "%nome%" == "-h" (
     type help.txt
     pause
     goto :inizio
