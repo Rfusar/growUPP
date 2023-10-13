@@ -7,13 +7,14 @@ echo.
 echo 1. agenzie delle entrate
 echo 2. sito governo italiano
 echo 3. indici banche 
+echo 4. notizie ISTAT 
 echo.
 echo # 
 echo    -a aggiorna 
 echo.   -r ricerca internt --separatore[+] --esempio ciao+mi+chiamo+jj
 echo.
 echo.
-echo 4. esci
+echo 5. esci
 echo.
 echo.
 echo.
@@ -52,7 +53,13 @@ if "%a%" == "-r" (
     pause
     goto :ini
 
-) else if "%n%" == "4" (
+) else if "%n%" == "4" ( 
+    cls
+    type C:\Users\Utente\Desktop\esperimenti-master\tkinter2\risultatoRicerche\ISTAT.txt
+    pause
+    goto :ini
+
+) else if "%n%" == "5" (
     cls
 
 ) else (

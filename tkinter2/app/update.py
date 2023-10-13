@@ -1,10 +1,8 @@
-import subprocess
-from checkNotizie import news, news_agenzia_entrate,check_indiciBorseMondiali
+from checkNotizie import news, news_agenzia_entrate,check_indiciBorseMondiali, notizieISTAT
 
 news()
 news_agenzia_entrate()
 check_indiciBorseMondiali()
+notizieISTAT()
 
-subprocess.call("del C:\\Users\\Utente\\Desktop\\esperimenti-master\\tkinter2\\AE.txt",shell=True)
-subprocess.call("del C:\\Users\\Utente\\Desktop\\esperimenti-master\\tkinter2\\notizia.txt", shell=True)
-subprocess.call("del C:\\Users\\Utente\\Desktop\\esperimenti-master\\tkinter2\\checkPROVAA.txt", shell=True)
+

@@ -7,17 +7,19 @@ variabili={
     "link": {
         "governoIta" : "https://www.governo.it/it",
         "agenzieEntrate" : "https://www.agenziaentrate.gov.it/portale/web/guest/home",
-        "indiciBorsa" : "https://www.milanofinanza.it/mercati/indici?refresh_cens"
+        "indiciBorsa" : "https://www.milanofinanza.it/mercati/indici?refresh_cens",
+        "ISTAT": "https://www.istat.it/"
     },
     "file":{
         "governoIta" : "GI_home.html",
         "agenzieEntrate" : "AE_home.html",
-        "indiciBorsa" : "indiciBorsa.html"
+        "indiciBorsa" : "indiciBorsa.html",
+        "ISTAT" : "ISTAT.html"
     }
 }
 
 
-def creazione_foglio(tipo): #*SITO -GOVERNO
+def creazione_foglio(tipo): 
     subprocess.call(f"curl -o {path}\\{variabili['file'][tipo]} -k {variabili['link'][tipo]}", shell=True)
 
 def eliminazione_foglio(tipo):
@@ -35,17 +37,6 @@ def news():
 
     card = soup.find_all(class_="box_text_container clearfix")
 
-    with open(f"{path}\\notizia.txt", "w",encoding="utf-8") as f:
-            f.write("")
-    for v in card: 
-        h3 = v.find('h3') 
-        p = v.find('p') # paragrafo in mezzo al div      
-        with open(f"{path}\\notizia.txt", "a",encoding="utf-8") as f:
-            f.write("♦♦♦♦♦ GovernoItalianoSite ♦♦♦♦♦♦♦♦♦♦♦♦♦ NOTIZIA\n\n")
-            f.write(f"titolo: {h3.text}\n\n")
-            f.write(f"{v.text}\n\n\n")
-
-    #copia
     with open(f"{path}\\risultatoRicerche\\notizia.txt", "w",encoding="utf-8") as f:
             f.write("")
     for v in card: 
@@ -68,19 +59,6 @@ def news_agenzia_entrate():
 
     card = soup.find_all(class_="col-xs-12 col-sm-12 col-md-8")
 
-    with open(f"{path}\\AE.txt", "w", encoding="utf-8") as f:
-        f.write("")
-    for i in card:
-        data_notizia = i.find("span")
-        titolo = i.find("h2")
-        notizia = i.find("p")
-        with open(f"{path}\\AE.txt", "a", encoding="utf-8") as f:
-            f.write("☺☺☺☺☺☺☺☺☺ agenziaEntrate ☺☺☺☺☺☺☺☺☺☺☺☺ NOTIZIA\n\n")
-            f.write(f"DATA: {data_notizia.text}\n\n")
-            f.write(f"TITOLO: {titolo.text}\n\n")
-            f.write(f"{notizia.text}\n\n\n")
-
-    #copia
     with open(f"{path}\\risultatoRicerche\\AE.txt", "w", encoding="utf-8") as f:
         f.write("")
     for i in card:
@@ -106,8 +84,6 @@ def check_indiciBorseMondiali():
     tabella = soup.find(class_="table")
     elementi = tabella.find_all("tr")
  
-    with open(f"{path}\\checkPROVAA.txt", "w", encoding="utf-8") as f:
-        f.write("")
     with open(f"{path}\\risultatoRicerche\\checkPROVAA.txt", "w", encoding="utf-8") as f:
         f.write("")
 
@@ -117,31 +93,11 @@ def check_indiciBorseMondiali():
         valori = i.find_all("td")
 
         for v in titolo_campi: titoli.append(v.text)
-        count1=0
         count2=0
-        for j2, J2 in enumerate(valori):
-            
-            with open(f"{path}\\checkPROVAA.txt", "a", encoding="utf-8")as f:
-                while count1 < len(titoli):
-                    if count1 >= 0 and count1 != 8:
-                        var = ""
-                        var += titoli[count1]
-                        count1+=1
-                        break
-                    elif count1 == 8:
-                        count1 = 0
-                
-                x = valori[j2].text.split()
-
-                f.write(f"\n{var}: {x[0]}")
-                if count1 == 0:
-                    pass
-                elif count1 % 7 == 0:
-                    f.write("\n\n")
 
         for j2, J2 in enumerate(valori):
-            #copia
             with open(f"{path}\\risultatoRicerche\\checkPROVAA.txt", "a", encoding="utf-8")as f:
+
                 while count2 < len(titoli):
                     if count2 >= 0 and count2 != 8:
                         var = ""
@@ -160,4 +116,40 @@ def check_indiciBorseMondiali():
                     f.write("\n\n")
 
     eliminazione_foglio("indiciBorsa")
+
+def notizieISTAT():
+    creazione_foglio("ISTAT")
+
+    with open(f"{path}\\ISTAT.html", "r",encoding="utf-8") as file:
+        HOME = file.read()
+
+    soup = BeautifulSoup(HOME, "html.parser")
+
+    n0 = soup.find_all(class_="article list d-none d-sm-block")
+    n1 = soup.find_all(class_="article list")
+
+    with open(f"{path}\\risultatoRicerche\\ISTAT.txt", "w",encoding="utf-8") as f:
+        f.write("")
+
+    for i in n1:
+        data = i.find("p")
+        paragrafo = i.find("h2")
+        titolo = i.find("h1")
+        with open(f"{path}\\risultatoRicerche\\ISTAT.txt", "a",encoding="utf-8") as file:
+            file.write("♠♠♠♠♠♠♠♠♠♠♠♠♠♠ISTAT-NEWS♠♠♠♠♠♠♠♠♠♠♠\n")
+            file.write(f"data: {data.text}\n")
+            file.write(f"titolo: {titolo.text}\n")
+            file.write(f"paragrafo: {paragrafo.text}\n\n")
+
+    for i in n0:
+        data = i.find("p")
+        paragrafo = i.find("h2")
+        titolo = i.find("h1")
+        with open(f"{path}\\risultatoRicerche\\ISTAT.txt", "a",encoding="utf-8") as file:
+            file.write("♠♠♠♠♠♠♠♠♠♠♠♠♠♠ISTAT-NEWS♠♠♠♠♠♠♠♠♠♠♠\n")
+            file.write(f"data: {data.text}\n")
+            file.write(f"titolo: {titolo.text}\n")
+            file.write(f"paragrafo: {paragrafo.text}\n\n")
+
+    eliminazione_foglio("ISTAT")
 

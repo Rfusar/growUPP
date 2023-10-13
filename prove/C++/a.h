@@ -1,6 +1,8 @@
 #include <iostream>
 #include <string>
-std::string HOME();
+
+
+int HOME();
 std::string MENU();
 std::string FINE();
-std::string STANZA(); 
+

@@ -68,6 +68,30 @@ if "%nome%" == "novita" (
     cd C:\Users\Utente\Desktop\esperimenti-master\windows\game\cosaDAFARE && python cosadafare.py
     cd C:\Users\Utente\Desktop\esperimenti-master
     
+
+
+
+
+
+) else if "%nome%" == "idea" (
+    start msedge "https://app.diagrams.net/"
+
+
+
+
+) else if "%nome%" == "ps2" (
+    "C:\Program Files (x86)\PCSX2\pcsx2.exe"
+    
+) else if "%nome%" == "fl" (
+    "C:\Program Files (x86)\Image-Line\FL Studio 20\FL64.exe"
+
+) else if "%nome%" == "linux" (
+    "C:\Program Files\Oracle\VirtualBox\VirtualBox.exe"
+
+
+
+
+
 ) else if "%nome%" == "-h" (
     type help.txt
     pause

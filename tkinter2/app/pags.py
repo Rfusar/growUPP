@@ -3,7 +3,6 @@ from tkinter import ttk
 import ttkbootstrap as tkb
 from tkinter import messagebox
 from .func import setting_database, gestione_inserimento_tab_CODE
-from .checkNotizie import news, news_agenzia_entrate
 import subprocess
 
 #LOGIN
@@ -52,26 +51,13 @@ class Home(tk.Tk):
         self.label3.pack()
 
         self.bind("<Control-KeyPress-k>", self.ritorno_testo_tab_CODE)
-        self.bind("<Control-KeyPress-t>", self.novita)
-        self.bind("<Control-KeyPress-h>", self.help)
-
 
 
     def ritorno_testo_tab_CODE(self, event=None):   
         text = self.label3.get("1.0", "end-1c")  
         gestione_inserimento_tab_CODE(text)
 
-    def novita(self, event=None):
-        news()
-        subprocess.call("notepad C:\\Users\\Utente\\Desktop\\esperimenti-master\\tkinter2\\notizia.txt",shell=True)
-        subprocess.call("del C:\\Users\\Utente\\Desktop\\esperimenti-master\\tkinter2\\notizia.txt",shell=True)
-
-        news_agenzia_entrate()
-        subprocess.call("notepad C:\\Users\\Utente\\Desktop\\esperimenti-master\\tkinter2\\AE.txt",shell=True)
-        subprocess.call("del C:\\Users\\Utente\\Desktop\\esperimenti-master\\tkinter2\\AE.txt",shell=True)
-
-    def help(self, event=None):
-        subprocess.call("notepad C:\\Users\\Utente\\Desktop\\esperimenti-master\\tkinter2\\help.txt",shell=True)
+    
         
             
             

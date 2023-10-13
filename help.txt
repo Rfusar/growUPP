@@ -18,6 +18,8 @@
                                                                                                             000000***000000***00 
 000***000 000***000 000***000 000***000 000***000 000***000 000***000 000***000 000***000 000***000 000***000 000***000 000***00 
 
+programmi ----->  -ps2    -linux       -fl    
+
 
 
 -novita         -voglioCreare            -studiamo          -ricerca         -appunti               -cosaHoDaFare?
@@ -39,7 +41,7 @@ descrizione =
 
   giochiamo [ -a ]: 
       giochi
-      -a: modifichi gioco  
+      -a: modifichi il gioco  
 
   novita: 
       controlli le novita
@@ -63,7 +65,7 @@ descrizione =
       apri menu appunti
 
   matematica:
-      lezioni e corso
+      lezioni e corsi
 
   formulario:
       formule da sistemare...

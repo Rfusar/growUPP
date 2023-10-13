@@ -1,0 +1,29 @@
+teorema cinese del resto: LINK -> https://youtu.be/d7S2xOTt_CQ?si=RAYZmAr5f-DCnK1p
+
+generale:
+	__
+       |X = a1(mod n1)               .ak = interi qualsiasi
+       |                         
+       |X = a2(mod n2)               .nk = a due a due coprimi == numeri primi tra loro o numeri coprimi, coppia di numeri interi che non 							    
+       | 							    ammettono divisori comuni diversi da 1 o −1. Sono per esempio primi tra loro 14 e 15. 							    
+       |...						            Due numeri possono essere coprimi senza che essi siano singolarmente primi                                                             
+       |                                                            (tali non sono infatti né 14 né 15)
+       |X = ak(mod nk)
+       | 
+       |__
+
+
+algoritmo:
+
+       passo1 => controllo che gli nk, siano a due a due coprimi(se si, allora ho la certezza che c'e soluzione)
+
+       passo2 => calcolo il prodotto dei moduli => N = n1*n2*...*nk
+                     poi si calcola N1 = alla moltiplicazione di tutti i moduli apparte n1
+                     poi si calcola N2 = alla moltiplicazione di tutti i moduli apparte n2
+                     e cosi via...
+
+       passo3 => risolvi l'incongruenze https://youtu.be/WlhkdVR4gGQ?si=LdBipq2uw-pOOxrr
+
+       pass4 => x = a1*N1*y1+a2*N2*y2+a3*N3*y3+...ak*Nk*yk(mod N)
+
+
