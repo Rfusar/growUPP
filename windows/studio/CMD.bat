@@ -5,7 +5,8 @@ echo.
 echo.
 echo 1. base
 echo 2. 40 comandi...
-echo 3. documentazione microsoft
+echo 3. documentazione microsoft --pdf
+echo 4. windows server documentazione --pdf
 echo.
 echo.
 echo # Comandi specifici
@@ -16,7 +17,7 @@ echo        netsh
 echo        curl --manual
 echo.
 echo.
-echo 4. esci
+echo 5. esci
 echo.
 echo.
 echo.
@@ -24,8 +25,11 @@ echo.
 
 set /p n=": "
 
-if "%n%" ==  "4" (
+if "%n%" ==  "5" (
     cls
+
+) else if "%n%" == "4" (
+    start msedge C:\Users\Utente\Desktop\info\windows-server-get-started.pdf
 
 ) else if "%n%" == "curl" (
     start msedge "https://curl.se/docs/manual.html"
@@ -39,7 +43,7 @@ if "%n%" ==  "4" (
 
 
 ) else if "%n%" == "3" (
-    start msedge "https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/windows-commands"  
+    start msedge C:\Users\Utente\Desktop\info\windows-server-administration-windows-commands.pdf 
 
 ) else if "%n%" == "2" (
     start msedge "https://youtu.be/Jfvg3CS1X3A?si=TL_4rYwEqt_LJfct"  

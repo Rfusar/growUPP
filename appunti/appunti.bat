@@ -1,5 +1,6 @@
 @echo off
 :ini
+cls
 echo.
 echo 1. internet e reti
 echo 2. powershell
@@ -8,12 +9,12 @@ echo.
 echo.
 echo 4 esci
 echo.
+echo.
 
 set /p n="Scegli: "
 
 if "%n%" == "4" (
     cls
-    goto :end
 
 ) else if "%n%" == "3" (
     cls
@@ -29,4 +30,3 @@ if "%n%" == "4" (
 ) else (
     goto :ini
 )
-:end

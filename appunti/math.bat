@@ -23,7 +23,11 @@ echo 5. concetti informatica
 echo.
 echo ###########################################
 echo.
+echo.
 echo 6. esci
+echo.
+echo.
+echo.
 
 set /p n=": "
 

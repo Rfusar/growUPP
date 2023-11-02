@@ -12,9 +12,6 @@ set /p nome="Come va? "
 if "%nome%" == "novita" (
     call windows\novita.bat
 
-) else if "%nome%" == "q" (
-    cls
-    goto :end
 ) else if "%nome%" == "PS" (
     cls 
     powershell Get-ExecutionPolicy
@@ -54,12 +51,6 @@ if "%nome%" == "novita" (
 ) else if "%nome%" == "lavoro" (
     call windows\lavoro.bat
 
-) else if "%nome%" == "appunti" (
-    call appunti\appunti.bat
-
-) else if "%nome%" == "matematica" (
-    call appunti\math.bat
-
 ) else if "%nome%" == "formulario" (
     cls
     call appunti\reti_e_internet\MATEMATICA\FORMULARIO\a.html
@@ -92,7 +83,7 @@ if "%nome%" == "novita" (
 
 
 
-) else if "%nome%" == "-h" (
+)  else if "%nome%" == "-h" (
     type help.txt
     pause
     goto :inizio

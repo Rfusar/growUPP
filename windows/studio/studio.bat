@@ -39,10 +39,12 @@ echo 14. PC
 echo.
 echo ******************************************************************************************
 echo.
+echo # Microservizi -ms
+echo.
 echo # Ripasso musica  -m
-echo # economia aziendale  -ea
-echo.
-echo.
+echo # Economia aziendale  -ea
+echo # Altro  -uni
+echo # Supereore -sh
 echo.
 echo.
 echo 15. esci
@@ -67,12 +69,20 @@ if "%n%" == "15" (
 
 
 
+) else if "%n%" == "-ms" (
+    call windows\studio\microservizi.bat
+
 ) else if "%n%" == "-m" (
     call esercizi_musica\TEORIA_PRATICA.bat
 
 ) else if "%n%" == "-ea" (
     call windows\studio\economia_aziendale.bat
 
+) else if "%n%" == "-uni" (
+    call appunti\corsi.bat
+
+) else if "%n%" == "-sh" (
+    call windows\studio\supereroe.bat
 
 
 
@@ -122,4 +132,5 @@ if "%n%" == "15" (
 
 ) else (
   goto :ini
+
  )

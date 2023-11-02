@@ -26,9 +26,7 @@ programmi ----->  -ps2    -linux       -fl
 
     -notizie
 
-        -comeva?           -giochiamo         -lavoro          -chatGPT            -matematica
-
-                -formulario
+        -comeva?           -giochiamo         -lavoro          -chatGPT          -formulario  
 
 
 000***000 000***000 000***000 000***000 000***000 000***000 000***000 000***000 000***000 000***000 000***000 000***000 000***000
@@ -63,9 +61,6 @@ descrizione =
 
   appunti:
       apri menu appunti
-
-  matematica:
-      lezioni e corsi
 
   formulario:
       formule da sistemare...

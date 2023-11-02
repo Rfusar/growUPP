@@ -11,7 +11,10 @@ echo 4. notizie ISTAT
 echo.
 echo # 
 echo    -a aggiorna 
-echo.   -r ricerca internt --separatore[+] --esempio ciao+mi+chiamo+jj
+echo.
+echo.
+echo.   -google ricerca internet --separatore[+] --esempio ciao+mi+chiamo+jj
+echo.   -youtube ricerca internet --separatore[+] --esempio ciao+mi+chiamo+jj
 echo.
 echo.
 echo 5. esci
@@ -21,12 +24,17 @@ echo.
 echo.
 set /p n=": "
 
-set a=%n:~0,2%
-set b=%n:~3%
+set a0=%n:~0,7%
+set a1=%n:~0,8%
+set google=%n:~8%
+set youtube=%n:~9%
 
 
-if "%a%" == "-r" (
-    start msedge "https://www.google.com/search?q=%b%"
+if "%a0%" == "-google" (
+    start msedge "https://www.google.com/search?q=%google%"
+
+) else if "%a1%" == "-youtube" (
+    start msedge "https://www.youtube.com/results?search_query=%youtube%"
 
 ) else if "%n%" == "-a" (
     cd C:\Users\Utente\Desktop\esperimenti-master\tkinter2\app && python update.py

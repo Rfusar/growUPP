@@ -3,7 +3,7 @@
 cls
 echo.
 echo 1. Check-in-admin --prova
-echo 2. tkinter --prova
+echo 2. API in GOlang
 echo.
 echo.
 echo *********************************
@@ -32,9 +32,9 @@ pause
 goto :menu
 
 :option2
-cd C:\Users\Utente\Desktop\presenze_lavoro\esercizi\tkinter
-start code C:\Users\Utente\Desktop\presenze_lavoro\esercizi\tkinter
-C:\Users\Utente\Desktop\presenze_lavoro\esercizi\tkinter\venv\Scripts\activate && python app.py
+cd C:\Users\Utente\Desktop\presenze_lavoro\esercizi\progetto_api_GO
+start code C:\Users\Utente\Desktop\presenze_lavoro\esercizi\progetto_api_GO
+
 
 pause
 goto :menu

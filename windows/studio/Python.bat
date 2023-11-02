@@ -29,16 +29,24 @@ echo BUONE PRATICHE
 echo.
 echo 7. 50 Python Tips and Tricks for Beginners
 echo 8. 10 Python Tips and Tricks For Writing Better Code
+echo 9. lambda
 echo.
-echo 9. esci
+echo.
+echo.
+echo 10. esci
+echo.
+echo.
 echo.
 
 
 set /p n="Cosa vuoi studiare? "
 
 
-if "%n%" == "9" (
+if "%n%" == "10" (
     cls
+
+) else if "%n%" == "9" (
+    start msedge "https://youtube.com/playlist?list=PLH6mU1kedUy84TsNa1654qkHjIeZ_wllA&si=fyZfyMN1AMijXYnz"
 
 ) else if "%n%" == "8" (
     start msedge "https://youtu.be/C-gEQdGVXbk?si=CqXyjHxB-hWFPtdY"
