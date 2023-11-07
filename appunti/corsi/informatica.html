@@ -5,25 +5,125 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>♠Informatica</title>
+    <style>
+        td,
+        th {
+            border: .5px solid black;
+            padding: 5px;
+        }
+
+        a {
+            margin: 0 5px 0 5px;
+            text-decoration: none;
+        }
+
+        .video {
+            margin-bottom: 50px;
+            display: flex;
+            justify-content: space-around;
+            padding-bottom: 20px;
+            border-bottom: 3px solid black;
+        }
+
+        .titoli {
+            font-style: oblique;
+            font-weight: 400;
+        }
+
+        .menu_link {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+        }
+    </style>
 </head>
+<!--
+    CODICI
+        stella nera = &#9733
+        stella bianca = &#9734
+-->
 
 <body>
-    <h1>Programmazione in parallelo</h1>
-    <iframe width="560" height="315"
-        src="https://www.youtube.com/embed/videoseries?si=Bb2Cfchh0LNtLG_4&amp;list=PLUl4u3cNGP63VIBQVWguXxZZi0566y7Wf"
-        title="YouTube video player" frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen></iframe>
-    <br><br>
-    <h1>Blockchain</h1>
-    <iframe width="560" height="315"
-        src="https://www.youtube.com/embed/videoseries?si=6xXzRbW7TevlTNhr&amp;list=PLUl4u3cNGP63UUkfL0onkxF6MYgVa04Fn"
-        title="YouTube video player" frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen></iframe>
+    <div
+        style="display: flex;align-items: center;flex-direction: column;border: .8px solid black;height: max-content;padding-bottom: 50px;">
+        <h1>BASE</h1>
+        <table>
+            <tr>
+                <td>Macchina</td>
+                <td class="menu_link">
+                    <a href="https://it.wikipedia.org/wiki/Server" target="_blank">-Server-</a>
+                    <a href="https://it.wikipedia.org/wiki/Memoria_(informatica)" target="_blank">-Memoria-</a>
+                    <a href="https://it.wikipedia.org/wiki/Unit%C3%A0_aritmetica_e_logica" target="_blank">-ALU-</a>
+                    <a href="https://it.wikipedia.org/wiki/Processore" target="_blank">-Processore-</a>
+                </td>
+            </tr>
+            <tr>
+                <td>OS</td>
+                <td class="menu_link">
+                    <a href="https://it.wikipedia.org/wiki/Linux" target="_blank">-Linux-</a>
+                    <a href="https://it.wikipedia.org/wiki/Microsoft_Windows" target="_blank">-Windows-</a>
+                    <a href="https://it.wikipedia.org/wiki/Macintosh" target="_blank">-Mac-</a>
+                </td>
+            </tr>
+            <tr>
+                <th>Archittetura processore</th>
+                <td class="menu_link">
+                    <a href="https://it.wikipedia.org/wiki/Architettura_ARM" target="_blank">-Arm-</a>
+                    <a href="https://en.wikipedia.org/wiki/Nios_II" target="_blank">-Nios II-</a>
+                    <a href="https://it.wikipedia.org/wiki/Architettura_MIPS" target="_blank">-Mips-</a>
+                </td>
+            </tr>
+            <tr>
+                <td>Altro</td>
+                <td class="menu_link">
+                    <a href="https://it.wikipedia.org/wiki/Network" target="_blank">-Network-</a>
+                </td>
+            </tr>
+        </table>
+    </div>
 
 
-   
+
+    <h1>AVANZATO </h1>
+
+    <h2>Programmazione in parallelo</h2>
+    <div class="video">
+        <div class="titoli">
+            <p>Segnavideo: 0</p>
+            <p>Difficoltà: &#9733 &#9733 &#9733 &#9733 &#9734</p>
+        </div>
+        <iframe width="560" height="315"
+            src="https://www.youtube.com/embed/videoseries?si=Bb2Cfchh0LNtLG_4&amp;list=PLUl4u3cNGP63VIBQVWguXxZZi0566y7Wf"
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe>
+    </div>
+
+    <h2>Blockchain</h2>
+    <div class="video">
+        <div class="titoli">
+            <p>Segnavideo: 1</p>
+            <p>Difficoltà: &#9733 &#9733 &#9733 &#9733 &#9733</p>
+        </div>
+        <iframe width="560" height="315"
+            src="https://www.youtube.com/embed/videoseries?si=6xXzRbW7TevlTNhr&amp;list=PLUl4u3cNGP63UUkfL0onkxF6MYgVa04Fn"
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe>
+    </div>
+
+    <h2>Algoritmi</h2>
+    <div class="video">
+        <div class="titoli">
+            <p>Segnavideo: 2</p>
+            <p>Difficoltà: &#9733 &#9733 &#9733 &#9733 &#9734</p>
+        </div>
+        <iframe width="560" height="315"
+            src="https://www.youtube.com/embed/videoseries?si=HcqiufkMezoB63JS&amp;list=PLUl4u3cNGP63EdVPNLG3ToM6LaEUuStEY"
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe>
+    </div>
 </body>
 
 </html>

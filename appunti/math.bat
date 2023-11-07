@@ -3,29 +3,45 @@
 cls
 echo ---------------------------------------------------MATERIE
 ECHO.
+ECHO.
 echo MATEMATICA
 echo.
-echo 1. pagina matematica -video
+echo 1. concetti matematica 
 echo 2. libro algebra lineare -esempio 1
 echo 3. libro matematica -esempio 2
 echo.
+echo.
+echo.
 echo ###########################################
+echo.
 echo.
 echo FISICA
 echo.
 echo 4. fisica generale
 echo.
+echo.
+echo.
 echo ###########################################
+echo.
 echo.
 echo INFORMATICA
 echo.
 echo 5. concetti informatica
 echo.
+echo.
+echo.
 echo ###########################################
 echo.
 echo.
-echo 6. esci
+echo BIOLOGIA
 echo.
+echo 6. concetti biologia
+echo.
+echo.
+echo.
+echo ###########################################
+echo.
+echo 7. esci
 echo.
 echo.
 
@@ -47,6 +63,9 @@ if "%n%" == "1" (
     start msedge "C:/Users/Utente/Desktop/esperimenti-master/appunti/corsi/informatica.html"
 
 ) else if "%n%" == "6" (
+    start msedge "https://www.dotto.me/0/ld/argomento/biologia/ebook/Biologia-Teoria-Esercizi-Edises.pdf"
+
+) else if "%n%" == "7" (
     cls
 
 ) else (

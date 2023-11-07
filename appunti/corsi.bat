@@ -1,8 +1,12 @@
 @echo off
 :ini
 cls
-echo 1. appunti
+echo 1. MIEI APPUNTI
+echo.
+echo.
 echo 2. universita
+echo.
+echo.
 echo.
 echo.
 echo 3. esci
