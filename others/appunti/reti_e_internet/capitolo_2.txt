@@ -1,0 +1,902 @@
+CONCETTI BASE DELLE RETI
+
+
+
+
+gli aspetti chiave che configurano un modo di trasferimento delle informazioni sono:
+
+		
+		I) i protocolli di comunicazione ---> regolano lo scambio d'informazione tra nodi di rete, adiacenti o meno
+
+		II) la tecnica di commutazione ---> la soluzione adottata per realizzare l'attraversamento dei nodi rete
+
+		III) la tecnica di multiplazione ---> definisce la modalita di trasferimento dei flussi informativi attraverso i rami tra nodi di rete
+
+
+
+l'adozione di una particolare soluzione dipende in generale da questi fattori:
+
+
+		. il tipo di servizi che devono essere forniti dalla rete
+
+		. tecnologie software e hardware utilizzabili
+
+		. disponibilita tecniche innovative per il trasferimento delle informazioni
+
+
+i principali parametri di prestazione di una rete sono ---> tempo di ritardo, throughput, probabilita di perdita;
+
+
+
+
+SORGENTI E SERVIZI:
+    ---> tutte le apparecchiature che generano informazioni che devono essere traferite in rete assumo il ruolo di SORGENTI D'INFORMAZIONE, un SERVIZIO DI COMUNICAZIONE
+	   si puo definire come un insieme di procedure che, una volta attuate, rendono possibile trasportare e utilizzare a distanza le informazioni generate dalle 
+	   sorgenti, in generale il trasporto delle informazioni richiede l'intervento di vari apparati e dispositivi di comunicazione ed il loro insieme configura
+	   una RETE DI COMUNICAZIONE
+
+
+
+SORGENTI DI INFORMAZIONE:
+    ---> per semplicita possiamo classificare tutti i diversi tipi d'informazione in tre grandi categorie:
+
+
+			. VOCE ---> comprende tutti i tipi d'informazione che vengono "utilizzati" dall'orecchio umano
+
+			. IMMAGINI ---> comprende tutti i tipi d'informazione che vengono "utilizzati" dall'occhio 
+
+			. DATI ---> include tutti i tipi d'informazione che per loro natura sono rappresentati per mezzo di informazioni binarie e che non rientrano
+				      nelle due categorie precedenti 
+
+
+
+a seconda della natura delle informazioni trasportate, un servizio si distigue in MONOMEDIALE e MULTIMEDIALE
+
+
+
+	MONOMEDIALE:
+    	    ---> viaggia un solo tipo d'informazione, come per esempio la voce nella telefonia, i dati in una sessione di accesso a internet e etc...
+
+	MULTIMEDIALE:
+    	    ---> i tipi d'informazione trasportati nell'ambito del servizio sono almeno due, per esempio la videoconferenza 
+
+	SORGENTE ANALOGICA:
+    	    ---> genera informazione sotto forma di un segnale elettrico o ottico che puo assumere valori arbitrari definiti su intervalli di tempo continui o meno
+
+	SORGENTE NUMERICO:
+	    ---> genera l'informazione sotto forma di stringa di simboli binari
+
+
+
+SERVIZI DI COMUNICAZIONE:
+    --->  richiede l'utilizzazione di diversi tipi e diverse quantita di risorse di rete che possono variare in base a tre proprieta che caratterizzano il servizio
+ 	    
+
+
+		CONFIGURAZIONE:
+		    ---> identifica il numero di attori coinvolti nel servizio stesso, varia a secondo del numero di destinatari dell'informazione emessa dalla sorgente 
+			   si distinguono 3 tipi:
+
+				punto-punto ---> il servizio si svolge tra 2 utilizzatori, esempio una conversazione telefonica 
+
+				multipunto ---> il servizio si svolge tra piu di 2 utilizzatori, esempio videoconferenza
+
+				diffusa(broadcast) ---> è simile al multipunto ma con la differenza che non bisogna selezionare gli eventuali destinatari
+							  esempio il servizio televisivo
+
+
+
+		DIREZIONE:
+		    ---> fa riferimento alla caratteristica del flusso informativo emesso e/o ricevuto da un generico utilizzatore di un servizio di comunicazione, si distinguono
+			   in due tipi di servizi:
+
+			
+					unidirezionale:
+					    ---> quando il servizio trasferisce un solo flusso informativo, che va solo dalla sorgente all'utilizzatore come il servizio
+						   punto-punto o gli utilizzatori come nel servizio multipunto o diffuso, esempi telesorveglianza e la televisione
+
+					bidirezionale:
+					    ---> quando il servizio trasferisce due flussi informativi per l'utilizzatore del servizio, chiaramente in direzioni opposte 
+						   cosi che ciascun utilizzatore agisce sia da sorgente, sia da destinazione delle informazioni, esempi telefonia(simmettrico), 
+						   accesso da remoto a centri di servizio(asimmetrico) 
+						   ; un servizio bidirezionale
+						   puo essere ulteriormente essere distinto in:
+
+								simmetrico ---> se i due flussi trasferiti sono caratterizzati dagli stessi parametri
+
+								asimmetrico ---> se i due flussi emessi e ricevuti da ogni utlizzatore sono caratterizzati da parametri diversi
+
+
+
+		INIZIALIZZAZIONE:
+		    ---> descrive le modalita attraverso le quali viene reso disponibile un servizio, un servizio puo essere inizializzato:
+
+
+				su base chiamata ---> ogni volta che il servizio si atricola nelle tra fasi di RICHIESTA del servizio, attraverso opportune procedure di segnalazione 
+					                attuate nella stessa rete di comunicazione, UTILIZZAZIONE delle risorse di comunicazione, e RILASCIO delle risorse di rete 
+							utilizate, esempio telefonia pubblica
+
+				su base contrattuale ---> quando la disponibilita del servizio di telemunicazione e per mantenere per gli utilizzatori coinvolti; cio implica 
+							    che la fase di richiesta del servizio precedentemente definita si solo con un accordo siglato tra cliente e fornitore del 
+							    servizio, esempio servizio di connessione dati di tipo affittato
+
+
+
+REQUISITI DI UN SERVIZIO:
+    ---> i principali parametri che si posso utilizzare per caratterizzare un servizio di comunicazione sono:
+
+
+			velocita media ---> indica la frequenza media di emissione di UI da parte della sorgente 
+
+			tempo di ritardo ---> esprime con opportune grandezze(valore medio, varianza, etc...) il tempocche la rete non e stata in grado di trasportare 
+					        le unita informative per il servizio in questione
+
+			tasso d'errore ---> indica la quota parte di bit o di UI emessi dalla sorgente che la rete non e stata in grado di trasportare o che ha consegnato alla 
+					      destinazione con errore   
+
+			l'eventuale vincolo di tempo reale del serizio, tale che, se previsto, consenta l'interattivita tra i suoi utilizzatori
+
+         __________________________________________________________________________________________________
+	| SERVIZIO |                           | VELOCITA  | RITARDO MEDIO | TASSO DI ERRORE | TEMPO REALE |
+	|__________|___________________________|___________|_______________|_________________|_____________|
+	| VOCE	   |                           | 10Kbit/s  |  100ms        | 1%              | si          |                 *POS ---> Point-Of-Sale
+	|__________|___________________________|___________|_______________|_________________|_____________|
+	|          | bassa velocita            | bit/s     |               |                 |             |
+	| DATI     | media velocita            | Kbit/s    |      s        |  circa 0        | no          |
+        |          | alta velocita             | Mbit/s    |	           |                 |             |
+	|__________|___________________________|___________|_______________|_________________|_____________|
+	|IMMAGINI  | videochiamata             | 100Kbit/s | 100ms         |                 | si          |
+        |          | streaming on-demand       | Mbit/s    | s             |                 | no          |
+        |          | streaming live            | Mbit/s    | 100ms         |   1%            | si          |
+        |          | virtual/augmented reality | 100Mbit/s | 10ms          |                 | si          |
+        |__________|___________________________|___________|_______________|_________________|_____________|
+
+
+
+
+CARATERIZZAZIONE DELLE SORGENTI:
+    ---> la piu semplice caratterizzazione di una sorgente d'informazioni consiste nell'assumere che un generico instante di tempo la sorgente si trova in uno di due stati:
+
+
+		attivita ---> ON, nel quale la sorgenteemette informazioni a una FREQUENZA DI PICCO, P(bit/s)
+
+		inattivita ---> OFF, nel quale la sorgente non emette informazioni
+
+l'intervallo di tempo di permanenza della sorgente nello stato ON e nello stato OFF, determina la lunghezza del segmento informativo emesso, detto "BURST", e la qualita di informazioni
+  emesse
+
+		   | frequenza media(bit/s) / frequenza di picco = fattore di burstiness | OPPURE(non so perche) | frequenza di picco / frequenza media = fattore di burstiness |
+
+
+occore osservare che il fattore di burtiness di una sorgente rappresenta anche la probabilita che la orgente si trovi nello stato di attivita(ON), in un istante arbitrario di 
+  osservazione, in base al valore si posso distinguere 2 diversi tipi di sorgenti:
+
+
+
+	CBR:    Constant Bit Rate
+	    ---> di tipo continuo, caraterizzata da un fattore di burtiness = 1, in cui la frequenza media coincide con quella di picco, esempio sorgente vocale, video, trasferimento 
+		   di file
+
+	VBR:    Variable Bit Rate(bursty)
+	    ---> di tipo intermittente, caratterizzata dal fattore di burtiness < 1, esempio una sorgente dati interattiva
+
+
+si noti che a carterizzazione CBR o VBR di una sorgente puo anche dipendere dall'eventuale elaborazione che il flusso informativo emesso dalla sorgente subisce prima di essere reso
+  disponibile per il suo traferimento in rete, infatti la stringa binaria emessa da una sorgente continua puo diventare di tipo intermittenet in seguito a un'operazione di codifica
+  della stringa stessa con loscopo di eliminare le ridondanze 
+
+il caso piu semplice di sorgente bursty e quello in cui gli intervalli di tempo di permanenza negli stati di attivita e di inattivita sono costanti e uguali, e si ripetono 
+  indefinitamente nel tempo
+
+	fattore burstiness = T[ON] / T[OFF] + T[ON]
+
+una sorgente con queste caratteristiche sara indicata come SORGENTE ON-OFF PERIODICA
+
+esempi di tipologia delle sorgenti dei vari servizi di comunicazione in base al loro fattore di burtiness; servizi interattivi di conversazione, come quelli voce o audio, 
+  sono caratterizzati da sorgenti di tipo CBR, aventi quindi
+
+
+		^
+        Mbit/s  |
+                |
+                |
+	    1,2 |
+                |
+	    1,0 |
+                |_______                 _______                      _______                _______
+	    0,8 |       |               |       |                    |       |              |       |
+                |       |               |       |                    |       |              |       |
+	    0,6 |       |               |       |                    |       |              |       |
+                |       |               |       |                    |       |              |       |
+	    0,4 |       |               |       |                    |       |              |       |
+                |       |               |       |                    |       |              |       |
+	    0,2 |       |               |       |                    |       |              |       |
+                |       |               |       |                    |       |              |       |
+	    0,0 |_______|_______________|_______|____________________|_______|______________|_______|____________> T[s]
+                |		|		|		|		|		|		|
+	       0,0             0,5             1,0             1,5             2,0             2,5             3,0	
+
+
+
+
+
+                ^
+                |<--------------------modem-------------------------->
+fattore di 10 --|_______________________________________________________________________________
+burstiness       |VOCE       |AUDIO        |          |             |                            |    ^
+                |           |_____________| VIDEO    |  VIDEO      |                            |    |
+                |           |          |   CHIAMATA  | IN TEMPO    |                            | ^  |
+                |___________|          |_____________|   REALE     |      IMMAGINI              | |  |
+        10^-1 --|                                |                 |    AD ALTA RISOLUZIONE     | |COMMUTAZIONE DI CIRCUITO
+                |                                |                 |                            | |  |
+                |                                |_________________|                            | |  V
+                |         TERMINALE-HOST              |           |                             | |
+                |                                     |           |                             | |
+        10^-2 --|                                     |           |_____________________________| |
+                |                                     |                                           |
+                |                                     |                                       COMMUTAZIONE DI PACCHETTO
+                |                                     |                                           |
+                |_____________________________________|                                           |
+        10^-3 --|_________________________________________________________________________________|_____>
+                |		|		|		|		|		|
+              10^4            10^5            10^6            10^7            10^8            10^9
+                
+                                    frequenza di picco [bit/s]
+
+           
+TRASFERIMENTO DI INFORMAZIONE IN RETE:
+    --->la velocita di trasmissione si puo chiamare FREQUENZA DI CIFRA[bit/s], una frequenza di trasmissione [F] di un nodo su un collegamento uscente viene anche chiamata CAPACITA 
+	  i principali parametri di prestazione sono:
+
+
+			ritardo ---> indica il tempo richiesto per trasferire un UI attraverso la rete 
+
+			throughput ---> inidica la quantita di UI per unita di tempo trasferite con successo dalla rete
+
+			perdita ---> indica la quantita di UI offerte alla rete che questa non e stata in grado di trasportare a destinazione 
+
+
+
+definiamo due delle quattro componenti del trasferimento di un UI:
+
+I) TEMPO DI TRASFERIMENTO = Tt
+II) TEMPO DI PROPAGAZIONE(assunto constante) di ognuno dei bit dell'UI = t
+
+possiamo allora esprimere il RITARDO TOTALE DI TRASFERIMENTO(ritardo end-to-end) = T
+
+				T = Tt + t
+
+esempio:
+    --->    
+                                 X------------Y------------Z
+					Fx          Fy
+
+
+
+
+ritardo complessivo tra X e Y:
+    --->
+			Tx-y = Ttx + tx = nbit / Fx + tx
+
+
+  
+propagazione delle onde elettromagnietiche nel vuoto ~ 3 * 10^8m/s = velocita della luce
+mezzi guidati ~ 2 * 10^8m/s
+cavi in rame ~ 1,7 * 10^8ms
+fibre ottiche ~ 2,2 * 10^8m/s
+
+III) TEMPO DI ELABORAZIONE = Tp
+
+			Tx-z = Ttx + tx + Tpy + Tty + ty = nbit / Fx + tx + tpy + nbit / Fy + ty
+
+---!!! si noti che questa espressione e valida a condizione che le risorse di comunicazione tra X e Z siano dedicate a questo specifico trasferimento di UI, anche se entra sempre in gioco
+         un'altra componente di ritardo dovuta alla condivisione delle risorse di comunicazione tra piu operazioni di trasferimento tra nodi diversi della rete
+
+
+
+
+
+THROUGHPUT:
+    ---> svolge il compito di mettere in comunicazione le sorgenti informativecon i rispettivi utilizzatori, l'insime dei flussi informativi generati dale sorgenti 
+	   si chiama TRAFFICO OFFERTO[Ao], la rete o una sua porzione, oppure un'apparecchiatura di rete, trasportera con successo a destinazione, oppure all'uscita, il traffico offerto
+	   o una sua quota parte cui viene dato il nome di TRAFFICO SMALTITO[As] = throughput[THR], Ao e THR sono espressi in bit/s
+
+	 il traffico offerto o smaltito in una rete o porzione di rete, come per esempio un collegamento, di cui si conosce la capacita C di trasferimento di traffico, puo anche 
+	   essere espresso in forma normalizzata rispetto alla apacita di rete, questo parametro essendo adimensionale assume l'unita di misura convenzionale di ERLANG[Erl]
+
+
+									Erl = THR / C
+
+
+e prende il valore tra 0 e 1, indica la quota parte di tempo in cui le risorse di rete vengono utilizzate, rappresentando l'efficienza di rete 
+
+
+PERDITA:    traffico perso = Ap
+    ---> nella realta le UI possono essere ricevute con errori a destinazione, oppure possono anche essere perse durante l'attraversamento della rete
+	   
+			
+				errori di trasmissione ---> si verifica quando la qualita del segnale ricevuto su un collegamento e diversa da quella prevista, a causa di interferenze
+							      o di altre cause di degrado, cosi da determinare l'interpretazione errata di uno o piu bit ricevuti
+
+				saturazione della memoria ---> occore quando una memoria di un nodo che immagazzina le UI prima della loro trasmissione va in saturazione, cosi da
+								 non poter immagazzinare ulteriori UI in transito nel nodo
+
+				tasso di errore sul bit(BER = Bit Error Rate) ---> numero di bit ricevuti / numero di bit trasmessi 
+
+				tasso di perdita di UI(probabilita di perdita, Pp) ---> numero di UI perse o consegnate errate / numero di UI trasmesse 
+
+
+TECNICHE DI COMMUTAZIONE:
+    ---> l'aspetto chiave che caratterizza la modalita di commutazione e l'individuazione del collegamento uscente d'assegnare a ogni UI ricevuta
+
+
+			instradamento ---> e un operazione "intelligente", eseguita dal software del nodo, che consiste nel selezionare, secondo un opportuno algoritmo, il ramo in uscita
+					     dal nodo da utilizzare per l UI, ricevuta su un'interfaccia d'ingresso del nodo stesso
+
+			inoltro ---> e un operazione piu "meccanica",  eseguita tipicamente dal hardware del nodo, che consiste nell'attuare la decisione di instradamento presa nel passo
+				       precedente traversando l'UI sull'interfaccia di uscita selezionata, dove questa verra trasmessa
+
+esempi di tecniche di commutazione sono A CIRCUITO e DI PACCHETTO
+
+
+	COMMUTAZIONE DI PACCHETTO:
+	    --> l'informazione che deve essere trasferita tra apparecchiature terminali viene generalmente spezzata in una serie di blocchi di lunghezza opportuna, ognuno dei quali viene
+		  viene dotato di un campo aggiuntivo di "intestazione" chiamato HEADER	che reca ra l'altro l'indicazione della destinazione, ogni UI denominata PACCHETTO, sara costituita
+		  da un header lungo[Lh bit] e da un blocco di dati dell'utente, denominato carico pagante o PAYLOAD lungo[Lp bit]
+		  ogni nodo deve essere dotato di unita di memoria o BUFFER, che consentono di memorizzare le UI in attesa di trasmissione, per questo motivo i nodi di questa rete
+		  sono detti di tipo "store and forward(S&F)", tempo di memorizzazione = Tw
+
+IV) TEMPO DI ATTESA ---> l'UI nel nodo K prima dell'inizio della sua trasmissione sul collegamento uscente
+
+                                                       N nodi
+					T = Ttx + tx + sommatoria Tpi + Twi + Tti + ti
+						       i = 1
+
+  			
+tutte le reti a commutazione di pacchetto prevedono una lunghezza massima del payload, quindi in generale, un messaggio dell'utente verra spezzatto in una sequenza di pacchetti
+  FRAMMENTAZIONE DELL'UI, ognuno dotato del proprio header necessario per l'instradamento 
+
+un servizio di rete fornito con tecnica a commutazione di pacchetto puo essere realizzato secondo due modalita ben distinte, che prendono il nome di servizio di tipo 
+  datagramma(DG) oppure connectionless  e servizio di a circuito virtuale(VC) oppure connection-oriented
+
+
+
+
+COMMUTAZIONE DI CIRCUITO:
+    ---> rende disponibili connessioni per il trasferimento di dati tra apparecchiature terminali, questo servizio si articola in INSTATURAZIONE, DATI, RILASCIO
+	   durante la fase di INSTAURAZIONE la conessione richiesta viene instaurata e le risorse trasmissive necessarie a trasportare il fluso di UI generate da una sorgente continua 
+	   schematizzabile come sorgente di tipo CBR, sono riservate lungo il percorso della rete
+	   queste risorse veranno utilizzate nella fase dati al momento di trasferire in rete le UI relative alla connessione stessa, per poi essere liberate nella fase di RILASCIO
+	   
+
+SERVIZIO DATAGRAMMA:
+    --->  in una rete a commutazione di pacchetto di tipo datagramma la rete trasferisce i pacchetti ricevuti nei nodi sorgente attraverso una sequenza di nodi e di rami sulla base
+	    dell'indirizzo di destinazione che e contenuto in ogni pacchetto, la sequenza dei nodi attraversati dipende dagli algoritmi di instradamento che vengono attuati 
+	    nei singoli nodi; la via da seguire per ogni pacchetto e meorizzata nella tabella d'instradamento, che specifica per ogni destinazione il collegamento uscente da selezionare
+	    e quindi il nodo sucessivo(next hop), lungo il percorso 
+
+	  in un servizio di tipo datagramma vi e la possibilita che, nonostante il funzionamento corretto del protocollo di linea lungo tutti i rami utilizzati, si verificano i 
+	  seguenti eventi:
+
+			FUORI SEQUENZA ---> la destinazione riceve attraverso la rete una sequenza di pacchetti in un ordine diverso dalla sequenza di generazione da parte della
+					      sorgente
+
+			DUPLICAZIONE ---> la destinazione riceve due copie identiche dello stesso pacchetto
+
+			PERDITA ---> un pacchetto viene perso in un nodo della rete, senza che siano disponibili procedure di recupero
+
+
+
+SERVIZIO DI CIRCUITO VIRTUALE:
+    ---> nel servizio circuito virtuale due apparecchiature terminali si scambiano dati solo dopo avere instaurato una connessione virtuale che mette in relazione l'una all'altra
+	   questo servizio si articola in tre fasi, analogamente al servizio reso da una rete a commutazione di circuito che mette a disposizione una connessione fisica con risorse
+	   di commutazione dedicate:
+
+					-fase d'instaurazione
+					-fase dati
+					-fase di rilascio
+
+		TABELLA D'INOLTRO:
+		    ---> occore osservare che nel servizio circuito virtuale la funzione di instradamento, espletata mediante l'attuazione di un algoritmo che determina il collegamento
+			   uscente dal nodo per il pacchetto in base all'indirizzo di destinazione, viene svolta esclusivamente nella fase d'instaurazione del circuito virtuale
+			   il risultato dell'operazione d'instradamento effettuata sue pacchetti di segnalazione viene memorizzata nella TABELLA D'INOLTRO(oppure tabella di attraversamento)   
+			   del nodo, affinche per ogni pacchetto dati appartenente a quella connessione virtuale venga "attuata" la stessa scelta 
+
+			 cio e reso possibile dalla definizione di un identificatore numerico(NUMERO DI CANALE LOGICO) per ogni collegamento lungo il circuito virtuale
+			   questo identificatoreviene assegnato durante la fase d'instaurazione del circuito virtuale e rimane immagazzinato nella tabella d'inoltro fino a che il circuito
+			   stesso non viene rilasciato, la tabella d'inoltro contiene tante voci quanti sono i circuiti virtuali attivi nel nodo e ogni voce contiene i seguenti parametri:
+
+
+						. collegamento entrante(oppure nodo a monte del circuito virtuale)
+
+						. "identificatore del canale logico" lungo il collegamento entrante(oppure numero di canale logico in ingresso)
+
+						. nodo a valle del circuito virtuale(o collegamento uscente)
+				
+						."identificatore del canale logico" lungo il collegamento uscente(oppure numero di canale logico in uscita)
+
+
+COMMUTAZIONE CUT-THROUGH:
+    ---> una diversa modalita di commutazione nel servizio circuito virtuale, meno diffusa, prende il nome di CT(cut-through), questa consiste nel ridurre l'elaborazione del pacchetto
+	   al sol header, cosa che consente di attuare la funzione d'inoltro mediante lettura della corrispondente tabella; cosi l'inizio della trasmissione in uscita non richiede di 
+	   attendere la ricezione all'interno del pacchetto, indichiamo con "Fe" e "Fu" la capacita dei collegamenti in entrata e uscita dal nod generico, pero richiede che la seguente
+	   codizione sia rispettata ---> Fu <= Fe
+
+
+									RIASSUNTO
+
+					________________________________________________________________________
+                                       | CARATTERISTICA 	| DATAGRAMMA 		| CIRCUITO VIRTUALE 	|
+				       |________________________|_______________________|_______________________|
+				       |instradamento           |indipendente per       |indipendente per       |
+				       |			|parchetto              |circuito virtuale      |
+				       |________________________|_______________________|_______________________|
+				       |inoltro                 |                       |deterministico per     |
+				       |                        |			|per circuito virtuale  |
+			               |________________________|_______________________|_______________________|
+				       |indirizzamento dei      |indirizzo di           |indentificatore del    |
+				       |pacchetti               |destinazione e         |canale logico          |
+                                       |			|sorgente               |                       |
+				       |________________________|_______________________|_______________________|
+				       |controllo di sequenza   |assente                |implicito              |
+				       |________________________|_______________________|_______________________|
+				       |garanzia di qualita     |difficile              |facile                 |
+				       |del servizio            |                       |                       |
+                                       |________________________|_______________________|_______________________|
+			               |guasto a un nodo        |perdita dei pacchetti  |reset di tutti i       |
+                                       |                        |che attraversano       |circuiti virtuali      |
+				       |                        |il nodo                |attraverso il nodo     |
+				       |________________________|_______________________|_______________________|
+
+
+ASPETTI PROTOCOLLARI NELLA MODALITA DI COMMUTAZIONE:
+    ---> nell'ambito del modello a strati, si distinguono gli STRATI DI UTILIZZAZIONE, che risiedono nella parte superiore della pila, dagli STRATI DI TRASFERIMENTO che invece occupano
+	   la parte inferiore dela pila stessa
+
+			GLI STRATI DI UTILIZZAZIONE ---> comprendono funzionalita esclusivamente relative alla generazione e alla strutturazione delle UI per il loro trasferimento 
+							   con una data qualita dalla sorgente alla destinazione indipendentemente dalle caratteristiche della rete di comunicazione
+							   che viene attraversata; le funzioni definite negli strati di utlizzazione sono dunque svolte solo nei sistemi terminali
+							   e non nei dispositivi di rete, sulla base dei protocolli di utilizzazione gli strati e i protocolli di utilizzazione
+						           nel modello a strati sono quelli relativi al ---> physical layer e transport layer.
+
+			GLI STRATI DI TRASFERIMENTO ---> definiscono le modalita di trasferimento delle informazioni di utente attraverso una rete di comunicazione, quindi le funzioni 	
+							   relative agli strati di trasferimento saranno localizzate sia nei sistemi terminali, sia negli apparati di rete;
+							   i protocolli di trasferimento definiscono l'interazione tra apparecchiature di rete e tra queste i sistemi terminali;
+							   gli strati e i protocolli di trasferimento nel modello a strati sono quelli relativi 
+							   ---> network layer, data-link layer e physical layer
+
+
+TECNICHE DI MULTIPLAZIONE:
+    ---> bisogna distinguere tra due diverse modalita di condivisione della capacita di un canale di comunicazione che dipendono dalla localizzazione degli utilizzatori del canale stesso 
+	   cioe sorgenti e destinazioni dell UI, se il canale di comunicazione e unidirezionale = SIMPLEX = sorgenti e destinazioni saranno distinti; se invece e bidirezionale con 	
+	   trasmissione di tipo HALF-DUPLEX(HD, non e permesso il trasferimento contemporaneo dei segnali nelle due direzioni) o FULL-DUPLEX(FD, i segnali sono trasferiti 
+	   contemporaneamente nelle due direzioni), la generica apparecchiatura che s'interfaccia al canale agisce sia da sorgente che da destinazione
+
+	 la multiplazione consente di sfruttare la capacita disponibile su un collegamento tra nodi per metterla a disposizione contemporaneamente di piu flussi informativi;
+	   sorgenti e destinazioni sono posizionate alle due estremita del collegamento multiplato, dove operano due dispositivi denominati MULTIPLATORE e DEMULTIPLATORE che agiscono
+	   da interfaccia tra sorgenti e collegamento da una parte, tra collegamento e destinazione dall'altra, se il canale e bidirezionale, multiplatore e demultiplatore saranno
+	   equipaggiati congiuntamente a entrambe l'estremita del collegamento.
+
+
+TASSONOMIA DELLE TECNICHE DI MULTIPLAZIONE:
+    ---> sono tre le tecniche di multiplazione:
+
+
+				FDM:    Frequency Division Multiplexing/multiplazione a divisione di frequenza
+				    ---> storicamente e la prima ad essere adottata, utilizzando componenti analogici, suddivide la banda a disposizione sul portante trasmissivo in canali,
+					   tanti quanti sono i flussi da multiplare, questi canali non si sovrappongono in frequenza, e spesso si usa anche lasciare inutilizzata una 
+					   "banda di guardia" tra i canali per consentire la realizzazione fisica di sistemi di multiplazione FDM con dispositivi di complessita limitata     
+
+
+				TDM:    Time Division Multiplexing/multiplazione a divisione di tempo 
+				    ---> assegna ciclicamente al singolo canale la tonalita della banda disponibile sul collegamento, anche se per un intervallo di tempo limitato;
+					   in questo modo i diversi canali hanno a disposizione l'intera capacita del mezzo trasmissivo per intervalli limitati che si ripetono 
+					   periodicamente nel tempo; anche in questo, potrebbe essere necessario lasciare un "tempo di guardia" di separazione tra canali per facilitare
+					   l'implementazione del sistema.
+
+
+				WDM:    Wavelength Division Multiplexing/multiplazione a divisione di lunghezza d'onda
+				    ---> e quella utilizzata dalle fibre ottiche, essa suddivide l'intervallo di banda ottica a "fette", assegnandone una in modo esclusivo a ognuno
+					   dei canali da multiplare; poiche esiste una relazione fissa tra lunghezza d'onda e frequenza, la tecnica WDM coincide con quella FDM
+			  		   la realizzazione di una comunicazione bidimensionale tra due nodi si realizza utilizzando due mezzi trasmissivi distinti per le due direzioni,
+					   oppure un unico mezzo trasmissivo ccondiviso per i due flussi informativi, la tecnica di multiplazione entra in gioco due volte, la prima
+					   per multiplare i canali in una direzione e la seconda per condividere il collegamento nelle due direzioni, a questo ultimo aspetto si da il nome
+					   di DUPLEXING
+
+							TDD:    Time Division Duplexing
+							    ---> il canale viene utilizzato alternativamente nelle due direzioni 
+
+							FDD:    Frequency Division Duplexing
+							    ---> la banda a disposizione viene divisa in due porzioni, assegnando ognuna di esse alla trasmissione in una delle
+								   due direzioni 
+
+
+e pratica comune utilizzare contemporaneamente TDM e FDD in un sistema bidirezionale 
+
+
+
+
+
+SOLUZIONI CONCETTUALI DI MULTIPLAZIONE TDM:
+    ---> si distinguono due classi:
+
+		I) multiplazione deterministica ---> viene utilizzata per sorgenti continue, cioe di tipo CBR, e d luogo a un interlacciamento di tipo periodico dei canali multiplati
+
+		II) multiplazione statica ---> e impiegata con sorgenti tipicamente discontinue, cioe di tipo VBR, e quindi non produce nessun insieme di periodicita
+	
+				IIa) multiplazione di UI a lunghezza fissa(a slot) 
+
+				IIb) multipazione di UI a lunghezza variabile(continua)
+
+
+
+
+
+
+
+	N = numero di flussi che costituiscono traffico offerto(in ingresso)                                   Ao = N * B * Ft
+
+	B = burstiness 
+
+	Ft = frequenza di picco(sorgente)[bit/s] 								As <= Ao
+
+	Fm = flusso in uscita[bit/s]
+
+	As = valore medio del traffico smaltito(in uscita)
+
+	Ao = valore medio del traffico offerto(in ingresso)
+
+
+se invece Fm < N * Ft, allora il dispositivo prende anche il nome di CONCENTRATORE e N * Ft / Fm prende il nome di fattore di concentrazione
+
+
+
+MULTIPLAZIONE DETERMINISTICA:
+    ---> i flussi ricevuti(tributari) vengono sempre accomodati nel flusso uscente interlacciando ciclicamente nel tempo le UI dei singoli flussi in ingresso; la struttura logica che 
+	   definisce l'organizzazione delle UI sulla linea uscente si chiama TRAMA e comprende un'UI per ogni tributario; l'operazione di multiplazione richiede necessariamente 
+	   la presenza di una piccola unita di memoria su ogni ingresso(memoria di linea), che consenta d'immagazinare ogni UI ricevuta in attesa dell'occorenza della posizione nella
+	   trama ad essa dedicata; la capacita della memoria di linea e dell'ordine del numero dei byte di un'UI; il tempo richiestoper trasmettere una trama prende il nome di PERIODO
+	   e viene in secondi; in un multiplatore deterministico e sempre vera questa ugualianza:
+
+
+									Fm = N * Ft
+
+
+	 il multiplatore deterministico e pensato per operare con sorgenti d'informazione di tipo CBR, che definisce la frequenza di picco P e la frequenza media A di una sorgente
+	   di conseguenza vale la seguente relazione:
+
+
+									Ft = P = A
+
+
+	 inoltre risulta evidente che in un multiplatore deterministico nessuna UI viene persa, data la capacita riservata sulla linea uscente per ogni tributario, quindi il traffico 
+	   in uscita al multiplatore coincide con quello in ingresso:
+
+									As = Ao = N * B * Ft
+
+
+
+
+
+MULTIPLAZIONE STATICA:
+    ---> un multiplatore statico non assicura invece una posizione nel flusso uscente per ogni UI ricevuta e quindi non definisce alcuna struttura di trama; il principio secondo cui esso 
+	   opera e semplicemente quello di allocare nel modo migliore possibile la capacita disponibile sulla linea uscente, per trasmettere le UI che vengono ricevute sugli ingressi; 
+	   in un multiplatore statico vale la seguente relazione:
+
+
+									Fm <= N * Ft
+	 
+
+	 ne consegue che i flussi entranti sono per definizione discontinui; modelliamo allora il tributario entrante i-esimo(1,...,n) per mezzo di una sorgente VBR di tipo ON-OFF, la 
+	   cui caratterizzazione e data da due parametri: {frequenza di picco Pi[bit/s]} e {frequenza media Ai[bit/s]}, avendo inoltre ipotizzato flussi tributari di uguale capacita allora:
+
+
+								Pi = Ft              i = 1,...,n
+
+
+	 inoltre, un dimensionamento corretto del multiplatore richiede che la capacita disponibile in uscita non sia inferiore a quella media complessiva richiesta da tutti i flussi 
+	   tributari, e quindi la seguente relazione deve essere sempre vera:
+
+
+								
+                                                                        n
+								Fm >= sommatoria Ai 
+	     								i = 1
+
+
+	 un aspetto critico del multiplatore statico e determinare la capacita del collegamento uscente in funzione delle caratteristiche delle sorgenti, in modo tale che le sue prestazioni
+           siano accettabili; se tutti i tributari sono caratterizzati dagli stessi parametri, cioe frequenza media A e frequenza di picco P = Ft, inoltre, che il collegamento uscente
+	   dal multiplatore abbia una capicita multipla con fattore c della frequenza di ogni tributario, cioe
+
+
+								Fm = c * Ft = c * P
+
+
+	 assumendo l'indipendenza statica delle sorgenti, la probabilita Pk di avere k tra le n sorgenti contemporaneamente attive e semplicemente data dalla distribuzione binomiale
+
+                                                                      _   _
+                                                                     |  n  |
+								Pk = |     |B^k(1 - B)^n-k
+								     |_ k _| 
+
+
+	 in assenza di memoria, si puo determinare la probabilita di perdita Xp di UI, evento che si verifica quando una sorgente attiva non trova disponibilita di trasmissione sulla linea
+	   uscente; chiaramente cio accade quando le sorgenti contemporaneamente attive sono piu di c e quindi:
+
+									n
+								Xp = sommatoria Pk
+								       k = c+1	
+
+
+
+	 l'intensita del traffico in uscita e espressa come:
+
+								As = (1 - Xp)Ao
+
+
+
+	 poiche c indica anche il massimo numero delle sorgenti attive contemporaneamente che trovano posto sul anale di uscita, allora definiamo S = n/c come il 
+	   "fattore di sottodimensionamento" del multiplatore rispetto a una capacita massima in uscita di Fm = n * Ft; quest'ultima condizione corrisponde a garantire che tutte le UI
+	   generate dai tributari trovino sempre posto nel flusso uscente, il nostro obbiettivo e: 
+
+	      ---SAPER SCEGLIERE IL MASSIMO LIVELLO DI SOTTODIMENSIONAMENTO CHE POSSO GARANTIRE LA QUALITA DE SERVIZIO DESIDERATA, DATO DAL FATTORE DI BURSTINESS DELLE SORGENTI---
+
+
+	 la valutazione numerica appena effettuata non tiene comunque conto della quantita di tempo per cui ogni sorgente attiva tiene impegnato il canale uscente del multiplatore;
+	   per tener conto di cio, utilizziamo ora un modello a coda di tipo M/M/1/L, che rappresenta il funzionamento di un MULTIPLATORE STATICO CONTINUO dotato di buffer con capacita
+	   di L UI, i parametri di traffico che andiamo qui a considerare sono la frequenza media Fui(s^-1) con cui le UI sono offerte al multiplatore e la lunghezza media Lm(bit) delle UI
+	   il traffico offerto al multiplatore e quindi espresso da:
+
+
+					Ao = Lm * Fui [bit/s]     che nell'espressione adimensionale in Erlang diventa --->       Ao = Lm * Fui / Fm [Erl] 
+
+
+	 kleinrock ---> "https://it.wikipedia.org/wiki/Teoria_delle_code"
+
+                 _______________________________________________________________________________________________
+		|Ao        | L = 0       | L = 1       | L = 2       | L = 4        | L = 8       | L = 16      |
+	        |__________|_____________|_____________|_____________|______________|_____________|_____________|
+		|0,01      |9,9 * 10^-3  |9,9 * 10^-5  |9,9 * 10^-7  |9,9 * 10^-11  |9,9 * 10^-19 |9,9 * 10^-35 |
+		|__________|_____________|_____________|_____________|______________|_____________|_____________|
+		|0,05      |4,8 * 10^-2  |2,4 * 10^-3  |1,2 * 10^-4  |3,0 * 10^-7   |1,9 * 10^-12 |7,2 * 10^-23 |
+		|__________|_____________|_____________|_____________|______________|_____________|_____________|																		|
+		|0,10      |9,1 * 10^-2  |9,0 * 10^-3  |9,0 * 10^-4  |9,0 * 10^-6   |9,0 * 10^-10 |9,0 * 10^-18 |
+		|__________|_____________|_____________|_____________|______________|_____________|_____________|																		|
+		|0,50      |3,3 * 10^-1  |1,4 * 10^-1  |6,6 * 10^-2  |1,5 * 10^-2   |9,8 * 10^-4  |3,8 * 10^-6  |
+		|__________|_____________|_____________|_____________|______________|_____________|_____________|																		|
+		|0,90      |4,7 * 10^-1  |3,0 * 10^-1  |2,1 * 10^-1  |1,3 * 10^-1   |5,9 * 10^-2  |2,0 * 10^-2  |
+		|__________|_____________|_____________|_____________|______________|_____________|_____________|																		|
+																		
+
+
+	facendo invece riferimento a un MULTIPLATORE STATICO A SLOT, quindi con UI a lunghezza constante di Lc bit, possiamo considerare il modello M/D/1, che assume un tempo di 
+	  trasmissione constante e ipotizza che la capacita di memoria nel multiplatore sia infinita; in base a questo modello, il traffico smaltito(throughput) coincide con il 
+	  traffico offerto e la sua intensita, espressa in bit/s e data da:
+
+				As = Ao = Lc * Fui [bit/s]  che nell'espressione adimensionale in Erlang diventa ---> As = Ao = Lc * Fui / Fm [Erl]
+
+
+	 poiche il traffico smaltito normalizzato cosi definito assume valori nell'intervallo di tempo (0,1), esso viene anche indicato come FATTORE DI UTILIZZAZIONE dell'apparecchiatura
+	   con il simbolo Y e rappresenta anche la quota parte di tempo in cui la linea uscente dal multiplatore e attiva; utilizzano il modello a coda M/D/1, il tempo medio di 
+	   attraversamnto del multiplatore statistico a slot e dato dall'espressione:
+
+
+				T = Lc / Fm + Y / 2(1 - Y) * Lc / Fm
+
+	 in cui al tempo di trasmissione Lc/Fm dell'UI si aggiunge il tempo di attesa richiesto per completare la trasmissione delle UI ricevute in precedenza dal multiplatore, ma non 
+	   ancora trasmesse
+
+
+
+
+REALIZZAZIONE DI MULTIPLAZIONE TDM:
+    ---> la realizzazione di uno specifico meccanismo di multiplazione TDM si basa sulla definizione di due aspetti fondamentali di coordinamneto degli apparati di multiplazione e 
+	   demultiplazione, e cioe DELIMITAZIONE delle singole UI trasmesse sul canale e il loro INDIRIZZAMENTO; per quanto riguarda il primo aspetto, il multiplatore trasmette 
+	   la sequenza delle UI emesse dalle varie sorgenti una dopo l'altra, senza soluzione di continuita; ne consegue che il demultiplatore riceve una sequenza indistinta di bit
+	   dalla quale devono essere estratte le singole UI; da cio nasce la necessita di coordinamneto tra multiplatore e demultiplatore per risolvere il problema della delimitazione
+	   delle UI trasmesse sul canale; una volta ricevute e individuate, le UI devono essere distribuite ognuna alla propria destinazione cosi come indicato dall'operazione di 
+	   indirizzamneto la specifica tecnica di multiplazione viene definita viene definita in base alla soluzione adottata per la delimitazione e l'indirizzamneto dell UI 
+
+	 i tipi di multiplazione a divisione di tempo che oggi vengono utilizzati sono essenzialmente due: MULTIPLAZIONE SINCRONA e MULTIPLAZIONE ASINCRONA
+
+
+			S-TDM:  multiplazione sincrona
+			    ---> consiste sostanzialmente in una multiplazione di tipo deterministico con adozione di opportune tecniche per attuare delimitazione e indirizzamento delle UI;
+				   e quella che viene impiegata nelle reti a commutazione di circuito; l'asse dei tempi e diviso in slot organizzati in una struttura di trama di durata
+			   	   T che si ripete indefinitivamente nel tempo. la struttura di trama viene riconosciuta in recezione dal demultiplatore perche il multiplatore trasemtte
+				   un opportuno codice codice all'inizio di ogni trama(informazione di ALLINEAMENTO); a seconda delle soluzioni implementative questo codice puo occupare
+				   uno slot intero o meno; poiche la struttura della trama e nota a priopri a multiplatore e demultiplatore, il riconoscimento dell'informazione di 
+				   allineamento in ricezione, una volta effettuato, consente di individuare in modo IMPLICITO i confini tra gli slot e quindi di identificare le UI 
+				   via via ricevute; in genere, il numero di slot disponibili per informazioni di utente e uguale a numero N delle coppie sorgente-destinazione, cosi che
+				   ogni coppia ha a disposizione uno slot per il traferimento di un UI; tipicamente la coppia i-esima ha sempre a disposizione lo slot i-esimo nella
+				   trama N + 1 slot, dei quali il primo svolge funzioni di allineamento; dunque il meccanismo d'indirizzamento e IMPLICITO poiche il multiplatore utilizza
+				   lo slot i per per la trasmisione dell'UI della sorgente i e il demultiplatore, una volta realizzato l'allineamento con la trama entrante, opera trama
+				   per trama consegnando l'UI dello slot i alla destinazione i; si noti che l'assegnazione deterministica della stessa posizione di trama a una  specifica 
+				   coppia  sorgente-destinazione assicura che il trasferimento avvenga con ritardo costante
+
+
+				parametri che descrivono un sistema di multiplazione S-TDM:
+				
+						Lc = numero i bit trasmessi per slot (bit)
+						Fc = capacit di ogni tributario in ingresso (bit/s)
+						La = numero di bit per trama addizionali rispetto all'informazione di utente(bit)
+						Fa = capacita addizionale del multiplatore utilizzata per il servizio(bit/s)
+						Lm = numero di bit per trama(bit)
+						Fm = capacita in uscita dal multiplatore(bit/s)
+						ts = tempo di trasmissione di un bit in uscita dal multiplatore(s)
+						N = numero di slot di utente per trama
+
+
+	Fm = Lm / ts = N * Lc + La / ts = N * Fc + Fa   ---> il flusso in uscita da un multiplatore sara dato dalla somma dei flussi dei tributari in ingresso e della capacita addizionale
+							       utilizzata per servizio
+
+
+	Fc = Lc / ts
+
+inoltre il tempo di trasmissione di ogni bit in unscita dal multiplatore e semplicemente dato dall'inverso della capacita totale del multiplatore, cioe ts = 1/Fm; i sitemi di multiplazione 
+  piu complessi e possibile allocare ai tributari una capacita variabile, a condizione che la somma delle capacita allocate alle singole coppie sorgente-destinazione non ecceda la capacita
+  di canale multiplato; se si opera con SOVRAMULTIPLAZIONE, si possono allocare piu slot per trama a una, specifica coppia sorgente-destinazione; se per esempio gli slot allocati sono n,
+  allora la capacita allocata alla coppia sara:
+		
+							F-over = n * Lc / ts    n = 1,...,N-1
+
+se si opera con SOTTOMULTIPLAZIONE, si puo alocare a una specifica coppia sorgente-destinazione una frazione di slot, cioe uno specifico insieme di bit il cui numero e inferiore a Lc; se
+  per esempio i bit allocati sono m, allora la capacita allocata sara:
+
+							F-sub = m / ts          m = 1,...,Lc-1   
+
+
+			A-TDM: multiplazione asincrona
+			    ---> si adotta il principio della multiplazione statistica, in quanto le sorgenti d'informazione sono tipicamente di tipo intermittente con fattore di 
+				   burstiness B < 1, in cui cioe la frequenza media di bit emessi dalla sorgente e significativamente piu piccola della frequenza di cifra con cui le UI
+				   vengono emesse dal multiplatore(quando la sorgente e attiva); questo tipo di multiplazione viene adottato nelle reti a commutazione di pacchetto;
+			   	   nella multiplazione asincroa A SLOT, non esiste alcuna struttura di trama periodica e l'allocazione della capacita del canale alle sorgenti per la 
+	 			   trasmissione delle UI da queste generate avviene in modo statistico; sebbene per unita di durata costante(quella consentita dalla capacita del canale	
+				   in un tempo di slot); anche in questo caso quindi la delimitazione delle UI e IMPLICITA, poiche il demultiplatore sincrona, l'assenza di una struttura
+				   di trama non consente d'inviare periodicamente un'informazione di allineamento; si rende quindi necessario utilizzare un codice opportuno all'inizio
+				   di ogni UI per trasferire l'informazione di allineamento;
+				
+				 nella multiplazione asincrona CONTINUA non si attua alcuna divisione a priori dell'asse dei tempi e il multiplatore puo trasmettere UI con istante di 
+				   inizio trasmissione completamente arbitrario; ne consegue che ora le unita informative avranno in generale una lunghezza variabile, non essendo la loro
+				   trasmissione vincolata a essere espletata in un tempo constante; in questo caso la delimitazione delle UI deve essere necessariamente ESPLICITA, cioe
+				   deve essere eseguita per ogni UI, per per esempio mediante un opportuno codice da porre  in testa all'UI
+
+				 per quanto riguarda l'indirizzamento delle UI nella multiplazione asincrona, questo deve essere necessariamente ESPLICITO, cioe con le necessarie 
+				   informazioni nell'UI stessa, in quanto l'allocazione statistica del canale alle sorgenti non consente di conoscere A PRIORI le destinazione di ogni UI
+
+				 la tecnica A-TDM, non avendo esclusivita di utilizzazione di capacita, implica le possibilita di contese di utilizzazione; cio comporta che una UI sia 
+				   trasmessa subito se le risorse sono disponibili, oppure sia memorizzata; e per questo motivo che sono previste delle unita di memoria nei nodi di rete
+				   nei quali sono attestati i sistemi di multiplazione(la necessita del buffer); in questo caso i ritardi di trasmissione sono variabili(dipendono
+				   dalle UI fia in attesa delle disponibilita della stessa risorsa trasmissiva) e si puo anche avere perdita di UI in presenza di saturazione del buffer
+				   in coclusione, la tecnica di multiplazione A-TDM consente di ottimizzare l'utilizzazione della capacita del canale trasmissivo in presenza di sorgenti
+			           di tipo intermittente, anche se cio implica limitazioni nelle prestazioni di trasferimento in rete in termini di ritardo di trasferimento variabile e 
+				   possibile perdita di UI  
+
+
+                 _____________________________________________________________________________
+		|Fx[Kbit/s] |commutazione  | N       | B      |Ao       |Yp        |T[s]      |
+		|___________|______________|_________|________|_________|__________|__________|
+		|           |   CS         |  8      | 1      | 1       | 0        | 8        |
+                |           |______________|_________|________|_________|__________|__________|
+                |   400     |   PS         |  20     | 0,1    | 0,25    | 10^-4    | 1,17     |
+		|___________|______________|_________|________|_________|__________|__________|
+		|           |   CS         |  4      | 1      | 1       | 0        | 8        |
+                |           |______________|_________|________|_________|__________|__________|
+                |   200     |   PS         |  20     | 0,1    | 0,50    | 5*10^-2  | 3        |
+		|___________|______________|_________|________|_________|__________|__________|
+		|           |   CS         |  2      | 1      | 1       | 0        | 8        |
+                |           |______________|_________|________|_________|__________|__________|
+                |   100     |   PS         |  20     | 0,1    | 0,10    | 10^-3    | 4,2      |
+		|___________|______________|_________|________|_________|__________|__________|
+		|           |   CS         |  1      | 1      | 1       | 0        | 8        |
+                |           |______________|_________|________|_________|__________|__________|
+                |    50     |   PS         |  20     | 0,1    | 0,20    | 2*10^-2  | 9        |
+		|___________|______________|_________|________|_________|__________|__________|
+
+	 
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+								
+
+	
+
+								
+
+											
+	
+				 
+  
+ 
+
+		
+								  
+				
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
