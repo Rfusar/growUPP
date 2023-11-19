@@ -1,0 +1,449 @@
+COLLEGAMENTO PUNTO-PUNTO:
+    ---> il trasferimento di UI tra apparecchiature di rete direttamente connesse l'una all'altra si svolge in conformita a un insieme di regole che definiscono 
+	   il PROTOCOLLO DI COMMUNICAZIONE, la necessita di prevenire errori oppure se presenti come gestirli a scaturito ha dato origine a "automatic repeat request(ARQ)", descriviamo 
+	   in particolare due tipi di protocollo per comunicazione su linea PUNTO-PUNTO:
+
+
+	S&W:    Stop and Wait	
+	    ---> il trasmettitore invia un UI e aspetta il riscontro prima di emetterne un'altra ---> consiste nel'effettuare la trasmissione di un UI e attendere
+		   il riscontro(acknowledgment) da parte del riceveneteprima di trasmettere una successiva, questo protocollo, come tutti i protocolli basati sul
+	 	   principio della trasmissione di UI con riscontro, prevede che il trasmetitore conservi nel prorpio BUFFER DI RIRTASMISSIONE, l'UI trasmessa fino 
+	           alla ricezione del relativo riscontro positivo
+
+
+
+		per rendere possibile una valutazione quantitativa dell'efficienza di trasmissione di un protocollo, si rende necessario definire i seguenti parametri:
+
+
+
+			PARAMETRI = {
+				
+				"Tu" : tempo di trasmissione di un UI[s],
+				"Ta" : tempo di trasmissione di un riscontro[s]
+				"Tp" : tempo di elaborazione di un'UI[s]
+				"t" : tempo di propagazione[s]
+				"C" : frequenza di cifra/capacita del collegamento[bit/s]
+				"Lu" : lunghezza di un UI[bit]
+				"La" : lunghezza di un riscontro[bit]
+				"d" : estenzione del collegamento[m]
+				"v" : velocita di propagazione sul collegamento[m/s]  
+			}
+
+		-IN ASSENZA DI ERRORI:
+		    ---> la prima UI viene trasmessa dalla stazione A, che si pone in attesa di un riscontro da parte di B prima di trasmetterene una seconda, ovviamente le UI in attesa
+			   di trasmissione vengono immagazzinate nel buffer di trasmissione 
+
+			 A trasmette un'UI a B, impiegando un tempo "Tu = Lu/C", il primo bit sara ricevuto a "t" sencondi dopo l'inizio della trasmissione e l'UI sara completamente 
+			   ricevuta al tempo "tempo = Tu + t"; B impiega un tempo uguale a "Tp" per controllare l'UI ricevuta, dopodiche inizia a trasmettere un riscontro, che completa
+			   in un intervallo di tempo "Ta", anche in questo caso la velocita di propagazione finale del segnale sul collegamento causa un ulteriore ritardo "t", cosi che A
+			   finisce di ricevere il riscontro al tempo "tempo = Tu + Tp + Ta + 2t". Dopo un ulteriore ritardo di elaborazione in A per il controllo del riscontro ricevuto,
+			   assunto uguale a quello di "Tp" che caratterizza l'elaborazione dell'UI in ricezione, la stazione stessa puo iniziare a trasmettere un'altra UI, che viene 
+			   successivamente riscontrata.
+
+			 Possiamo quindi esprimere il TEMPO DI RITARDO complessivo "Ttot" richeiesto per trasferire un predeterminato numero di UI tra due stazioni, come il tempo che 
+			   intercorre dall'inizio della trasmissione della prima UI alla completa ricezione ed elaborazione del riscontro dell' ultima UI. Se "T1" indica il tempo necessario
+			   a trasferire un'UI e "Nu" e il numero di IU da trasferire(assunte di lunghezza costante), allora:
+
+
+								Ttot = Nu * T1 = Nu(Tu + Ta + 2Tp + 2t) = Nu(Lu/C + La/C + 2Tp + 2d/v)
+
+			 un parametro molto significativo nell'ambito dei protocolli per il trasferimento punto-punto e PARAMETRI["a"] = tempo di propagazione normalizzato
+
+
+								a = t/Tu = d/v / Lu/c = d * C / Lu^v
+
+			 esprimiamo ora l'EFFICIENZA "Eff" del protocollo S&W in assenza di errori, definendo questo parametro come la quota parte di tempo nel quale il collegamento di
+			   A e B e impiegato in trasmissioni, assumendo che A abbia sempre almeno'UI in attesa di trasimissione, apllicando la definizione, si ottiene la seguente 
+			   espressione per "Eff":
+ 
+								Eff = Tu / Tu + Ta + 2Tp + 2t
+
+			 un'espressione ancora piu semplice e immediata, anche se approsimata, si ottiene assumendoo che il tempo di elaborazione sia molto piccolo e il riscontro sia
+			   composto da pocchissimi bit rispetto alla lunghezza del UI, cosi che Tp = Ta ~ 0. Allora:
+
+								Eff ~ Tu / Tu + 2t = 1 / 1 + 2a
+
+			 questa espressione consente di affermare che l'efficienza del protocollo e tanto piu alta quanto piu si riduce il parametro "a". Cio implica che su un dato 
+			   collegamento aumento di efficienza puo essere ottenuto aumentando la lunghezza "Lu" dell'UI, a parita di frequenza di cifra "C", naturalmente il solo
+			   aumento della frequenza di cifra a parita della lunghezza dell'UI implica una diminuzione di efficienza. nel caso limite di UI a lunghezza infinita, la 
+			   l'efficienza diventa unitaria. L'efficienza di utilizzazione di un collegamento dati viene anche espressa in bit/s con riferimento alla qualita di dati 
+			   effetivamente trasferita(THROUGHPUT) e si calcola:
+
+								THR = Eff * C[bit/s]
+
+
+
+		-CON ERRORI:
+		    ---> si consideri ora il caso in cui la trasmissione di un UI, o del relativo riscontro, non si priva di errori, si noti che nei protocolli ARQ uno o piu errori 
+			   possono essere solo relativi, ma non corretti. Quindi la ricezione di un'UI affetta da errori determina solo lo scarto dell' unita stessa, non potendo il 
+			   il ricevente determinare quale fosse l'unita originariamente trasmessa. nel protocollo S&W dovra dunque essere definito un meccanismo, denominato TIME-OUT
+			   che indica quando ritrasmettere l'unita informativa che non sia stata riscontrata correttamente, a causa dello scarto per errore dell'UI originaria o del 
+			   relativo riscontro. 
+
+			 PARAMETRI["To"] = time-out, provvedera a ristrasmettere la stessa UI, immagazzinata del buffer di ritrasmissione
+
+								To >= Ta + 2Tp + 2t
+
+			 nell'ipotesi di tempo di elaborazione e di trasmissione del riscontro trascurabili (Tp = Ta ~ 0) diventa
+
+								To >= 2t
+
+			 si osservi che la seconda trasmissione dell'UI avrebbe richiesto lo stesso tempo anche se l'errore avesse colpito l'unita informativa invece del riscontro,
+			   in questo caso B non puo inviare alcun riscontro e quindi A applica lo stesso mecanismo di time-out per ripetere la trasmissione
+
+		i due casi appena discussi di errore sull'UI o sul riscontro hanno tuttavia una diversa conseguenza sul corretto funzionamento del protocollo, infatti, se l'errore 
+		  colpisce l'UI, la seconda trasmissione ha come conseguenza la corretta ricezione dell'UI da parte di B. invece se e il riscontro ad essere corrotto, alla fine della
+		  ritrasmissione B si trovera ad aver ricevuto due volte la stessa UI. Si noti che, in generale, si ritiene inapplicabile una procedura che preveda il controllo di 
+		  ugualianza bit a bit di UI ricevute conseguentemente nella stazione ricevente o di un analogo controllo dei riscontri nella stazione trasmittente. 
+		B considererebbe erroneamente di aver ricevuto due UI consecutive. in questo caso, la correttezza del protocollo S&W viene ripristinata adottando un meccanismo di
+		  NUMERAZIONE DELLE UI a un bit a omdo alternato, nel senso che se l'evntuale controllore ricevesse due UI con 0-0 oppure 1-1, lo riterrebbe errore 
+
+		possiamo ora valutare l'efficienza del protocollo S&W, in questo caso di presenza di errori di trasmissione, assumendo che gli eventi di errore sui singoli bit siano 
+		  mutuamente indipendenti:
+
+		PARAMETRI["p"] = probabilita di errore sul singolo bit
+		PARAMETRI["P"] = probabilita di errore nella trasmissione di un'UI
+		PARAMETRI["aI"] = probabilita di successo alla trasmissione i-esima di un'UI
+		PARAMETRI["Ns"] = numero medio di tentativi di trasmissione per UI ricevuta con successo
+
+
+
+				P = 1 - (1 - p)^Lu + La
+
+		si calcola ora il numero medio Ns di tentativi di trasmissioneper UI trasmessa, esprimendo la probabilita aI di successo all'i-esimo tentativo di trasmissione per mezzo 
+		  della probabilita P di trasmissione senza successo e della probabilita completamentare di insuccesso 1- P, cioe:
+
+
+					infinito	    infinito                              infinito
+				Ns = sommatoria i * aI = sommatoria i * P^i-1 * 1 - P = 1 - P * sommatoria i * P^i-1 = 1 / 1 - P
+					i = 1               i = 1                                  i = 1
+
+					 _______________________________________________________________________________________
+					|LA DERIVATA DELLA SERIE GEOMETRICA: 						        |
+					|		                   						        |
+					|		   infinito                     infinito                                |
+					|		sommatoria x^i = 1 / 1 - x == sommatoria i * x^i-1 = 1 / (1 - x)^2      |
+					|		   i = 0                         i = 0                                  |
+					|_______________________________________________________________________________________|
+
+		il tempo complessivo di trasferimento con successo di un UI di lunghezza Lu bit lungo un collegamento, per una data probabilita "p" di errore sul bit, quindi:
+
+
+				Ttot = (Ns - 1)(Tu + To )+ Tu + Ta + 2Tp + 2t
+
+
+		infatti solo l'ultima delle "Ns" trasmissioni ha successo, mentre per tutti i tentativi precedenti interviene il meccanismo di time-out, analogamente a quanto fatto nel 
+		  caso di procollo S&W in assenza di errori, calcoliamo ora l'efficienza del protocollo tenendo conto dei possibili eventi di errore. questa e data come sempre dal rapporto
+		  tra il tempo speso in trasmissione di dati con successo, cioe il tempo di trasmissione "Tu" dell'UI e il tempo totale "Ttot" richiesto per completare la trasmissione:
+
+
+				Eff = Tu / Ttot = Tu * 1 - p / Tu + To * P + (Ta + 2Tp + 2t)(1 - P) 
+
+
+		per calcolare il massimo valore di efficienza del collegamento ci poniamo alla condizione limite nella quale il time-out scatta esattamente all'istante in cui avrebbe 
+		  dovuto essere ricevuto il riscontro in assenza di errori
+
+
+				To = Ta + 2Tp + 2t
+
+
+		di conseguenza:
+
+
+				Eff = Eff-max = Tu * 1 - P / Tu + Ta + 2Tp + 2t
+
+
+		infine assumendo "Ta = Tp ~ 0", si ottiene la seguente espressione:
+
+			
+				Eff-max = 1 - P / 1 + 2a
+
+		appare evidente com l'efficienza del protocollo sia fortemente legata al valore "To" del time-out che viene selezionato; infatti la massima efficienza del protocollo S&W
+ 		  e stata calcolata assumendo il minimo valore del time-out compatibile con il funzionamento corretto del protocollo stesso, occore osservare che il parametro "Tp", tempo 
+		  di elaborazione  dell'UI, in realta non e fisso, ma dipende dalle caratteristiche della stazione ricevente e sopprattutto dal carico  di lavoro della stazione stessa
+		  al momento della ricezione dell'UI o del riscontro; in alcuni casi l'efficienza puo diventare molto bassa, come nel caso di collegamenti molto lunghi come quelli via 
+		  satellite, o di un ricevitore particolarmente lento o comunque non controllabile
+
+		considerando che il time-out non puo comunque essere piu piccolo del minimo tempo richiesto per ricevere il riscontro a causa del tempo di propagazione(To >= Ta + 2t), una
+		  ragionevole efficienza si puo ottenere selezionando un time-out che ipotizzi un valore "Tp" dato da un funzionamento in condizioni ideali della stazione ricevente;
+		  ne consegue che il corretto funzionamento del protocollo richiede necessariamente anche la NUMERAZIONE DEI RISCONTRI con un bit;
+		  
+
+
+		esempio:
+		    ---> e disponibile un buffer a due posizioni(B0 e B1) per le UI in attesa di trasmissione, alimentato ciclicamente dal client della stazione A; dopo l'inizializzazione  
+			   della variabile "i", se la cella B0 del buffer contiene un'UI, questa viene inviata inizializzando il conteggio del time-out "To(i)"; se questo time-out scade
+			   prima che il riscontro sia completamente ricevuto, la trasmissione dell'UI si ripete reinizializzando il time-out; se invece viene prima ricevuto il riscontro,
+			   allora si ferma il time-out, la variabile "i" viene incrementata di un unita in modulo-2 e si ripete il ciclo per trasmettere alternativamente le UI numero 0 e 1;
+			   l'inizializzazione a 0 della variabile "j" dal lato della stazione B ricevente predispone la ricezione dell'UI numero 0; se questa viene correttamenete ricevuta, 
+			   viene anche accettata e riscontrata incrementando di un'unita in modulo-2 la variabile "j", cosi da poter accettare l'UI numero 1 e di seguito, alternativamente,
+			   le UI numero 0 e numero 1; se invece viene ricevuta un'UI con numero uguale a quello dell'UI precedente, allora l'UI ricevuta viene ritrasmesso l'ultimo 
+			   riscontro inviato 
+
+		esempio:
+		    ---> A invia la prima UI numero 0 e finisce di ricevere il relativo riscontro dopo che si e esaurito il conteggio del time-out; la trasmissione dell'UI numero 0 viene
+			   dunque ripetuta, ma non occore piu attendere la successiva ricezione del riscontro, che nel frattempo e stato gia ricevuto, per iniziare a trasmettere l'UI
+			   numero 1; infatti, all'inizio della trasmissione dell'UI numero 1 la variabile "i" del trasmettitore assume il valore 1 e quindi il secondo riscontro ACK 0 
+			   viene ignorato; si osservi che, senza la numerazione dei riscontri, A accetterebbe il secondo riscontro come conferma di ricezione dell'UI numero 1, che quindi
+			   verrebbe eliminata dal buffer di ritrasmissione; se questa UI fosse nel frattempo scartata da B a causa de errori, essa sarebbe definitivamenete persa
+ 
+		
+ 
+
+
+
+
+
+
+	ARQ continuous
+	    ---> e emessa la trasmissione continua di UI che vengono opportunamente numerate ---> si cerca di aumentare l'efficienza del protocollo consentendo anche la trasmissione di 
+		   piu UI consecutive in attesa dei riscontri delle prime UI trasmesse; questo tipo di operazione richiede dunque che il meccanismo di numerazione sia esteso per fare in
+		   modo che tutte le UI inviate, ma non ancora riscontrate, abbiano un identificativo distinto, nel nostro caso un numero, per consentire alle due stazioni di intendersi
+		   su quali UI sono state ricevute corettamente e quali no; poiche si utilizza un numero finito di bit per numerare le UI, indicato con "b", la numerazione e di tipo 
+	 	   ciclico modulo-N con N = 2^b; per esempio se "b=3", le UI vengono trasmesse con i numeri consecutivi 0,1,2,3,4,5,6,7,0,1,2...;
+		
+		   il "tempo tototale = Ttot" richiesto per trasferire "Nu" UI con un protocollo ARQ su collegamento di tipo ideale, quindi in assenza di errori, si ricava:
+
+
+			Ttot = Nu * Tu + Ta + 2t = (Nu * Lu / C ) + (La / C) + (2d / v)     
+
+		   si noti come, a differenza di quanto avviene nel protocollo S&W, ora il tempo di trasmissione del riscontro e il tempo di propagazione vengono conteggiati una sola volta
+		     per semplicita potrebbero essere considerati come associati alla trasmissione dell'ultima UI
+	
+
+		SLIDING WINDOW:    frequenza a scorrimento
+		    ---> la trasmissione continua di UI puo dare luogo a situazioni di ambiguita nel caso in cui i riscontri relativi non siano ricevuti come ci si aspetterebbe; infatti
+			   basti considerare il caso  in cui il trasmettitore non riceva il riscontro di un'UI, per esempio la numero 3, a causa di un evento di errore di trasmissione; 
+			   in questo , nella ipotesi di murezione a modulo-4 e in assenza di utlteriori vincoli, il trasmettitore puo continuare ad emettere le UI numero 0,1,2 ma poi
+			   deve fermarsi; infatti emettere una nuova UI con il numero 3 implicherebbe ambiguita nell'associare il relativo riscontro a quest'ultima UI numero 3 o alla
+			   precedente;
+
+			 per controllare queste situazioni nell'ambito dei protocolli CONTINUOUS ARP si definisce un meccanismo di abilitazione all'invio e all'accettazione di UI 
+			   mediante SLINDING WINDOW ---> consiste nello specificare due distinte "finestre", una "TRASMISSIONE = Ws" e "RICEZIONE = Wr"; il primo numero indica il numero
+			     delle UI che il trasmettitore puo inviare senza dover attendere i relativi riscontri, mentre il secondo indica il numero dell'UI che possono essere accettate
+			     dal ricevitore; naturalmente le UI sono numerate, per cui il meccanismo a finestra indica anche quali UI possono essere inviate e accettate, mediante
+			     l'ESTREMO INFERIORE  della finestra, che viene indicato con i simboli "Ls=in trasmissione" e "Lr=in ricezione";
+
+			la stazione trasmittente sara dunque autorizzata a inviare le UI con numero "n" che soddisfa la relazione
+
+					n = Ls, ..., (Ls + Ws - 1)  modN
+
+			all'altro estremo del collegamento, la stazione ricevente accettera le UI con numero "n" di tale sequenza
+
+					n = Lr, ...,(Lr + Wr - 1)   modN
+
+			esempio:
+			    ---> Ws = 5, N = 8, Ls = 4; la stazione e autorizzata a trasmettere le cinque UI numero 4,5,6,7,0; alla ricezione del riscontro dell'UI numero 4, la finestra 
+			   	   ruotera in avanti di una posizione consentendo la trasmissione dell'UI numero 1; l'esempio analogo di finestra di ricezione  con "Wr = 2, Lr = 5"; la
+				   stazione e autorizzata accetare le UI numero 5,6; la ricezione dell'UI numero 5 consentira anche la successiva accettazione dell'UI numero 7, conseguente
+				   alla rotazione della finestra di una posizione in avanti
+
+				 il meccanismo delle due finestre a scorrimento su un collegamento dati viene anche utilizzato come strumento  per operare un controllo del flusso di
+				   unita informative sul collegamento stesso; cio puo rendersi necessario se occore limitare il numero di UI che possono essere inviate e che sono in attesa
+				   di riscontro, per esempio per evitare fenomeni di saturazione del buffer nella stazione ricevente; questi potrebbero essere dovuti per esempio a un
+				   trasferimento rallentato al livello superiore(client) delle UI ricevute;
+
+			efficienza:
+			    ---> adottare un controllo di flusso a finestra potrebbe causare una perdita di efficienza del protocollo ARQ anche in assenza di errori; 
+			
+					condizione limite sul valore di apertura della finestra in trasmissione che evita una perdita di efficienza, data da:
+
+								Ws * Tu >= Tu + Ta + 2t
+
+				 questa condizione, che assume nullo il tempo di elaborazione(Tp = 0), impone all'apertura della finestra in trasmissione un valore che garantisca una
+				   trasmissione continua di UI fino alla ricezione del primo riscontro;
+
+				 esempio:
+				     ---> l'effetto del rapporto tra l'apertura "Ws" della finestra in trasmissione e il tempo di propagazione "t" sull'efficienza del protocollo in una 
+					    trasmissione uniderizionale di UI(da A a B); 
+
+					CASO1 = { "Ws" : 4 }
+	
+					CASO2 = { "Ws" : 2 }
+
+					  solo il primo caso realizza una trasmissione continua di UI, in quanto solo in quella situazione risulta soddisfatto la condizione;
+					    infatti quando questa relazione non e soddisfatta, come nel CASO2; il trasmettitore deve interrompere l'invio di UI per attendere il riscontro
+					    della prima UI emessa; in quest'ultima situazione si dice che il meccanismo a finestra limita("strozza") la piena utilizzazione del collegamento
+					    
+
+					   nel caso in cui  si assuma ulteriormente che il tempo di trasmissione del riscontro sia trascurabile, cioe "Ta ~ 0", allora il vincolo sul 
+					     parametro "Ws" che garantisce continuita di trasmissione delle UI si riduce a "Ws * Tu >= Tu + 2t" ---> "Ws >= 1 + 2a"
+
+
+			e opportuno osservare quali conseguenze abbia il vincolo rappresentato dall'equazione nel caso di collegamenti caratterizzati da un grande prodotto "banda-ritardo",
+			  che hanno quindi una grandissima capacita, cioe dell'ordine dei Gbit/s, e coprono distanze molto grandi ---> centinaia o migliaia di chilometri; in queste 
+			  situazioni il tempo di propagazione normalizzato assume valori "a >> 1";
+
+			
+			allo scopo di esplicitare il contributo dei differenti parametri per la determinazione dell'apertura di finestra di trasmissione che non strozza il flusso delle UI
+			  sul collegamento esprimiamo il parametro "a":
+
+							Ws >= 1 + 2a = 1 + 2 * (d * C) / (Lu * v)
+
+
+			 __________________________________________________
+			| capacita C |          Lunghezza d	           |
+			|____________|_____________________________________|
+			|	     | 10km      | 100km      | 1000km     |
+			|____________|___________|____________|____________|          apertura Ws,  della finestra di trasmissione per una trasmissione continua
+			|10 Mbit/s   |   2       |   2        |     8      |
+			|____________|___________|____________|____________|
+			|100 Mbit/s  |   2       |   8        |     64     |
+			|____________|___________|____________|____________|
+			|1 Gbit/s    |   8       |   64       |     626    |
+			|____________|___________|____________|____________|
+			|10 Gbit/s   |   64      |   626      |     6251   |
+			|____________|___________|____________|____________|
+
+
+			piggybanking ---> il protocollo prevede che un'UI rechi anche l'informazione di riscontro sulle UI ricevute corretamente, risulta altresi evidente che in un 
+			  collegamento bidirezionale entrambe le stazioni alle estremita del collegamento sono dotate di due finestre, una di trasmissione e una di ricezione;
+			  occore osservare che il meccanismo della finestra a scorrimento impone implicitamente un VINCOLO SULL'APERTURA delle finestre affinche il protocollo ARQ operi
+			  corretamente; come si vedra nel seguito, la condizione che devono soddisfare le aperture delle due finestre in trasmissione e ricezione(per ognuno dei due versi
+			  del collegamento nel caso di trasmissione bidirezionale)
+
+							Ws + Wr <= N
+
+
+
+
+		TIPI DI PROTOCOLLO ARQ:
+		    ---> nell'ambiente dei protocolli CONTINUOUS ARQ, sono stati definiti due protocolli denominati "go-back-n(GBN)", "slective repeat(SR)", che utilizzano
+			   RISCONTRI POSITIVI(acknowledgemt,ACK) e RISCONTRI NEGATIVI(negative acknowledgemt,NACK)
+
+					ACK i ---> viene emesso per segnalare la corretta ricezione dell'UI numero "i" e indica anche tutte le UI fino all'UI numero "i" sono state ricevute
+						    correttamente   
+
+					NACK i ---> viene emesso quando viene ricevuta un'UI successiva all'UI numero "i" attesa, evento che quindi indica la perdita dell'UI numero "i"
+						      il significato ulteriore di un riscontro negativo dipende tuttavia dallo specifico protocollo
+
+
+		i protocolli GBN e SR si differenziano nella modalita di gestione degli eventi di errore di trasmissione delle UI; un terzo tipo di protocollo che trova larga applicazione
+		  nelle reti odierne consiste nel prevedere che i riscontri siano solo di tipo positivo, delegando cosi al solo meccanismo del time-out la gestione della ritrasmissione
+		  delle UI che non vengono ricevute correttamente a destinazione 
+
+
+		PROTOCOLLO GO-BACK-N:
+		    ---> con il protocollo GBN, il ricevitore B accetta l'UI solo se queste sono strettamente in sequenza(ciclica modulo-N). il numero 'n' nel nome del protocollo sta ad 
+			   indicare il numero massimo di UI che possono essere trasmesse in assenza di riscontro.  La ricezione di UI fuori sequenza implica non solo lo scarto dell'UI
+			   ma anche l'invio di un riscontro negativo NACK 'i' nel protocollo GBN indica non solo la mancata ricezione da parte della stazione dell'UI numero 'i', ma anche
+			   la corretta ricezione delle UI precedenti"[(i-1)modN]", 
+			 dopo l'invio di un NACK, la stazione B scarta tutte le UI ricevute con numeri crescenti fino alla corretta ricezione UI numero 'i', cio implica che l'apertura 
+			   della finestra di ricezione Wr assume valore unitario e che le UI possono essere ricevute solo in sequenza. Anche se le implementazioni del protocollo possono
+			   prevedere diverse varianti delle nella gestione dei NACK.
+
+		PROTOCOLLO SELECTIVE REPEAT:
+		    ---> le unita informative sono accettate anche se fuori sequenza; cio rende la disponibilita di un 'buffer di ricezione' che consenta di riordinarele UI, affinche il
+			   il payload in esse contenuto possa essere consegnato in ordine sequenziale a livello superiore. Accettare UI fuori sequenza implica che il ricevitore ha rilevato
+			   la mancata ricezione di una o piu UI; questo evento viene segnalato dalla stazione ricevente mediante il riscontro negativo, che questa volta NON indica anche
+			   la ricezione positiva per le UI precedenti.
+			 nel protocollo selective repeat l'apertura della finestra in ricezione non deve essere piu unitaria, poiche il ricevitore, per definizione puo accettare UI
+			   fuori sequenza, tuttavia bisona stabilire un vicolo congiunto sull'apertura delle due finestre per evitare ambiguita. 
+
+			 la scelta ottimale dell'apertura delle due finestre nel protocollo selective repeat e 'Ws = Wr = N/2', infatti, scegliere Ws > Wr implica che la stazione
+			   ricevente potrebbe scartare alcune UI corrette ricevute fuori sequenza, poiche non rientrano nell'apertura corrente della finestra di ricezione.
+			   Analogamente, assumere Ws < Wr significa predisporre un'apertura della finestra in ricezione che non puo mai essere sfruttata pienamente.
+			  
+
+		PROTOCOLLO CON SOLO RISCONTRI POSITIVI:
+		    ---> il protocollo GBN e SR sono basati sul concetto di collegare la perdita di UI alla numerazione delle UI che vengono ricevute. Questo approccio nasce dall'ipotesi
+			   che il mezzo trasmissivo tra le due stazioni che comunicano garantisca implicitamente la consegna in sequenza delle UI in assenza di errori. Occore tuttavia 
+			   considerare che non sempre tale requisito risulti sodisfatto, come per esempio nel caso le due stazioni non siano conesse da un collegamento punto-punto, bensi 
+			   da una rete. Potrebbe essere necessario attraversare diversi nodi per realizzare la connettivita tra stazioni terminali e la successione dei nodi d'attraversare 
+			   potrebbero cambiare nel tempo, determinando una consegna fuori sequenza delle UI a destinazione.
+			 nell'archittetura TCP/IP le funzioni di trasferimento dello strato di rete sono realizzate dal protocollo IP, che e un protocollo connection-less, che consente 
+			   dunque la consegna delle UI a destinazione fuori sequenza. Risulta quindi evidente che meccanismi di ritrasmissione utilizzati nei protocolli GBN e SR basati 
+			   sulla rilevazione di UI ricevute fuori sequenza non possono funzionare nel caso di protocolli di trasporto basati sul servizio dello strato di rete realizzato
+			   dal protocollo IP. I protocolli con 'soli riscontri positivi' possono dunque essere considerati degli ibridi tra i protocolli GBN e SR. Infatti, come nel GBN,
+			   le UI che non vengono riscontrate sono ritrasmesse in ordine a partire dall'ultima UI ricevuta, grazie al time-out. Inoltre, nel SR, le UI vengono accettate 
+			   fuori sequenza grazie al meccanismo a finestra applicato in ricezione.
+			 nei protocolli con solo riscontri positivi il riscontro ACK riveste lo stesso significato dei protocolli GBN e SR, indicando il riscontro positivo cumulativo per
+			   tutte le UI ricevute fino alla UI 'i'. Si assume qui che il meccanismo di numerazione delle UI, delle finestre di trasmissione e ricezione sia lo stesso definito
+			   nel protocollo SR, dovendo ora considerare trasferimenti di UI che ammettono esplicitamente la ricezione di UI fuori sequenza. 
+
+		PROTOCOLLI BIDIREZIONALI: 
+		    ---> i protocolli descritti finora sono basati sull'ipotesi sul flusso informativo unidirezionale, nella realta, praticamente tutte le modalita d'interazione di 
+			   di tipo punto-puntosono di tipo bidirezionale. Infatti entrambe le stazioni generano UI e ognuna delle due deve riscontrare quelle ricevute correttamente 
+			   oppure quelle mancanti ove il protocollo gestica questo tipo di eventi. parola da cercare ---> piggybacking 
+
+		EFFICIENZA DEI PRTOCOLLI CONTINUOUS ARQ:  ---tra 0 e 1 oppure da 0% a 100%---
+		    ---> se il collegamento tra le due stazioni A e B e ideale, cioe privo di errori, allora l'efficienza e unitaria se l'apertura delle finestre consente di trasmettere
+			   in modo continuativo, al contrario se questa condizione non e rispettata, allora l'efficienza si otterra come rapporto tra 'il tempo speso in trasmissione, per 
+			   inviare le WsUI e il tempo richiesto per far ruotare la finestra stessa':
+
+					n = efficienza 				***n = 1 oppure n = Ws >= 1 + 2a oppure n = (Ws * Tu)/(Tu + 2t) oppure n = Ws < 1 + 2a 
+
+			 anche nel caso di errori di trasmissione, il calcolo dell'efficienza dipende dalle modalita di operazione della finestra. Ipotizziamo una situazione di un apertura
+			   di finestra che non influisce sull'efficienza del protocollo. Per calcolare l'efficienza dei protocolli ARQ, si assume per semplicita che i tempi di trasmissione
+			   dei riscontri e di elaborazione siano trascurabili (Ta = Tp ~ 0). Come gia ipotizzato il buffer del trasmettitore e sempre vuoto. L'efficienza del protocollo 
+			   di collegamento si calcola come il rapporto fra tempo 'Tu' di trasmissione di un'UI e il tempo totale richiesto per trasmettere con successo UI stessa:
+
+						n = Tu/(Ns*Tu)= 1/Ns
+
+			 infatti i protocolli continuous ARQ, a differenza dei protocolli S&W, non perdono di efficienza a causa del tempo di propagazione sul collegamento, perche 
+			   la stazione A puo trasmettere UI con continuita. Per il protocollo SR, l'efficienza puo essere facilmente calcolata considerando che il numero mendio di 
+			   tentativi di trasmissione della stessa UI, ivi incluso l'ultimo che ha successo:
+
+						Ns = 1 / 1-P
+
+			 poiche la ritrasmissione interessa solo la stessa UI errata e non altre.
+			 nel caso del protocollo GBN, si indica con K il numero di UI consecutive che devono essere ritrasmesse in seguito ad un errore. Occore ora considerare che a ogni
+			   errore corrisponde una ritrasmissione di K UI(in media) in aggiunta alla ritrasmissione con successo dell'UI stessa: con un solo errore vengono ritrasmesse
+			   K+1 UI, con due errori 2K+1 con tre 3K+1 e cosi via... Considerando che P^i(1-P) indica la probabilita di accumulare 'i' errori su 'i' trasmissioni ripetute
+			   della stessa UI, allora il numero medio Ns di UI trasmesse per UI inviata con successo e dato da:
+
+						
+						   infinito
+						sommatoria (iK+1)P^i(1-P) = (K*P)/(1-P) +1 = (1+(K-1)P)/(1-P) 
+						   i = 0
+
+			 il parametro K puo essere determinato considerando che ha una trasmissione priva di successo viene rilevata dalla stazione ricevente al momento della ricezione
+			   dell'UI successiva(corretta). Questa invia un riscontro negativo e quindi la rilevazione di perdita di un UI deve anche tener conto del tempo di propagazione 
+			   sul collegamento dell'UI corretta e del riscontro. Durante questo intervallo di tempo, tutte le UI trasmesse vengono scartate. Infatti, allo scadere di questo
+			   intervallo di tempo, il trasmettitore riceve un riscontro positivo o negativo, quindi  K * Tu ~ 2Tu + 2t, ovvero K ~ 2 + 2a.
+			   Si ottengono dunque le seguenti espressioni per l'efficienza dei protocolli continuous ARQ nell ipotesi Ws >= 1 + 2a:
+
+					efficienza = n        n = 1-P ---> selective repeat   n = (1-p)/(1+P+2aP) ---> Go-Back-n     
+
+			 il protocollo SR e piu efficiente del protocollo GBN, ma questa differenza si riduce al diminuire della lunghezza del collegamento o, viceversa, all'aumentare 
+			   del tempo di trasmissione dell'UI. Anche nel caso di a = 0, il protocollo SR fornisce un'efficienza migliore. Infatti la necessita di ricevere un'UI corretta 
+			   per per rilevarne una(mancante) errata implica, solo nel protocollo GBN, una diminuzione di efficienza dovuta allo scarto dell'ultima UI corretta ricevuta.
+			 esaminiamo ora il caso in cui Ws < 1 + 2a. Si osserva che l'efficienza del protocollo e Ns volte di meno espressa(qui***), poiche Ns, rappresenta il numero
+			   medio di UI trasmesse per UI trasmessa con successo quindi:
+
+
+					n = (Ws*Tu/Ns)/(Tu+2t) = Ws/(Ns(1+2a))
+
+			 in questo ultimo caso il numero di K di UI consecutive che devono essere ritrasmesse in seguito ad un errore e proprio quello consentito dall'apertura Ws 
+			   della finestra, in conclusione nel caso di Ws < 1+2a si ha:
+
+					n = (Ws(1-P))/(1+2a) ---> SR     n = (Ws(1-P))/(1+2a)[1+(Ws-1)P] ---> GBN
+
+					a = (Ws-1)/2   
+							 
+			    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 	 				        
+			        
+
+
+
