@@ -87,8 +87,6 @@ void menu_Javascript(){
         {"React", "start msedge https://youtu.be/w7ejDZ8SWv8?si=ew-z7l-L8GhlSQft"},
         {"Angular", "start msedge https://youtu.be/3dHNOWTI7H8?si=dtFhrdb9zEGDq-kO"},
         {"JavaScript Pro Tips - Code This, NOT That", "start msedge https://youtu.be/Mus_vwhTCq0?si=RGM8rcDC6J0chgk2"},
-        {"OOP", "start msedge https://youtu.be/0NwsayeOsd4?si=ieY3PiIEfcBKK4UZ"},
-        {"come funziona la CPU con C++...", "start msedge https://youtu.be/qJgsuQoy9bc?si=4APGIB_8tm5xuuRz"}
     };
     int numComandi = sizeof(comandi) / sizeof(comandi[0]);
 
@@ -134,6 +132,7 @@ void menu_Dart(){
 void menu_Golang(){
     char azione[39];
     struct ComandoSTRINGA comandi[] = {
+        {"Go base", "start msedge https://youtu.be/YS4e4q9oBaU?si=kzyRGtpfI6lqa75O"},
         {"github.com/compose-spec/compose-go/cli", "start msedge https://pkg.go.dev/github.com/compose-spec/compose-go/cli"},
         {"github.com/spf13/cobra", "start msedge https://pkg.go.dev/github.com/spf13/cobra"},
         {"github.com/docker/cli", "start msedge https://pkg.go.dev/github.com/docker/cli"},
@@ -291,6 +290,27 @@ void menu_PC(){
     apri_link(azione,comandi,numComandi);
 }
 //menu altro
+void menu_appunti(){
+    char azione[5];
+    struct ComandoSTRINGA comandi[] =  {
+        {"git","type C:\\Users\\Utente\\Desktop\\growup\\others\\appunti\\linguaggi\\git.txt | more"},
+        {"javascript","type C:\\Users\\Utente\\Desktop\\growup\\others\\appunti\\linguaggi\\javascript.txt | more"},
+        {"windows","type C:\\Users\\Utente\\Desktop\\growup\\others\\appunti\\linguaggi\\windows.txt | more"},
+        {"linux","type C:\\Users\\Utente\\Desktop\\growup\\others\\appunti\\linguaggi\\linux.txt | more"}
+    };
+    int numComandi = sizeof(comandi) / sizeof(comandi[0]);
+
+    system("cls");
+    printf("------------- APPUNTI --------------\n\n");
+    printf("git\n");
+    printf("javascript\n");
+    printf("linux\n");
+    printf("windows\n\n");
+
+    scanf("%s", azione);
+    system("cls");
+    apri_link(azione,comandi,numComandi);
+}
 void menu_Microservizi(){
     char azione[26];
     struct ComandoSTRINGA comandi[] =  {
@@ -447,6 +467,7 @@ void menu_studio(){
         {"Internet",menu_internet},
         {"PC",menu_PC},
         //ALTRO +++
+        {"-a", menu_appunti},
         {"-ms",menu_Microservizi},
         {"-m",menu_Musica},
         {"-ea",menu_EconomiaAziendale},
@@ -475,6 +496,7 @@ void menu_studio(){
     printf("Internet\n");
     printf("PC\n\n\n");
     printf("***********\n");
+    printf("# Appunti -a\n");
     printf("# Microservizi -ms\n\n");
     printf("# Ripasso musica  -m\n");
     printf("# Economia aziendale  -ea\n");

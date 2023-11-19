@@ -1,0 +1,5 @@
+#### creazione chiave ssh ###
+	ssh-keygen -t rsa -b 4096
+	
+	//visualizzazione
+	cat ~/.ssh/id_rsa.pub

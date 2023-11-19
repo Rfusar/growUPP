@@ -1,31 +1,30 @@
 ♠♠♠♠♠♠♠♠♠♠♠♠♠♠ISTAT-NEWS♠♠♠♠♠♠♠♠♠♠♠
-data: 10 novembre 2023
-titolo: Produzione industriale - Settembre 2023
-paragrafo: A settembre 2023 l’indice rimane invariato su agosto e diminuisce del 2,0% su base annua
+data: 17 novembre 2023
+titolo: Posti vacanti – Stime preliminari
+paragrafo: Disponibile il tasso di posti vacanti destagionalizzato per il totale delle imprese con dipendenti
 
 ♠♠♠♠♠♠♠♠♠♠♠♠♠♠ISTAT-NEWS♠♠♠♠♠♠♠♠♠♠♠
-data: 10 novembre 2023
+data: 17 novembre 2023
+titolo: Condizioni di vita (EU-SILC) - dati trasversali
+paragrafo: Sono disponibili i file per la ricerca dell'indagine sulle condizioni di vita (EU-SILC)
+
+♠♠♠♠♠♠♠♠♠♠♠♠♠♠ISTAT-NEWS♠♠♠♠♠♠♠♠♠♠♠
+data: 17 novembre 2023
+titolo: Incidenti stradali
+paragrafo: Istat diffonde i dati sugli incidenti stradali delle Regioni Lombardia, Abruzzo, Piemonte e Valle d'Aosta
+
+♠♠♠♠♠♠♠♠♠♠♠♠♠♠ISTAT-NEWS♠♠♠♠♠♠♠♠♠♠♠
+data: 16 novembre 2023
+titolo: Dati di mortalità
+paragrafo: Disponibili i dati sui decessi fino al 30 settembre 2023 per tutti i 7.901 comuni esistenti
+
+♠♠♠♠♠♠♠♠♠♠♠♠♠♠ISTAT-NEWS♠♠♠♠♠♠♠♠♠♠♠
+data: 16 novembre 2023
+titolo: Incidenti stradali. Stima preliminare
+paragrafo: Gennaio-giugno 2023: 79.124 incidenti stradali con lesioni a persone, -1,0% rispetto gennaio-giugno 2022
+
+♠♠♠♠♠♠♠♠♠♠♠♠♠♠ISTAT-NEWS♠♠♠♠♠♠♠♠♠♠♠
+data: 16 novembre 2023
 titolo: Il benessere equo e sostenibile dei territori - Anno 2023
-paragrafo: Istat diffonde una lettura integrata degli indicatori Bes per la regione Calabria
-
-♠♠♠♠♠♠♠♠♠♠♠♠♠♠ISTAT-NEWS♠♠♠♠♠♠♠♠♠♠♠
-data: 10 novembre 2023
-titolo: Nota mensile n.10/2023
-paragrafo: Online la Nota mensile sull’andamento dell’economia italiana del mese di ottobre 2023
-
-♠♠♠♠♠♠♠♠♠♠♠♠♠♠ISTAT-NEWS♠♠♠♠♠♠♠♠♠♠♠
-data: 10 novembre 2023
-titolo: Dati geografici provvisori delle Basi territoriali 2021
-paragrafo: Diffusi i dati della Lombardia, Lazio, Puglia e Sicilia
-
-♠♠♠♠♠♠♠♠♠♠♠♠♠♠ISTAT-NEWS♠♠♠♠♠♠♠♠♠♠♠
-data: 10 novembre 2023
-titolo: #Statistica&Cittadinanza
-paragrafo: Progetto aperto a tutte le classi degli istituti di istruzione secondaria di secondo grado dell'anno scolastico 2023-2024
-
-♠♠♠♠♠♠♠♠♠♠♠♠♠♠ISTAT-NEWS♠♠♠♠♠♠♠♠♠♠♠
-data: 08 novembre 2023
-titolo: Registrazioni e fallimenti di imprese - III Trimestre 2023
-paragrafo: Nel III trimestre 2023 registrazioni di nuove imprese +3,6% sul trim. precedente, +3,4% in termini tendenziali
-
+paragrafo: Istat diffonde una lettura integrata degli indicatori BesT per la regione Marche
 
