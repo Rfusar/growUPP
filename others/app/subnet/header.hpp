@@ -15,6 +15,6 @@ using std::pair;
 
 void trova_range_IP(string input);
 
-vector<int> valori(string input);
-vector<pair<int, vector<bool>>> valore(int input);
-vector<std::array<string, 3>> valore_IP(vector<int> input);
+vector<unsigned char> valori(string input);
+vector<pair<unsigned char, vector<bool>>> valore(unsigned char input);
+vector<std::array<string, 3>> valore_IP(vector<unsigned char> input);

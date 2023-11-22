@@ -3,7 +3,7 @@
 //DA subnet mask
 string valore_CIDR(vector<bool> a, vector<bool> b, vector<bool> c, vector<bool> d) {
     string CIDR = "/";
-    int n = 0;
+    unsigned int n = 0;
     for (int i = 0; i < a.size(); i++) {
         if (a[i] == true) { n += 1; }
         if (b[i] == true) { n += 1; }
@@ -14,9 +14,9 @@ string valore_CIDR(vector<bool> a, vector<bool> b, vector<bool> c, vector<bool> 
     return CIDR;
 }
 
-unsigned long int total_hosts(vector<bool> a, vector<bool> b, vector<bool> c, vector<bool> d){
-    int n = 0;
-    for(int i = 0; i < a.size(); i++){
+unsigned int total_hosts(vector<bool> a, vector<bool> b, vector<bool> c, vector<bool> d){
+    unsigned char n = 0;
+    for(unsigned char i = 0; i < a.size(); i++){
         if(a[i] == false){ n += 1;}
         if(b[i] == false){ n += 1;}
         if(c[i] == false){ n += 1;}
@@ -26,43 +26,40 @@ unsigned long int total_hosts(vector<bool> a, vector<bool> b, vector<bool> c, ve
 }
 
 //DIVIDO L'IP IN NUMERI
-vector<int> valori(string input){
-    vector<int> componenti;
+vector<unsigned char> valori(string input){
+    vector<unsigned char> componenti;
     std::istringstream ss(input);
     string token;
     while (std::getline(ss, token, '.')) {
-        int componente = std::stoi(token);
+        unsigned char componente = std::stoi(token);
         componenti.push_back(componente);
     }
     return componenti;
 }
 
-vector<pair<int, vector<bool>>> valore(int input) {
-    vector<pair<int, vector<bool>>> numero;
-    vector<pair<int, bool>> check = {{255, false}, {254, false}, {252, false}, {248, false}, {240, false}, {224, false}, {192, false}, {128, false}, {0, false}};
+vector<pair<unsigned char, vector<bool>>> valore(unsigned char input) {
+    vector<pair<unsigned char, vector<bool>>> numero;
+    vector<pair<unsigned char, bool>> check = {{255, false}, {254, false}, {252, false}, {248, false}, {240, false}, {224, false}, {192, false}, {128, false}, {0, false}};
 
-    for (int i = 0; i < 10; i++) {
+    for (char i = 0; i < 10; i++) {
         if (input == check[i].first) {
             numero.push_back({input, {false, false, false, false, false, false, false, false}});
-            for (int j = i; j < 10; j++) {
-                numero[0].second[j] = true;
-            }
+            for (char j = i; j < 10; j++) { numero[0].second[j] = true; }
             break;
         }
     }
-
     return numero;
 }
 
-vector<std::array<string, 3>> valore_IP(vector<int> input) {
-    vector<pair<int, vector<bool>>> primo_numero; 
-    vector<pair<int, vector<bool>>> secondo_numero; 
-    vector<pair<int, vector<bool>>> terzo_numero; 
-    vector<pair<int, vector<bool>>> quarto_numero;
+vector<std::array<string, 3>> valore_IP(vector<unsigned char> input) {
+    vector<pair<unsigned char, vector<bool>>> primo_numero; 
+    vector<pair<unsigned char, vector<bool>>> secondo_numero; 
+    vector<pair<unsigned char, vector<bool>>> terzo_numero; 
+    vector<pair<unsigned char, vector<bool>>> quarto_numero;
 
     string IP;
     string CIDR;
-    long hosts;
+    unsigned int hosts;
 
     primo_numero = valore(input[0]); 
     secondo_numero = valore(input[1]); 
