@@ -1,30 +1,31 @@
 ♠♠♠♠♠♠♠♠♠♠♠♠♠♠ISTAT-NEWS♠♠♠♠♠♠♠♠♠♠♠
-data: 13 ottobre 2023
-titolo: Permessi di costruire - II trimestre 2023
-paragrafo: Nel II trimestre 2023 numero di abitazioni dei nuovi fabbricati residenziali -16,1% in un anno
+data: 10 novembre 2023
+titolo: Produzione industriale - Settembre 2023
+paragrafo: A settembre 2023 l’indice rimane invariato su agosto e diminuisce del 2,0% su base annua
 
 ♠♠♠♠♠♠♠♠♠♠♠♠♠♠ISTAT-NEWS♠♠♠♠♠♠♠♠♠♠♠
-data: 13 ottobre 2023
-titolo: Economia non osservata nei conti nazionali 
-paragrafo: Nel 2021 il valore dell’economia non osservata è 192 miliardi di euro, l’incidenza sul Pil rimane al 10,5%
+data: 10 novembre 2023
+titolo: Il benessere equo e sostenibile dei territori - Anno 2023
+paragrafo: Istat diffonde una lettura integrata degli indicatori Bes per la regione Calabria
 
 ♠♠♠♠♠♠♠♠♠♠♠♠♠♠ISTAT-NEWS♠♠♠♠♠♠♠♠♠♠♠
-data: 12 ottobre 2023
-titolo: Pratiche sostenibili delle imprese a giugno 2023 e prospettive 2023-2025
-paragrafo: Si stima che il 69% delle imprese manifatturiere, a giugno 2023, abbia intrapreso azioni di sostenibilità
+data: 10 novembre 2023
+titolo: Nota mensile n.10/2023
+paragrafo: Online la Nota mensile sull’andamento dell’economia italiana del mese di ottobre 2023
 
 ♠♠♠♠♠♠♠♠♠♠♠♠♠♠ISTAT-NEWS♠♠♠♠♠♠♠♠♠♠♠
-data: 12 ottobre 2023
-titolo: I giovani del Mezzogiorno: l’incerta transizione all’età adulta
-paragrafo: Nel 2022 nel Mezzogiorno risiedono circa 3 milioni 700mila giovani (18-34 anni), in forte calo dal 2002 (-28%)
+data: 10 novembre 2023
+titolo: Dati geografici provvisori delle Basi territoriali 2021
+paragrafo: Diffusi i dati della Lombardia, Lazio, Puglia e Sicilia
 
 ♠♠♠♠♠♠♠♠♠♠♠♠♠♠ISTAT-NEWS♠♠♠♠♠♠♠♠♠♠♠
-data: 12 ottobre 2023
-titolo: IstatData, pronta la nuova piattaforma Istat
-paragrafo: Il nuovo data warehouse di diffusione per l’accesso ai dati aggregati prodotti da Istat
+data: 10 novembre 2023
+titolo: #Statistica&Cittadinanza
+paragrafo: Progetto aperto a tutte le classi degli istituti di istruzione secondaria di secondo grado dell'anno scolastico 2023-2024
 
 ♠♠♠♠♠♠♠♠♠♠♠♠♠♠ISTAT-NEWS♠♠♠♠♠♠♠♠♠♠♠
-data: 11 ottobre 2023
-titolo: Conti economici nazionali per settore istituzionale - Anno 2022
-paragrafo: Nel 2022 potere d’acquisto delle famiglie -1,6% sull’anno precedente
+data: 08 novembre 2023
+titolo: Registrazioni e fallimenti di imprese - III Trimestre 2023
+paragrafo: Nel III trimestre 2023 registrazioni di nuove imprese +3,6% sul trim. precedente, +3,4% in termini tendenziali
+
 

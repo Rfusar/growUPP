@@ -18,7 +18,7 @@ echo.
 echo FISICA
 echo.
 echo 4. fisica generale
-echo.
+echo 5. elettronica       
 echo.
 echo.
 echo ###########################################
@@ -26,7 +26,7 @@ echo.
 echo.
 echo INFORMATICA
 echo.
-echo 5. concetti informatica
+echo 6. concetti informatica
 echo.
 echo.
 echo.
@@ -35,13 +35,13 @@ echo.
 echo.
 echo BIOLOGIA
 echo.
-echo 6. concetti biologia
+echo 7. concetti biologia
 echo.
 echo.
 echo.
 echo ###########################################
 echo.
-echo 7. esci
+echo 8. esci
 echo.
 echo.
 
@@ -60,12 +60,15 @@ if "%n%" == "1" (
     start msedge "https://www0.mi.infn.it/~fanti/FisicaGenerale/fanti_FisGen.pdf"
 
 ) else if "%n%" == "5" (
-    start msedge "C:/Users/Utente/Desktop/esperimenti-master/appunti/corsi/informatica.html"
+    start msedge "http://www.energiazero.org/libri_elettronica_80/Corso_di_elettronica_fondamentale.pdf"
 
 ) else if "%n%" == "6" (
-    start msedge "https://www.dotto.me/0/ld/argomento/biologia/ebook/Biologia-Teoria-Esercizi-Edises.pdf"
+    start msedge "C:/Users/Utente/Desktop/esperimenti-master/appunti/corsi/informatica.html"
 
 ) else if "%n%" == "7" (
+    start msedge "https://www.dotto.me/0/ld/argomento/biologia/ebook/Biologia-Teoria-Esercizi-Edises.pdf"
+
+) else if "%n%" == "8" (
     cls
 
 ) else (
