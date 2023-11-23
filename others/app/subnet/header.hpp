@@ -13,8 +13,9 @@ using std::string;
 using std::pair;
 
 
+//ip.cpp
 void trova_range_IP(string input);
 
+//subnet_mask.cpp
 vector<unsigned char> valori(string input);
-vector<pair<unsigned char, vector<bool>>> valore(unsigned char input);
 vector<std::array<string, 3>> valore_IP(vector<unsigned char> input);

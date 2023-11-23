@@ -3,20 +3,19 @@
 //DA subnet mask
 string valore_CIDR(vector<bool> a, vector<bool> b, vector<bool> c, vector<bool> d) {
     string CIDR = "/";
-    unsigned int n = 0;
-    for (int i = 0; i < a.size(); i++) {
+    char n = 0;
+    for (char i = 0; i < a.size(); i++) {
         if (a[i] == true) { n += 1; }
         if (b[i] == true) { n += 1; }
         if (c[i] == true) { n += 1; }
         if (d[i] == true) { n += 1; }
     }
-    CIDR += std::to_string(n);
     return CIDR;
 }
 
 unsigned int total_hosts(vector<bool> a, vector<bool> b, vector<bool> c, vector<bool> d){
-    unsigned char n = 0;
-    for(unsigned char i = 0; i < a.size(); i++){
+    unsigned short int n = 0;
+    for(unsigned short int i = 0; i < a.size(); i++){
         if(a[i] == false){ n += 1;}
         if(b[i] == false){ n += 1;}
         if(c[i] == false){ n += 1;}
@@ -44,7 +43,7 @@ vector<pair<unsigned char, vector<bool>>> valore(unsigned char input) {
     for (char i = 0; i < 10; i++) {
         if (input == check[i].first) {
             numero.push_back({input, {false, false, false, false, false, false, false, false}});
-            for (char j = i; j < 10; j++) { numero[0].second[j] = true; }
+            for (char j = i; j < 10; j++) { numero[0].second[j] = true;}
             break;
         }
     }
@@ -65,7 +64,6 @@ vector<std::array<string, 3>> valore_IP(vector<unsigned char> input) {
     secondo_numero = valore(input[1]); 
     terzo_numero = valore(input[2]); 
     quarto_numero = valore(input[3]); 
-    
 
     IP = std::to_string(primo_numero[0].first)+"."+std::to_string(secondo_numero[0].first)+"."+std::to_string(terzo_numero[0].first)+"."+std::to_string(quarto_numero[0].first);
     CIDR = valore_CIDR(primo_numero[0].second, secondo_numero[0].second, terzo_numero[0].second, quarto_numero[0].second);
