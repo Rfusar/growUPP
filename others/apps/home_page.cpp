@@ -66,6 +66,7 @@ int main(){
     Java.link = {
         {"Java_base", cmd+"https://youtu.be/xk4_1vDrzzo"},
         {"Java_GUI", cmd+"https://youtu.be/Kmgo00avvEw"},
+        {"Java_springboot", cmd+"https://youtu.be/9SGDpanrc8U?si=PNODKfbLYG-IE3Tr"},
         {"Java_Documentazione", cmd+"https://docs.oracle.com/en/java/javase/21/docs/api/index.html"}
     };
     Javascript.link = {
@@ -156,7 +157,8 @@ int main(){
         {"ps2", "\"C:\\Program Files (x86)\\PCSX2\\pcsx2.exe\""},
         {"fl", "\"C:\\Program Files (x86)\\Image-Line\\FL Studio 20\\FL64.exe\""},
         {"linux", "\"C:\\Program Files\\Oracle\\VirtualBox\\VirtualBox.exe\""},
-        {"musica", "C:\\Users\\Utente\\Desktop\\growUPP\\others\\musica_studio.exe"}
+        {"musica", "C:\\Users\\Utente\\Desktop\\growUPP\\others\\musica_studio.exe"},
+        {"subnet", "C:\\Users\\Utente\\Desktop\\growUPP\\others\\subnet.exe"}
     };
     Economia_aziendale.link = {
         {"Acconto_IVA",cmd+"C:\\Users\\Utente\\Desktop\\presenze_lavoro\\ECONOMIA_AZIENDALE\\acconto_iva.pdf"},

@@ -15,7 +15,11 @@ using std::pair;
 
 //ip.cpp
 void trova_range_IP(string input);
+vector<short int> setNumeri(string input);
 
 //subnet_mask.cpp
 vector<unsigned char> valori(string input);
 vector<std::array<string, 3>> valore_IP(vector<unsigned char> input);
+
+//checkIP.cpp
+string check(const string& addresIP);

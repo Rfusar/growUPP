@@ -14,12 +14,12 @@ vector<pair<unsigned char, vector<string>>> classi = {
 };
 
 //per prendere i numeri <n>.<n>.<n>.<n>
-vector<unsigned char> setNumeri(string input){
-    vector<unsigned char> numeri;
+vector<short int> setNumeri(string input){
+    vector<short int> numeri;
     std::istringstream ss(input);
     string token;
     while (std::getline(ss, token, '.')) {
-        unsigned char numero = std::stoi(token);
+        short int numero = std::stoi(token);
         numeri.push_back(numero);
     }
     return numeri;
@@ -52,21 +52,21 @@ string WILDCARD_BITS(unsigned int total_hosts){
 }
 
 string FIRST_ID(unsigned int total_hosts, string input, string wildcard_bits){
-    vector<unsigned char> numeri = setNumeri(input);
-    vector<unsigned char> wildcard_numeri = setNumeri(wildcard_bits);
+    vector<short int> numeri = setNumeri(input);
+    vector<short int> wildcard_numeri = setNumeri(wildcard_bits);
     
-    unsigned char primo_numero = numeri[0];
-    unsigned char secondo_numero = numeri[1];
-    unsigned char terzo_numero = numeri[2];
-    unsigned char quarto_numero = numeri[3];
+    short int primo_numero = numeri[0];
+    short int secondo_numero = numeri[1];
+    short int terzo_numero = numeri[2];
+    short int quarto_numero = numeri[3];
     string IP;
     for(total_hosts; total_hosts > 0; total_hosts--){
         if(primo_numero == 0 && secondo_numero == 0 && terzo_numero == 0 && quarto_numero == 0 ){primo_numero = 0;secondo_numero = 0; terzo_numero = 0; quarto_numero = 0; break;}
 
-        if(wildcard_numeri[3] == 0){}
-        else if(wildcard_numeri[2] == 0){}
-        else if(wildcard_numeri[1] == 0){}
-        else if(wildcard_numeri[0] == 0){}
+        if(wildcard_numeri[3] == 255){quarto_numero = 0;}
+        else if(wildcard_numeri[2] == 255){terzo_numero = 0; quarto_numero = 0;}
+        else if(wildcard_numeri[1] == 255){secondo_numero = 0; terzo_numero = 0; quarto_numero = 0;}
+        else if(wildcard_numeri[0] == 255){primo_numero = 0; secondo_numero = 0; terzo_numero = 0; quarto_numero = 0;}
         
     }
     return IP = std::to_string(primo_numero)+"."+std::to_string(secondo_numero)+"."+std::to_string(terzo_numero)+"."+std::to_string(quarto_numero);
@@ -110,7 +110,7 @@ void trova_range_IP(string input){
             <<"\n\tSUBNET MASK: "<<informazioni[0][1]
             <<"\n\tTOTAL HOSTS: "<<informazioni[0][2]<<"\n\n"
             
-            <<"\n\tWILDCARD BITS: "<<WILDCARD_BITS(hosts)<<"\n"
-            <<"\n\tFIRST ID: "<<FIRST_ID(hosts, input, WILDCARD_BITS(hosts))<<"\n";
+            <<"\n\tWILDCARD BITS: "<<WILDCARD_BITS(hosts)<<"\n";
+            /*<<"\n\tFIRST ID: "<<FIRST_ID(hosts, input, WILDCARD_BITS(hosts))<<"\n";*/
 }
 
