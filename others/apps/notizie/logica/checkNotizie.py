@@ -1,7 +1,8 @@
 from bs4 import BeautifulSoup
 import subprocess
+import datetime
 
-path = "C:\\Users\\Utente\\Desktop\\growup\\others\\notizie"
+path = "C:\\Users\\Utente\\Desktop\\growUPP\\others\\apps\\notizie"
 
 variabili={
     "link": {
@@ -84,6 +85,10 @@ def check_indiciBorseMondiali():
     with open(f"{path}\\indici_banche.txt", "w", encoding="utf-8") as f:
         f.write("")
 
+    with open(f"{path}\\indici_banche.txt", "a", encoding="utf-8") as f:
+        #DATA
+        f.write(f"\t Ultimo aggiornamento: {datetime.date.today()} alle {datetime.datetime.now().hour}:{datetime.datetime.now().minute}\n")
+
     titoli = []
     for i in elementi:
         titolo_campi = i.find_all("th")
@@ -94,7 +99,7 @@ def check_indiciBorseMondiali():
 
         for j2, J2 in enumerate(valori):
             with open(f"{path}\\indici_banche.txt", "a", encoding="utf-8")as f:
-
+                #CONTENUTO
                 while count2 < len(titoli):
                     if count2 >= 0 and count2 != 8:
                         var = ""

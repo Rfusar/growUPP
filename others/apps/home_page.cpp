@@ -150,7 +150,7 @@ int main(){
         {"github_di_KUBERNETES", cmd+"https://github.com/kubernetes"},
     };
     Programmi.link = {
-        {"notizie", "C:\\Users\\Utente\\Desktop\\growUPP\\others\\notizie\\logica\\checkNotizie.bat"},
+        {"notizie", "C:\\Users\\Utente\\Desktop\\growUPP\\others\\checkNotizie.bat"},
         {"ricerca", cmd+"https://www.google.com/advanced_search"},
         {"idea", cmd+"https://app.diagrams.net/"},
         //PROGRAMMI

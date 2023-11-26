@@ -13,8 +13,8 @@ echo #
 echo    -a aggiorna 
 echo.
 echo.
-echo.   -google ricerca internet --separatore[+] --esempio ciao+mi+chiamo+jj
-echo.   -youtube ricerca internet --separatore[+] --esempio ciao+mi+chiamo+jj
+echo.   -google ricerca internet   --esempio  -google ciao+mi+chiamo+jj
+echo.   -youtube ricerca internet  --esempio  -youtube ciao+mi+chiamo+jj  
 echo.
 echo.
 echo 5. esci
@@ -37,8 +37,8 @@ if "%a0%" == "-google" (
     start msedge "https://www.youtube.com/results?search_query=%youtube%"
 
 ) else if "%n%" == "-a" (
-    cd C:\Users\Utente\Desktop\growup\others\notizie 
-    C:\Users\Utente\Desktop\growup\others\notizie\venv\Scripts\activate 
+    cd C:\Users\Utente\Desktop\growUPP\others\apps\notizie 
+    .\venv\Scripts\activate 
     cd .\logica && python update.py
     pause
     goto :ini
@@ -46,25 +46,25 @@ if "%a0%" == "-google" (
 
 ) else if "%n%" == "1" (
     cls 
-    type C:\Users\Utente\Desktop\growup\others\notizie\AE.txt
+    type C:\Users\Utente\Desktop\growUPP\others\apps\notizie\AE.txt
     pause
     goto :ini
 
 ) else if "%n%" == "2" (
     cls 
-    type C:\Users\Utente\Desktop\growup\others\notizie\notizia.txt
+    type C:\Users\Utente\Desktop\growUPP\others\apps\notizie\notizia.txt
     pause
     goto :ini
 
 ) else if "%n%" == "3" (
     cls
-    type C:\Users\Utente\Desktop\growup\others\notizie\indici_banche.txt
+    type C:\Users\Utente\Desktop\growUPP\others\apps\notizie\indici_banche.txt
     pause
     goto :ini
 
 ) else if "%n%" == "4" ( 
     cls
-    type C:\Users\Utente\Desktop\growup\others\notizie\ISTAT.txt
+    type C:\Users\Utente\Desktop\growUPP\others\apps\notizie\ISTAT.txt
     pause
     goto :ini
 
