@@ -1,4 +1,4 @@
-	 Ultimo aggiornamento: 2023-11-26 alle 4:27
+	 Ultimo aggiornamento: 2023-11-26 alle 4:37
 
 Indici: FTSE
 Valore: 29.432,30
@@ -15,7 +15,7 @@ Var%: 0,44
 Massimo: 766,34
 Minimo: 761,38
 Apertura: 761,41
-Ora: 3.58
+Ora: 4.13
 
 
 Indici: DAX
@@ -42,7 +42,7 @@ Var%: 0,21
 Massimo: 3.578,3701
 Minimo: 3.562,78
 Apertura: 3.571,1299
-Ora: 3.58
+Ora: 4.13
 
 
 Indici: IBEX
@@ -105,5 +105,5 @@ Var%: -1,96
 Massimo: 17.771,75
 Minimo: 17.545,6094
 Apertura: 17.771,75
-Ora: 3.59
+Ora: 4.14
 

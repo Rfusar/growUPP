@@ -112,20 +112,20 @@ int main(){
     };
     Menu_appunti.link = {
         //CORSI
-        {"informatica", cmd+"C:\\Users\\Utente\\Desktop\\growUPP\\others\\appunti\\corsi\\informatica.html"},
-        {"matematica", cmd+"C:\\Users\\Utente\\Desktop\\growUPP\\others\\appunti\\corsi\\matematica.html"},
-        {"Concetti", cmd+"C:\\Users\\Utente\\Desktop\\growUPP\\others\\appunti\\appuntiMATH\\conceti.html"},
-        {"pagina_musica", cmd+"C:\\Users\\Utente\\Desktop\\growUPP\\others\\appunti\\corsi\\musica.html"},
+        {"informatica", cmd+"C:\\Users\\Utente\\Desktop\\growUPP\\apps\\appunti\\corsi\\informatica.html"},
+        {"matematica", cmd+"C:\\Users\\Utente\\Desktop\\growUPP\\apps\\appunti\\corsi\\matematica.html"},
+        {"Concetti", cmd+"C:\\Users\\Utente\\Desktop\\growUPP\\apps\\appunti\\appuntiMATH\\conceti.html"},
+        {"pagina_musica", cmd+"C:\\Users\\Utente\\Desktop\\growUPP\\apps\\appunti\\corsi\\musica.html"},
         //INFORMATICA
-        {"git","type C:\\Users\\Utente\\Desktop\\growUPP\\others\\appunti\\linguaggi\\git.txt | more"},
-        {"javascript","type C:\\Users\\Utente\\Desktop\\growUPP\\others\\appunti\\linguaggi\\javascript.txt | more"},
-        {"windows","type C:\\Users\\Utente\\Desktop\\growUPP\\others\\appunti\\linguaggi\\windows.txt | more"},
-        {"linux","type C:\\Users\\Utente\\Desktop\\growUPP\\others\\appunti\\linguaggi\\linux.txt | more"},
+        {"git","type C:\\Users\\Utente\\Desktop\\growUPP\\apps\\appunti\\linguaggi\\git.txt | more"},
+        {"javascript","type C:\\Users\\Utente\\Desktop\\growUPP\\apps\\appunti\\linguaggi\\javascript.txt | more"},
+        {"windows","type C:\\Users\\Utente\\Desktop\\growUPP\\apps\\appunti\\linguaggi\\windows.txt | more"},
+        {"linux","type C:\\Users\\Utente\\Desktop\\growUPP\\apps\\appunti\\linguaggi\\linux.txt | more"},
         //RETI E INTERNET
-        {"RETI_E_INTERNET___cap_1","cls && type C:\\Users\\Utente\\Desktop\\growUPP\\others\\appunti\\reti_e_internet\\capitolo_1.txt | more"},
-        {"RETI_E_INTERNET___cap_2","cls && type C:\\Users\\Utente\\Desktop\\growUPP\\others\\appunti\\reti_e_internet\\capitolo_2.txt | more"},
-        {"RETI_E_INTERNET___cap_3_A","cls && type C:\\Users\\Utente\\Desktop\\growUPP\\others\\appunti\\reti_e_internet\\capitolo_3\\collegamenti_punto-a-punto.txt | more"},
-        {"RETI_E_INTERNET___cap_3_B","cls && type C:\\Users\\Utente\\Desktop\\growUPP\\others\\appunti\\reti_e_internet\\capitolo_3\\reti_multipunto.txt | more"}
+        {"RETI_E_INTERNET___cap_1","cls && type C:\\Users\\Utente\\Desktop\\growUPP\\apps\\appunti\\reti_e_internet\\capitolo_1.txt | more"},
+        {"RETI_E_INTERNET___cap_2","cls && type C:\\Users\\Utente\\Desktop\\growUPP\\apps\\appunti\\reti_e_internet\\capitolo_2.txt | more"},
+        {"RETI_E_INTERNET___cap_3_A","cls && type C:\\Users\\Utente\\Desktop\\growUPP\\apps\\appunti\\reti_e_internet\\capitolo_3\\collegamenti_punto-a-punto.txt | more"},
+        {"RETI_E_INTERNET___cap_3_B","cls && type C:\\Users\\Utente\\Desktop\\growUPP\\apps\\appunti\\reti_e_internet\\capitolo_3\\reti_multipunto.txt | more"}
     };
     Internet.link = {
         {"networking", cmd+"https://youtu.be/xmpYfyNmWbw"},
@@ -150,15 +150,15 @@ int main(){
         {"github_di_KUBERNETES", cmd+"https://github.com/kubernetes"},
     };
     Programmi.link = {
-        {"notizie", "C:\\Users\\Utente\\Desktop\\growUPP\\others\\checkNotizie.bat"},
+        {"notizie", "C:\\Users\\Utente\\Desktop\\growUPP\\apps\\checkNotizie.bat"},
         {"ricerca", cmd+"https://www.google.com/advanced_search"},
         {"idea", cmd+"https://app.diagrams.net/"},
         //PROGRAMMI
         {"ps2", "\"C:\\Program Files (x86)\\PCSX2\\pcsx2.exe\""},
         {"fl", "\"C:\\Program Files (x86)\\Image-Line\\FL Studio 20\\FL64.exe\""},
         {"linux", "\"C:\\Program Files\\Oracle\\VirtualBox\\VirtualBox.exe\""},
-        {"musica", "C:\\Users\\Utente\\Desktop\\growUPP\\others\\musica_studio.exe"},
-        {"subnet", "C:\\Users\\Utente\\Desktop\\growUPP\\others\\subnet.exe"}
+        {"musica", "C:\\Users\\Utente\\Desktop\\growUPP\\apps\\musica_studio.exe"},
+        {"subnet", "C:\\Users\\Utente\\Desktop\\growUPP\\apps\\subnet.exe"}
     };
     Economia_aziendale.link = {
         {"Acconto_IVA",cmd+"C:\\Users\\Utente\\Desktop\\presenze_lavoro\\ECONOMIA_AZIENDALE\\acconto_iva.pdf"},
@@ -182,7 +182,7 @@ int main(){
     Lavoro.link = {
         {"API_GO", "cd C:\\Users\\Utente\\Desktop\\presenze_lavoro\\esercizi\\progetto_api_GO && start code C:\\Users\\Utente\\Desktop\\presenze_lavoro\\esercizi\\progetto_api_GO"},
         {"WEB_PAGE", "cd C:\\Users\\Utente\\Desktop\\presenze_lavoro\\esercizi\\progettoAndrea2 && start code C:\\Users\\Utente\\Desktop\\presenze_lavoro\\esercizi\\progettoAndrea2 && start msedge http://127.0.0.1:5000 && C:\\Users\\Utente\\Desktop\\presenze_lavoro\\esercizi\\progettoAndrea2\\venv\\Scripts\\activate && python run.py"},
-        {"conn_remoto", "C:\\Users\\Utente\\Desktop\\growUPP\\others\\AnyDesk.exe"},
+        {"conn_remoto", "C:\\Users\\Utente\\Desktop\\growUPP\\apps\\AnyDesk.exe"},
     };
     //*MOSTRA A SCHERMO
     system("cls");

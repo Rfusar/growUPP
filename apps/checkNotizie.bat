@@ -37,7 +37,7 @@ if "%a0%" == "-google" (
     start msedge "https://www.youtube.com/results?search_query=%youtube%"
 
 ) else if "%n%" == "-a" (
-    cd C:\Users\Utente\Desktop\growUPP\others\apps\notizie 
+    cd C:\Users\Utente\Desktop\growUPP\apps\code\notizie 
     .\venv\Scripts\activate 
     cd .\logica && python update.py
     pause
@@ -46,25 +46,25 @@ if "%a0%" == "-google" (
 
 ) else if "%n%" == "1" (
     cls 
-    type C:\Users\Utente\Desktop\growUPP\others\apps\notizie\AE.txt
+    type C:\Users\Utente\Desktop\growUPP\apps\code\notizie\AE.txt
     pause
     goto :ini
 
 ) else if "%n%" == "2" (
     cls 
-    type C:\Users\Utente\Desktop\growUPP\others\apps\notizie\notizia.txt
+    type C:\Users\Utente\Desktop\growUPP\apps\code\notizie\notizia.txt
     pause
     goto :ini
 
 ) else if "%n%" == "3" (
     cls
-    type C:\Users\Utente\Desktop\growUPP\others\apps\notizie\indici_banche.txt
+    type C:\Users\Utente\Desktop\growUPP\apps\code\notizie\indici_banche.txt
     pause
     goto :ini
 
 ) else if "%n%" == "4" ( 
     cls
-    type C:\Users\Utente\Desktop\growUPP\others\apps\notizie\ISTAT.txt
+    type C:\Users\Utente\Desktop\growUPP\apps\code\notizie\ISTAT.txt
     pause
     goto :ini
 

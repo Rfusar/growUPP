@@ -11,14 +11,14 @@ echo.
 set /p n=": "
 
 if "%n%" == "home_page" (
-    cd others\apps
+    cd apps\code
     g++ home_page.cpp -o home_page
     move home_page.exe ..\..
     cd ..\..
 
 ) else if "%n%" == "subnet" (
 
-    cd others\apps\subnet 
+    cd apps\code\subnet 
     g++ checkIP.cpp ip.cpp main_subnet.cpp subnet_mask.cpp -o subnet 
     move subnet.exe ..\..
     cd ..\..\..
