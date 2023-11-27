@@ -66,8 +66,10 @@ int main(){
     Java.link = {
         {"Java_base", cmd+"https://youtu.be/xk4_1vDrzzo"},
         {"Java_GUI", cmd+"https://youtu.be/Kmgo00avvEw"},
-        {"Java_springboot", cmd+"https://youtu.be/9SGDpanrc8U?si=PNODKfbLYG-IE3Tr"},
-        {"Java_Documentazione", cmd+"https://docs.oracle.com/en/java/javase/21/docs/api/index.html"}
+        {"Java_Documentazione", cmd+"https://docs.oracle.com/en/java/javase/21/docs/api/index.html"},
+        //SPRINGBOOT
+        {"Java_springboot_base", cmd+"https://youtu.be/-mwpoE0x0JQ?si=usOs97faiejFJfh1"},
+        {"Java_springboot_security", cmd+"https://youtu.be/her_7pa0vrg?si=-h4lp6u1u2fyVQjf"},
     };
     Javascript.link = {
         {"Javascript_generale", cmd+"https://youtu.be/BI1o2H9z9fo?si=aqOw_SCKfHH9PGXt"},
@@ -158,7 +160,8 @@ int main(){
         {"fl", "\"C:\\Program Files (x86)\\Image-Line\\FL Studio 20\\FL64.exe\""},
         {"linux", "\"C:\\Program Files\\Oracle\\VirtualBox\\VirtualBox.exe\""},
         {"musica", "C:\\Users\\Utente\\Desktop\\growUPP\\apps\\musica_studio.exe"},
-        {"subnet", "C:\\Users\\Utente\\Desktop\\growUPP\\apps\\subnet.exe"}
+        {"subnet", "C:\\Users\\Utente\\Desktop\\growUPP\\apps\\subnet.exe"},
+        {"putty", "C:\\Users\\Utente\\Desktop\\growUPP\\apps\\putty.exe"},
     };
     Economia_aziendale.link = {
         {"Acconto_IVA",cmd+"C:\\Users\\Utente\\Desktop\\presenze_lavoro\\ECONOMIA_AZIENDALE\\acconto_iva.pdf"},
@@ -189,8 +192,8 @@ int main(){
     cout << "LINGUAGGI\t\t\t DATABASE\t\t\t PROGRAMMI\t\t\t OS\t\t\t MICROSERVIZI\t\t\t ALTRO\n\n";
     std::cin >> INPUT;
     if(INPUT == "LINGUAGGI"){
-        vector<Dataset> totale = {C, Cpp, Java, Javascript, Kotlin, Go, Durt}; 
-        string titoli[] = {"C", "Cpp", "Java", "Javascript", "Kotlin", "Go", "Durt"};
+        vector<Dataset> totale = {Web, C, Cpp, Java, Javascript, Kotlin, Go, Durt}; 
+        string titoli[] = {"Web", "C", "Cpp", "Java", "Javascript", "Kotlin", "Go", "Durt"};
         iterazione(totale, titoli);
     }
     else if(INPUT == "DATABASE"){
@@ -214,8 +217,8 @@ int main(){
         iterazione(totale, titoli);
     }
     else if(INPUT == "ALTRO"){
-        vector<Dataset> totale = {Web, Menu_appunti, Internet, PC, Economia_aziendale, Libri, Lavoro}; 
-        string titoli[] = {"Web", "Menu_appunti", "Internet", "PC", "Economia_aziendale", "Libri", "Lavoro"}; 
+        vector<Dataset> totale = {Menu_appunti, Internet, PC, Economia_aziendale, Libri, Lavoro}; 
+        string titoli[] = {"Menu_appunti", "Internet", "PC", "Economia_aziendale", "Libri", "Lavoro"}; 
         iterazione(totale, titoli);
     }
     return 0;
