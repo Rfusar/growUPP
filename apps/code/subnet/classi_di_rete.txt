@@ -1,5 +1,29 @@
-si distinguono in 3 classi
-    => A,B,C
+le soto reti si distinguono in 5 classi, in base al primo numero x.0.0.0 
+    => A, B, C, D, E
+
+CLASSE A: 0 - 126
+CLASSE B: 128 - 191
+CLASSE C: 192 - 223
+CLASSE D: 224 - 239
+CLASSE E: 240 - 255
+
+Si noti che il numero 127 non è incluso. Questo perché viene utilizzato in un numero speciale 
+    che riflette automaticamente chiamato indirizzo di loopback. Pensa a questo come a un indirizzo che dice: 
+    "Questo è il mio indirizzo". Si noti che solo le prime tre classi (A, B e C) vengono utilizzate dagli amministratori di rete. 
+    Queste sono le classi comunemente usate. Gli altri due, D ed E, sono riservati.
+
+
+
+
+I componenti di rete e host degli indirizzi IP di classe sono
+
+CLASSE A: network.host.host-host
+CLASSE B: network.network.host-host
+CLASSE C: network.network.network-host
+CLASSE D: 
+CLASSE E: 
+
+
                                                                 da ricordare true = 1, false = 0
 SUBNET MASK trovare x
 128, 64, 32, 16, 8, 4, 2, 1

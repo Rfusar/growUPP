@@ -19,7 +19,13 @@ if "%n%" == "home_page" (
 ) else if "%n%" == "subnet" (
 
     cd apps\code\subnet 
-    g++ checkIP.cpp ip.cpp main_subnet.cpp subnet_mask.cpp -o subnet 
+    g++ ^
+    logica\checkIP.cpp ^
+    logica\ip.cpp ^
+    logica\subnet_mask.cpp ^
+    schermo\schermo.cpp ^
+    main_subnet.cpp  ^
+    -o subnet 
     move subnet.exe ..\..
     cd ..\..\..
 

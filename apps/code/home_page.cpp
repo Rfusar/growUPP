@@ -66,10 +66,12 @@ int main(){
     Java.link = {
         {"Java_base", cmd+"https://youtu.be/xk4_1vDrzzo"},
         {"Java_GUI", cmd+"https://youtu.be/Kmgo00avvEw"},
-        {"Java_Documentazione", cmd+"https://docs.oracle.com/en/java/javase/21/docs/api/index.html"},
+        {"Java_Documentazione", cmd+"C:\\Users\\Utente\\Desktop\\zip\\docs\\index.html"},
         //SPRINGBOOT
-        {"Java_springboot_base", cmd+"https://youtu.be/-mwpoE0x0JQ?si=usOs97faiejFJfh1"},
-        {"Java_springboot_security", cmd+"https://youtu.be/her_7pa0vrg?si=-h4lp6u1u2fyVQjf"},
+        {"Springboot_academy",cmd+"https://spring.academy/home"},
+        {"Springboot_documentazione",cmd+"https://spring.io/projects/spring-boot"},
+        {"Java_springboot_base__video", cmd+"https://youtu.be/-mwpoE0x0JQ?si=usOs97faiejFJfh1"},
+        {"Java_springboot_security__video", cmd+"https://youtu.be/her_7pa0vrg?si=-h4lp6u1u2fyVQjf"},
     };
     Javascript.link = {
         {"Javascript_generale", cmd+"https://youtu.be/BI1o2H9z9fo?si=aqOw_SCKfHH9PGXt"},

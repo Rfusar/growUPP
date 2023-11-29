@@ -1,4 +1,4 @@
-#include "header.hpp"
+#include "..\header\all.hpp"
 
 //DA subnet mask
 string valore_CIDR(vector<bool> a, vector<bool> b, vector<bool> c, vector<bool> d) {
@@ -21,7 +21,7 @@ unsigned int total_hosts(vector<bool> a, vector<bool> b, vector<bool> c, vector<
         if(c[i] == false){ n += 1;}
         if(d[i] == false){ n += 1;}
     }
-    return std::pow(2, n);
+    return 1u << n;
 }
 
 //DIVIDO L'IP IN NUMERI

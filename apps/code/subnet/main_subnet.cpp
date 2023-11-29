@@ -1,29 +1,16 @@
-#include "header.hpp"
+#include "header\all.hpp"
 
-using std::cin;
 
 int main() {
     string inizio;
     system("cls");
-    cout<<"<cerca> -c\n<informazioni> -i";
+    cout<<"DIGITA:\n\n\tdoc =>\n\t\tper consultare gli appunti\n\n\tip =>\n\t\tper aprire menu IP";
     cin>>inizio;
-
-    if(inizio == "-c"){
-        string ip;
-        cout << "Inserisci ip: ";
-        cin >> ip;
-        check(ip);
-    }
-    else if(inizio == "-i"){
-        string ip;
-        cout << "Inserisci ip: ";
-        cin >> ip;
-        trova_range_IP(ip);
-    }
-    else{
+    if(inizio == "doc"){
+        DOCUMENTAZIONE();
         main();
     }
-
+    else if(inizio == "ip"){INIZIO();}
     return 0;
 }
 

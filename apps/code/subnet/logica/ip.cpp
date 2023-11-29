@@ -1,4 +1,4 @@
-#include "header.hpp"
+#include "..\header\all.hpp"
 
 //SCHEMA
 vector<pair<unsigned char, vector<string>>> classi = {
