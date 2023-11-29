@@ -6,43 +6,17 @@
 void INIZIO(){
     system("cls");
     string inizio;
-    cout<<"<cerca> -c\n<informazioni> -i\n<trasforma numeri decimali a binari> -t\n\n";
+    cout<<"<cerca> -c\n<informazioni> -i\n<trasforma numeri> -t\n\n";
     cin>>inizio;
 
     if(inizio == "-c"){
-        string ip;
-        cout << "Inserisci ip: ";
-        cin >> ip;
-        check(ip);
+        menu__ip(check, "Ricerca ricorsiva");
     }
     else if(inizio == "-i"){
-        string ip;
-        cout << "Inserisci ip: ";
-        cin >> ip;
-        trova_range_IP(ip);
+        menu__ip(trova_range_IP, "Informazioni");
     }
     else if(inizio == "-t"){
-        bool value = true;
-        while(value){
-            system("cls");
-            string ip;
-            cout << "Inserisci numero: ";
-            cin >> ip;
-            if(ip != "-q"){
-                if(ip[0] == 'd'){
-                    ip = ip.substr(1);
-                    decimale_binario(std::stoi(ip));
-                    cout<<"\n\n\n\n\n";
-                    system("pause");
-                }
-                else if(ip[0] == 'b'){
-                    ip = ip.substr(1);
-                    binario_decimale(ip);
-                    cout<<"\n\n\n\n\n";
-                    system("pause");
-                }
-            } else{value = false;}
-        }
+        menu_n(decimale_binario, binario_decimale);
     }
 }
 

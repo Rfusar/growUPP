@@ -24,6 +24,7 @@ if "%n%" == "home_page" (
     logica\ip.cpp ^
     logica\subnet_mask.cpp ^
     schermo\schermo.cpp ^
+    schermo\menu.cpp ^
     main_subnet.cpp  ^
     -o subnet 
     move subnet.exe ..\..

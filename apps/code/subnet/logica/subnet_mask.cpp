@@ -24,19 +24,7 @@ unsigned int total_hosts(vector<bool> a, vector<bool> b, vector<bool> c, vector<
     return 1u << n;
 }
 
-//DIVIDO L'IP IN NUMERI
-vector<unsigned char> valori(string input){
-    vector<unsigned char> componenti;
-    std::istringstream ss(input);
-    string token;
-    while (std::getline(ss, token, '.')) {
-        unsigned char componente = std::stoi(token);
-        componenti.push_back(componente);
-    }
-    return componenti;
-}
-
-vector<pair<unsigned char, vector<bool>>> valore(unsigned char input) {
+vector<pair<unsigned char, vector<bool>>> valore(short int input) {
     vector<pair<unsigned char, vector<bool>>> numero;
     vector<pair<unsigned char, bool>> check = {{255, false}, {254, false}, {252, false}, {248, false}, {240, false}, {224, false}, {192, false}, {128, false}, {0, false}};
 
@@ -50,7 +38,7 @@ vector<pair<unsigned char, vector<bool>>> valore(unsigned char input) {
     return numero;
 }
 
-vector<std::array<string, 3>> valore_IP(vector<unsigned char> input) {
+vector<std::array<string, 3>> valore_IP(vector<short int> input) {
     vector<pair<unsigned char, vector<bool>>> primo_numero; 
     vector<pair<unsigned char, vector<bool>>> secondo_numero; 
     vector<pair<unsigned char, vector<bool>>> terzo_numero; 

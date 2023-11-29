@@ -25,7 +25,6 @@ vector<short int> setNumeri(string input){
     return numeri;
 }
 
-
 string WILDCARD_BITS(unsigned int total_hosts){
     total_hosts -= 1;
     unsigned short int primo_numero = 0;
@@ -55,21 +54,13 @@ string FIRST_ID(unsigned int total_hosts, string input, string wildcard_bits){
     vector<short int> numeri = setNumeri(input);
     vector<short int> wildcard_numeri = setNumeri(wildcard_bits);
     
-    short int primo_numero = numeri[0];
-    short int secondo_numero = numeri[1];
-    short int terzo_numero = numeri[2];
-    short int quarto_numero = numeri[3];
+    string primo_numero = return_decimale_binario(std::to_string(numeri[0]));
+    string secondo_numero = return_decimale_binario(std::to_string(numeri[1]));
+    string terzo_numero = return_decimale_binario(std::to_string(numeri[2]));
+    string quarto_numero = return_decimale_binario(std::to_string(numeri[3]));
     string IP;
-    for(total_hosts; total_hosts > 0; total_hosts--){
-        if(primo_numero == 0 && secondo_numero == 0 && terzo_numero == 0 && quarto_numero == 0 ){primo_numero = 0;secondo_numero = 0; terzo_numero = 0; quarto_numero = 0; break;}
 
-        if(wildcard_numeri[3] == 255){quarto_numero = 0;}
-        else if(wildcard_numeri[2] == 255){terzo_numero = 0; quarto_numero = 0;}
-        else if(wildcard_numeri[1] == 255){secondo_numero = 0; terzo_numero = 0; quarto_numero = 0;}
-        else if(wildcard_numeri[0] == 255){primo_numero = 0; secondo_numero = 0; terzo_numero = 0; quarto_numero = 0;}
-        
-    }
-    return IP = std::to_string(primo_numero)+"."+std::to_string(secondo_numero)+"."+std::to_string(terzo_numero)+"."+std::to_string(quarto_numero);
+    return IP = primo_numero+"."+secondo_numero+"."+terzo_numero+"."+quarto_numero;
 }
 
 vector<std::array<string, 3>> INFORMAZIONI(string classe, string classi){
@@ -79,7 +70,7 @@ vector<std::array<string, 3>> INFORMAZIONI(string classe, string classi){
     else if(CLASSE == "B"){SUBNET_MASK = "255.255."+classi+".0";}
     else if(CLASSE == "A"){SUBNET_MASK = "255."+classi+".0.0";}
     else if(CLASSE == ""){SUBNET_MASK = classi+".0.0.0";}
-    string TOTAL_HOST = valore_IP(valori(SUBNET_MASK))[0][2];
+    string TOTAL_HOST = valore_IP(setNumeri(SUBNET_MASK))[0][2];
 
     vector<std::array<string, 3>> informazioni = {{CLASSE, SUBNET_MASK, TOTAL_HOST}};
     return informazioni;
@@ -110,7 +101,7 @@ void trova_range_IP(string input){
             <<"\n\tSUBNET MASK: "<<informazioni[0][1]
             <<"\n\tTOTAL HOSTS: "<<informazioni[0][2]<<"\n\n"
             
-            <<"\n\tWILDCARD BITS: "<<WILDCARD_BITS(hosts)<<"\n";
-            /*<<"\n\tFIRST ID: "<<FIRST_ID(hosts, input, WILDCARD_BITS(hosts))<<"\n";*/
+            <<"\n\tWILDCARD BITS: "<<WILDCARD_BITS(hosts)<<"\n"
+            <<"\n\tFIRST ID: "<<FIRST_ID(hosts, input, WILDCARD_BITS(hosts))<<"\n";
 }
 
