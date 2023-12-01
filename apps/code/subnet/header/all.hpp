@@ -6,6 +6,7 @@
 #include <vector>
 #include <array>
 #include <stack>
+#include <bitset>
 
 using std::cout;
 using std::vector;
@@ -27,7 +28,6 @@ void decimale_binario(string n);
 void binario_decimale(string n);
 string return_decimale_binario(string n);
 int return_binario_decimale(string n);
-
 
 
 

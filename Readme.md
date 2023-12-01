@@ -2,4 +2,4 @@
 
 ### Cose da sistemare
 
-subnet.exe  -> func FIRST_ID
+subnet.exe  -> func INFORMAZIONI

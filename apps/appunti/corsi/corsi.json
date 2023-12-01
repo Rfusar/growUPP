@@ -1,0 +1,136 @@
+
+{
+    "Web":[
+        {"W3school" : "https://www.w3schools.com" },
+        {"Doc_generico" : "https://devdocs.io/"},
+        {"Spring_boot__profile" : "https://spring.academy/home"},
+        {"ancroid_dev__profile": "https://developer.android.com"}
+    ],
+
+    "C": [
+        {"C_base": "https://youtu.be/Bz4MxDeEM6k?si=J_YPBNmXu5rS_Wll"},
+        {"C_Pointer": "https://youtu.be/zuegQmMdy8M?si=-GIMiPqH72o2d6V5"}
+    ],
+
+    "Cpp" : [
+        {"Cpp_base": "https://youtu.be/P2jVybFyh3A?si=U5Il3JGQPu6vZi-S"},
+        {"Cpp_GUI": "https://youtube.com/playlist?list=PLFk1_lkqT8MbVOcwEppCPfjGOGhLvcf9G"},
+        {"Cpp_Project...": "https://youtube.com/playlist?list=PLRJuRxIsYMUX3iSmvyWPdKFaCooL455YQ"},
+        {"Cpp_Documentazione": "https://devdocs.io/cpp/"},
+        {"Cpp_Pointer": "https://youtu.be/zuegQmMdy8M?si=-GIMiPqH72o2d6V5"},
+        {"Cpp_OOP": "https://youtu.be/0NwsayeOsd4?si=ieY3PiIEfcBKK4UZ"},
+        {"come_funziona_la_CPU_con_C++...": "https://youtu.be/qJgsuQoy9bc?si=4APGIB_8tm5xuuRz"}
+    ],
+
+    "Java" : [
+        {"Java_base": "https://youtu.be/xk4_1vDrzzo"},
+        {"Java_GUI": "https://youtu.be/Kmgo00avvEw"},
+        {"Java_Documentazione": "C:\\Users\\Utente\\Desktop\\zip\\docs\\index.html"},
+        {"Springboot_academy": "https://spring.academy/home"},
+        {"Springboot_documentazione": "https://spring.io/projects/spring-boot"},
+        {"Java_springboot_base__video" : "https://youtu.be/-mwpoE0x0JQ?si=usOs97faiejFJfh1"},
+        {"Java_springboot_security__video": "https://youtu.be/her_7pa0vrg?si=-h4lp6u1u2fyVQjf"}
+    ],
+
+    "Javascript":[
+        {"Javascript_generale": "https://youtu.be/BI1o2H9z9fo?si=aqOw_SCKfHH9PGXt"},
+        {"vanilla_Javascript": "https://youtube.com/playlist?list=PLFk1_lkqT8MbVOcwEppCPfjGOGhLvcf9G"},
+        {"React": "https://youtu.be/w7ejDZ8SWv8?si=ew-z7l-L8GhlSQft"},
+        {"Angular": "https://youtu.be/3dHNOWTI7H8?si=dtFhrdb9zEGDq-kO"},
+        {"JavaScript_Pro_Tips": "https://youtu.be/Mus_vwhTCq0?si=RGM8rcDC6J0chgk2"}
+    ],
+
+    "Kotlin": [
+        {"Kotlin_base": "https://youtu.be/9-pFPGAOSZQ?si=iKlrE4Fzax6RPofP"},
+        {"androidStudio": "https://youtu.be/EExSSotojVI?si=2mO28d4wex88QPxi"}
+    ],
+
+    "Go" : [
+        {"Go base": "https://youtu.be/YS4e4q9oBaU?si=kzyRGtpfI6lqa75O"},
+        {"github.com/compose-spec/compose-go/cli": "https://pkg.go.dev/github.com/compose-spec/compose-go/cli"},
+        {"github.com/spf13/co: bra": "https://pkg.go.dev/github.com/spf13/cobra"},
+        {"github.com/docker/cli": "https://pkg.go.dev/github.com/docker/cli"},
+        {"k8s.io/component-base/cli": "https://pkg.go.dev/k8s.io/component-base/cli"},
+        {"compose-go": "https://github.com/compose-spec/compose-go/tree/v1.20.0"}
+    ],
+
+    "Dart" : [
+        {"Durt": "https://youtu.be/WxuViERlkyE?si=CWBIK-WyR4965j3X"}
+    ],
+
+    "Linux": [
+        {"bash": "https://youtube.com/playlist?list=PLT98CRl2KxKGj-VKtApD8-zCqSaN2mD4w&si=qm8o-6Vmx5pzzTON"},
+        {"linux": "https://youtube.com/playlist?list=PLKZZXjqZrqQvfAhgY7Nit5ynpK3kN_3tx&si=C4SkxLHFLgJ8VrxA"},
+        {"etichal_hacker": "https://youtube.com/playlist?list=PLKZZXjqZrqQtKGgJuAYhzYczf1KIdswvO&si=T-B0_NzU2Q1yEG3D"}
+    
+    ],
+
+    "Windows" : [
+        {"Powershell_base_1": "https://youtu.be/ZOoCaWyifmI?si=J9DzC5dkn4DV5y_M"},
+        {"Powershell_base_2": "https://youtube.com/playlist?list=PLlVtbbG169nFq_hR7FcMYg32xsSAObuq8&si=5yEMjmCU061vO8FU"},
+        {"GUI_Poweshell": "https://youtube.com/playlist?list=PLnK11SQMNnE5_cl8n54h6OXNMnGl5Odtq&si=aI18J93ZmnkvuqLr"},
+        {"Powershell_documentazione": "C:\\Users\\Utente\\Desktop\\info\\powershell-scripting-powershell-5.1.pdf"},
+        {"CMD_base": "https://youtu.be/qnXe1gecux8?si=OjoQJcp3STqEu3O8"},
+        {"CMD_40_comandi...": "https://youtu.be/Jfvg3CS1X3A?si=TL_4rYwEqt_LJfct"},
+        {"CMD_documentazione": "C:\\Users\\Utente\\Desktop\\info\\windows-server-administration-windows-commands.pdf"},
+        {"windows_server_documentazione": "C:\\Users\\Utente\\Desktop\\info\\windows-server-get-started.pdf"}
+
+    ],
+
+    "Menu_appunti" : [
+        {"informatica": "C:\\Users\\Utente\\Desktop\\growUPP\\apps\\appunti\\corsi\\informatica.html"},
+        {"matematica": "C:\\Users\\Utente\\Desktop\\growUPP\\apps\\appunti\\corsi\\matematica.html"},
+        {"Concetti": "C:\\Users\\Utente\\Desktop\\growUPP\\apps\\appunti\\appuntiMATH\\conceti.html"},
+        {"pagina_musica": "C:\\Users\\Utente\\Desktop\\growUPP\\apps\\appunti\\corsi\\musica.html"},
+        {"git": "C:\\Users\\Utente\\Desktop\\growUPP\\apps\\appunti\\linguaggi\\git.txt"},
+        {"javascript": "C:\\Users\\Utente\\Desktop\\growUPP\\apps\\appunti\\linguaggi\\javascript.txt"},
+        {"windows": "type C:\\Users\\Utente\\Desktop\\growUPP\\apps\\appunti\\linguaggi\\windows.txt"},
+        {"linux": "C:\\Users\\Utente\\Desktop\\growUPP\\apps\\appunti\\linguaggi\\linux.txt"},
+        {"RETI_E_INTERNET___cap_1": "C:\\Users\\Utente\\Desktop\\growUPP\\apps\\appunti\\reti_e_internet\\capitolo_1.txt"},
+        {"RETI_E_INTERNET___cap_2": "C:\\Users\\Utente\\Desktop\\growUPP\\apps\\appunti\\reti_e_internet\\capitolo_2.txt"},
+        {"RETI_E_INTERNET___cap_3_A": "C:\\Users\\Utente\\Desktop\\growUPP\\apps\\appunti\\reti_e_internet\\capitolo_3\\collegamenti_punto-a-punto.txt"},
+        {"RETI_E_INTERNET___cap_3_B": "C:\\Users\\Utente\\Desktop\\growUPP\\apps\\appunti\\reti_e_internet\\capitolo_3\\reti_multipunto.txt"}
+
+    ],
+
+    "Internet" : [
+        {"networking": "https://youtu.be/xmpYfyNmWbw"},
+        {"protocolli": "https://it.wikipedia.org/wiki/Protocollo_di_rete"}
+    ],
+    "PC" : [
+        {"hardware": "https://youtu.be/d86ws7mQYIg"},
+        {"SSD": "https://youtu.be/5Mh3o886qpg?si=tRv55Q1FdrDBhSJi"},
+        {"bluetooth": "https://youtu.be/1I1vxu5qIUM?si=aitFWZo9j6jGDHfo"},
+        {"tastiera": "https://youtu.be/h-NM1xSSzHQ?si=Yr42KCAUJav19rUj"}
+    ],
+    "Database" : [
+        {"sql": "https://youtu.be/5OdVJbNCSso?si=LkFaEiLIf52Tr-mR"},
+        {"mongoDB": "https://youtu.be/c2M-rlkkT5o?si=EYxVmI_aWLJYG06K"}
+    ],
+    "Docker" : [
+        {"Base_DOCKER": "https://youtu.be/RqTEHSBrYFw?si=lheMncbmxt4tTg7M"},
+        {"Github_di_DOCKER": "https://github.com/docker"}
+    ],
+    "Kubernetes" : [
+        {"Video_DOCKER_e_KUBERNETES": "https://youtu.be/kTp5xUtcalw?si=gtTlIsJJDebue-Zl"},
+        {"github_di_KUBERNETES": "https://github.com/kubernetes"}
+    ],
+    "Economia_aziendale" : [
+        {"Acconto_IVA": "C:\\Users\\Utente\\Desktop\\presenze_lavoro\\ECONOMIA_AZIENDALE\\acconto_iva.pdf"},
+        {"Esercizi_contabilita_pratica": "C:\\Users\\Utente\\Desktop\\presenze_lavoro\\ECONOMIA_AZIENDALE\\esercizi_contabilita_pratica.pdf"},
+        {"Fatturazione_e_regime_iva": "C:\\Users\\Utente\\Desktop\\presenze_lavoro\\ECONOMIA_AZIENDALE\\fatturazione_e_regime_iva.pdf"},
+        {"Le_vendite_e_il_regolamento": "C:\\Users\\Utente\\Desktop\\presenze_lavoro\\ECONOMIA_AZIENDALE\\le_vendite_e_il_regolamento.pdf"},
+        {"Metodo_partita_doppia": "C:\\Users\\Utente\\Desktop\\presenze_lavoro\\ECONOMIA_AZIENDALE\\metodo_partita_doppia.pdf"},
+        {"Operzioni_di_vendita_e_regolamento": "C:\\Users\\Utente\\Desktop\\presenze_lavoro\\ECONOMIA_AZIENDALE\\Operazioni_di_vendita_e_regolamento.pdf"},
+        {"Quaderno_appunti": "C:\\Users\\Utente\\Desktop\\presenze_lavoro\\ECONOMIA_AZIENDALE\\quaderno_appunti.pdf"},
+        {"Stato_patrimoniale": "C:\\Users\\Utente\\Desktop\\presenze_lavoro\\ECONOMIA_AZIENDALE\\stato_patrimoniale.pdf"},
+        {"Un_anno_in_azienda": "C:\\Users\\Utente\\Desktop\\presenze_lavoro\\ECONOMIA_AZIENDALE\\Un_anno_in_azienda.pdf"}
+    ],
+    "Libri" : [
+        {"Matematica_superiori": "https://www.matematicamente.it/staticfiles/matematica-C3/MatematicaC3-Algebra1-3ed-completo.pdf"},
+        {"Algebra": "https://people.dm.unipi.it/martelli/Alg Lin.pdf"},
+        {"Fisica": "https://www0.mi.infn.it/~fanti/FisicaGenerale/fanti_FisGen.pdf"},
+        {"Elettronica": "http://www.energiazero.org/libri_elettronica_80/Corso_di_elettronica_fondamentale.pdf"},
+        {"Biologia": "https://www.dotto.me/0/ld/argomento/biologia/ebook/Biologia-Teoria-Esercizi-Edises.pdf"}
+    ]
+}

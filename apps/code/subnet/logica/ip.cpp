@@ -13,95 +13,106 @@ vector<pair<unsigned char, vector<string>>> classi = {
 //CLASSE :   C      B      A     
 };
 
-//per prendere i numeri <n>.<n>.<n>.<n>
-vector<short int> setNumeri(string input){
-    vector<short int> numeri;
-    std::istringstream ss(input);
-    string token;
-    while (std::getline(ss, token, '.')) {
-        short int numero = std::stoi(token);
-        numeri.push_back(numero);
-    }
-    return numeri;
-}
-
-string WILDCARD_BITS(unsigned int total_hosts){
-    total_hosts -= 1;
-    unsigned short int primo_numero = 0;
-    unsigned short int secondo_numero = 0;
-    unsigned short int terzo_numero = 0;
-    unsigned short int quarto_numero = 0;
-    string wildcard_bits;
-
-    for(unsigned long int i = 0; i < total_hosts; i++){
-        quarto_numero += 1;
-        if(quarto_numero == 256){ terzo_numero+=1; quarto_numero = 0;
-
-            if(terzo_numero == 256){ secondo_numero+=1; terzo_numero = 0; quarto_numero = 0;
-
-                if(secondo_numero == 256){ primo_numero+=1 ;secondo_numero = 0; terzo_numero = 0; quarto_numero = 0;
-
-                    if(primo_numero == 256){ primo_numero = 0 ;secondo_numero = 0; terzo_numero = 0; quarto_numero = 0;}
-                }
-            }
-        
-        }
-    }
-    return wildcard_bits = std::to_string(primo_numero)+"."+std::to_string(secondo_numero)+"."+std::to_string(terzo_numero)+"."+std::to_string(quarto_numero);
-}
-
-string FIRST_ID(unsigned int total_hosts, string input, string wildcard_bits){
-    vector<short int> numeri = setNumeri(input);
-    vector<short int> wildcard_numeri = setNumeri(wildcard_bits);
-    
-    string primo_numero = return_decimale_binario(std::to_string(numeri[0]));
-    string secondo_numero = return_decimale_binario(std::to_string(numeri[1]));
-    string terzo_numero = return_decimale_binario(std::to_string(numeri[2]));
-    string quarto_numero = return_decimale_binario(std::to_string(numeri[3]));
-    string IP;
-
-    return IP = primo_numero+"."+secondo_numero+"."+terzo_numero+"."+quarto_numero;
-}
-
-vector<std::array<string, 3>> INFORMAZIONI(string classe, string classi){
+vector<std::array<string, 5>> INFORMAZIONI(string classe, string classi, string IP){
     string CLASSE = classe;
     string SUBNET_MASK;
+
     if(CLASSE == "C"){SUBNET_MASK = "255.255.255."+classi;}
     else if(CLASSE == "B"){SUBNET_MASK = "255.255."+classi+".0";}
     else if(CLASSE == "A"){SUBNET_MASK = "255."+classi+".0.0";}
     else if(CLASSE == ""){SUBNET_MASK = classi+".0.0.0";}
     string TOTAL_HOST = valore_IP(setNumeri(SUBNET_MASK))[0][2];
 
-    vector<std::array<string, 3>> informazioni = {{CLASSE, SUBNET_MASK, TOTAL_HOST}};
+    //WILDCARD BITS
+    vector<short int> numeri = setNumeri(SUBNET_MASK);
+    short int N1 = numeri[0];
+    short int N2 = numeri[1];
+    short int N3 = numeri[2];
+    short int N4 = numeri[3];
+
+    string Wildcard_Bits = std::to_string(255-N1)+"."+std::to_string(255-N2)+"."+std::to_string(255-N3)+"."+std::to_string(255-N4);
+
+    //FIRST ID
+    vector<short int> numeri0 = setNumeri(IP);
+    short int Num1 = numeri0[0];
+    short int Num2 = numeri0[1];
+    short int Num3 = numeri0[2];
+    short int Num4 = numeri0[3];
+
+    string IP__N1___binario = return_decimale_binario(std::to_string(Num1));
+    string IP__N2___binario = return_decimale_binario(std::to_string(Num2));
+    string IP__N3___binario = return_decimale_binario(std::to_string(Num3));
+    string IP__N4___binario = return_decimale_binario(std::to_string(Num4));
+
+    string Wildcard_Bits__N1___binario = return_decimale_binario(std::to_string(255-N1));
+    string Wildcard_Bits__N2___binario = return_decimale_binario(std::to_string(255-N2));
+    string Wildcard_Bits__N3___binario = return_decimale_binario(std::to_string(255-N3));
+    string Wildcard_Bits__N4___binario = return_decimale_binario(std::to_string(255-N4));
+
+    string SUBNET_MASK__N1___binario = return_decimale_binario(std::to_string(N1));
+    string SUBNET_MASK__N2___binario = return_decimale_binario(std::to_string(N2));
+    string SUBNET_MASK__N3___binario = return_decimale_binario(std::to_string(N3));
+    string SUBNET_MASK__N4___binario = return_decimale_binario(std::to_string(N4));
+
+    string Wildcard_Bits___binario = Wildcard_Bits__N1___binario+Wildcard_Bits__N2___binario+Wildcard_Bits__N3___binario+Wildcard_Bits__N4___binario;
+    string SUBNET_MASK___binario = SUBNET_MASK__N1___binario+SUBNET_MASK__N2___binario+SUBNET_MASK__N3___binario+SUBNET_MASK__N4___binario;
+    string IP___binario = IP__N1___binario+IP__N2___binario+IP__N3___binario+IP__N4___binario;
+    
+    string FIRST_ID, FIRST_ID1;
+    string parte;
+    int count = 1;
+    for(char i = 0; i < IP___binario.size(); i++){
+        int a, b;
+        if(IP___binario[i] == 48){a = 0;} else {a = 1;}
+        if(SUBNET_MASK___binario[i] == 48){b = 0;} else {b = 1;}
+        parte += std::to_string(a&b);
+
+        if(count % 8 == 0){ 
+            if(count == 32){ 
+                FIRST_ID += std::to_string(return_binario_decimale(parte)); 
+                FIRST_ID1 += parte;
+                break; }
+            FIRST_ID += std::to_string(return_binario_decimale(parte))+".";
+            FIRST_ID1 += parte;
+            parte="";
+        }
+        count++;
+    }
+
+    vector<std::array<string, 5>> informazioni = {{CLASSE, SUBNET_MASK, TOTAL_HOST, Wildcard_Bits, FIRST_ID}};
     return informazioni;
 }
 
 void trova_range_IP(string input){
-    vector<std::array<string, 3>> informazioni;
+    vector<std::array<string, 5>> informazioni;
     size_t pos = input.find('/');
-
+    string identificatore;
+    string IP;
     if (pos != string::npos) {
-        string identificatore = input.substr(pos); // esempio /24
+        identificatore = input.substr(pos); // esempio /24
+        IP = input.substr(0, pos); 
 
         for(char  i = 0; i < classi.size(); i++){
             for(char j = 0; j < 4; j++){
                 if(identificatore == classi[i].second[j]){
                     switch(j){
-                        case 0: informazioni = INFORMAZIONI("C", std::to_string(classi[i].first));break;
-                        case 1: informazioni = INFORMAZIONI("B", std::to_string(classi[i].first));break;
-                        case 2: informazioni = INFORMAZIONI("A", std::to_string(classi[i].first));break;
-                        case 3: informazioni = INFORMAZIONI("", std::to_string(classi[i].first));break;
+                        case 0: informazioni = INFORMAZIONI("C", std::to_string(classi[i].first), IP);break;
+                        case 1: informazioni = INFORMAZIONI("B", std::to_string(classi[i].first), IP);break;
+                        case 2: informazioni = INFORMAZIONI("A", std::to_string(classi[i].first), IP);break;
+                        case 3: informazioni = INFORMAZIONI("", std::to_string(classi[i].first), IP);break;
                     }
                 }
             }
         }
     } 
     unsigned int hosts = std::stoul(informazioni[0][2]);
-    cout<<"\n\nCLASSE "<<informazioni[0][0]
-            <<"\n\tSUBNET MASK: "<<informazioni[0][1]
+    cout<<"host: "<<IP<<identificatore
+
+        <<"\n\nCLASSE "<<informazioni[0][0]
+            <<"\n\tNETMASK: "<<informazioni[0][1]
             <<"\n\tTOTAL HOSTS: "<<informazioni[0][2]<<"\n\n"
             
-            <<"\n\tWILDCARD BITS: "<<WILDCARD_BITS(hosts)<<"\n"
-            <<"\n\tFIRST ID: "<<FIRST_ID(hosts, input, WILDCARD_BITS(hosts))<<"\n";
+            <<"\n\tWILDCARD BITS: "<<informazioni[0][3]
+            <<"\n\tFIRST ID: "<<informazioni[0][4]<<"\n";
 }
 

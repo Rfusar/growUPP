@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CORSI</title>
+</head>
+<body>
+
+    <input type="file" id="fileInput" accept=".json">
+    <div id="report"></div>
+    <div id="menu"></div>
+
+
+<script>
+    document.getElementById('fileInput').addEventListener('change', LETTURA);
+
+    
+    function LETTURA(event) {
+        const fileInput = event.target;
+        const file = fileInput.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                //LETTURA corsi.json E CARICAMENTO IN links ==> { {[]}, {[]}, {[]}, ... }
+                try {
+                    const jsonData = JSON.parse(e.target.result);
+                    for(const T of Object.keys(jsonData)){
+                        const links = []
+                        for(const i in jsonData[T]){
+                            //impostazioni link
+                            const link = document.createElement("a")
+                            link.setAttribute("href", Object.values(jsonData[T][i])[0])
+                            link.setAttribute("target", "_blanck")
+                            link.textContent = Object.keys(jsonData[T][i])[0]
+                            links.push(link)  
+                        }
+                        a_schermo(document.querySelector("#menu"), T, links)
+                    }
+                } 
+                catch(e){ 
+                    document.querySelector("#report").append(document.createElement('p').textContent = "caricamneto variabile: FALLIMENTO\n\nperche:\n\t"+e)  
+                }
+            };
+            reader.readAsText(file);
+        }
+    }
+
+    function a_schermo(display, TITOLO, links){
+        const titolo = document.createElement("h2")
+        titolo.style.marginBottom = "10px"
+        titolo.textContent = TITOLO
+        display.append(titolo)
+        for(const i of links){
+            display.append(i)
+            display.append(document.createElement("br"))
+        }
+    }
+
+    
+</script>
+    
+</body>
+</html>

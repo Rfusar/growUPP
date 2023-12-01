@@ -121,41 +121,37 @@ string return_decimale_binario(string n){
 
 int return_binario_decimale(string n){
     std::stack<int> numeri0;
-
-    for (int i = 0; i < n.size(); i++) {
-        char x = n[i];
-        int intValue = x - '0';
-        /*
-            Quando hai un carattere numerico ('0' - '9') in C++, 
-            puoi convertirlo in un valore numerico sottraendo il valore del carattere '0'. 
-            Questo è possibile perché i caratteri numerici sono disposti in ordine crescente 
-            nei set di caratteri ASCII.
-        */
-
-        if (intValue == 0 || intValue == 1) {
-            numeri0.push(intValue);
-        } else {
-            std::cerr << "Errore: Carattere diverso da '0' e '1'";
-            break; 
+    string n0;
+    for(int i = 0; i < n.size();i++){
+        if(n[i] == '1'){ 
+            for(int j = i; j < n.size(); j++){ n0 += n[j]; }
+            break;
         }
     }
+    int decimale = 0;
+    int bitValue = 1;
 
-    int count = 0;
-    std::stack<int> numeri1;
-    while (!numeri0.empty()) {
-        if (numeri0.top() == 1) {
-            int x = 1 << count;  // Uso di bitshift per calcolare 2^count
-            numeri1.push(x);
+    for (int k = n0.size() - 1; k >= 0; k--) {
+        if (n0[k] == '1') {
+            decimale += bitValue;
         }
-        numeri0.pop();
-        count++;
+        bitValue *= 2;
     }
-
-    int somma = 0;
-    while (!numeri1.empty()) {
-        somma += numeri1.top();
-        numeri1.pop();
-    }
-
-    return somma;
+    return decimale;
 }
+
+
+
+
+//per prendere i numeri <n>.<n>.<n>.<n>
+vector<short int> setNumeri(string input){
+    vector<short int> numeri;
+    std::istringstream ss(input);
+    string token;
+    while (std::getline(ss, token, '.')) {
+        short int numero = std::stoi(token);
+        numeri.push_back(numero);
+    }
+    return numeri;
+}
+
