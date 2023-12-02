@@ -116,10 +116,11 @@ int main(){
     };
     Menu_appunti.link = {
         //CORSI
-        {"informatica", cmd+"C:\\Users\\Utente\\Desktop\\growUPP\\apps\\appunti\\corsi\\informatica.html"},
-        {"matematica", cmd+"C:\\Users\\Utente\\Desktop\\growUPP\\apps\\appunti\\corsi\\matematica.html"},
+        {"Informatica", cmd+"C:\\Users\\Utente\\Desktop\\growUPP\\apps\\appunti\\corsi\\informatica.html"},
+        {"Matematica", cmd+"C:\\Users\\Utente\\Desktop\\growUPP\\apps\\appunti\\corsi\\matematica.html"},
         {"Concetti", cmd+"C:\\Users\\Utente\\Desktop\\growUPP\\apps\\appunti\\appuntiMATH\\conceti.html"},
-        {"pagina_musica", cmd+"C:\\Users\\Utente\\Desktop\\growUPP\\apps\\appunti\\corsi\\musica.html"},
+        {"Pagina_musica", cmd+"C:\\Users\\Utente\\Desktop\\growUPP\\apps\\appunti\\corsi\\musica.html"},
+        {"Generale", cmd+"C:\\Users\\Utente\\Desktop\\growUPP\\apps\\appunti\\corsi\\generale.html"},
     };
     Internet.link = {
         {"networking", cmd+"https://youtu.be/xmpYfyNmWbw"},
