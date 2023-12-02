@@ -25,7 +25,7 @@ void risposta(Dataset dati, string risposta){
         }
     }
 }
-void iterazione(vector<Dataset> totale, string titoli[]){
+void iterazione(vector<Dataset> totale, vector<string> titoli){
     string INPUT1; 
     system("cls");
     for(int i = 0; i < totale.size(); i++){ MENU(totale[i], titoli[i]); };
@@ -45,10 +45,10 @@ string cmd = "start msedge ";
 
 int main(){
     Web.link = {
-        {"html_W3school", cmd+"https://www.w3schools.com/html/default.asp" },
-        {"css_W3school", cmd+"https://www.w3schools.com/css/default.asp"},
-        {"css_video",cmd+"https://youtu.be/OXGznpKZ_sA?si=Fc_CdIKeXmdf5jFo"},
-        {"html_e_css___video",cmd+"https://youtu.be/dX8396ZmSPk?si=NBL_RYc5B8vNOZ0X"},
+        {"Docs_protocolli_internet", cmd+"https://www.rfc-editor.org" },
+        {"W3school", cmd+"https://www.w3schools.com"},
+        {"HTML5_video",cmd+"https://youtu.be/kUMe1FH4CHE?si=KP8NdjDikfPjHIzX"},
+        {"CSS_video",cmd+"https://youtu.be/OXGznpKZ_sA?si=Fc_CdIKeXmdf5jFo"},
     };
     C.link = {
         {"C_base", cmd+"https://youtu.be/Bz4MxDeEM6k?si=J_YPBNmXu5rS_Wll"},
@@ -120,16 +120,6 @@ int main(){
         {"matematica", cmd+"C:\\Users\\Utente\\Desktop\\growUPP\\apps\\appunti\\corsi\\matematica.html"},
         {"Concetti", cmd+"C:\\Users\\Utente\\Desktop\\growUPP\\apps\\appunti\\appuntiMATH\\conceti.html"},
         {"pagina_musica", cmd+"C:\\Users\\Utente\\Desktop\\growUPP\\apps\\appunti\\corsi\\musica.html"},
-        //INFORMATICA
-        {"git","type C:\\Users\\Utente\\Desktop\\growUPP\\apps\\appunti\\linguaggi\\git.txt | more"},
-        {"javascript","type C:\\Users\\Utente\\Desktop\\growUPP\\apps\\appunti\\linguaggi\\javascript.txt | more"},
-        {"windows","type C:\\Users\\Utente\\Desktop\\growUPP\\apps\\appunti\\linguaggi\\windows.txt | more"},
-        {"linux","type C:\\Users\\Utente\\Desktop\\growUPP\\apps\\appunti\\linguaggi\\linux.txt | more"},
-        //RETI E INTERNET
-        {"RETI_E_INTERNET___cap_1","cls && type C:\\Users\\Utente\\Desktop\\growUPP\\apps\\appunti\\reti_e_internet\\capitolo_1.txt | more"},
-        {"RETI_E_INTERNET___cap_2","cls && type C:\\Users\\Utente\\Desktop\\growUPP\\apps\\appunti\\reti_e_internet\\capitolo_2.txt | more"},
-        {"RETI_E_INTERNET___cap_3_A","cls && type C:\\Users\\Utente\\Desktop\\growUPP\\apps\\appunti\\reti_e_internet\\capitolo_3\\collegamenti_punto-a-punto.txt | more"},
-        {"RETI_E_INTERNET___cap_3_B","cls && type C:\\Users\\Utente\\Desktop\\growUPP\\apps\\appunti\\reti_e_internet\\capitolo_3\\reti_multipunto.txt | more"}
     };
     Internet.link = {
         {"networking", cmd+"https://youtu.be/xmpYfyNmWbw"},
@@ -161,9 +151,12 @@ int main(){
         {"ps2", "\"C:\\Program Files (x86)\\PCSX2\\pcsx2.exe\""},
         {"fl", "\"C:\\Program Files (x86)\\Image-Line\\FL Studio 20\\FL64.exe\""},
         {"linux", "\"C:\\Program Files\\Oracle\\VirtualBox\\VirtualBox.exe\""},
+        {"putty", "C:\\Users\\Utente\\Desktop\\growUPP\\apps\\putty.exe"},
         {"musica", "C:\\Users\\Utente\\Desktop\\growUPP\\apps\\musica_studio.exe"},
         {"subnet", "C:\\Users\\Utente\\Desktop\\growUPP\\apps\\subnet.exe"},
-        {"putty", "C:\\Users\\Utente\\Desktop\\growUPP\\apps\\putty.exe"},
+        {"calcolatrice_resistenza__colori", cmd+"C:\\Users\\Utente\\Desktop\\growUPP\\apps\\calc_resistenza.html"},
+        {"tabella___salute_famiglia", cmd+"C:\\Users\\Utente\\Desktop\\salute_famiglia\\salute_famiglia.html"},
+        {"APP_java", cmd+"C:\\Users\\Utente\\Desktop\\growUPP\\apps\\App.jar"},
     };
     Economia_aziendale.link = {
         {"Acconto_IVA",cmd+"C:\\Users\\Utente\\Desktop\\presenze_lavoro\\ECONOMIA_AZIENDALE\\acconto_iva.pdf"},
@@ -189,39 +182,26 @@ int main(){
         {"WEB_PAGE", "cd C:\\Users\\Utente\\Desktop\\presenze_lavoro\\esercizi\\progettoAndrea2 && start code C:\\Users\\Utente\\Desktop\\presenze_lavoro\\esercizi\\progettoAndrea2 && start msedge http://127.0.0.1:5000 && C:\\Users\\Utente\\Desktop\\presenze_lavoro\\esercizi\\progettoAndrea2\\venv\\Scripts\\activate && python run.py"},
         {"conn_remoto", "C:\\Users\\Utente\\Desktop\\growUPP\\apps\\AnyDesk.exe"},
     };
-    //*MOSTRA A SCHERMO
+
     system("cls");
-    cout << "LINGUAGGI\t\t\t DATABASE\t\t\t PROGRAMMI\t\t\t OS\t\t\t MICROSERVIZI\t\t\t ALTRO\n\n";
+    vector<std::pair<string, std::pair<vector<string>, vector<Dataset>>>> Menu = {
+        //{nome campo, {titoli campi}, {dataset} }
+        {"LINGUAGGI", { {"Web", "C", "Cpp", "Java", "Javascript", "Kotlin", "Go", "Durt"}, {Web, C, Cpp, Java, Javascript, Kotlin, Go, Durt} } },
+        {"DATABASE", { {"database"}, {Database} } }, 
+        {"PROGRAMMI", { {"programmi"}, {Programmi} } }, 
+        {"OS", { {"linux", "windows"}, {Linux, Windows} } }, 
+        {"MICROSERVIZI", { {"Docker", "Kubernetes"}, {Docker, Kubernetes} } }, 
+        {"ALTRO", { {"Menu_appunti", "Internet", "PC", "Economia_aziendale", "Libri", "Lavoro"}, {Menu_appunti, Internet, PC, Economia_aziendale, Libri, Lavoro} } }
+    };
+    //A SCHERMO
+    for(char i = 0;i<Menu.size();i++){cout<<Menu[i].first<<"\t\t\t ";}
     std::cin >> INPUT;
-    if(INPUT == "LINGUAGGI"){
-        vector<Dataset> totale = {Web, C, Cpp, Java, Javascript, Kotlin, Go, Durt}; 
-        string titoli[] = {"Web", "C", "Cpp", "Java", "Javascript", "Kotlin", "Go", "Durt"};
-        iterazione(totale, titoli);
-    }
-    else if(INPUT == "DATABASE"){
-        vector<Dataset> totale = {Database}; 
-        string titoli[] = {"Database"};
-        iterazione(totale, titoli);
-    }
-    else if(INPUT == "PROGRAMMI"){
-        vector<Dataset> totale = {Programmi}; 
-        string titoli[] = {"Programmi"};
-        iterazione(totale, titoli);
-    }
-    else if(INPUT == "OS"){
-        vector<Dataset> totale = {Linux, Windows}; 
-        string titoli[] = {"Linux", "Windows"};
-        iterazione(totale, titoli);
-    }
-    else if(INPUT == "MICROSERVIZI"){
-        vector<Dataset> totale = {Docker, Kubernetes}; 
-        string titoli[] = {"Docker", "Kubernetes"};
-        iterazione(totale, titoli);
-    }
-    else if(INPUT == "ALTRO"){
-        vector<Dataset> totale = {Menu_appunti, Internet, PC, Economia_aziendale, Libri, Lavoro}; 
-        string titoli[] = {"Menu_appunti", "Internet", "PC", "Economia_aziendale", "Libri", "Lavoro"}; 
-        iterazione(totale, titoli);
+    for(char i = 0;i<Menu.size();i++){
+        if(INPUT == Menu[i].first){
+            vector<Dataset> TOTALE = Menu[i].second.second;
+            vector<string> TITOLI = Menu[i].second.first;
+            iterazione(TOTALE, TITOLI);
+        }
     }
     return 0;
 }

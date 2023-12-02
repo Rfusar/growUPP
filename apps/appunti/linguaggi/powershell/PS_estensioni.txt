@@ -1,0 +1,41 @@
+-ESTENSIONI
+        --
+            Le estensioni per i file PowerShell e le loro differenze possono essere riferite a diversi 
+              contesti, ma in generale, le estensioni dei file in PowerShell sono importanti perché aiutano a 
+              identificare il tipo di file e il suo contenuto. Le estensioni comuni per i file PowerShell includono 
+            
+              .ps1, .psm1, .psd1, .ps1xml, .pssc, .psrc.
+
+
+            Ecco alcune delle estensioni più comuni per i file PowerShell e le loro differenze:
+
+            .ps1: l'estensione più comune per gli script PowerShell. 
+              I file .ps1 contengono codice PowerShell eseguibile.
+
+            .psm1: utilizzata per i moduli PowerShell. I moduli sono pacchetti di funzionalità 
+              PowerShell che possono contenere funzioni, cmdlet, variabili, ecc. I file .psm1 contengono il codice di un modulo.
+
+            .psd1: per i file di dati dei moduli PowerShell. I file .psd1 contengono metadati, impostazioni e informazioni sulle dipendenze di un modulo.
+
+            .ps1xml: Questa estensione è utilizzata per definire file di formattazione personalizzata. I file .ps1xml definiscono 
+              come dovrebbero essere visualizzati gli oggetti PowerShell.
+
+            .pssc: Questa estensione è utilizzata per i file di configurazione dello stato di sessione PowerShell. I file .pssc 
+              vengono utilizzati per definire le configurazioni delle sessioni PowerShell.
+
+            .psrc: Questa estensione è utilizzata per i file di configurazione del profilo PowerShell. I file .psrc vengono 
+              utilizzati per configurare l'ambiente di PowerShell per l'utente corrente.
+
+            
+            Queste estensioni riflettono la diversità di scopi e funzionalità che PowerShell può offrire. Ad esempio, .ps1 
+              è l'estensione principale per gli script, mentre .psm1 e .psd1 sono associati ai moduli. 
+              I file di formattazione personalizzata utilizzano .ps1xml per definire come visualizzare i dati. I file .pssc e .psrc 
+              sono utilizzati per configurare lo stato di sessione e il profilo dell'utente.
+
+
+
+
+
+
+  
+.

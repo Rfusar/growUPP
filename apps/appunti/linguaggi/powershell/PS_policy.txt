@@ -1,0 +1,29 @@
+﻿COSE UTILI:
+
+
+    --ESECUZIONE DI FILE POWERSHELL 
+
+        Set-ExecutionPolicy  -----> Se desideri impedire all'utente di eseguire script PowerShell locali (file .ps1) 
+                                                        sul proprio sistema, puoi farlo limitando l'esecuzione degli script attraverso la 
+                                                        "Execution Policy" di PowerShell. L'Execution Policy è una misura di sicurezza che controlla quale tipo di script 
+                                                        è consentito sull'ambiente. Puoi configurare diverse opzioni di Execution Policy, ad esempio:
+
+                -Restricted: 
+                    Nessuno script è consentito. Questa è la policy più restrittiva.
+
+                -AllSigned: 
+                    Gli script devono essere firmati digitalmente da un autore affidabile.
+
+                -RemoteSigned: 
+                    Gli script locali possono essere eseguiti senza firma, ma quelli scaricati dalla rete devono essere firmati.
+
+                -Unrestricted: 
+                    Tutti gli script possono essere eseguiti.
+
+
+
+
+        
+
+
+.
