@@ -151,12 +151,11 @@ int main(){
         //PROGRAMMI
         {"ps2", "\"C:\\Program Files (x86)\\PCSX2\\pcsx2.exe\""},
         {"fl", "\"C:\\Program Files (x86)\\Image-Line\\FL Studio 20\\FL64.exe\""},
-        {"linux", "\"C:\\Program Files\\Oracle\\VirtualBox\\VirtualBox.exe\""},
-        {"putty", "C:\\Users\\Utente\\Desktop\\growUPP\\apps\\putty.exe"},
         {"musica", "C:\\Users\\Utente\\Desktop\\growUPP\\apps\\musica_studio.exe"},
         {"subnet", "C:\\Users\\Utente\\Desktop\\growUPP\\apps\\subnet.exe"},
         {"calcolatrice_resistenza__colori", cmd+"C:\\Users\\Utente\\Desktop\\growUPP\\apps\\calc_resistenza.html"},
-        {"tabella___salute_famiglia", cmd+"C:\\Users\\Utente\\Desktop\\salute_famiglia\\salute_famiglia.html"},
+        {"tabella___salute_famiglia", cmd+"C:\\Users\\Utente\\Desktop\\salute_famiglia\\check_generico\\salute_famiglia.html"},
+        {"tabella___check_pastiglie", cmd+"C:\\Users\\Utente\\Desktop\\salute_famiglia\\check_pastiglie\\check_pastiglie.html"},
         {"APP_java", cmd+"C:\\Users\\Utente\\Desktop\\growUPP\\apps\\App.jar"},
     };
     Economia_aziendale.link = {
@@ -181,6 +180,8 @@ int main(){
     Lavoro.link = {
         {"API_GO", "cd C:\\Users\\Utente\\Desktop\\presenze_lavoro\\esercizi\\progetto_api_GO && start code C:\\Users\\Utente\\Desktop\\presenze_lavoro\\esercizi\\progetto_api_GO"},
         {"WEB_PAGE", "cd C:\\Users\\Utente\\Desktop\\presenze_lavoro\\esercizi\\progettoAndrea2 && start code C:\\Users\\Utente\\Desktop\\presenze_lavoro\\esercizi\\progettoAndrea2 && start msedge http://127.0.0.1:5000 && C:\\Users\\Utente\\Desktop\\presenze_lavoro\\esercizi\\progettoAndrea2\\venv\\Scripts\\activate && python run.py"},
+        {"linux", "\"C:\\Program Files\\Oracle\\VirtualBox\\VirtualBox.exe\""},
+        {"putty", "C:\\Users\\Utente\\Desktop\\growUPP\\apps\\putty.exe"},
         {"conn_remoto", "C:\\Users\\Utente\\Desktop\\growUPP\\apps\\AnyDesk.exe"},
     };
 
@@ -195,7 +196,8 @@ int main(){
         {"ALTRO", { {"Menu_appunti", "Internet", "PC", "Economia_aziendale", "Libri", "Lavoro"}, {Menu_appunti, Internet, PC, Economia_aziendale, Libri, Lavoro} } }
     };
     //A SCHERMO
-    for(char i = 0;i<Menu.size();i++){cout<<Menu[i].first<<"\t\t\t ";}
+    for(char i = 0;i<Menu.size();i++){cout<<Menu[i].first<<"\t\t\t";}
+    cout<<"\n\n\n: ";
     std::cin >> INPUT;
     for(char i = 0;i<Menu.size();i++){
         if(INPUT == Menu[i].first){

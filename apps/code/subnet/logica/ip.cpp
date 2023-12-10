@@ -13,7 +13,7 @@ vector<pair<unsigned char, vector<string>>> classi = {
 //CLASSE :   C      B      A     
 };
 
-vector<std::array<string, 5>> INFORMAZIONI(string classe, string classi, string IP){
+vector<std::array<string, 6>> INFORMAZIONI(string classe, string classi, string IP){
     string CLASSE = classe;
     string SUBNET_MASK;
 
@@ -24,74 +24,70 @@ vector<std::array<string, 5>> INFORMAZIONI(string classe, string classi, string 
     string TOTAL_HOST = valore_IP(setNumeri(SUBNET_MASK))[0][2];
 
     //WILDCARD BITS
+    string Wildcard_Bits;
     vector<short int> numeri = setNumeri(SUBNET_MASK);
-    short int N1 = numeri[0];
-    short int N2 = numeri[1];
-    short int N3 = numeri[2];
-    short int N4 = numeri[3];
-
-    string Wildcard_Bits = std::to_string(255-N1)+"."+std::to_string(255-N2)+"."+std::to_string(255-N3)+"."+std::to_string(255-N4);
+    for(char i = 0;i<4;i++){
+        if(i == 3){ Wildcard_Bits+=std::to_string(255-numeri[i]);break;}
+        Wildcard_Bits+=std::to_string(255-numeri[i])+".";
+    }
 
     //FIRST ID
     vector<short int> numeri0 = setNumeri(IP);
-    short int Num1 = numeri0[0];
-    short int Num2 = numeri0[1];
-    short int Num3 = numeri0[2];
-    short int Num4 = numeri0[3];
+    string IP_binario, Wildcards_binario, SubnetMask_binario;
+    for(char i = 0;i < 4 ;i++){
+        string IP_Ni = return_decimale_binario(std::to_string(numeri0[i])); IP_binario += IP_Ni;
+        string Wildcards_Ni = return_decimale_binario(std::to_string(255-numeri[i])); Wildcards_binario += Wildcards_Ni;
+        string Subnet_Ni = return_decimale_binario(std::to_string(numeri[i])); SubnetMask_binario += Subnet_Ni;
+    }
 
-    string IP__N1___binario = return_decimale_binario(std::to_string(Num1));
-    string IP__N2___binario = return_decimale_binario(std::to_string(Num2));
-    string IP__N3___binario = return_decimale_binario(std::to_string(Num3));
-    string IP__N4___binario = return_decimale_binario(std::to_string(Num4));
-
-    string Wildcard_Bits__N1___binario = return_decimale_binario(std::to_string(255-N1));
-    string Wildcard_Bits__N2___binario = return_decimale_binario(std::to_string(255-N2));
-    string Wildcard_Bits__N3___binario = return_decimale_binario(std::to_string(255-N3));
-    string Wildcard_Bits__N4___binario = return_decimale_binario(std::to_string(255-N4));
-
-    string SUBNET_MASK__N1___binario = return_decimale_binario(std::to_string(N1));
-    string SUBNET_MASK__N2___binario = return_decimale_binario(std::to_string(N2));
-    string SUBNET_MASK__N3___binario = return_decimale_binario(std::to_string(N3));
-    string SUBNET_MASK__N4___binario = return_decimale_binario(std::to_string(N4));
-
-    string Wildcard_Bits___binario = Wildcard_Bits__N1___binario+Wildcard_Bits__N2___binario+Wildcard_Bits__N3___binario+Wildcard_Bits__N4___binario;
-    string SUBNET_MASK___binario = SUBNET_MASK__N1___binario+SUBNET_MASK__N2___binario+SUBNET_MASK__N3___binario+SUBNET_MASK__N4___binario;
-    string IP___binario = IP__N1___binario+IP__N2___binario+IP__N3___binario+IP__N4___binario;
-    
-    string FIRST_ID, FIRST_ID1;
-    string parte;
+    string FIRST_ID, parte;
     int count = 1;
-    for(char i = 0; i < IP___binario.size(); i++){
+    for(char i = 0; i < IP_binario.size(); i++){
         int a, b;
-        if(IP___binario[i] == 48){a = 0;} else {a = 1;}
-        if(SUBNET_MASK___binario[i] == 48){b = 0;} else {b = 1;}
+        if(IP_binario[i] == 48){a = 0;} else {a = 1;}
+        if(SubnetMask_binario[i] == 48){b = 0;} else {b = 1;}
         parte += std::to_string(a&b);
 
         if(count % 8 == 0){ 
-            if(count == 32){ 
-                FIRST_ID += std::to_string(return_binario_decimale(parte)); 
-                FIRST_ID1 += parte;
-                break; }
+            if(count == 32){ FIRST_ID += std::to_string(return_binario_decimale(parte)); break; }
             FIRST_ID += std::to_string(return_binario_decimale(parte))+".";
-            FIRST_ID1 += parte;
             parte="";
         }
         count++;
     }
 
-    vector<std::array<string, 5>> informazioni = {{CLASSE, SUBNET_MASK, TOTAL_HOST, Wildcard_Bits, FIRST_ID}};
+    //LAST ID
+    unsigned int hosts = std::stoul(TOTAL_HOST);
+    vector<short int> numeri_FirstId = setNumeri(FIRST_ID);
+    short int n1 = numeri_FirstId[0];
+    short int n2 = numeri_FirstId[1];
+    short int n3 = numeri_FirstId[2];
+    short int n4 = numeri_FirstId[3];
+    for(unsigned int i = 0; i < hosts-1; i++){
+        n4 += 1;
+        if(n4 == 256){ n3+=1; n4 = 0;
+
+            if(n3 == 256){ n2+=1; n3 = 0;}
+
+                if(n2 == 256){ n1+=1; n2 = 0;}
+
+                    if(n1 == 255){break;}
+        }
+    }
+    string LAST_ID = std::to_string(n1)+"."+std::to_string(n2)+"."+std::to_string(n3)+"."+std::to_string(n4);
+
+
+    vector<std::array<string, 6>> informazioni = {{CLASSE, SUBNET_MASK, TOTAL_HOST, Wildcard_Bits, FIRST_ID, LAST_ID}};
     return informazioni;
 }
 
 void trova_range_IP(string input){
-    vector<std::array<string, 5>> informazioni;
+    vector<std::array<string, 6>> informazioni;
     size_t pos = input.find('/');
-    string identificatore;
-    string IP;
+    string IP, identificatore;
     if (pos != string::npos) {
-        identificatore = input.substr(pos); // esempio /24
         IP = input.substr(0, pos); 
-
+        identificatore = input.substr(pos); // esempio /24
         for(char  i = 0; i < classi.size(); i++){
             for(char j = 0; j < 4; j++){
                 if(identificatore == classi[i].second[j]){
@@ -105,7 +101,7 @@ void trova_range_IP(string input){
             }
         }
     } 
-    unsigned int hosts = std::stoul(informazioni[0][2]);
+    system("cls");
     cout<<"host: "<<IP<<identificatore
 
         <<"\n\nCLASSE "<<informazioni[0][0]
@@ -113,6 +109,7 @@ void trova_range_IP(string input){
             <<"\n\tTOTAL HOSTS: "<<informazioni[0][2]<<"\n\n"
             
             <<"\n\tWILDCARD BITS: "<<informazioni[0][3]
-            <<"\n\tFIRST ID: "<<informazioni[0][4]<<"\n";
+            <<"\n\tFIRST ID: "<<informazioni[0][4]
+            <<"\n\tLAST ID: "<<informazioni[0][5]<<"\n";
 }
 

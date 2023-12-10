@@ -1,30 +1,30 @@
 ♠♠♠♠♠♠♠♠♠♠♠♠♠♠ISTAT-NEWS♠♠♠♠♠♠♠♠♠♠♠
-data: 24 novembre 2023
-titolo: Indicatori sui musei e sulle biblioteche
-paragrafo: Aggiornamento degli indicatori e relativi dati di base sulle biblioteche per l’anno 2021
+data: 01 dicembre 2023
+titolo: Conti economici trimestrali - III trimestre 2023
+paragrafo: Nel III trimestre 2023, Pil +0,1% rispetto al trimestre precedente; +0,1% in termini tendenziali
 
 ♠♠♠♠♠♠♠♠♠♠♠♠♠♠ISTAT-NEWS♠♠♠♠♠♠♠♠♠♠♠
-data: 24 novembre 2023
-titolo: Le vittime di omicidio - Anno 2022
-paragrafo: Nel 2022, 322 omicidi +6,2% rispetto al 2021, 126 donne e 196 uomini; tasso omicidi 0,55 per 100mila abitanti
+data: 01 dicembre 2023
+titolo: Misure di produttività
+paragrafo: Nel 2022 produttività del capitale +2,7%, produttività totale dei fattori +0,4%, produttività del lavoro -0,7%
 
 ♠♠♠♠♠♠♠♠♠♠♠♠♠♠ISTAT-NEWS♠♠♠♠♠♠♠♠♠♠♠
-data: 24 novembre 2023
-titolo: I Centri antiviolenza e le donne che hanno avviato il percorso di uscita dalla violenza
-paragrafo: Nel 2022 aumenta l’offerta di Centri antiviolenza (sono 385, +3,2% rispetto al 2021; +37% rispetto al 2017)
+data: 01 dicembre 2023
+titolo: Conti fisici dell’ambiente - Anni 2008-2021
+paragrafo: Aggiornata la serie storica dei Conti delle emissioni atmosferiche 2008-2021 e stima provvisoria per l’anno 2022
 
 ♠♠♠♠♠♠♠♠♠♠♠♠♠♠ISTAT-NEWS♠♠♠♠♠♠♠♠♠♠♠
-data: 24 novembre 2023
-titolo: Giornata internazionale contro la violenza sulle donne
-paragrafo: Gli ultimi dati pubblicati sul Sistema informativo Violenza sulle donne
+data: 01 dicembre 2023
+titolo: Siglato il protocollo d’intesa tra MIM e Istat
+paragrafo: Firmato il Protocollo d’Intesa per la promozione e la produzione di analisi statistiche nelle istituzioni scolastiche
 
 ♠♠♠♠♠♠♠♠♠♠♠♠♠♠ISTAT-NEWS♠♠♠♠♠♠♠♠♠♠♠
-data: 24 novembre 2023
-titolo: Occupazione nelle imprese dal 2015 al 2021
-paragrafo: L’Istat rilascia oggi 49 indicatori territoriali sull’occupazione nelle imprese dal Sistema integrato dei registri
+data: 30 novembre 2023
+titolo: Prezzi al consumo (provvisori) - Novembre 2023
+paragrafo: A novembre 2023 l'indice dei prezzi al consumo NIC -0,4% su ottobre e +0,8% in un anno
 
 ♠♠♠♠♠♠♠♠♠♠♠♠♠♠ISTAT-NEWS♠♠♠♠♠♠♠♠♠♠♠
-data: 23 novembre 2023
+data: 30 novembre 2023
 titolo: Il benessere equo e sostenibile dei territori - Anno 2023
-paragrafo: Istat diffonde una lettura integrata degli indicatori BesT per la regione Sicilia
+paragrafo: Istat diffonde una lettura integrata degli indicatori BesT per la regione Molise
 
