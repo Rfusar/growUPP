@@ -25,10 +25,25 @@ echo.
 set /p n=": "
 
 if "%n%" == "-c home_page" (
-    cd apps\code
-    g++ home_page.cpp -o home_page
-    move home_page.exe ..\..
-    cd ..\..
+    cd apps\code\home_page
+    g++ ^
+    ^
+    home_page.cpp ^
+    funcs.cpp ^
+    ^
+    corsi\appunti.cpp ^
+    corsi\internet.cpp ^
+    corsi\lavoro.cpp ^
+    corsi\linguaggi.cpp ^
+    corsi\OS.cpp ^
+    corsi\programmi.cpp ^
+    corsi\tecnologie.cpp ^
+    ^
+    -o home_page
+
+
+    move home_page.exe ..\..\..
+    cd ..\..\..
     echo.
     echo.
     echo.
