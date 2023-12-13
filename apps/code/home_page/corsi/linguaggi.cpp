@@ -1,6 +1,6 @@
 #include "..\home_page.hpp"
 
-Dataset C, Cpp, Java, Javascript, Kotlin, Go, Durt, Database;
+Dataset C, Cpp, Java, Javascript, Kotlin, Go, Durt;
 
 vector<std::pair<string, std::pair<vector<string>, vector<Dataset>>>> Linguaggi(){
     C.link = {
@@ -51,16 +51,13 @@ vector<std::pair<string, std::pair<vector<string>, vector<Dataset>>>> Linguaggi(
         {"Durt", cmd+"https://youtu.be/WxuViERlkyE?si=CWBIK-WyR4965j3X"},
     };
 
-    Database.link = {
-        {"sql", cmd+"https://youtu.be/5OdVJbNCSso?si=LkFaEiLIf52Tr-mR"},
-        {"mongoDB", cmd+"https://youtu.be/c2M-rlkkT5o?si=EYxVmI_aWLJYG06K"},
-    };
+
 
     
     
     vector<std::pair<string, std::pair<vector<string>, vector<Dataset>>>> Menu = {
         //{nome campo, {titoli campi}, {dataset} }
-        {"LINGUAGGI", { {"C", "Cpp", "Java", "Javascript", "Kotlin", "Go", "Durt", "Database"}, {C, Cpp, Java, Javascript, Kotlin, Go, Durt, Database} } }
+        {"LINGUAGGI", { {"C", "Cpp", "Java", "Javascript", "Kotlin", "Go", "Durt"}, {C, Cpp, Java, Javascript, Kotlin, Go, Durt} } }
     };
 
     return Menu;

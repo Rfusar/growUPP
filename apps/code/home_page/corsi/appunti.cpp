@@ -4,7 +4,6 @@ Dataset Menu_appunti, PC, Economia_aziendale, Libri;
 
 vector<std::pair<string, std::pair<vector<string>, vector<Dataset>>>> Appunti(){    
     Menu_appunti.link = {
-        //CORSI
         {"Informatica", cmd+"C:\\Users\\Utente\\Desktop\\growUPP\\apps\\appunti\\corsi\\informatica.html"},
         {"Matematica", cmd+"C:\\Users\\Utente\\Desktop\\growUPP\\apps\\appunti\\corsi\\matematica.html"},
         {"Concetti", cmd+"C:\\Users\\Utente\\Desktop\\growUPP\\apps\\appunti\\appuntiMATH\\conceti.html"},
