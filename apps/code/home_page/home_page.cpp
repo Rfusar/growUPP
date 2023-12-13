@@ -3,7 +3,7 @@
 
 int main(){
     vector<std::pair<string, std::pair<vector<string>, vector<Dataset>>>> CORSI;
-    vector<std::pair<string, std::pair<vector<string>, vector<Dataset>>>> MODULI[] = {Linguaggi(), Tecnologie(), OS(), Appunti(), INTERNET(), LAVORO(),  PROGRAMMI()};
+    vector<std::pair<string, std::pair<vector<string>, vector<Dataset>>>> MODULI[] = {Linguaggi(), Tecnologie(), OS(), Appunti(), INTERNET(), PROGRAMMI(), LAVORO()};
 
     for (const auto& modulo : MODULI) {
         CORSI.insert(CORSI.end(), std::begin(modulo), std::end(modulo));

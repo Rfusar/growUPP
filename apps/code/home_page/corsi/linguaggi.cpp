@@ -50,10 +50,6 @@ vector<std::pair<string, std::pair<vector<string>, vector<Dataset>>>> Linguaggi(
     Durt.link = {
         {"Durt", cmd+"https://youtu.be/WxuViERlkyE?si=CWBIK-WyR4965j3X"},
     };
-
-
-
-    
     
     vector<std::pair<string, std::pair<vector<string>, vector<Dataset>>>> Menu = {
         //{nome campo, {titoli campi}, {dataset} }

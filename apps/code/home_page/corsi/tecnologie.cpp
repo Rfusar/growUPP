@@ -19,7 +19,7 @@ vector<std::pair<string, std::pair<vector<string>, vector<Dataset>>>> Tecnologie
 
     vector<std::pair<string, std::pair<vector<string>, vector<Dataset>>>> Menu = {
         //{nome campo, {titoli campi}, {dataset} }
-        {"MICROSERVIZI", { {"Database", "Docker", "Kubernetes"}, {Database, Docker, Kubernetes} } }
+        {"TECNOLOGIE", { {"Database", "Docker", "Kubernetes"}, {Database, Docker, Kubernetes} } }
     };
 
     return Menu;
