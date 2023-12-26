@@ -10,6 +10,7 @@ vector<std::pair<string, std::pair<vector<string>, vector<Dataset>>>> OS(){
     };
     Windows.link = {
         //POWERSHELL    
+        {"Powershell_base_0", cmd+"https://youtube.com/playlist?list=PL2j0_s2VJe2hzQuQyn6yfMS2olhhs4UnQ&si=ZzY7rl16ZO5ZC8uG"},
         {"Powershell_base_1", cmd+"https://youtu.be/ZOoCaWyifmI?si=J9DzC5dkn4DV5y_M"},
         {"Powershell_base_2", cmd+"https://youtube.com/playlist?list=PLlVtbbG169nFq_hR7FcMYg32xsSAObuq8&si=5yEMjmCU061vO8FU"},
         {"GUI_Poweshell", cmd+"https://youtube.com/playlist?list=PLnK11SQMNnE5_cl8n54h6OXNMnGl5Odtq&si=aI18J93ZmnkvuqLr"},

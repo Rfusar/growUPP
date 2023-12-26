@@ -1,6 +1,6 @@
 #include "..\home_page.hpp"
 
-Dataset Web, Internet;
+Dataset Web, Internet, File;
 
 vector<std::pair<string, std::pair<vector<string>, vector<Dataset>>>> INTERNET(){
     Web.link = {
@@ -15,10 +15,15 @@ vector<std::pair<string, std::pair<vector<string>, vector<Dataset>>>> INTERNET()
         {"protocolli", cmd+"https://it.wikipedia.org/wiki/Protocollo_di_rete"},
     };
 
+    File.link = {
+        {"Requirements_for_Internet_Hosts___Communication_Layers", "curl -k https://www.rfc-editor.org/rfc/rfc1122.txt"}
+    };
+
+
         vector<std::pair<string, std::pair<vector<string>, vector<Dataset>>>> Menu = {
         //{nome campo, {titoli campi}, {dataset} }
  
-        {"INTERNET", { {"Internet", "Web"}, {Internet, Web} } }
+        {"INTERNET", { {"Internet", "Web", "File_specifici"}, {Internet, Web, File} } }
     };
     
     return Menu;

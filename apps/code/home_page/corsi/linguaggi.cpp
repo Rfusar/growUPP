@@ -1,11 +1,13 @@
 #include "..\home_page.hpp"
 
-Dataset C, Cpp, Java, Javascript, Kotlin, Go, Durt;
+Dataset C, Cpp, Zig, Java, Javascript, Kotlin, Go, Durt;
 
 vector<std::pair<string, std::pair<vector<string>, vector<Dataset>>>> Linguaggi(){
     C.link = {
         {"C_base", cmd+"https://youtu.be/Bz4MxDeEM6k?si=J_YPBNmXu5rS_Wll"},
-        {"C_Pointer", cmd+"https://youtu.be/zuegQmMdy8M?si=-GIMiPqH72o2d6V5"}
+        {"C_Pointer", cmd+"https://youtu.be/zuegQmMdy8M?si=-GIMiPqH72o2d6V5"},
+        {"C_socket", cmd+"https://youtu.be/KEiur5aZnIM?si=DCf17YK7F_6tJGdJ"},
+        {"youtuber___un_po_pazzo", cmd+"https://www.youtube.com/@TsodingDaily"}
     };
     Cpp.link = {
         {"Cpp_base", cmd+"https://youtu.be/P2jVybFyh3A?si=U5Il3JGQPu6vZi-S"},
@@ -16,6 +18,12 @@ vector<std::pair<string, std::pair<vector<string>, vector<Dataset>>>> Linguaggi(
         {"Cpp_OOP", cmd+"https://youtu.be/0NwsayeOsd4?si=ieY3PiIEfcBKK4UZ"},
         {"come_funziona_la_CPU_con_C++...", cmd+"https://youtu.be/qJgsuQoy9bc?si=4APGIB_8tm5xuuRz"},
     };
+    Zig.link = {
+        {"Zig_documentazione", cmd+"\"C:\\Program Files (x86)\\zig-windows-x86_64-0.12.0-dev.1834+f36ac227b\\doc\\langref.html\""},
+        {"Zig_documentazione_API", cmd+"\"C:\\Program Files (x86)\\zig-windows-x86_64-0.12.0-dev.1834+f36ac227b\\doc\\std\\index.html\""},
+        {"Zig_esercizi", "cd C:\\Users\\Utente\\Desktop\\proveProgetti\\zig\\exercises\\exercises && dir"},
+        {"Zig_github", cmd+"https://github.com/ziglang"}
+    },
     Java.link = {
         {"Java_base", cmd+"https://youtu.be/xk4_1vDrzzo"},
         {"Java_GUI", cmd+"https://youtu.be/Kmgo00avvEw"},
@@ -53,7 +61,7 @@ vector<std::pair<string, std::pair<vector<string>, vector<Dataset>>>> Linguaggi(
     
     vector<std::pair<string, std::pair<vector<string>, vector<Dataset>>>> Menu = {
         //{nome campo, {titoli campi}, {dataset} }
-        {"LINGUAGGI", { {"C", "Cpp", "Java", "Javascript", "Kotlin", "Go", "Durt"}, {C, Cpp, Java, Javascript, Kotlin, Go, Durt} } }
+        {"LINGUAGGI", { {"C", "Cpp", "Zig", "Java", "Javascript", "Kotlin", "Go", "Durt"}, {C, Cpp, Zig, Java, Javascript, Kotlin, Go, Durt} } }
     };
 
     return Menu;

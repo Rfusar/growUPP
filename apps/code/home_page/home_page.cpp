@@ -12,7 +12,7 @@ int main(){
     //PROGRAMMA
     system("cls");
     string INPUT;
-    for(char i = 0;i<CORSI.size();i++){cout<<CORSI[i].first<<"\t\t\t";}
+    for(char i = 0;i<CORSI.size();i++){cout<<CORSI[i].first<<"\n";}
     cout<<"\n\n\n: ";
     std::cin >> INPUT;
     for(char i = 0;i<CORSI.size();i++){
