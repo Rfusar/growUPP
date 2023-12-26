@@ -7,7 +7,7 @@
     1. bash oppure powershell
     2. ZIG
     3. Node.js
-5. Fare il possibile per il CSS -> rendere le pagine Web piu belle 
+5. Fare il possibile per l'utilizzo CSS -> rendere le pagine Web piu belle 
 
 
 ### Cose da fare entro gennaio/2024
