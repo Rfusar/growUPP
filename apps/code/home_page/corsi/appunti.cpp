@@ -2,13 +2,13 @@
 
 Dataset Menu_appunti, PC, Economia_aziendale, Libri;
 
-vector<std::pair<string, std::pair<vector<string>, vector<Dataset>>>> Appunti(){    
+vector<std::pair<string, std::pair<vector<string>, vector<Dataset>>>> APPUNTI(){    
     Menu_appunti.link = {
-        {"Informatica", cmd+"C:\\Users\\Utente\\Desktop\\growUPP\\apps\\appunti\\corsi\\informatica.html"},
-        {"Matematica", cmd+"C:\\Users\\Utente\\Desktop\\growUPP\\apps\\appunti\\corsi\\matematica.html"},
-        {"Concetti", cmd+"C:\\Users\\Utente\\Desktop\\growUPP\\apps\\appunti\\appuntiMATH\\conceti.html"},
-        {"Pagina_musica", cmd+"C:\\Users\\Utente\\Desktop\\growUPP\\apps\\appunti\\corsi\\musica.html"},
-        {"Generale", cmd+"C:\\Users\\Utente\\Desktop\\growUPP\\apps\\appunti\\corsi\\generale.html"},
+        {"Informatica", cmd+"C:\\Users\\Utente\\Desktop\\"+nome_cartella+"\\apps\\appunti\\corsi\\informatica.html"},
+        {"Matematica", cmd+"C:\\Users\\Utente\\Desktop\\"+nome_cartella+"\\apps\\appunti\\corsi\\matematica.html"},
+        {"Concetti", cmd+"C:\\Users\\Utente\\Desktop\\"+nome_cartella+"\\apps\\appunti\\appuntiMATH\\conceti.html"},
+        {"Pagina_musica", cmd+"C:\\Users\\Utente\\Desktop\\"+nome_cartella+"\\apps\\appunti\\corsi\\musica.html"},
+        {"Generale", cmd+"C:\\Users\\Utente\\Desktop\\"+nome_cartella+"\\apps\\appunti\\corsi\\generale.html"},
     };
     PC.link = {
         {"hardware", cmd+"https://youtu.be/d86ws7mQYIg"},

@@ -2,7 +2,6 @@
 #include <cstdlib>
 #include <vector>
 
-
 using std::cout;
 using std::endl;
 using std::string;
@@ -17,17 +16,21 @@ class Dataset {
 void MENU(Dataset dati, string titolo);
 void risposta(Dataset dati, string risposta);
 void iterazione(vector<Dataset> totale, vector<string> titoli);
+void menu_principale(vector<std::pair<string, std::pair<vector<string>, vector<Dataset>>>> CORSI);
 
-//scegli il browser
+//scegli il browser --> funcs.cpp
 extern string cmd;
+extern string nome_cartella;
 
 //CORSI
-vector<std::pair<string, std::pair<vector<string>, vector<Dataset>>>> Linguaggi();
-vector<std::pair<string, std::pair<vector<string>, vector<Dataset>>>> Tecnologie();
+vector<std::pair<string, std::pair<vector<string>, vector<Dataset>>>> LINGUAGGI();
+vector<std::pair<string, std::pair<vector<string>, vector<Dataset>>>> TECNOLOGIE();
 vector<std::pair<string, std::pair<vector<string>, vector<Dataset>>>> OS();
-vector<std::pair<string, std::pair<vector<string>, vector<Dataset>>>> Appunti();
+vector<std::pair<string, std::pair<vector<string>, vector<Dataset>>>> APPUNTI();
 vector<std::pair<string, std::pair<vector<string>, vector<Dataset>>>> INTERNET();
 vector<std::pair<string, std::pair<vector<string>, vector<Dataset>>>> PROGRAMMI();
 vector<std::pair<string, std::pair<vector<string>, vector<Dataset>>>> LAVORO();
+vector<std::pair<string, std::pair<vector<string>, vector<Dataset>>>> DOCUMENTAZIONE();
+vector<std::pair<string, std::pair<vector<string>, vector<Dataset>>>> PROFILI_UPGRADE();
 
 

@@ -1,3 +1,13 @@
 beautifulsoup4==4.12.2
+Brotli==1.1.0
 bs4==0.0.1
+inflate64==1.0.0
+multivolumefile==0.2.3
+psutil==5.9.7
+py7zr==0.20.8
+pybcj==1.0.2
+pycryptodomex==3.19.1
+pyppmd==1.1.0
+pyzstd==0.15.9
 soupsieve==2.5
+texttable==1.7.0

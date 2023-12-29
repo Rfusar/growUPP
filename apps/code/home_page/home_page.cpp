@@ -3,7 +3,17 @@
 
 int main(){
     vector<std::pair<string, std::pair<vector<string>, vector<Dataset>>>> CORSI;
-    vector<std::pair<string, std::pair<vector<string>, vector<Dataset>>>> MODULI[] = {Linguaggi(), Tecnologie(), OS(), Appunti(), INTERNET(), PROGRAMMI(), LAVORO()};
+    vector<std::pair<string, std::pair<vector<string>, vector<Dataset>>>> MODULI[] = {
+        LINGUAGGI(), 
+        TECNOLOGIE(), 
+        OS(), 
+        APPUNTI(), 
+        INTERNET(), 
+        PROGRAMMI(), 
+        LAVORO(), 
+        DOCUMENTAZIONE(),
+        PROFILI_UPGRADE()
+    };
 
     for (const auto& modulo : MODULI) {
         CORSI.insert(CORSI.end(), std::begin(modulo), std::end(modulo));
@@ -12,7 +22,7 @@ int main(){
     //PROGRAMMA
     system("cls");
     string INPUT;
-    for(char i = 0;i<CORSI.size();i++){cout<<CORSI[i].first<<"\n";}
+    menu_principale(CORSI);
     cout<<"\n\n\n: ";
     std::cin >> INPUT;
     for(char i = 0;i<CORSI.size();i++){

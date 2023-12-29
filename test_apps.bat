@@ -38,6 +38,8 @@ if "%n%" == "-c home_page" (
     corsi\OS.cpp ^
     corsi\programmi.cpp ^
     corsi\tecnologie.cpp ^
+    corsi\documentazione.cpp ^
+    corsi\profili_upgrade.cpp ^
     ^
     -o home_page
 
