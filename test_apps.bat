@@ -2,7 +2,7 @@
 :ini
 cls
 echo ========================== INFORMAZIONI ===================================    
-echo.                         
+echo q -^> per uscire                         
 echo                                               esempio ^<opzione^> nome_file
 echo.
 echo.
@@ -81,6 +81,9 @@ if "%n%" == "-c home_page" (
 
 
 
+
+) else if "%n%" == "q" (
+    cls
 
 ) else (
     goto :ini

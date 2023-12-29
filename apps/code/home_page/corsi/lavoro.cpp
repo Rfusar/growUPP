@@ -1,6 +1,6 @@
 #include "..\home_page.hpp"
 
-Dataset Lavoro, Strumenti;
+Dataset Lavoro, AppuntiLavoro,Strumenti;
 
 vector<std::pair<string, std::pair<vector<string>, vector<Dataset>>>> LAVORO(){
     Lavoro.link = {
@@ -18,7 +18,9 @@ vector<std::pair<string, std::pair<vector<string>, vector<Dataset>>>> LAVORO(){
             "C:\\Users\\Utente\\Desktop\\presenze_lavoro\\esercizi\\progettiAndrea\\Repository_GDPR\\venv\\Scripts\\activate && "
             "python run.py"},
     };
-
+    AppuntiLavoro.link = {
+        {"Benetton", "cls && type C:\\Users\\Utente\\Desktop\\Memoria\\Benetton.txt"}
+    };
     Strumenti.link = {
         {"linux", "\"C:\\Program Files\\Oracle\\VirtualBox\\VirtualBox.exe\""},
         {"putty", "C:\\Users\\Utente\\Desktop\\"+nome_cartella+"\\apps\\putty.exe"},
@@ -27,7 +29,7 @@ vector<std::pair<string, std::pair<vector<string>, vector<Dataset>>>> LAVORO(){
 
     vector<std::pair<string, std::pair<vector<string>, vector<Dataset>>>> Menu = {
         //{nome campo, {titoli campi}, {dataset} }
-        {"LAVORO", { {"Lavoro", "Strumenti"}, {Lavoro, Strumenti} } }
+        {"LAVORO", { {"Lavoro", "Appunti","Strumenti"}, {Lavoro, AppuntiLavoro,Strumenti} } }
     };
 
     return Menu;

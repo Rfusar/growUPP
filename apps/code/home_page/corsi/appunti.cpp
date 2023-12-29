@@ -8,7 +8,6 @@ vector<std::pair<string, std::pair<vector<string>, vector<Dataset>>>> APPUNTI(){
         {"Matematica", cmd+"C:\\Users\\Utente\\Desktop\\"+nome_cartella+"\\apps\\appunti\\corsi\\matematica.html"},
         {"Concetti", cmd+"C:\\Users\\Utente\\Desktop\\"+nome_cartella+"\\apps\\appunti\\appuntiMATH\\conceti.html"},
         {"Pagina_musica", cmd+"C:\\Users\\Utente\\Desktop\\"+nome_cartella+"\\apps\\appunti\\corsi\\musica.html"},
-        {"Generale", cmd+"C:\\Users\\Utente\\Desktop\\"+nome_cartella+"\\apps\\appunti\\corsi\\generale.html"},
     };
     PC.link = {
         {"hardware", cmd+"https://youtu.be/d86ws7mQYIg"},

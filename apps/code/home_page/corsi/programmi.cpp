@@ -4,10 +4,10 @@ Dataset news, giochi, tools, altro, nuovo;
 
 vector<std::pair<string, std::pair<vector<string>, vector<Dataset>>>> PROGRAMMI(){
     nuovo.link = {
-        {"programma_Cpp", ""},
-        {"programma_Java", ""},
-        {"programma_Zig", ""},
-        {"programma_NodeJS", ""},
+        {"programma_Cpp", "code C:\\Users\\Utente\\Desktop\\proveProgetti\\prove_Cpp"},
+        {"programma_Java", "code C:\\Users\\Utente\\Desktop\\proveProgetti\\prove_Java"},
+        {"programma_Zig", "code C:\\Users\\Utente\\Desktop\\proveProgetti\\prove_Zig"},
+        {"programma_NodeJS", "code C:\\Users\\Utente\\Desktop\\proveProgetti\\prove_NodeJS"},
     };
     news.link = {
         {"notizie", "C:\\Users\\Utente\\Desktop\\"+nome_cartella+"\\apps\\checkNotizie.bat"},
@@ -22,10 +22,14 @@ vector<std::pair<string, std::pair<vector<string>, vector<Dataset>>>> PROGRAMMI(
     };
     tools.link = {
         {"subnet", "C:\\Users\\Utente\\Desktop\\"+nome_cartella+"\\apps\\subnet.exe"},
-        {"Ricordami_TUTTO", "C:\\Users\\Utente\\Desktop\\"+nome_cartella+"\\apps\\ricordami.bat"
-
-
-        }
+        {"Invia_email", "echo start powershell -File C:\\Users\\Utente\\Desktop\\"+nome_cartella+"\\apps\\Invia_email.ps1"},
+        {"Ricordami_TUTTO", 
+            "cd C:\\Users\\Utente\\Desktop\\"+nome_cartella+"\\apps\\code\\notizie &&"
+            ".\\venv\\Scripts\\activate &&"
+            "cd logica\\credenziali && "
+            "python credenziali.py"
+        },
+        {"Modifica_memoria", "cls && start explorer.exe C:\\Users\\Utente\\Desktop\\info\\variabili"}
     };
     altro.link = {
         {"calcolatrice_resistenza__colori", cmd+"C:\\Users\\Utente\\Desktop\\"+nome_cartella+"\\apps\\calc_resistenza.html"},

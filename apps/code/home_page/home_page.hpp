@@ -18,7 +18,7 @@ void risposta(Dataset dati, string risposta);
 void iterazione(vector<Dataset> totale, vector<string> titoli);
 void menu_principale(vector<std::pair<string, std::pair<vector<string>, vector<Dataset>>>> CORSI);
 
-//scegli il browser --> funcs.cpp
+//scegli il browser e il nome della cartella --> funcs.cpp
 extern string cmd;
 extern string nome_cartella;
 
