@@ -28,7 +28,7 @@ vector<std::pair<string, std::pair<vector<string>, vector<Dataset>>>> LAVORO(){
         {"Kofax_docs", "start msedge https://docshield.kofax.com/complete-list.htm"},
     };
     myWork.link = {
-        {"server_GO___HOMEPAGE", 
+        {"Pagina_studio", 
             "cd C:\\Users\\Utente\\Desktop\\proveProgetti\\prove_Go\\provaServer && "
             "cls && go run server.go funcs.go"}
     };

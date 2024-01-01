@@ -8,6 +8,7 @@ vector<std::pair<string, std::pair<vector<string>, vector<Dataset>>>> OS(){
         {"etichal_hacker", cmd+"https://youtube.com/playlist?list=PLKZZXjqZrqQtKGgJuAYhzYczf1KIdswvO&si=T-B0_NzU2Q1yEG3D"},
     };
     Windows.link = {
+        {"Advanced_Windows", cmd+"https://youtu.be/wTS6_Q8Oezs?si=BMeSlPWoiAuzQe1W"}
     };
 
     vector<std::pair<string, std::pair<vector<string>, vector<Dataset>>>> Menu = {

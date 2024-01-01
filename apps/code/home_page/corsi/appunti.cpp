@@ -1,20 +1,8 @@
 #include "..\home_page.hpp"
 
-Dataset Menu_appunti, PC, Economia_aziendale, Libri;
+Dataset Economia_aziendale, Libri;
 
 vector<std::pair<string, std::pair<vector<string>, vector<Dataset>>>> APPUNTI(){    
-    Menu_appunti.link = {
-        {"Informatica", cmd+"C:\\Users\\Utente\\Desktop\\"+nome_cartella+"\\apps\\appunti\\corsi\\informatica.html"},
-        {"Matematica", cmd+"C:\\Users\\Utente\\Desktop\\"+nome_cartella+"\\apps\\appunti\\corsi\\matematica.html"},
-        {"Concetti", cmd+"C:\\Users\\Utente\\Desktop\\"+nome_cartella+"\\apps\\appunti\\appuntiMATH\\conceti.html"},
-        {"Pagina_musica", cmd+"C:\\Users\\Utente\\Desktop\\"+nome_cartella+"\\apps\\appunti\\corsi\\musica.html"},
-    };
-    PC.link = {
-        {"hardware", cmd+"https://youtu.be/d86ws7mQYIg"},
-        {"SSD", cmd+"https://youtu.be/5Mh3o886qpg?si=tRv55Q1FdrDBhSJi"},
-        {"bluetooth", cmd+"https://youtu.be/1I1vxu5qIUM?si=aitFWZo9j6jGDHfo"},
-        {"tastiera", cmd+"https://youtu.be/h-NM1xSSzHQ?si=Yr42KCAUJav19rUj"},
-    };
     Economia_aziendale.link = {
         {"Acconto_IVA",cmd+"C:\\Users\\Utente\\Desktop\\presenze_lavoro\\ECONOMIA_AZIENDALE\\acconto_iva.pdf"},
         {"Esercizi_contabilita_pratica",cmd+"C:\\Users\\Utente\\Desktop\\presenze_lavoro\\ECONOMIA_AZIENDALE\\esercizi_contabilita_pratica.pdf"},
@@ -36,7 +24,7 @@ vector<std::pair<string, std::pair<vector<string>, vector<Dataset>>>> APPUNTI(){
     };
     vector<std::pair<string, std::pair<vector<string>, vector<Dataset>>>> Menu = {
         //{nome campo, {titoli campi}, {dataset} }
-        {"APPUNTI", { {"Menu_appunti", "PC", "Economia_aziendale", "Libri"}, {Menu_appunti, PC, Economia_aziendale, Libri} } }
+        {"LIBRI", { {"Economia_aziendale", "Libri"}, {Economia_aziendale, Libri} } }
     };
 
     return Menu;
