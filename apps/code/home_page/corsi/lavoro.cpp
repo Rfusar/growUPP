@@ -1,6 +1,6 @@
 #include "..\home_page.hpp"
 
-Dataset Lavoro, AppuntiLavoro,Strumenti;
+Dataset Lavoro, AppuntiLavoro, Strumenti, myWork;
 
 vector<std::pair<string, std::pair<vector<string>, vector<Dataset>>>> LAVORO(){
     Lavoro.link = {
@@ -19,17 +19,23 @@ vector<std::pair<string, std::pair<vector<string>, vector<Dataset>>>> LAVORO(){
             "python run.py"},
     };
     AppuntiLavoro.link = {
-        {"Benetton", "cls && type C:\\Users\\Utente\\Desktop\\Memoria\\Benetton.txt"}
+        {"Benetton", "cls && start explorer.exe C:\\Users\\Utente\\Desktop\\presenze_lavoro\\esercizi\\progettiAndrea\\Benetton"}
     };
     Strumenti.link = {
         {"linux", "\"C:\\Program Files\\Oracle\\VirtualBox\\VirtualBox.exe\""},
         {"putty", "C:\\Users\\Utente\\Desktop\\"+nome_cartella+"\\apps\\putty.exe"},
         {"conn_remoto", "C:\\Users\\Utente\\Desktop\\"+nome_cartella+"\\apps\\AnyDesk.exe"},
+        {"Kofax_docs", "start msedge https://docshield.kofax.com/complete-list.htm"},
+    };
+    myWork.link = {
+        {"server_GO___HOMEPAGE", 
+            "cd C:\\Users\\Utente\\Desktop\\proveProgetti\\prove_Go\\provaServer && "
+            "cls && go run server.go funcs.go"}
     };
 
     vector<std::pair<string, std::pair<vector<string>, vector<Dataset>>>> Menu = {
         //{nome campo, {titoli campi}, {dataset} }
-        {"LAVORO", { {"Lavoro", "Appunti","Strumenti"}, {Lavoro, AppuntiLavoro,Strumenti} } }
+        {"LAVORO", { {"Lavoro", "Appunti","Strumenti", "MyWork"}, {Lavoro, AppuntiLavoro,Strumenti, myWork} } }
     };
 
     return Menu;

@@ -17,7 +17,7 @@ vector<std::pair<string, std::pair<vector<string>, vector<Dataset>>>> LINGUAGGI(
         {"come_funziona_la_CPU_con_C++...", cmd+"https://youtu.be/qJgsuQoy9bc?si=4APGIB_8tm5xuuRz"},
     };
     Zig.link = {
-        {"Zig_esercizi", "cd C:\\Users\\Utente\\Desktop\\proveProgetti\\zig\\exercises\\exercises && dir"},
+        {"Zig_esercizi", "echo cd C:\\Users\\Utente\\Desktop\\proveProgetti\\prove_Zig\\exercises\\exercises"},
         {"Zig_github", cmd+"https://github.com/ziglang"}
     },
     Java.link = {

@@ -1,6 +1,6 @@
 #include "..\home_page.hpp"
 
-Dataset news, giochi, tools, altro, nuovo;
+Dataset news, giochi, tools, altro, nuovo, sviluppa;
 
 vector<std::pair<string, std::pair<vector<string>, vector<Dataset>>>> PROGRAMMI(){
     nuovo.link = {
@@ -8,6 +8,8 @@ vector<std::pair<string, std::pair<vector<string>, vector<Dataset>>>> PROGRAMMI(
         {"programma_Java", "code C:\\Users\\Utente\\Desktop\\proveProgetti\\prove_Java"},
         {"programma_Zig", "code C:\\Users\\Utente\\Desktop\\proveProgetti\\prove_Zig"},
         {"programma_NodeJS", "code C:\\Users\\Utente\\Desktop\\proveProgetti\\prove_NodeJS"},
+        {"programma_Go", "code C:\\Users\\Utente\\Desktop\\proveProgetti\\prove_Go"},
+        {"programma_Python", "code C:\\Users\\Utente\\Desktop\\proveProgetti\\prove_Python"},
     };
     news.link = {
         {"notizie", "C:\\Users\\Utente\\Desktop\\"+nome_cartella+"\\apps\\checkNotizie.bat"},
@@ -37,11 +39,16 @@ vector<std::pair<string, std::pair<vector<string>, vector<Dataset>>>> PROGRAMMI(
         {"tabella___check_pastiglie", cmd+"C:\\Users\\Utente\\Desktop\\salute_famiglia\\check_pastiglie\\check_pastiglie.html"},
         {"APP_java", cmd+"C:\\Users\\Utente\\Desktop\\"+nome_cartella+"\\apps\\App.jar"},
     };
+    sviluppa.link = {
+        {"server_GO", "code C:\\Users\\Utente\\Desktop\\proveProgetti\\prove_Go\\provaServer"},
+        {"subnet", "code C:\\Users\\Utente\\Desktop\\proveProgetti\\prove_Cpp\\subnet"},
+        {"GUI_Java","code C:\\Users\\Utente\\Desktop\\proveProgetti\\prove_Java\\GUI_Java"}
+    };
 
 
     vector<std::pair<string, std::pair<vector<string>, vector<Dataset>>>> Menu = {
         //{nome campo, {titoli campi}, {dataset} }
-        {"PROGRAMMI", { {"news", "giochi", "strumenti", "Crea un programma","altro"}, {news, giochi, tools, nuovo,altro} }}
+        {"PROGRAMMI", { {"news", "giochi", "strumenti", "altro", "Crea un programma","SVILUPPA"}, {news, giochi, tools, altro, nuovo, sviluppa} }}
     };
 
     return Menu;
