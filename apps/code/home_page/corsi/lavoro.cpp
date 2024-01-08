@@ -11,11 +11,18 @@ vector<std::pair<string, std::pair<vector<string>, vector<Dataset>>>> LAVORO(){
             "C:\\Users\\Utente\\Desktop\\presenze_lavoro\\esercizi\\progettiAndrea\\DashboardVersatile\\venv\\Scripts\\activate && "
             "python run.py"},
         
-        {"Repository_GDPR", 
+        {"Repository_GDPR___v1", 
             "cd C:\\Users\\Utente\\Desktop\\presenze_lavoro\\esercizi\\progettiAndrea\\Repository_GDPR && "
             "start code C:\\Users\\Utente\\Desktop\\presenze_lavoro\\esercizi\\progettiAndrea\\Repository_GDPR && "
             "start msedge http://127.0.0.1:5000 && " 
             "C:\\Users\\Utente\\Desktop\\presenze_lavoro\\esercizi\\progettiAndrea\\Repository_GDPR\\venv\\Scripts\\activate && "
+            "python run.py"},
+
+        {"Repository_GDPR___v2", 
+            "cd C:\\Users\\Utente\\Desktop\\presenze_lavoro\\esercizi\\progettiAndrea\\Repository_GDPR && "
+            "start code C:\\Users\\Utente\\Desktop\\presenze_lavoro\\esercizi\\progettiAndrea\\Repository_GDPR___conClasse && "
+            "start msedge http://127.0.0.1:5000 && " 
+            "C:\\Users\\Utente\\Desktop\\presenze_lavoro\\esercizi\\progettiAndrea\\Repository_GDPR___conClasse\\venv\\Scripts\\activate && "
             "python run.py"},
     };
     AppuntiLavoro.link = {

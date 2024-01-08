@@ -10,7 +10,6 @@ vector<std::pair<string, std::pair<vector<string>, vector<Dataset>>>> LINGUAGGI(
     };
     
     vector<std::pair<string, std::pair<vector<string>, vector<Dataset>>>> Menu = {
-        //{nome campo, {titoli campi}, {dataset} }
         {"LINGUAGGI", { {"DataBase dei link"}, {linguaggi} } }
     };
 

@@ -16,7 +16,10 @@ vector<std::pair<string, std::pair<vector<string>, vector<Dataset>>>> PROGRAMMI(
     };
     tools.link = {
         {"subnet", "C:\\Users\\Utente\\Desktop\\"+nome_cartella+"\\apps\\subnet.exe"},
-        {"Invia_email", "echo start powershell -File C:\\Users\\Utente\\Desktop\\"+nome_cartella+"\\apps\\Invia_email.ps1"}
+        {"Invia_email", "echo start powershell -File C:\\Users\\Utente\\Desktop\\"+nome_cartella+"\\apps\\Invia_email.ps1"},
+        {"Pagina_studio", 
+            "cd C:\\Users\\Utente\\Desktop\\proveProgetti\\prove_Go\\provaServer && "
+            "cls && go run server.go funcs.go"}
     };
     altro.link = {
         {"calcolatrice_resistenza__colori", cmd+"C:\\Users\\Utente\\Desktop\\"+nome_cartella+"\\apps\\calc_resistenza.html"},
@@ -24,7 +27,6 @@ vector<std::pair<string, std::pair<vector<string>, vector<Dataset>>>> PROGRAMMI(
         {"tabella___check_pastiglie", cmd+"C:\\Users\\Utente\\Desktop\\salute_famiglia\\check_pastiglie\\check_pastiglie.html"},
         {"APP_java", cmd+"C:\\Users\\Utente\\Desktop\\"+nome_cartella+"\\apps\\App.jar"},
     };
-
     nuovo.link = {
         {"programma_Cpp", "code C:\\Users\\Utente\\Desktop\\proveProgetti\\prove_Cpp"},
         {"programma_Java", "code C:\\Users\\Utente\\Desktop\\proveProgetti\\prove_Java"},
@@ -34,15 +36,26 @@ vector<std::pair<string, std::pair<vector<string>, vector<Dataset>>>> PROGRAMMI(
         {"programma_Python", "code C:\\Users\\Utente\\Desktop\\proveProgetti\\prove_Python"},
     };
     sviluppa.link = {
-        {"Pagina_studio", "code C:\\Users\\Utente\\Desktop\\proveProgetti\\prove_Go\\provaServer"},
-        {"subnet", "code C:\\Users\\Utente\\Desktop\\proveProgetti\\prove_Cpp\\subnet"},
-        {"GUI_Java","code C:\\Users\\Utente\\Desktop\\proveProgetti\\prove_Java\\GUI_Java"}
+        {"Pagina_studio", 
+            "cls && "
+            "echo C:\\Users\\Utente\\Desktop\\proveProgetti\\prove_Go\\provaServer && "
+            "code C:\\Users\\Utente\\Desktop\\proveProgetti\\prove_Go\\provaServer"},
+
+        {"subnet",
+            "cls && "
+            "echo C:\\Users\\Utente\\Desktop\\proveProgetti\\prove_Cpp\\subnet && "
+            "code C:\\Users\\Utente\\Desktop\\proveProgetti\\prove_Cpp\\subnet"},
+
+        {"GUI_Java",
+            "cls && "
+            "echo C:\\Users\\Utente\\Desktop\\proveProgetti\\prove_Java\\GUI_Java"
+            "code C:\\Users\\Utente\\Desktop\\proveProgetti\\prove_Java\\GUI_Java"}
     };
 
 
     vector<std::pair<string, std::pair<vector<string>, vector<Dataset>>>> Menu = {
         //{nome campo, {titoli campi}, {dataset} }
-        {"PROGRAMMI", { {"news", "giochi", "strumenti", "altro", "Crea un programma","Aggiorna"}, {news, giochi, tools, altro, nuovo, sviluppa} }}
+        {"PROGRAMMI", { {"news", "giochi", "strumenti", "altro", "Apri programma","Crea un programma","Aggiorna"}, {news, giochi, tools, altro,nuovo, sviluppa} }}
     };
 
     return Menu;
