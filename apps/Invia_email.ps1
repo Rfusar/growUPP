@@ -57,6 +57,7 @@ while ($valore) {
 }
 
 if ($file -eq ""){
+    #pop3 imap
     $SMTP = "smtp.gmail.com"
     $From = $myEmail
     $To = $aChi
@@ -75,7 +76,9 @@ if ($file -eq ""){
     $Email.Credentials = New-Object System.Net.NetworkCredential($myEmail, $p)
 
     $Email.Send($MailMessage)
-    Write-Host "`n`nfatto"
+    cls
+    Write-Host "fatto`n`n`n`n"
+    pause
 }
 else{
     $SMTP = "smtp.gmail.com"
@@ -108,6 +111,7 @@ else{
 
     # Chiudi l'oggetto Attachment
     $Attachment.Dispose()
-
-    Write-Host "`n`nfatto"
+    cls
+    Write-Host "fatto`n`n`n`n"
+    pause
 }

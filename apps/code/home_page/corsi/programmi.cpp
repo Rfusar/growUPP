@@ -36,6 +36,11 @@ vector<std::pair<string, std::pair<vector<string>, vector<Dataset>>>> PROGRAMMI(
         {"programma_Python", "code C:\\Users\\Utente\\Desktop\\proveProgetti\\prove_Python"},
     };
     sviluppa.link = {
+        {"prova_GUI___inClassi",
+            "cls && "
+            "echo C:\\Users\\Utente\\Desktop\\proveProgetti\\prove_NodeJS\\prova_GUI && "
+            "code C:\\Users\\Utente\\Desktop\\proveProgetti\\prove_NodeJS\\prova_GUI"},
+
         {"Pagina_studio", 
             "cls && "
             "echo C:\\Users\\Utente\\Desktop\\proveProgetti\\prove_Go\\provaServer && "
