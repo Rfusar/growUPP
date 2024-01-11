@@ -1,0 +1,24 @@
+$scelta = Read-Host "Scegli un colore: Rosso, Verde, Blu"
+
+switch ($scelta) {
+    "Rosso" {
+        Write-Host "Hai scelto il colore Rosso."
+    }
+    "Verde" {
+        Write-Host "Hai scelto il colore Verde."
+    }
+    "Blu" {
+        Write-Host "Hai scelto il colore Blu."
+    }
+    default {
+        Write-Host "Scelta non valida."
+    }
+}
+
+
+
+
+
+
+
+.

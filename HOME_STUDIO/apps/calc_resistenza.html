@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            padding: 30%;
+
+        }
+
+        #CALCOLATORE {
+            width: 280px;
+            border: 2px solid black;
+            padding: 1.5rem;
+            background-color: gray;
+        }
+
+        #CALCOLATORE,
+        #display,
+        #menu {
+            display: flex;
+            flex-direction: column;
+        }
+
+
+        #selezione_tipo {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            margin-bottom: .8rem;
+        }
+
+        .tipo {
+            width: 4rem;
+            height: 3rem;
+        }
+
+
+
+
+        #buttons {
+            display: grid;
+            grid-template-columns: auto auto auto;
+            column-gap: 10px;
+            row-gap: 10px;
+        }
+
+        .resistenze {
+            width: 5rem;
+            height: 4.5rem;
+            background-color: aliceblue;
+        }
+
+        #display {
+            background-color: black;
+            color: aliceblue;
+            height: 7rem;
+            margin-bottom: .8rem;
+        }
+
+        #inserimento {
+            height: 35%;
+            margin-bottom: .5rem;
+            overflow-x: scroll;
+        }
+
+        #risultato {
+            padding-left: .8rem;
+            margin-bottom: 0;
+        }
+        #n_tolleranza{
+            width: max-content;
+            padding: 0;
+            margin: 0 0 0 1.5rem
+        }
+    </style>
+</head>
+
+<body>
+    <div id="CALCOLATORE">
+        <div id="display">
+            <div id="inserimento"></div>
+            <p id="risultato"></p>
+            <p id="n_tolleranza"></p>
+        </div>
+
+        <div id="menu">
+            <div id="selezione_tipo">
+                <button class="tipo" attivo="false">4</button>
+                <button class="tipo" attivo="false">5</button>
+                <button class="tipo" attivo="false">6</button>
+            </div>
+            <div id="buttons">
+                <button class="resistenze" valore="0">NERO</button>
+                <button class="resistenze" valore="1">MARRONE</button>
+                <button class="resistenze" valore="2">ROSSO</button>
+                <button class="resistenze" valore="3">ARANCIO</button>
+                <button class="resistenze" valore="4">GIALLO</button>
+                <button class="resistenze" valore="5">VERDE</button>
+                <button class="resistenze" valore="6">BLU</button>
+                <button class="resistenze" valore="7">VIOLA</button>
+                <button class="resistenze" valore="8">GRIGIO</button>
+                <button class="resistenze" valore="9">BIANCO</button>
+                <button class="resistenze" valore="5">ORO</button>
+                <button class="resistenze" valore="10">ARGENTO</button>
+                <button class="resistenze" valore="20">VUOTO</button>
+                <span></span>
+                <button id="btnCalcola">CALCOLA</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function calcolo(oggetto_da_calcolare) {
+            switch (Object.keys(oggetto_da_calcolare).length) {
+                case 4:
+                    oggetto = {
+                        'totale_OHM': `${oggetto_da_calcolare['prima_cifra']}${oggetto_da_calcolare['seconda_cifra']}${oggetto_da_calcolare['n_zeri']}`,
+                        'tolleranza': [
+                            `${oggetto_da_calcolare['tolleranza']}%`,
+                            oggetto_da_calcolare['tolleranza'] / 100 * Number(`${oggetto_da_calcolare['prima_cifra']}${oggetto_da_calcolare['seconda_cifra']}${oggetto_da_calcolare['n_zeri']}`)
+                        ]
+                    }
+                    return oggetto
+                    break
+                case 5:
+                    oggetto = {
+                        'totale_OHM': `${oggetto_da_calcolare['prima_cifra']}${oggetto_da_calcolare['seconda_cifra']}${oggetto_da_calcolare['n_zeri']}`,
+                        'tolleranza': [
+                            `${oggetto_da_calcolare['tolleranza']}%`,
+                            oggetto_da_calcolare['tolleranza'] / 100 * Number(`${oggetto_da_calcolare['prima_cifra']}${oggetto_da_calcolare['seconda_cifra']}${oggetto_da_calcolare['n_zeri']}`)
+                        ]
+                    }
+                    return oggetto
+                    break
+                case 6:
+                    oggetto = {
+                        'totale_OHM': `${oggetto_da_calcolare['prima_cifra']}${oggetto_da_calcolare['seconda_cifra']}${oggetto_da_calcolare['n_zeri']}`,
+                        'tolleranza': [
+                            `${oggetto_da_calcolare['tolleranza']}%`,
+                            oggetto_da_calcolare['tolleranza'] / 100 * Number(`${oggetto_da_calcolare['prima_cifra']}${oggetto_da_calcolare['seconda_cifra']}${oggetto_da_calcolare['n_zeri']}`)
+                        ]
+                    }
+                    return oggetto
+                    break
+            }
+        }
+        class Calcolatore {
+            constructor(args) { this.args = args }
+
+            resistenza1(oggetto) {
+                oggetto['prima_cifra'] = this.args[0]
+                oggetto['seconda_cifra'] = this.args[1]
+                let zeri = ""
+                for (let i = 0; i < this.args[2]; i++) { zeri += "0" }
+                oggetto['n_zeri'] = zeri
+                oggetto['tolleranza'] = this.args[3]
+
+                return calcolo(oggetto)
+            }
+            resistenza2(oggetto) {
+                oggetto['prima_cifra'] = this.args[0]
+                oggetto['seconda_cifra'] = this.args[1]
+                let zeri = ""
+                for (let i = 0; i < this.args[2]; i++) { zeri += "0" }
+                oggetto['n_zeri'] = zeri
+                oggetto['tolleranza'] = this.args[3]
+                oggetto['lungo_termine'] = this.args[4]
+
+                return calcolo(oggetto)
+            }
+            resistenza3(oggetto) {
+                oggetto['prima_cifra'] = this.args[0]
+                oggetto['seconda_cifra'] = this.args[1]
+                let zeri = ""
+                for (let i = 0; i < this.args[2]; i++) { zeri += "0" }
+                oggetto['n_zeri'] = zeri
+                oggetto['tolleranza'] = this.args[3]
+                oggetto['lungo_termine'] = this.args[4]
+                oggetto['differenza_calore'] = this.args[5]
+
+                return calcolo(oggetto)
+            }
+        }
+        //ATTIVAZIONE MODELLO (RESISTENZE)
+        let n_valori = []
+        document.querySelectorAll('.tipo').forEach((e) => {
+            e.addEventListener('click', () => {
+                n_valori = []
+                for (const btn of document.querySelectorAll('.tipo')) { btn.getAttribute('attivo') == 'false' ? btn.setAttribute('attivo', 'false') : btn.setAttribute('attivo', 'false') }
+                e.getAttribute('attivo') == 'false' ? e.setAttribute('attivo', 'true') : e.setAttribute('attivo', 'false')
+                e.getAttribute('attivo') == 'true' ? n_valori.push(lung_array(Number(e.textContent))) : null
+            })
+        })
+        function lung_array(lunghezza) {
+            const array = []
+            switch (lunghezza) {
+                case 4: array.push(0); array.push(0); array.push(0); array.push(0); break
+                case 5: array.push(0); array.push(0); array.push(0); array.push(0); array.push(0); break
+                case 6: array.push(0); array.push(0); array.push(0); array.push(0); array.push(0); array.push(0); break
+            }
+            return array.length == lunghezza ? array : 'errore'
+        }
+
+        //INSERIMENTO IN n_valori
+        document.querySelectorAll('.resistenze').forEach((e) => {
+            e.addEventListener('click', () => {
+
+                let valore = e.getAttribute('valore')
+                try {
+                    //check di esistenza di n_valori
+                    if (n_valori[0].length < 1) { window.alert('seleziona prima il tipo, cioè 4 oppure 5 oppure 6') }
+                    //inserimento
+                    for (let i in n_valori[0]) { if (n_valori[0][i] === 0) { n_valori[0][i] = valore; document.querySelector('#inserimento').textContent += `${e.textContent}///`; break } }
+                }
+                catch {
+                    window.alert('seleziona prima il tipo, cioè 4 oppure 5 oppure 6')
+                    document.querySelector('#inserimento').textContent = ""
+                }
+            })
+        })
+        //CALCOLO FINALE
+        document.querySelector('#btnCalcola').addEventListener('click', () => {
+            const resistenza = {}
+            try {
+                for (let i of n_valori[0]) { if (i === "number") { window.alert('inserisci tutti i valori') } }
+
+                switch (n_valori[0].length) {
+                    case 4:
+                        resistenza['info'] = new Calcolatore(n_valori[0]).resistenza1({})
+                        let TotOHM = resistenza['info']['totale_OHM']
+                        let percTolleranza = resistenza['info']['tolleranza'][0]
+                        let Tolleranza = resistenza['info']['tolleranza'][1]
+                        let count = 0
+                        while (TotOHM % 1 == 0) { TotOHM/=1000; count += 1 }  
+                        switch (count) {
+                            case 0: count = 'Ohm'; break
+                            case 1: count = 'K-Ohm'; break
+                            case 2: count = 'M-Ohm'; break
+                            case 3: count = 'G-Ohm'; break
+                        }
+                        
+                        console.log(resistenza)
+
+                        document.querySelector('#risultato').textContent = `${TotOHM} ${count} ± ${percTolleranza}`
+                        document.querySelector('#n_tolleranza').textContent = `Tolleranza = ± ${Tolleranza} Ohm`
+
+                        break
+                    case 5: resistenza['info'] = new Calcolatore(n_valori[0]).resistenza2({}); break
+                    case 6: resistenza['info'] = new Calcolatore(n_valori[0]).resistenza3({}); break
+                }
+            }
+            catch { window.alert('inserisci tutti i valori') }
+        })
+
+    </script>
+
+</body>
+
+</html>

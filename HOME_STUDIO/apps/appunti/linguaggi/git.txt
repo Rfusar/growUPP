@@ -1,0 +1,13 @@
+#### CAMBIARE BRANCH #####
+git remote add <nome branch> <percorso>
+
+	//verifica
+	git remote -v
+
+	//nuovo branch oppure gia esistente
+	git branch <nuovo branch>
+	git checkout <nuovo branch>
+
+	//rinomina + caricamento del nuovo branch
+	git checkout -m <vecchio> <nuovo>
+	git push origin :<vecchio> <nuovo>

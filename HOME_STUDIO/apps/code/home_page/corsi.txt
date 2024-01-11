@@ -1,0 +1,95 @@
+PC 
+    --> Come funziona??:
+        ===>
+            https://youtu.be/d86ws7mQYIg -> HARDWARE
+            https://youtu.be/5Mh3o886qpg?si=tRv55Q1FdrDBhSJi -> SSD
+            https://youtu.be/1I1vxu5qIUM?si=aitFWZo9j6jGDHfo -> BLUETOOTH
+            https://youtu.be/h-NM1xSSzHQ?si=Yr42KCAUJav19rUj -> TASTIERA
+
+    ---> LINGUAGGI:
+        ===> 
+            ---> C
+                https://www.youtube.com/@TsodingDaily -> CANALE YOUTUBE, FOLLE
+                https://youtu.be/Bz4MxDeEM6k?si=J_YPBNmXu5rS_Wll -> BASE
+                https://youtu.be/zuegQmMdy8M?si=-GIMiPqH72o2d6V5 -> PUNTAOTI
+                https://youtu.be/KEiur5aZnIM?si=DCf17YK7F_6tJGdJ -> SOCKET (LINUX)
+
+
+            ---> C++
+                https://youtu.be/P2jVybFyh3A?si=U5Il3JGQPu6vZi-S" -> BASE
+                https://youtu.be/0NwsayeOsd4?si=ieY3PiIEfcBKK4UZ -> OOP 
+                https://youtu.be/qJgsuQoy9bc?si=4APGIB_8tm5xuuRz -> EMULARE LA CPU CON C++
+
+
+            ---> Java
+                https://youtu.be/xk4_1vDrzzo -> BASE
+                https://youtu.be/Kmgo00avvEw -> GUI
+
+                --->SpringBoot:
+                        https://youtu.be/-mwpoE0x0JQ?si=usOs97faiejFJfh1 -> BASE
+                        https://youtu.be/her_7pa0vrg?si=-h4lp6u1u2fyVQjf -> SECURITY
+
+
+            ---> Javascript
+                https://youtu.be/BI1o2H9z9fo?si=aqOw_SCKfHH9PGXt -> BASE
+		        https://youtu.be/VmQ6dHvnKIM?si=tSagPXTAHjgPbOQ8 -> FUNZIONI ASINCRONE
+                https://youtube.com/playlist?list=PLFk1_lkqT8MbVOcwEppCPfjGOGhLvcf9G -> NATIVO
+                https://youtube.com/playlist?list=PLinedj3B30sDby4Al-i13hQJGQoRQDfPo&si=EqEX7SueRoHXNvrA -> NODE
+
+                ---> Framework:
+                    https://youtu.be/w7ejDZ8SWv8?si=ew-z7l-L8GhlSQft -> REACT
+                    https://youtu.be/3dHNOWTI7H8?si=dtFhrdb9zEGDq-kO -> ANGULAR
+
+                ---> Best practice:
+                    https://youtu.be/Mus_vwhTCq0?si=RGM8rcDC6J0chgk2 -> 1
+
+            
+            ---> Kotlin
+                https://youtu.be/9-pFPGAOSZQ?si=iKlrE4Fzax6RPofP" -> BASE
+
+                ---> AndroidStudio:
+                    https://youtu.be/EExSSotojVI?si=2mO28d4wex88QPxi -> BASE
+
+            
+            ---> Powershell
+                https://youtube.com/playlist?list=PLnK11SQMNnE4vcvuAahz4KhNOS7zOfmB3&si=gev6cB7xsvudUfpy -> BASE
+                https://youtube.com/playlist?list=PLlVtbbG169nFq_hR7FcMYg32xsSAObuq8&si=5yEMjmCU061vO8FU -> MASTER CLASS
+                https://youtube.com/playlist?list=PLnK11SQMNnE5_cl8n54h6OXNMnGl5Odtq&si=aI18J93ZmnkvuqLr -> GUI
+
+            
+            ---> Altri linguaggi
+                https://youtu.be/kUMe1FH4CHE?si=KP8NdjDikfPjHIzX -> HTML5
+                https://youtu.be/OXGznpKZ_sA?si=Fc_CdIKeXmdf5jFo -> CSS3
+                https://youtube.com/playlist?list=PLT98CRl2KxKGj-VKtApD8-zCqSaN2mD4w&si=qm8o-6Vmx5pzzTON -> BASH
+                https://youtu.be/WxuViERlkyE?si=CWBIK-WyR4965j3X -> DURT
+                https://youtu.be/Jfvg3CS1X3A?si=TL_4rYwEqt_LJfct -> DOS 40 comandi...
+                https://youtu.be/YS4e4q9oBaU?si=kzyRGtpfI6lqa75O -> GO
+
+
+            ---> Tecnologie
+                https://youtu.be/RqTEHSBrYFw?si=lheMncbmxt4tTg7M -> DOCKER_video
+                https://github.com/docker -> DOCKER_github
+                https://youtu.be/kTp5xUtcalw?si=gtTlIsJJDebue-Zl -> KUBERNETES e altro
+                https://github.com/kubernetes -> KUBERNETES_github
+                
+                ---> Database
+                    https://youtu.be/5OdVJbNCSso?si=LkFaEiLIf52Tr-mR -> SQL
+                    https://youtu.be/c2M-rlkkT5o?si=EYxVmI_aWLJYG06K -> MONGODB
+
+
+Documentazione:
+    ===> 
+        https://www.w3schools.com -> W3SCHOOL
+        https://developer.mozilla.org/en-US/ -> MOZILLA_DOC
+        https://devdocs.io/ -> DEVDOC
+        https://docshield.kofax.com/complete-list.htm -> KOFAX_DOC
+
+
+Profili_UPGRADE
+    ===>
+        https://spring.academy/home -> SPRINGBOOT
+        https://developer.android.com/courses -> ANDROID_DEV
+        https://web.dev/learn -> WEB_DEV
+
+
+

@@ -1,0 +1,26 @@
+### espressioni regolari ###
+
+let regex = new RegExp('pattern');
+oppure
+let regex = /pattern/;
+
+\d: Corrisponde a qualsiasi cifra (equivalente a [0-9]).
+\D: Corrisponde a qualsiasi carattere non cifra (equivalente a [^0-9]).
+\s: Corrisponde a qualsiasi spazio bianco (ad esempio, spazi, tabulazioni, nuove linee).
+\S: Corrisponde a qualsiasi carattere non spazio bianco.
+\w: Corrisponde a qualsiasi carattere alfanumerico (equivalente a [a-zA-Z0-9_]).
+\W: Corrisponde a qualsiasi carattere non alfanumerico.
+.: Corrisponde a qualsiasi carattere eccetto il carattere di nuova linea \n
+^: inizio
+$: fine
+
+g (Global): Cerca tutte le corrispondenze nella stringa, non solo la prima.
+i (Case-insensitive): Rende la ricerca non sensibile alle maiuscole/minuscole.
+m (Multiline): Cambia il comportamento dei caratteri di inizio/fine linea (^ e $) per corrispondere all'inizio/fine di ogni riga anziché all'inizio/fine dell'intera stringa.
+
+altri esempi:
+
+    /[a-z ]+/: corrisponde all'intera stringa(per via dello spazio e del +)
+    /[0-9 ]{4}/: tra le {} puoi specificare un intervallo
+    /[A-Z ]+, [0-9], /: puoi concatenare l'espesssioni
+  
