@@ -1,0 +1,50 @@
+### Obbiettivi 2025:
+        ===>
+            1. Essere professionista nel gestire le documentazioni per imparare  
+            2. Capire quale linguaggio è piu adatto al progetto assegnatomi (da me o da terzi)
+            
+            Dimplomarsi:
+                1. contattare Hensemberger -> 
+                    tel: 039 324607 
+                    email: mbtf410002@istruzione.it
+                    sede: Via Berchet, 2 - 20900 Monza
+
+            Divenatre pro (o quasi):
+                1. Javascript
+                2. CSS
+                3. Python
+                4. connessioni -> ISO/OSI
+
+            Imparare la base:
+                1. GO
+                2. C/C++
+                3. Java
+                4. Powershell 
+
+### Da fare:                
+        ===>    
+            Javascript:
+                1. class 
+                2. coockies
+                3. __proto__
+
+            Python:
+                1. progamma email:
+                    smtp, imap 
+
+            Java:
+                1. App.jar -> aggiornare in generale
+
+            C:
+                1. eseguibile -server (SOCKET)
+
+### Lavoro:
+        ===>
+            Benetton:
+                1. implementare mailGun
+
+            DashboardVersatile:
+                1. aggiornare
+
+            Repository_GDPR:
+                1. finire collegamento tickets
