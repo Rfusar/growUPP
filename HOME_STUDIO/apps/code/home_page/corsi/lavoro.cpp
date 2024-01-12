@@ -3,27 +3,8 @@
 Dataset Lavoro, AppuntiLavoro, Strumenti;
 
 vector<std::pair<string, std::pair<vector<string>, vector<Dataset>>>> LAVORO(){
-    Lavoro.link = {
-        {"DashboardVersatile", 
-            "cd C:\\Users\\Utente\\Desktop\\presenze_lavoro\\esercizi\\progettiAndrea\\DashboardVersatile && "
-            "start code C:\\Users\\Utente\\Desktop\\presenze_lavoro\\esercizi\\progettiAndrea\\DashboardVersatile && "
-            "start msedge http://127.0.0.1:5000 && "
-            "C:\\Users\\Utente\\Desktop\\presenze_lavoro\\esercizi\\progettiAndrea\\DashboardVersatile\\venv\\Scripts\\activate && "
-            "python run.py"},
-
-        {"Repository_GDPR", 
-            "cd C:\\Users\\Utente\\Desktop\\presenze_lavoro\\esercizi\\progettiAndrea\\Repository_GDPR && "
-            "start code C:\\Users\\Utente\\Desktop\\presenze_lavoro\\esercizi\\progettiAndrea\\Repository_GDPR___conClasse && "
-            "start msedge http://127.0.0.1:5000 && " 
-            "C:\\Users\\Utente\\Desktop\\presenze_lavoro\\esercizi\\progettiAndrea\\Repository_GDPR___conClasse\\venv\\Scripts\\activate && "
-            "python run.py"},
-    };
-    AppuntiLavoro.link = {
-        {"Benetton", 
-            "cls && "
-            "echo C:\\Users\\Utente\\Desktop\\presenze_lavoro\\esercizi\\progettiAndrea\\Benetton\\programma && "
-            "code C:\\Users\\Utente\\Desktop\\presenze_lavoro\\esercizi\\progettiAndrea\\Benetton\\programma"}
-    };
+    Lavoro.link = {};
+    AppuntiLavoro.link = {};
     Strumenti.link = {
         {"linux", "\"C:\\Program Files\\Oracle\\VirtualBox\\VirtualBox.exe\""},
         {"putty", "C:\\Users\\Utente\\Desktop\\"+nome_cartella+"\\apps\\putty.exe"},

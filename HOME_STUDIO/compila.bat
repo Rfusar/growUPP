@@ -16,7 +16,7 @@ corsi\documentazione.cpp ^
 corsi\profili_upgrade.cpp -o home_page.exe
 
 move home_page.exe ..\..\..
-cd ..\..\..\..
+cd ..\..\..
 cls
 echo AVVIO PROGRAMMA
 .\home_page.exe
