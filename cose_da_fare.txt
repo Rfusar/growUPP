@@ -3,23 +3,19 @@
             1. Essere professionista nel gestire le documentazioni per imparare  
             2. Capire quale linguaggio è piu adatto al progetto assegnatomi (da me o da terzi)
             
-            Dimplomarsi:
-                1. contattare Hensemberger -> 
-                    tel: 039 324607 
-                    email: mbtf410002@istruzione.it
-                    sede: Via Berchet, 2 - 20900 Monza
+            Imparare -> cloud run && kubernetes 
 
             Divenatre pro (o quasi):
-                1. Javascript
-                2. CSS
-                3. Python
-                4. connessioni -> ISO/OSI
+                1. connessioni -> ISO/OSI
+                2. GO
+                3. Javascript
+                4. Python
+                5. CSS
 
             Imparare la base:
-                1. GO
-                2. C/C++
-                3. Java
-                4. Powershell 
+                1. C/C++
+                2. Java
+                3. Powershell 
 
 ### Da fare:                
         ===>    
@@ -41,10 +37,11 @@
 ### Lavoro:
         ===>
             Benetton:
-                1. implementare mailGun
+                1. implementare mailGun quando necessario -> log importanti
+                2. creare il servizio windows
 
             DashboardVersatile:
                 1. aggiornare
 
             Repository_GDPR:
-                1. finire collegamento tickets
+                1. aggiustare pagina ADD TICKETS -> in base all'azienda ci sono i relativi utenti -> frontend
