@@ -28,7 +28,10 @@ vector<std::pair<string, std::pair<vector<string>, vector<Dataset>>>> DOCUMENTAZ
         {"Angular", cmd+"https://angular.dev/"},
         {"React", cmd+"https://react.dev/"},
         {"Dotnet", cmd+"https://learn.microsoft.com/en-us/dotnet/"},
-        {"Go", cmd+"https://pkg.go.dev/"}
+        {"Go", cmd+"https://pkg.go.dev/"},
+
+        {"Kubernetes", cmd+"https://kubernetes.io/docs/concepts/overview/"},
+        {"docker", cmd+"https://docs.docker.com/guides/get-started/"},
     };
 
     vector<std::pair<string, std::pair<vector<string>, vector<Dataset>>>> Menu = {

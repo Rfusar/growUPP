@@ -17,7 +17,21 @@ corsi\profili_upgrade.cpp -o home_page.exe
 
 move home_page.exe ..\..\..
 cd ..\..\..
-cls
-echo AVVIO PROGRAMMA
-.\home_page.exe
+
+:compila
+echo vuoi avviare il programma? Y/N
+echo.
+echo.
+echo.
+set /p res=": "
+
+if "%res%" == "Y" (
+    .\home_page.exe
+
+) else if "%res%" == "N" (
+    cls
+
+) else (
+    goto :compila
+)
 
