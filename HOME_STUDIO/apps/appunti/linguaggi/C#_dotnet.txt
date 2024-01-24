@@ -1,0 +1,15 @@
+Comandi iniziali:
+    ===>
+        dotnet new console -> applicazione console
+        ... new classlib -> Class Library:
+        ... new web -> ASP.NET Core Empty
+        ... new mvc -> ASP.NET Core MVC
+        ... new webapi -> ASP.NET Core Web API
+        ... new xunit -> Unit Test Project
+        ... new nuget -> NuGet Package
+        ... new sln -> Solution File
+        ... new globaljson -> Global.json file
+        ... new razor -> razor page
+
+
+        

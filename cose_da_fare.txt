@@ -19,29 +19,33 @@
 
 ### Da fare:                
         ===>    
+            GDPR_v2:
+                1. fixare tendina e tabelle
+
             Javascript:
-                1. class 
+                1. class - FATTO
                 2. coockies
                 3. __proto__
 
             Python:
-                1. progamma email:
-                    smtp, imap 
+                1.  
 
             Java:
                 1. App.jar -> aggiornare in generale
 
             C:
-                1. eseguibile -server (SOCKET)
+                1. eseguibile -server (SOCKET) - FATTO
+                2. capire meglio il codice
 
 ### Lavoro:
         ===>
             Benetton:
-                1. implementare mailGun quando necessario -> log importanti
-                2. creare il servizio windows
-
+                1. login:
+                        graph oppure Auth02, cioe microsoft oppure google
+                        
             DashboardVersatile:
                 1. aggiornare
 
             Repository_GDPR:
-                1. aggiustare pagina ADD TICKETS -> in base all'azienda ci sono i relativi utenti -> frontend
+                1. rendere attivo collegamento a DB -> modifica/elimina Azienda/Utente
+                2. creare tendina per modificare dall'area utente --se necessario--

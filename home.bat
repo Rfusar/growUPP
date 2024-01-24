@@ -11,6 +11,9 @@ if "%1" == "update" (
     cls
     type C:\Users\Utente\Desktop\Superhero\cose_da_fare.txt
 
+) else if "%1" == "testo" (
+    cd C:\Users\Utente\Desktop\altro\testi_ahaha
+
 
 
 
@@ -19,8 +22,8 @@ if "%1" == "update" (
 
 )   else if "%1" == "benetton" (
     title Benetton && cls
-    cd C:\Users\Utente\Desktop\presenze_lavoro\esercizi\progettiAndrea\Benetton\programma && .\venv\Scripts\activate
-    code C:\Users\Utente\Desktop\presenze_lavoro\esercizi\progettiAndrea\Benetton\programma
+    cd C:\apps\benetton && .\venv\Scripts\activate
+    code C:\apps\benetton
 
 ) else if "%1" == "GDPR" (
     title Repository_GDPR && cls
@@ -56,6 +59,7 @@ if "%1" == "update" (
 
 
 
+
 ) else if "%1" == "kube" (
     start msedge https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/
 
@@ -63,6 +67,10 @@ if "%1" == "update" (
     start msedge https://cloud.google.com/run/docs/quickstarts?hl=en
 
 
+
+
+) else if "%1" == "call" (
+    start firefox %2
 
 
 
@@ -73,11 +81,18 @@ if "%1" == "update" (
     echo DOCS ---^> kube, cloudRun
     echo.
     echo.
-    echo LAVORO ---^> benetton, GDPR, DashboardVersatile
+    echo.
+    echo LAVORO ---^> benetton, GDPR, DashboardVersatile, 
+    echo                    call
+    echo. 
     echo. 
     echo ESPERIMANTI ---^> GDPR_v2, studio, GUI_Java 
     echo. 
+    echo. 
+    echo. 
     echo STANDARD ---^> update, ^start, workout
+    echo.
+    echo.
     echo.
     echo.
     echo.
