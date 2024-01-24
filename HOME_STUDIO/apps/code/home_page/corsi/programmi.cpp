@@ -34,6 +34,7 @@ vector<std::pair<string, std::pair<vector<string>, vector<Dataset>>>> PROGRAMMI(
         {"programma_NodeJS", "code C:\\Users\\Utente\\Desktop\\proveProgetti\\prove_NodeJS"},
         {"programma_Go", "code C:\\Users\\Utente\\Desktop\\proveProgetti\\prove_Go"},
         {"programma_Python", "code C:\\Users\\Utente\\Desktop\\proveProgetti\\prove_Python"},
+        {"programma_C#", "code C:\\Users\\Utente\\Desktop\\proveProgetti\\prove_C#"},
     };
     sviluppa.link = {
         {"subnet",

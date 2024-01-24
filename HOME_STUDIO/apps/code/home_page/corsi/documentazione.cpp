@@ -14,6 +14,7 @@ vector<std::pair<string, std::pair<vector<string>, vector<Dataset>>>> DOCUMENTAZ
         {"Windows_server", cmd+"C:\\Users\\Utente\\Desktop\\info\\windows-server-get-started.pdf"},
         {"VBscript", cmd+"https://documentation.help/MS-Office-VBScript/documentation.pdf"},
         {"Powershell", cmd+"C:\\Users\\Utente\\Desktop\\info\\powershell-scripting-powershell-5.1.pdf"},
+        {"C#", cmd+"https://learn.microsoft.com/en-us/dotnet/csharp/tour-of-csharp/#code-try-0"},
 
         {"Springboot",cmd+"https://spring.io/projects/spring-boot"},
         
