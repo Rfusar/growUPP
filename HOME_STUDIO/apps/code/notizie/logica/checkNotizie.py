@@ -2,7 +2,7 @@ from bs4 import BeautifulSoup
 import subprocess
 import datetime
 
-path = "C:\\Users\\Utente\\Desktop\\growUPP\\apps\\code\\notizie"
+path = "C:\\Users\\Utente\\Desktop\\Superhero\\HOME_STUDIO\\apps\\code\\notizie"
 
 variabili={
     "link": {

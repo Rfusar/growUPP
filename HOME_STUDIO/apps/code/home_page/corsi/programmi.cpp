@@ -1,10 +1,10 @@
 #include "..\home_page.hpp"
 
-Dataset news, giochi, tools, altro, nuovo, sviluppa;
+Dataset news, giochi, tools, altro;
 
 vector<std::pair<string, std::pair<vector<string>, vector<Dataset>>>> PROGRAMMI(){
     news.link = {
-        {"notizie", "C:\\Users\\Utente\\Desktop\\"+nome_cartella+"\\apps\\checkNotizie.bat"},
+        {"notizie", "C:\\Users\\Utente\\Desktop\\"+nome_cartella+"\\HOME_STUDIO\\apps\\checkNotizie.bat"},
         {"ricerca", cmd+"https://www.google.com/advanced_search"},
         {"idea", cmd+"https://app.diagrams.net/"},
     };
@@ -17,9 +17,6 @@ vector<std::pair<string, std::pair<vector<string>, vector<Dataset>>>> PROGRAMMI(
     tools.link = {
         {"subnet", "C:\\Users\\Utente\\Desktop\\"+nome_cartella+"\\apps\\subnet.exe"},
         {"Invia_email", "echo start powershell -File C:\\Users\\Utente\\Desktop\\"+nome_cartella+"\\HOME_STUDIO\\apps\\Invia_email.ps1"},
-        {"Pagina_studio", 
-            "cd C:\\Users\\Utente\\Desktop\\proveProgetti\\prove_Go\\provaServer && "
-            "cls && go run server.go funcs.go"}
     };
     altro.link = {
         {"calcolatrice_resistenza__colori", cmd+"C:\\Users\\Utente\\Desktop\\"+nome_cartella+"\\HOME_STUDIO\\apps\\calc_resistenza.html"},
@@ -27,26 +24,10 @@ vector<std::pair<string, std::pair<vector<string>, vector<Dataset>>>> PROGRAMMI(
         {"tabella___check_pastiglie", cmd+"C:\\Users\\Utente\\Desktop\\salute_famiglia\\check_pastiglie\\check_pastiglie.html"},
         {"APP_java", cmd+"C:\\Users\\Utente\\Desktop\\"+nome_cartella+"\\HOME_STUDIO\\apps\\App.jar"},
     };
-    nuovo.link = {
-        {"programma_Cpp", "code C:\\Users\\Utente\\Desktop\\proveProgetti\\prove_Cpp"},
-        {"programma_Java", "code C:\\Users\\Utente\\Desktop\\proveProgetti\\prove_Java"},
-        {"programma_Zig", "code C:\\Users\\Utente\\Desktop\\proveProgetti\\prove_Zig"},
-        {"programma_NodeJS", "code C:\\Users\\Utente\\Desktop\\proveProgetti\\prove_NodeJS"},
-        {"programma_Go", "code C:\\Users\\Utente\\Desktop\\proveProgetti\\prove_Go"},
-        {"programma_Python", "code C:\\Users\\Utente\\Desktop\\proveProgetti\\prove_Python"},
-        {"programma_C#", "code C:\\Users\\Utente\\Desktop\\proveProgetti\\prove_C#"},
-    };
-    sviluppa.link = {
-        {"subnet",
-            "cls && "
-            "echo C:\\Users\\Utente\\Desktop\\proveProgetti\\prove_Cpp\\subnet && "
-            "code C:\\Users\\Utente\\Desktop\\proveProgetti\\prove_Cpp\\subnet"},
-    };
-
 
     vector<std::pair<string, std::pair<vector<string>, vector<Dataset>>>> Menu = {
         //{nome campo, {titoli campi}, {dataset} }
-        {"PROGRAMMI", { {"news", "giochi", "strumenti", "altro", "Apri programma","Crea un programma","Aggiorna"}, {news, giochi, tools, altro,nuovo, sviluppa} }}
+        {"PROGRAMMI", { {"news", "giochi", "strumenti", "altro", "Apri programma","Aggiorna"}, {news, giochi, tools, altro} }}
     };
 
     return Menu;

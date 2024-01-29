@@ -49,7 +49,6 @@ void menu_principale(vector<std::pair<string, std::pair<vector<string>, vector<D
     cout<<pezzo<<"\t\tVEDI"<<pezzo;
         cout<<spazio_header<<
             simbolo<<CORSI[3].first<<"\n"<<
-            simbolo<<CORSI[7].first<<"\n"<<
-            simbolo<<CORSI[8].first
+            simbolo<<CORSI[7].first<<"\n"
         <<spazio_footer;
 }

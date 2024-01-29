@@ -4,15 +4,14 @@
 int main(){
     vector<std::pair<string, std::pair<vector<string>, vector<Dataset>>>> CORSI;
     vector<std::pair<string, std::pair<vector<string>, vector<Dataset>>>> MODULI[] = {
-        LINGUAGGI(), 
-        TECNOLOGIE(), 
-        OS(), 
-        APPUNTI(), 
-        INTERNET(), 
-        PROGRAMMI(), 
-        LAVORO(), 
+        LINGUAGGI(),
+        TECNOLOGIE(),
+        OS(),
+        APPUNTI(),
+        PROGRAMMI(),
+        LAVORO(),
         DOCUMENTAZIONE(),
-        PROFILI_UPGRADE()
+        AGGIORNAMENTI(),
     };
 
     for (const auto& modulo : MODULI) {
