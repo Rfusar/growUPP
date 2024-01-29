@@ -10,6 +10,7 @@ rem LAVORO
 if "%1" == "benetton" goto :benetton
 if "%1" == "GDPR" goto :GDPR
 if "%1" == "DashboardVersatile" goto :dash
+if "%1" == "appunti_lavoro" goto :appunti_lavoro
 
 rem ESPREIMENTI
 if "%1" == "GDPR_v2" goto :GDPR_v2
@@ -48,22 +49,23 @@ goto :eof
 
 
 rem LAVORO
-:bentton
+:benetton
 title Benetton && cls
-cd C:\apps\benetton && .\venv\Scripts\activate
-code C:\apps\benetton
+cd C:\apps\benetton && .\venv\Scripts\activate && code .
 goto :eof
 
 :GDPR
 title Repository_GDPR && cls
-cd C:\Users\Utente\Desktop\presenze_lavoro\esercizi\progettiAndrea\Repository_GDPR___conClasse && .\venv\Scripts\activate
-code C:\Users\Utente\Desktop\presenze_lavoro\esercizi\progettiAndrea\Repository_GDPR___conClasse
+cd C:\Users\Utente\Desktop\presenze_lavoro\esercizi\progettiAndrea\Repository_GDPR___conClasse && .\venv\Scripts\activate && code .
 goto :eof
 
 :dash
 title DashboardVersatile && cls
-cd C:\Users\Utente\Desktop\presenze_lavoro\esercizi\progettiAndrea\DashboardVersatile && .\venv\Scripts\activate
-code C:\Users\Utente\Desktop\presenze_lavoro\esercizi\progettiAndrea\DashboardVersatile
+cd C:\Users\Utente\Desktop\presenze_lavoro\esercizi\progettiAndrea\DashboardVersatile && .\venv\Scripts\activate && code .
+goto :eof
+
+:appunti_lavoro
+start msedge https://cloud.google.com/storage/docs/json_api
 goto :eof
 
 
@@ -71,20 +73,17 @@ goto :eof
 rem ESPERIMENTI
 :GDPR_v2
 title Repository_GDPR___v2 && cls
-cd C:\Users\Utente\Desktop\proveProgetti\prove_NodeJS\prova_GUI
-code C:\Users\Utente\Desktop\proveProgetti\prove_NodeJS\prova_GUI
+cd C:\Users\Utente\Desktop\proveProgetti\prove_NodeJS\prova_GUI && code .
 goto :eof
 
 :studio
 title studio && cls 
-cd C:\Users\Utente\Desktop\proveProgetti\prove_Go\provaServer
-code C:\Users\Utente\Desktop\proveProgetti\prove_Go\provaServer
+cd C:\Users\Utente\Desktop\proveProgetti\prove_Go\provaServer && code .
 goto :eof
 
 :GUI_Java
 title GUI_Java && cls
-cd C:\Users\Utente\Desktop\proveProgetti\prove_Java\GUI_Java
-code C:\Users\Utente\Desktop\proveProgetti\prove_Java\GUI_Java
+cd C:\Users\Utente\Desktop\proveProgetti\prove_Java\GUI_Java && code .
 goto :eof
 
 

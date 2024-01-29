@@ -28,7 +28,7 @@
                 3. __proto__
 
             Python:
-                1.  
+                1. migliorare  
 
             Java:
                 1. App.jar -> aggiornare in generale
@@ -48,4 +48,4 @@
 
             Repository_GDPR:
                 1. rendere attivo collegamento a DB -> modifica/elimina Azienda/Utente
-                2. creare tendina per modificare dall'area utente --se necessario--
+                2. copiare le variabili di .env in .env presente in ubuntu, per creare immagine docker da caricare in cloud run
