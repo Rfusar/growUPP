@@ -15,14 +15,33 @@ vector<std::pair<string, std::pair<vector<string>, vector<Dataset>>>> AGGIORNAME
             "code C:\\Users\\Utente\\Desktop\\proveProgetti\\prove_Cpp\\subnet"},
     };
     nuovo.link = {
-        {"programma_Cpp", "code C:\\Users\\Utente\\Desktop\\proveProgetti\\prove_Cpp"},
-        {"programma_Java", "code C:\\Users\\Utente\\Desktop\\proveProgetti\\prove_Java"},
-        {"programma_Zig", "code C:\\Users\\Utente\\Desktop\\proveProgetti\\prove_Zig"},
-        {"programma_NodeJS", "code C:\\Users\\Utente\\Desktop\\proveProgetti\\prove_NodeJS"},
-        {"programma_Go", "code C:\\Users\\Utente\\Desktop\\proveProgetti\\prove_Go"},
-        {"programma_Python", "code C:\\Users\\Utente\\Desktop\\proveProgetti\\prove_Python"},
-        {"programma_C#", "code C:\\Users\\Utente\\Desktop\\proveProgetti\\prove_C#"},
-        {"programma_Web", "code C:\\Users\\Utente\\Desktop\\proveProgetti\\prove_Web"},
+        {"Batch", 
+            "echo C:\\Users\\Utente\\Desktop\\proveProgetti\\prove_Batch && "
+            "code C:\\Users\\Utente\\Desktop\\proveProgetti\\prove_Batch"},
+        {"Cpp", 
+            "echo C:\\Users\\Utente\\Desktop\\proveProgetti\\prove_Cpp"
+            "code C:\\Users\\Utente\\Desktop\\proveProgetti\\prove_Cpp"},
+        {"Java", 
+            "echo C:\\Users\\Utente\\Desktop\\proveProgetti\\prove_Java && "
+            "code C:\\Users\\Utente\\Desktop\\proveProgetti\\prove_Java"},
+        {"Zig", 
+            "echo C:\\Users\\Utente\\Desktop\\proveProgetti\\prove_Zig && "
+            "code C:\\Users\\Utente\\Desktop\\proveProgetti\\prove_Zig"},
+        {"NodeJS", 
+            "echo C:\\Users\\Utente\\Desktop\\proveProgetti\\prove_NodeJS && "
+            "code C:\\Users\\Utente\\Desktop\\proveProgetti\\prove_NodeJS"},
+        {"Go", 
+            "echo C:\\Users\\Utente\\Desktop\\proveProgetti\\prove_Go && "
+            "code C:\\Users\\Utente\\Desktop\\proveProgetti\\prove_Go"},
+        {"Python", 
+            "echo C:\\Users\\Utente\\Desktop\\proveProgetti\\prove_Python && "
+            "code C:\\Users\\Utente\\Desktop\\proveProgetti\\prove_Python"},
+        {"C#", 
+            "echo C:\\Users\\Utente\\Desktop\\proveProgetti\\prove_C# && "
+            "code C:\\Users\\Utente\\Desktop\\proveProgetti\\prove_C#"},
+        {"Web", 
+            "echo C:\\Users\\Utente\\Desktop\\proveProgetti\\prove_Web && "
+            "code C:\\Users\\Utente\\Desktop\\proveProgetti\\prove_Web"},
     };
     vector<std::pair<string, std::pair<vector<string>, vector<Dataset>>>> Menu = {
         {"AGGIORAMENTI", { {"Crea programma","Aggiorna"}, {nuovo, aggiornamenti} } }

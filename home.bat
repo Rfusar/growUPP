@@ -24,8 +24,10 @@ if "%1" == "cloudRun" goto :cloudRun
 rem TOOLS
 if "%1" == "call" goto :call
 
-
 if "%1" == "help" goto :help
+
+rem COSE DA FARE
+if "%1" == "whatShouldIDO" goto :DO
 
 
 
@@ -40,7 +42,7 @@ C:\Users\Utente\Desktop\Superhero\HOME_STUDIO\home_page.exe
 goto :eof
 
 :workout
-cls && type C:\Users\Utente\Desktop\Superhero\cose_da_fare.txt
+cls && type C:\Users\Utente\Desktop\Superhero\2024.txt
 goto :eof
 
 :testo
@@ -104,6 +106,11 @@ rem TOOLS
 start firefox %2
 goto :eof
 
+rem COSE DA FARE
+:DO
+cls && type C:\Users\Utente\Desktop\Superhero\lavoro.txt
+goto :eof
+
 :help
 cls 
 echo.
@@ -115,14 +122,14 @@ echo LAVORO ---^> benetton, GDPR, DashboardVersatile,
 echo                    call
 echo. 
 echo. 
-echo ESPERIMANTI ---^> GDPR_v2, studio, GUI_Java 
+echo ESPERIMENTI ---^> GDPR_v2, studio, GUI_Java 
 echo. 
 echo. 
 echo. 
 echo STANDARD ---^> update, ^start, workout
 echo.
 echo.
-echo.
+echo COSA DEVI FARE ---^> whatShouldIDO
 echo.
 echo.
 echo.

@@ -23,12 +23,10 @@
                 1. fixare tendina e tabelle
 
             Javascript:
-                1. class - FATTO
-                2. coockies
-                3. __proto__
+                1. ???
 
             Python:
-                1. migliorare  
+                1. ???  
 
             Java:
                 1. App.jar -> aggiornare in generale
@@ -36,16 +34,3 @@
             C:
                 1. eseguibile -server (SOCKET) - FATTO
                 2. capire meglio il codice
-
-### Lavoro:
-        ===>
-            Benetton:
-                1. login:
-                        graph oppure Auth02, cioe microsoft oppure google
-                        
-            DashboardVersatile:
-                1. aggiornare
-
-            Repository_GDPR:
-                1. rendere attivo collegamento a DB -> modifica/elimina Azienda/Utente
-                2. copiare le variabili di .env in .env presente in ubuntu, per creare immagine docker da caricare in cloud run

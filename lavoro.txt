@@ -1,0 +1,32 @@
+GDPR 
+    ===> 
+        1. controllare modifiche generali, aziende, utenti(user, referent, seller, backoffice), 
+        2. gestione documenti
+        3. ultimi controlli tickets
+        4. deploy su cloudRun
+
+
+24Care
+    ===>
+        1. dashboard iniziare
+            appunti
+                ===> 
+                    1. Gestione contratti(manutenzione e vendita prodotti)
+                    2. sistemare Database MongoDB
+
+
+societa dalla austria
+    ===>
+        1. dashboard iniziare
+            appunti:
+                ===>
+                    1. Gestione documenti immobiliari
+                    2. integrazone CHAT_GPT
+
+
+benetton
+    ===>
+        1. login
+        2. dashboard
+
+    
