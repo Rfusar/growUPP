@@ -5,6 +5,27 @@ GDPR
         3. ultimi controlli tickets
         4. deploy su cloudRun
 
+	documenti (paper):
+		===> 
+		    cambiare updateAt con expirationDate
+		    aggiungere campo: attivo
+		    aggiungere campo: firmato
+			
+
+	cloudRun:
+	    ===>
+		email: nemesisagsolutions@gmail.com
+		password: !Nemesis@2023;	
+
+
+	
+
+
+
+	status: attivo
+	
+		
+
 
 24Care
     ===>
@@ -14,8 +35,12 @@ GDPR
                     1. Gestione contratti(manutenzione e vendita prodotti)
                     2. sistemare Database MongoDB
 
+	status: in-attesa
+	motivo: quando vuoi crea la web app
 
-societa dalla austria
+
+
+Prelios
     ===>
         1. dashboard iniziare
             appunti:
@@ -23,10 +48,21 @@ societa dalla austria
                     1. Gestione documenti immobiliari
                     2. integrazone CHAT_GPT
 
+	status: in-attesa
+	motivo: quando vuoi crea la web app
+
+
 
 benetton
     ===>
-        1. login
-        2. dashboard
+
+        1. dashboard
+	
+	appunti:
+	    ===>
+		ribaltare codice imap con codice attuale
+	
+
+	status: attivo
 
     

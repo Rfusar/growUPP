@@ -13,13 +13,18 @@ vector<std::pair<string, std::pair<vector<string>, vector<Dataset>>>> AGGIORNAME
             "cls && "
             "echo C:\\Users\\Utente\\Desktop\\proveProgetti\\prove_Cpp\\subnet && "
             "code C:\\Users\\Utente\\Desktop\\proveProgetti\\prove_Cpp\\subnet"},
+
+        {"customPostMan",
+            "cls && "
+            "echo C:\\Users\\Utente\\Desktop\\proveProgetti\\prove_Cpp\\internet && "
+            "code C:\\Users\\Utente\\Desktop\\proveProgetti\\prove_Cpp\\internet"}
     };
     nuovo.link = {
         {"Batch", 
             "echo C:\\Users\\Utente\\Desktop\\proveProgetti\\prove_Batch && "
             "code C:\\Users\\Utente\\Desktop\\proveProgetti\\prove_Batch"},
         {"Cpp", 
-            "echo C:\\Users\\Utente\\Desktop\\proveProgetti\\prove_Cpp"
+            "echo C:\\Users\\Utente\\Desktop\\proveProgetti\\prove_Cpp && "
             "code C:\\Users\\Utente\\Desktop\\proveProgetti\\prove_Cpp"},
         {"Java", 
             "echo C:\\Users\\Utente\\Desktop\\proveProgetti\\prove_Java && "

@@ -16,6 +16,7 @@ vector<std::pair<string, std::pair<vector<string>, vector<Dataset>>>> PROGRAMMI(
     };
     tools.link = {
         {"subnet", "C:\\Users\\Utente\\Desktop\\"+nome_cartella+"\\apps\\subnet.exe"},
+        {"customPostMan", "C:\\Users\\Utente\\Desktop\\"+nome_cartella+"\\apps\\customPostMan.exe"},
         {"Invia_email", "echo start powershell -File C:\\Users\\Utente\\Desktop\\"+nome_cartella+"\\HOME_STUDIO\\apps\\Invia_email.ps1"},
     };
     altro.link = {

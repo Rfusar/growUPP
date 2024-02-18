@@ -28,6 +28,7 @@ if "%1" == "help" goto :help
 
 rem COSE DA FARE
 if "%1" == "whatShouldIDO" goto :DO
+if "%1" == "W_whatShouldIDO" goto :write
 
 
 
@@ -106,10 +107,17 @@ rem TOOLS
 start firefox %2
 goto :eof
 
+
+
 rem COSE DA FARE
 :DO
 cls && type C:\Users\Utente\Desktop\Superhero\lavoro.txt
 goto :eof
+
+:write
+notepad C:\Users\Utente\Desktop\Superhero\lavoro.txt
+goto :eof
+
 
 :help
 cls 
@@ -129,7 +137,7 @@ echo.
 echo STANDARD ---^> update, ^start, workout
 echo.
 echo.
-echo COSA DEVI FARE ---^> whatShouldIDO
+echo COSA DEVI FARE ---^> whatShouldIDO, W_whatShouldIDO
 echo.
 echo.
 echo.
