@@ -13,11 +13,6 @@ vector<std::pair<string, std::pair<vector<string>, vector<Dataset>>>> AGGIORNAME
             "cls && "
             "echo C:\\Users\\Utente\\Desktop\\proveProgetti\\prove_Cpp\\subnet && "
             "code C:\\Users\\Utente\\Desktop\\proveProgetti\\prove_Cpp\\subnet"},
-
-        {"customPostMan",
-            "cls && "
-            "echo C:\\Users\\Utente\\Desktop\\proveProgetti\\prove_Cpp\\internet && "
-            "code C:\\Users\\Utente\\Desktop\\proveProgetti\\prove_Cpp\\internet"}
     };
     nuovo.link = {
         {"Batch", 
