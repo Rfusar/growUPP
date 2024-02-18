@@ -1,6 +1,6 @@
 #include "home_page.hpp"
 
-string cmd = "start msedge ";
+string cmd = "start chrome ";
 string nome_cartella = "Superhero";
 
 //*LAYOUT

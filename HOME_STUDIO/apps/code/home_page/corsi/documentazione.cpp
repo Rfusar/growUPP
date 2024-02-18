@@ -33,6 +33,8 @@ vector<std::pair<string, std::pair<vector<string>, vector<Dataset>>>> DOCUMENTAZ
 
         {"Kubernetes", cmd+"https://kubernetes.io/docs/concepts/overview/"},
         {"docker", cmd+"https://docs.docker.com/guides/get-started/"},
+
+        {"curl", cmd+"https://everything.curl.dev/"},
     };
 
     vector<std::pair<string, std::pair<vector<string>, vector<Dataset>>>> Menu = {
