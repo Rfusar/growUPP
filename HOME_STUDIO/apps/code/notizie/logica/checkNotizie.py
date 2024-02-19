@@ -1,157 +1,115 @@
-from bs4 import BeautifulSoup
-import subprocess
-import datetime
+from variabili import Notizie
 
-path = "C:\\Users\\Utente\\Desktop\\Superhero\\HOME_STUDIO\\apps\\code\\notizie"
+'''
+    ricordati che se cambi i nomi dei fileOutput, devi cambiarli anche nel file checkNotizie.bat
+'''
 
-variabili={
-    "link": {
-        "governoIta" : "https://www.governo.it/it",
-        "agenzieEntrate" : "https://www.agenziaentrate.gov.it/portale/web/guest/home",
-        "indiciBorsa" : "https://www.milanofinanza.it/mercati/indici?refresh_cens",
-        "ISTAT": "https://www.istat.it/"
-    },
-    "file":{
-        "governoIta" : "GI_home.html",
-        "agenzieEntrate" : "AE_home.html",
-        "indiciBorsa" : "indiciBorsa.html",
-        "ISTAT" : "ISTAT.html"
-    }
-}
-
-def creazione_foglio(tipo): 
-    subprocess.call(f"curl -o {path}\\{variabili['file'][tipo]} -k {variabili['link'][tipo]}", shell=True)
-
-def eliminazione_foglio(tipo):
-    subprocess.call(f"del {path}\\{variabili['file'][tipo]}", shell=True)
-
+#*Governo italiano
 def news():
-    creazione_foglio("governoIta")
+    nomeFileOutput = "News_governoItaliano.txt"
 
-    with open(f"{path}\\GI_home.html", "r",encoding="utf-8") as file:
-        HOME = file.read()
+    def func(soup, allPathOutput):
+        card = soup.find_all(class_="box_text_container clearfix")
 
-    soup = BeautifulSoup(HOME, "html.parser")
+        for v in card: 
+            h3 = v.find('h3') 
+            p = v.find('p') # paragrafo in mezzo al div      
+            with open(allPathOutput, "a",encoding="utf-8") as f:
+                f.write("♦♦♦♦♦ GovernoItalianoSite ♦♦♦♦♦♦♦♦♦♦♦♦♦ NOTIZIA\n\n")
+                f.write(f"titolo: {h3.text}\n\n")
+                f.write(f"{v.text}\n\n\n")
 
-    card = soup.find_all(class_="box_text_container clearfix")
+    Notizie("governoIta", nomeFileOutput, "GI_home.html").salvataggio(func)
 
-    with open(f"{path}\\notizia.txt", "w",encoding="utf-8") as f:
-            f.write("")
-    for v in card: 
-        h3 = v.find('h3') 
-        p = v.find('p') # paragrafo in mezzo al div      
-        with open(f"{path}\\notizia.txt", "a",encoding="utf-8") as f:
-            f.write("♦♦♦♦♦ GovernoItalianoSite ♦♦♦♦♦♦♦♦♦♦♦♦♦ NOTIZIA\n\n")
-            f.write(f"titolo: {h3.text}\n\n")
-            f.write(f"{v.text}\n\n\n")
 
-    eliminazione_foglio("governoIta")
-     
+
+#*Agenzia Delle Entrate     
 def news_agenzia_entrate():
-    creazione_foglio("agenzieEntrate")
+    nomeFileOutput = "News_agenzieEntrate.txt"
+    
+    def func(soup, allPathOutput):
+        card = soup.find_all(class_="col-xs-12 col-sm-12 col-md-8")
 
-    with open(f"{path}\\AE_home.html", "r",encoding="utf-8") as file:
-        HOME = file.read()
+        for i in card:
+            data_notizia = i.find("span")
+            titolo = i.find("h2")
+            notizia = i.find("p")
+            with open(allPathOutput, "a", encoding="utf-8") as f:
+                f.write("☺☺☺☺☺☺☺☺☺ agenziaEntrate ☺☺☺☺☺☺☺☺☺☺☺☺ NOTIZIA\n\n")
+                f.write(f"DATA: {data_notizia.text}\n\n")
+                f.write(f"TITOLO: {titolo.text}\n\n")
+                f.write(f"{notizia.text}\n\n\n")
 
-    soup = BeautifulSoup(HOME, "html.parser")
+    Notizie("agenzieEntrate", nomeFileOutput, "AE_home.html").salvataggio(func)
 
-    card = soup.find_all(class_="col-xs-12 col-sm-12 col-md-8")
 
-    with open(f"{path}\\AE.txt", "w", encoding="utf-8") as f:
-        f.write("")
-    for i in card:
-        data_notizia = i.find("span")
-        titolo = i.find("h2")
-        notizia = i.find("p")
-        with open(f"{path}\\AE.txt", "a", encoding="utf-8") as f:
-            f.write("☺☺☺☺☺☺☺☺☺ agenziaEntrate ☺☺☺☺☺☺☺☺☺☺☺☺ NOTIZIA\n\n")
-            f.write(f"DATA: {data_notizia.text}\n\n")
-            f.write(f"TITOLO: {titolo.text}\n\n")
-            f.write(f"{notizia.text}\n\n\n")
 
-    eliminazione_foglio("agenzieEntrate")
-
+#*Indici borsa 
 def check_indiciBorseMondiali():
-    creazione_foglio("indiciBorsa")
+    nomeFileOutput = "indici_banche.txt"
 
-    with open(f"{path}\\indiciBorsa.html", "r",encoding="utf-8") as file:
-        HOME = file.read()
+    def func(soup, allPathOutput):
 
-    soup = BeautifulSoup(HOME, "html.parser")
+        tabella = soup.find(class_="table")
+        elementi = tabella.find_all("tr")
+    
+        titoli = []
+        for i in elementi:
+            titolo_campi = i.find_all("th")
+            valori = i.find_all("td")
 
-    tabella = soup.find(class_="table")
-    elementi = tabella.find_all("tr")
- 
-    with open(f"{path}\\indici_banche.txt", "w", encoding="utf-8") as f:
-        f.write("")
+            for v in titolo_campi: titoli.append(v.text)
+            count2=0
 
-    with open(f"{path}\\indici_banche.txt", "a", encoding="utf-8") as f:
-        #DATA
-        f.write(f"\t Ultimo aggiornamento: {datetime.date.today()} alle {datetime.datetime.now().hour}:{datetime.datetime.now().minute}\n")
+            for j2, J2 in enumerate(valori):
+                with open(allPathOutput, "a", encoding="utf-8")as f:
+                    #CONTENUTO
+                    while count2 < len(titoli):
+                        if count2 >= 0 and count2 != 8:
+                            var = ""
+                            var += titoli[count2]
+                            count2+=1
+                            break
+                        elif count2 == 8:
+                            count2 = 0
+                    
+                    x = valori[j2].text.split()
 
-    titoli = []
-    for i in elementi:
-        titolo_campi = i.find_all("th")
-        valori = i.find_all("td")
+                    f.write(f"\n{var}: {x[0]}")
+                    if count2 == 0:
+                        pass
+                    elif count2 % 7 == 0:
+                        f.write("\n\n")
 
-        for v in titolo_campi: titoli.append(v.text)
-        count2=0
+    Notizie("indiciBorsa", nomeFileOutput, "indiciBorsa.html").salvataggio(func)
 
-        for j2, J2 in enumerate(valori):
-            with open(f"{path}\\indici_banche.txt", "a", encoding="utf-8")as f:
-                #CONTENUTO
-                while count2 < len(titoli):
-                    if count2 >= 0 and count2 != 8:
-                        var = ""
-                        var += titoli[count2]
-                        count2+=1
-                        break
-                    elif count2 == 8:
-                        count2 = 0
-                
-                x = valori[j2].text.split()
 
-                f.write(f"\n{var}: {x[0]}")
-                if count2 == 0:
-                    pass
-                elif count2 % 7 == 0:
-                    f.write("\n\n")
-
-    eliminazione_foglio("indiciBorsa")
-
+#*Istat
 def notizieISTAT():
-    creazione_foglio("ISTAT")
+    nomeFileOutput = "News_ISTAT.txt"
 
-    with open(f"{path}\\ISTAT.html", "r",encoding="utf-8") as file:
-        HOME = file.read()
+    def func(soup, allPathOutput):
+        n0 = soup.find_all(class_="article list d-none d-sm-block")
+        n1 = soup.find_all(class_="article list")
 
-    soup = BeautifulSoup(HOME, "html.parser")
+        for i in n1:
+            data = i.find("p")
+            paragrafo = i.find("h2")
+            titolo = i.find("h1")
+            with open(allPathOutput, "a",encoding="utf-8") as f:
+                f.write("♠♠♠♠♠♠♠♠♠♠♠♠♠♠ISTAT-NEWS♠♠♠♠♠♠♠♠♠♠♠\n")
+                f.write(f"data: {data.text}\n")
+                f.write(f"titolo: {titolo.text}\n")
+                f.write(f"paragrafo: {paragrafo.text}\n\n")
 
-    n0 = soup.find_all(class_="article list d-none d-sm-block")
-    n1 = soup.find_all(class_="article list")
+        for i in n0:
+            data = i.find("p")
+            paragrafo = i.find("h2")
+            titolo = i.find("h1")
+            with open(allPathOutput, "a",encoding="utf-8") as f:
+                f.write("♠♠♠♠♠♠♠♠♠♠♠♠♠♠ISTAT-NEWS♠♠♠♠♠♠♠♠♠♠♠\n")
+                f.write(f"data: {data.text}\n")
+                f.write(f"titolo: {titolo.text}\n")
+                f.write(f"paragrafo: {paragrafo.text}\n\n")
 
-    with open(f"{path}\\ISTAT.txt", "w",encoding="utf-8") as f:
-        f.write("")
-
-    for i in n1:
-        data = i.find("p")
-        paragrafo = i.find("h2")
-        titolo = i.find("h1")
-        with open(f"{path}\\ISTAT.txt", "a",encoding="utf-8") as file:
-            file.write("♠♠♠♠♠♠♠♠♠♠♠♠♠♠ISTAT-NEWS♠♠♠♠♠♠♠♠♠♠♠\n")
-            file.write(f"data: {data.text}\n")
-            file.write(f"titolo: {titolo.text}\n")
-            file.write(f"paragrafo: {paragrafo.text}\n\n")
-
-    for i in n0:
-        data = i.find("p")
-        paragrafo = i.find("h2")
-        titolo = i.find("h1")
-        with open(f"{path}\\ISTAT.txt", "a",encoding="utf-8") as file:
-            file.write("♠♠♠♠♠♠♠♠♠♠♠♠♠♠ISTAT-NEWS♠♠♠♠♠♠♠♠♠♠♠\n")
-            file.write(f"data: {data.text}\n")
-            file.write(f"titolo: {titolo.text}\n")
-            file.write(f"paragrafo: {paragrafo.text}\n\n")
-
-    eliminazione_foglio("ISTAT")
-
+    Notizie("ISTAT", nomeFileOutput, "ISTAT.html").salvataggio(func)

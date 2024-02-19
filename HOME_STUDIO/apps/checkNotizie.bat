@@ -46,13 +46,13 @@ if "%a0%" == "-google" (
 
 ) else if "%n%" == "1" (
     cls 
-    type C:\Users\Utente\Desktop\Superhero\HOME_STUDIO\apps\code\notizie\AE.txt
+    type C:\Users\Utente\Desktop\Superhero\HOME_STUDIO\apps\code\notizie\News_agenzieEntrate.txt
     pause
     goto :ini
 
 ) else if "%n%" == "2" (
     cls 
-    type C:\Users\Utente\Desktop\Superhero\HOME_STUDIO\apps\code\notizie\notizia.txt
+    type C:\Users\Utente\Desktop\Superhero\HOME_STUDIO\apps\code\notizie\News_governoItaliano.txt
     pause
     goto :ini
 
@@ -64,7 +64,7 @@ if "%a0%" == "-google" (
 
 ) else if "%n%" == "4" ( 
     cls
-    type C:\Users\Utente\Desktop\Superhero\HOME_STUDIO\apps\code\notizie\ISTAT.txt
+    type C:\Users\Utente\Desktop\Superhero\HOME_STUDIO\apps\code\notizie\News_ISTAT.txt
     pause
     goto :ini
 
