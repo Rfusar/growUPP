@@ -13,6 +13,7 @@ vector<std::pair<string, std::pair<vector<string>, vector<Dataset>>>> PROGRAMMI(
         {"ps2", "\"C:\\Program Files (x86)\\PCSX2\\pcsx2.exe\""},
         {"fl", "\"C:\\Program Files (x86)\\Image-Line\\FL Studio 20\\FL64.exe\""},
         {"musica", "C:\\Users\\Utente\\Desktop\\"+nome_cartella+"\\HOME_STUDIO\\apps\\musica_studio.exe"},
+        {"libreCAD", "\"C:\\Program Files (x86)\\LibreCAD\\LibreCAD.exe\""}
     };
     tools.link = {
         {"subnet", "C:\\Users\\Utente\\Desktop\\"+nome_cartella+"\\apps\\subnet.exe"},

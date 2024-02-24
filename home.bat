@@ -3,37 +3,19 @@
 rem PROGRAMMA
 if "%1" == "update" goto :update
 if "%1" == "start" goto :avvio
-if "%1" == "workout" goto :workout
-if "%1" == "testo" goto  :testo
+if "%1" == "github" call HOME_STUDIO\github.bat
 
 rem LAVORO
-if "%1" == "benetton" goto :benetton
-if "%1" == "GDPR" goto :GDPR
-if "%1" == "DashboardVersatile" goto :dash
-if "%1" == "appunti_lavoro" goto :appunti_lavoro
+if "%1" == "work" goto :work
 
-rem ESPREIMENTI
-if "%1" == "GDPR_v2" goto :GDPR_v2
+rem STUDIO
 if "%1" == "studio" goto :studio
-if "%1" == "GUI_Java" goto :GUI_Java
-
-rem TECNOLOGIA
-if "%1" == "kube" goto :kube
-if "%1" == "cloudRun" goto :cloudRun 
 
 rem TOOLS
-if "%1" == "call" goto :call
-
+if "%1" == "tool" goto :tool
 if "%1" == "help" goto :help
 
-rem COSE DA FARE
-if "%1" == "whatShouldIDO" goto :DO
-if "%1" == "W_whatShouldIDO" goto :write
 
-
-
-
-rem PROGRAMMA
 :update
 cls && cd C:\Users\Utente\Desktop\Superhero && code .
 goto :eof
@@ -42,102 +24,125 @@ goto :eof
 C:\Users\Utente\Desktop\Superhero\HOME_STUDIO\home_page.exe
 goto :eof
 
-:workout
-cls && type C:\Users\Utente\Desktop\Superhero\2024.txt
-goto :eof
 
-:testo
-cd C:\Users\Utente\Desktop\altro\testi_ahaha
-goto :eof
+:work
+cls
+echo Quale lavoro vuoi aggiornare? q per uscire
+echo.
+echo    1. benetton
+echo    2. GDPR
+echo    3. API
+echo    4. DashboardVersatile
+echo    5. Visualizza appunti
+echo.
+echo.   PROGETTI
+echo        1a. GDPR_v2 (potenzialmente puo essere uno stampino per le dashboard)
+echo.       2a. GUI_Java (programma GUI per lavorare... v0.0.0.0.0.0.0.0.001)
+echo        3a. crea testo 
+echo        4a. Obbiettivi 2024
+echo.
+echo.
+set /p n="Scegli [utilizza l'indice]: "
+
+if "%n%" == "q" (
+    cls && goto :eof
+
+) else if "%n%" == "1" (
+    title Benetton && cls
+    cd C:\apps\benetton && .\venv\Scripts\activate && code .
+    goto :eof
+
+) else if "%n%" == "2" (
+    title Repository_GDPR && cls
+    cd C:\Users\Utente\Desktop\presenze_lavoro\esercizi\progettiAndrea\Repository_GDPR___conClasse && .\venv\Scripts\activate && code .
+    goto :eof
+
+) else if "%n%" == "3" (
+    title API_nemesis && cls
+    cd C:\Users\Utente\Desktop\presenze_lavoro\esercizi\progettiAndrea\API_nemesis && .\venv\Scripts\activate && code .
+    goto :eof
+
+) else if "%n%" == "4" (
+    title DashboardVersatile && cls
+    cd C:\Users\Utente\Desktop\presenze_lavoro\esercizi\progettiAndrea\DashboardVersatile && .\venv\Scripts\activate && code .
+    goto :eof
+
+) else if "%n%" == "5" (
+    notepad C:\Users\Utente\Desktop\Superhero\lavoro.txt
+    goto :eof
 
 
-rem LAVORO
-:benetton
-title Benetton && cls
-cd C:\apps\benetton && .\venv\Scripts\activate && code .
-goto :eof
-
-:GDPR
-title Repository_GDPR && cls
-cd C:\Users\Utente\Desktop\presenze_lavoro\esercizi\progettiAndrea\Repository_GDPR___conClasse && .\venv\Scripts\activate && code .
-goto :eof
-
-:dash
-title DashboardVersatile && cls
-cd C:\Users\Utente\Desktop\presenze_lavoro\esercizi\progettiAndrea\DashboardVersatile && .\venv\Scripts\activate && code .
-goto :eof
-
-:appunti_lavoro
-start msedge https://cloud.google.com/storage/docs/json_api
-goto :eof
 
 
+) else if "%n%" == "1a" (
+    title Repository_GDPR___v2 && cls
+    cd C:\Users\Utente\Desktop\proveProgetti\prove_NodeJS\prova_GUI && code .
+    goto :eof
 
-rem ESPERIMENTI
-:GDPR_v2
-title Repository_GDPR___v2 && cls
-cd C:\Users\Utente\Desktop\proveProgetti\prove_NodeJS\prova_GUI && code .
-goto :eof
+) else if "%n%" == "2a" (
+    title GUI_Java && cls
+    cd C:\Users\Utente\Desktop\proveProgetti\prove_Java\GUI_Java && code .
+    goto :eof
+
+) else if "%n%" == "3a" (
+    title Testo && cls
+    cd C:\Users\Utente\Desktop\altro\testi_ahaha && code .
+    goto :eof
+
+) else if "%n%" == "4a" (
+    cls && notepad C:\Users\Utente\Desktop\Superhero\2024.txt
+    goto :eof
+
+) else (
+    goto :work
+)
+
 
 :studio
 title studio && cls 
-cd C:\Users\Utente\Desktop\proveProgetti\prove_Go\provaServer && code .
-goto :eof
+if "%2" == "-u" (
+    cd C:\Users\Utente\Desktop\proveProgetti\prove_Go\provaServer && code .
+    goto :eof 
 
-:GUI_Java
-title GUI_Java && cls
-cd C:\Users\Utente\Desktop\proveProgetti\prove_Java\GUI_Java && code .
-goto :eof
-
-
-
-rem TECNOLOGIE
-:kube
-start msedge https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/
-goto :eof
-
-:cloudRun
-start msedge https://cloud.google.com/run/docs/quickstarts?hl=en
-goto :eof
+) else if "%2" == "-run" (
+    cd C:\Users\Utente\Desktop\proveProgetti\prove_Go\provaServer && run.bat
+    goto :eof 
+)
 
 
 
-rem TOOLS
-:call
-start firefox %2
-goto :eof
+:tool
+if "%2" == "-conn" (
+    cls && C:\Users\Utente\Desktop\Superhero\HOME_STUDIO\apps\AnyDesk.exe
+    goto :eof 
 
+) else if "%2" == "-linux" (
+    cls && "C:\Program Files\Oracle\VirtualBox\VirtualBox.exe"
+    goto :eof 
 
-
-rem COSE DA FARE
-:DO
-cls && type C:\Users\Utente\Desktop\Superhero\lavoro.txt
-goto :eof
-
-:write
-notepad C:\Users\Utente\Desktop\Superhero\lavoro.txt
-goto :eof
+) else if "%2" == "-putty" (
+    cls && C:\Users\Utente\Desktop\Superhero\HOME_STUDIO\apps\putty.exe
+    goto :eof 
+)
 
 
 :help
 cls 
+echo Sintassi: home 
 echo.
-echo DOCS ---^> kube, cloudRun
+echo    ^start            Avvia programma 
+echo    update           Aggiorna programma 
+echo    work             Apri menu_work 
 echo.
+echo    studio 
+echo.       -u           Apri VSc per aggiornare il codice
+echo.       -run         Accendi il server 
 echo.
+echo.   tool
+echo.       -conn        Utilizza AnyDesk
+echo.       -linux       Utilizza VirtualBox
+echo.       -putty       Utilizza putty
 echo.
-echo LAVORO ---^> benetton, GDPR, DashboardVersatile, 
-echo                    call
-echo. 
-echo. 
-echo ESPERIMENTI ---^> GDPR_v2, studio, GUI_Java 
-echo. 
-echo. 
-echo. 
-echo STANDARD ---^> update, ^start, workout
-echo.
-echo.
-echo COSA DEVI FARE ---^> whatShouldIDO, W_whatShouldIDO
 echo.
 echo.
 echo.

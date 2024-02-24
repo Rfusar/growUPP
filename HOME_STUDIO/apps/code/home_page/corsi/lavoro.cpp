@@ -7,8 +7,8 @@ vector<std::pair<string, std::pair<vector<string>, vector<Dataset>>>> LAVORO(){
     AppuntiLavoro.link = {};
     Strumenti.link = {
         {"linux", "\"C:\\Program Files\\Oracle\\VirtualBox\\VirtualBox.exe\""},
-        {"putty", "C:\\Users\\Utente\\Desktop\\"+nome_cartella+"\\apps\\putty.exe"},
-        {"conn_remoto", "C:\\Users\\Utente\\Desktop\\"+nome_cartella+"\\apps\\AnyDesk.exe"},
+        {"putty", "C:\\Users\\Utente\\Desktop\\"+nome_cartella+"\\HOME_STUDIO\\apps\\putty.exe"},
+        {"conn_remoto", "C:\\Users\\Utente\\Desktop\\"+nome_cartella+"\\HOME_STUDIO\\apps\\AnyDesk.exe"},
         {"Kofax_docs", "start msedge https://docshield.kofax.com/complete-list.htm"},
     };
 

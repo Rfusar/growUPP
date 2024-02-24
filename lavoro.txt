@@ -5,23 +5,12 @@ GDPR
         3. ultimi controlli tickets
         4. deploy su cloudRun
 
-	documenti (paper):
-		===> 
-		    cambiare updateAt con expirationDate
-		    aggiungere campo: attivo
-		    aggiungere campo: firmato
-			
-
-	cloudRun:
-	    ===>
-		email: nemesisagsolutions@gmail.com
-		password: !Nemesis@2023;	
-
+	#appunti
+		M.O.P -> aggiungere stati, se completo invio email a cliente con il link.
+		documenti -> aggiungere status [firma o no], [scadenza:[annuale{31/12/???}, pluriennale:{defualt senza scadenza, ma verra messa a mano quando la scadenza sara dichiarata}]]
+		tickets -> aggiunta filtro status nella tabella -> [aperto, in-attesa, chiuso]
 
 	
-
-
-
 	status: attivo
 	
 		
@@ -57,12 +46,13 @@ benetton
     ===>
 
         1. dashboard
-	
-	appunti:
-	    ===>
-		ribaltare codice imap con codice attuale
-	
 
-	status: attivo
+	status: pausa -> risposta benetton
 
-    
+
+
+###GENERALE
+	creare un'api
+
+		interagire con DB mongo
+		inregire chatGPT    
