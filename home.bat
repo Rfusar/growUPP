@@ -133,6 +133,7 @@ echo.
 echo    ^start            Avvia programma 
 echo    update           Aggiorna programma 
 echo    work             Apri menu_work 
+echo    github           Aggiorna repository growUPP
 echo.
 echo    studio 
 echo.       -u           Apri VSc per aggiornare il codice
