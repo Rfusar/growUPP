@@ -28,7 +28,6 @@ vector<std::pair<string, std::pair<vector<string>, vector<Dataset>>>> TECNOLOGIE
 vector<std::pair<string, std::pair<vector<string>, vector<Dataset>>>> OS();
 vector<std::pair<string, std::pair<vector<string>, vector<Dataset>>>> APPUNTI();
 vector<std::pair<string, std::pair<vector<string>, vector<Dataset>>>> PROGRAMMI();
-vector<std::pair<string, std::pair<vector<string>, vector<Dataset>>>> LAVORO();
 vector<std::pair<string, std::pair<vector<string>, vector<Dataset>>>> DOCUMENTAZIONE();
 vector<std::pair<string, std::pair<vector<string>, vector<Dataset>>>> AGGIORNAMENTI();
 

@@ -7,6 +7,8 @@ vector<std::pair<string, std::pair<vector<string>, vector<Dataset>>>> DOCUMENTAZ
         {"W3school", cmd+"https://www.w3schools.com"},
         {"Mozilla_docs", cmd+"https://developer.mozilla.org/en-US/"},
         {"DevDocs", cmd+"https://devdocs.io/"},
+        {"Microsoft", cmd+"https://learn.microsoft.com/it-it/training/"},
+        {"ubuntu", cmd+"https://wiki.ubuntu-it.org/Documentazione"}
     };
 
     specifiche.link = {
@@ -33,8 +35,10 @@ vector<std::pair<string, std::pair<vector<string>, vector<Dataset>>>> DOCUMENTAZ
 
         {"Kubernetes", cmd+"https://kubernetes.io/docs/concepts/overview/"},
         {"docker", cmd+"https://docs.docker.com/guides/get-started/"},
+        {"Kofax", cmd+"https://docshield.kofax.com/complete-list.htm"},
 
         {"curl", cmd+"https://everything.curl.dev/"},
+
     };
 
     vector<std::pair<string, std::pair<vector<string>, vector<Dataset>>>> Menu = {

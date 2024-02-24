@@ -6,7 +6,6 @@ g++ ^
 home_page.cpp ^
 funcs.cpp ^
 corsi\appunti.cpp ^
-corsi\lavoro.cpp ^
 corsi\linguaggi.cpp ^
 corsi\OS.cpp ^
 corsi\programmi.cpp ^

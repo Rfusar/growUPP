@@ -9,7 +9,6 @@ int main(){
         OS(),
         APPUNTI(),
         PROGRAMMI(),
-        LAVORO(),
         DOCUMENTAZIONE(),
         AGGIORNAMENTI(),
     };
