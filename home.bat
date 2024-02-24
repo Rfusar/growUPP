@@ -3,7 +3,7 @@
 rem PROGRAMMA
 if "%1" == "update" goto :update
 if "%1" == "start" goto :avvio
-if "%1" == "github" call HOME_STUDIO\github.bat
+if "%1" == "github" call HOME_STUDIO\github.bat && goto :eof
 
 rem LAVORO
 if "%1" == "work" goto :work
