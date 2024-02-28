@@ -25,6 +25,8 @@ C:\Users\Utente\Desktop\Superhero\HOME_STUDIO\home_page.exe
 goto :eof
 
 
+
+
 :work
 cls
 echo Quale lavoro vuoi aggiornare? q per uscire
@@ -98,16 +100,32 @@ if "%n%" == "q" (
 )
 
 
+
+
+
+
 :studio
 title studio && cls 
-if "%2" == "-u" (
+if "%2" == "GUI-update" (
     cd C:\Users\Utente\Desktop\proveProgetti\prove_Go\provaServer && code .
     goto :eof 
 
-) else if "%2" == "-run" (
+) else if "%2" == "GUI-run" (
     cd C:\Users\Utente\Desktop\proveProgetti\prove_Go\provaServer && run.bat
     goto :eof 
-)
+
+) else if "%2" == "WEB-ms" (
+    start firefox https://learn.microsoft.com/it-it/training/?source=learn
+    goto :eof 
+
+) else if "%2" == "" (
+    goto :help
+
+) else ( goto :help )
+
+
+
+
 
 
 
@@ -123,28 +141,62 @@ if "%2" == "-conn" (
 ) else if "%2" == "-putty" (
     cls && C:\Users\Utente\Desktop\Superhero\HOME_STUDIO\apps\putty.exe
     goto :eof 
-)
 
+) else if "%2" == "" (
+    goto :help
+
+) else ( goto :help )    
+
+
+
+
+
+
+
+
+rem HELP
+:menuHelp
+    cls 
+    echo Sintassi: home 
+    echo.
+    echo    ^start                     Avvia programma 
+    echo    update                    Aggiorna programma 
+    echo    work                      Apri menu_work 
+    echo    github                    Aggiorna repository growUPP
+    echo.
+    echo    studio 
+    echo.       GUI-update            Apri VSc per aggiornare il codice
+    echo.       GUI-run               Accendi il server 
+    echo.       WEB-ms                Apri il bowser, e vai alla sezione trainer di Microsoft 
+    echo.
+    echo.   tool
+    echo.       -conn                 Utilizza AnyDesk
+    echo.       -linux                Utilizza VirtualBox
+    echo.       -putty                Utilizza putty
+    echo.
+    echo.   help                      Visualizza help
+    echo.       -examples             Visualizza esempi di utilizzo
+    echo.
+    goto :eof
 
 :help
-cls 
-echo Sintassi: home 
-echo.
-echo    ^start            Avvia programma 
-echo    update           Aggiorna programma 
-echo    work             Apri menu_work 
-echo    github           Aggiorna repository growUPP
-echo.
-echo    studio 
-echo.       -u           Apri VSc per aggiornare il codice
-echo.       -run         Accendi il server 
-echo.
-echo.   tool
-echo.       -conn        Utilizza AnyDesk
-echo.       -linux       Utilizza VirtualBox
-echo.       -putty       Utilizza putty
-echo.
-echo.
-echo.
-echo.
-goto :eof
+if "%2" == "" (
+    goto :menuHelp
+)
+if "%2" == "-examples" (
+    echo.
+    echo ***Examples
+    echo.
+    echo.   home start
+    echo.   home work
+    echo.   home github
+    echo.   home studio GUI-update
+    echo.   home studio GUI-run
+    echo.   home studio WEB-ms
+    echo.   home tool -conn
+    echo.   home tool -linux
+    echo.   home tool -putty
+    echo.
+    goto :eof
+
+) else ( goto :menuHelp )

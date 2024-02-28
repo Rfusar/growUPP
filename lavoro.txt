@@ -44,10 +44,11 @@ Prelios
 
 benetton
     ===>
-
-        1. dashboard
-
-	status: pausa -> risposta benetton
+	1. fare test su casela email-test
+	2. dashboard
+	
+	status: in-attesa
+	motivo: benetton ci deve rilasciare la casella email
 
 
 
