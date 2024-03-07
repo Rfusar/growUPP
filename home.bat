@@ -33,8 +33,8 @@ echo Quale lavoro vuoi aggiornare? q per uscire
 echo.
 echo    1. benetton
 echo    2. GDPR
-echo    3. API
-echo    4. DashboardVersatile
+echo    3. DashboardVersatile
+echo    4. TestApi
 echo    5. Visualizza appunti
 echo.
 echo.   PROGETTI
@@ -43,6 +43,10 @@ echo.       2a. GUI_Java (programma GUI per lavorare... v0.0.0.0.0.0.0.0.001)
 echo        3a. crea testo 
 echo        4a. Obbiettivi 2024
 echo.
+echo.   API
+echo        1b. MongoDB   
+echo        2b. Intelligenza artificiale   
+echo        3b. Documenti 
 echo.
 set /p n="Scegli [utilizza l'indice]: "
 
@@ -51,7 +55,7 @@ if "%n%" == "q" (
 
 ) else if "%n%" == "1" (
     title Benetton && cls
-    cd C:\apps\benetton && .\venv\Scripts\activate && code .
+    cd C:\Users\Utente\Desktop\presenze_lavoro\esercizi\progettiAndrea\benetton && .\venv\Scripts\activate && code .
     goto :eof
 
 ) else if "%n%" == "2" (
@@ -60,19 +64,18 @@ if "%n%" == "q" (
     goto :eof
 
 ) else if "%n%" == "3" (
-    title API_nemesis && cls
-    cd C:\Users\Utente\Desktop\presenze_lavoro\esercizi\progettiAndrea\API_nemesis && .\venv\Scripts\activate && code .
-    goto :eof
-
-) else if "%n%" == "4" (
     title DashboardVersatile && cls
     cd C:\Users\Utente\Desktop\presenze_lavoro\esercizi\progettiAndrea\DashboardVersatile && .\venv\Scripts\activate && code .
+    goto :eof
+
+) else if "%n%" == "4" ( 
+    title TestApi && cls
+    cd C:\Users\Utente\Desktop\presenze_lavoro\esercizi\progettiAndrea\SERVICES\Test && code .
     goto :eof
 
 ) else if "%n%" == "5" (
     notepad C:\Users\Utente\Desktop\Superhero\lavoro.txt
     goto :eof
-
 
 
 
@@ -93,6 +96,23 @@ if "%n%" == "q" (
 
 ) else if "%n%" == "4a" (
     cls && notepad C:\Users\Utente\Desktop\Superhero\2024.txt
+    goto :eof
+
+
+
+) else if "%n%" == "1b" (
+    title API_mongoDB && cls
+    cd C:\Users\Utente\Desktop\presenze_lavoro\esercizi\progettiAndrea\SERVICES\API_mongoDB && .\venv\Scripts\activate && code .
+    goto :eof
+
+) else if "%n%" == "2b" (
+    title API_AI && cls
+    cd C:\Users\Utente\Desktop\presenze_lavoro\esercizi\progettiAndrea\SERVICES\API_AI && .\venv\Scripts\activate && code .
+    goto :eof
+
+) else if "%n%" == "3b" (
+    title API_Documenti && cls
+    cd C:\Users\Utente\Desktop\presenze_lavoro\esercizi\progettiAndrea\SERVICES\API_Documenti && .\venv\Scripts\activate && code .
     goto :eof
 
 ) else (

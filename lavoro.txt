@@ -37,8 +37,14 @@ Prelios
                     1. Gestione documenti immobiliari
                     2. integrazone CHAT_GPT
 
+	dahsboard ->
+		#INFO -> gestione di NPL e UTP -> prelios si appogia ad fenice per la gestione documentale -> debitore = borrower
+		1. ricerca documenti con input, risultato tabella di documenti
+		2. pensare a come esporre semplice i dati di tutti i documenti
+		3. integrazione azure OCR 
+
 	status: in-attesa
-	motivo: quando vuoi crea la web app
+	
 
 
 
