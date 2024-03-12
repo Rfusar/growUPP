@@ -1,65 +1,87 @@
+SCADENZE:
+	1. GDPR
+	2. API
+	3. Altri
+
+
+
+
+
 GDPR 
     ===> 
-        1. controllare modifiche generali, aziende, utenti(user, referent, seller, backoffice), 
-        2. gestione documenti
-        3. ultimi controlli tickets
-        4. deploy su cloudRun
+	Descrizione:
+		- dashboard 
+			---> Gestione Utenza (user, referent, seller, backoffice)
+			---> Gestione documenti
+			---> Gestione tickets
+			---> Gestione progetti (sospeso)
 
 	#appunti
 		M.O.P -> aggiungere stati, se completo invio email a cliente con il link.
 		documenti -> aggiungere status [firma o no], [scadenza:[annuale{31/12/???}, pluriennale:{defualt senza scadenza, ma verra messa a mano quando la scadenza sara dichiarata}]]
-		tickets -> aggiunta filtro status nella tabella -> [aperto, in-attesa, chiuso]
-
 	
 	status: attivo
+	motivo: 
 	
 		
 
-
 24Care
     ===>
-        1. dashboard iniziare
-            appunti
-                ===> 
-                    1. Gestione contratti(manutenzione e vendita prodotti)
-                    2. sistemare Database MongoDB
+	Descrizione:
+        - dashboard 
+			---> Gestione contratti(manutenzione e vendita prodotti)
+			---> Gestione tickets (sospeso)
+
+    #appunti
+        sistemare Database MongoDB
 
 	status: in-attesa
-	motivo: quando vuoi crea la web app
+	motivo: risposta offerta
 
 
 
 Prelios
     ===>
-        1. dashboard iniziare
-            appunti:
-                ===>
-                    1. Gestione documenti immobiliari
-                    2. integrazone CHAT_GPT
+    Dashboard:
+		- dashboard
+			---> Gestione documenti immobiliari
+        	---> integrazone CHAT_GPT
 
-	dahsboard ->
-		#INFO -> gestione di NPL e UTP -> prelios si appogia ad fenice per la gestione documentale -> debitore = borrower
+	#appunti
+		INFO -> gestione di NPL e UTP -> prelios si appogia ad fenice per la gestione documentale -> debitore = borrower
 		1. ricerca documenti con input, risultato tabella di documenti
 		2. pensare a come esporre semplice i dati di tutti i documenti
 		3. integrazione azure OCR 
 
 	status: in-attesa
+	motivo:
 	
-
 
 
 benetton
     ===>
 	1. fare test su casela email-test
-	2. dashboard
 	
-	status: in-attesa
-	motivo: benetton ci deve rilasciare la casella email
+	status: attivo
+	motivo: 
 
 
 
-###GENERALE
-	creare un'api
+Allinz
+	===>
+	1. finire script di lettura barcode
 
-		interagire con DB mongo
-		inregire chatGPT    
+	status: attivo
+	motivo:
+
+
+
+API
+	===>
+	1. Utenze
+	2. Documenti
+	3. mongoDB
+	4. AI
+
+	status: attivo
+	motivo:

@@ -3,7 +3,7 @@
 rem PROGRAMMA
 if "%1" == "update" goto :update
 if "%1" == "start" goto :avvio
-if "%1" == "github" call HOME_STUDIO\github.bat && goto :eof
+if "%1" == "github" call C:\Users\Utente\Desktop\Superhero\HOME_STUDIO\github.bat && goto :eof
 
 rem LAVORO
 if "%1" == "work" goto :work
@@ -33,7 +33,7 @@ echo Quale lavoro vuoi aggiornare? q per uscire
 echo.
 echo    1. benetton
 echo    2. GDPR
-echo    3. DashboardVersatile
+echo    3. Allianz
 echo    4. TestApi
 echo    5. Visualizza appunti
 echo.
@@ -65,7 +65,7 @@ if "%n%" == "q" (
 
 ) else if "%n%" == "3" (
     title DashboardVersatile && cls
-    cd C:\Users\Utente\Desktop\presenze_lavoro\esercizi\progettiAndrea\DashboardVersatile && .\venv\Scripts\activate && code .
+    cd C:\Users\Utente\Desktop\presenze_lavoro\esercizi\progettiAndrea\Allianz && .\venv\Scripts\activate && code .
     goto :eof
 
 ) else if "%n%" == "4" ( 
@@ -102,6 +102,9 @@ if "%n%" == "q" (
 
 ) else if "%n%" == "1b" (
     title API_mongoDB && cls
+    echo descrizione:
+    echo    route: ^/edit ^/view ^/insert ^/delete
+    
     cd C:\Users\Utente\Desktop\presenze_lavoro\esercizi\progettiAndrea\SERVICES\API_mongoDB && .\venv\Scripts\activate && code .
     goto :eof
 
